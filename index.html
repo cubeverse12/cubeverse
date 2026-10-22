@@ -1,129 +1,61 @@
 <!doctype html>
 <html lang="pl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MINEVORA — Enchanted Launcher | Mody, Skin Studio 3D</title>
-<meta name="description" content="MINEVORA — pobierz launcher Minecraft Java, przeglądaj mody z Modrinth i edytuj skiny 3D online.">
-<meta name="theme-color" content="#0d0c25">
-<link rel="icon" type="image/png" href="assets/minevora_logo.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a1026">
+<meta name="description" content="MINEVORA — poznaj launcher Minecraft Java Edition. Pobierz wydanie Enchanted 17.4 dla Windows i odkryj jego możliwości.">
+<title>MINEVORA — The Enchanted Launcher</title>
+<link rel="icon" href="assets/minevora_logo.png" type="image/png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="app">
-  <aside class="rail" aria-label="Nawigacja MINEVORA">
-  <div class="rail-logo"><img src="assets/minevora_logo.png" alt="Logo MINEVORA"><div><strong>MINEVORA</strong><small>THE ENCHANTED LAUNCHER</small></div></div>
-  <div class="nav-label">ODKRYWAJ</div>
-  <button class="rail-btn active" data-nav="home" aria-label="Strona główna"><img src="assets/icons/home.png" alt=""><span>Strona główna</span></button>
-  <button class="rail-btn" data-nav="downloads" aria-label="Pobierz launcher"><img src="assets/icons/download.png" alt=""><span>Pobierz launcher</span></button>
-  <button class="rail-btn" data-nav="mods" aria-label="Mody i dodatki"><img src="assets/icons/mods.png" alt=""><span>Mody i dodatki</span></button>
-  <button class="rail-btn" data-nav="skins" aria-label="Edytor skinów 3D"><img src="assets/icons/skins.png" alt=""><span>Skin Studio 3D</span></button>
-  <div class="nav-label nav-label-second">INFORMACJE</div>
-  <button class="rail-btn" data-nav="help" aria-label="Pomoc i FAQ"><img src="assets/icons/shield.png" alt=""><span>Pomoc i FAQ</span></button>
-  <div class="rail-gap"></div>
-  <div class="rail-foot"><span class="led"></span><div><strong>Wersja 17.4</strong><small>Windows · Java Edition</small></div></div>
-</aside>
-  <div class="content-shell">
-    <header class="topbar">
- <div class="brand-name"><span class="brand-symbol">✦</span> MINEVORA <span class="brand-muted">/ WEB</span></div>
- <span class="top-note">Jedno miejsce. Cały Minecraft.</span>
- <div class="top-actions"><button id="navMods" class="quiet"><img src="assets/icons/mods.png" alt=""> Katalog modów</button><button id="navSkins" class="quiet"><img src="assets/icons/skins.png" alt=""> Skiny 3D</button><button class="square-btn" id="themeToggle" title="Zmień akcent kolorystyczny" aria-label="Zmień akcent kolorystyczny">☾</button></div>
-</header>
-    <main>
-      <section class="screen" id="homeScreen">
- <div class="home-hero">
-  <div class="hero-art" role="img" aria-label="Fantastyczny świat Minecraft z portalem MINEVORA"></div>
-  <div class="home-hero-content"><span class="eyebrow"><span class="eyebrow-spark">✧</span> THE ENCHANTED LAUNCHER <span class="pill-release">17.4</span></span>
-   <h1>Twój świat Minecraft.<br><em>Twoje zasady.</em></h1>
-   <p>Mody, modpacki, edytor skinów 3D i wszystkie Twoje światy w jednym launcherze.</p>
-   <div class="hero-buttons"><a class="primary-link" href="downloads/MINEVORA_17_4_AUDYT_NAPRAWIONE.zip" download><img src="assets/icons/download.png" alt=""> Pobierz MINEVORA 17.4 <span>↘</span></a><button class="secondary-link" data-go="skins">Wypróbuj Skin Studio 3D →</button></div>
-   <div class="hero-specs"><span>◈ Windows 11</span><span>◈ Minecraft Java</span><span>◈ Edytor PNG 64×64</span></div>
-  </div>
-  <div class="hero-side-tag"><span class="tag-dot"></span> WYDANIE ENCHANTED <b>17.4</b></div>
- </div>
- <div class="home-section-heading"><div><span class="overline">W JEDNYM MIEJSCU</span><h2>Wszystko, czego potrzebujesz.</h2><p>Narzędzia twórcy i gracza — tak jak w aplikacji MINEVORA.</p></div><span class="subtle-note">POZNAJ FUNKCJE ↓</span></div>
- <div class="feature-grid">
-  <button class="feature-tile" data-go="mods"><div class="feature-image image-mods"><span class="tile-icon"><img src="assets/icons/mods.png" alt=""></span></div><div class="feature-inner"><strong>Mody i dodatki</strong><span>Przeglądaj Modrinth: mody, modpacki, shadery i tekstury.</span><b>Otwórz katalog <i>↗</i></b></div></button>
-  <button class="feature-tile" data-go="skins"><div class="feature-image image-skins"><span class="tile-icon"><img src="assets/icons/skins.png" alt=""></span></div><div class="feature-inner"><strong>Skin Studio 3D</strong><span>Obracaj model, maluj piksele i eksportuj skiny PNG.</span><b>Uruchom edytor <i>↗</i></b></div></button>
-  <button class="feature-tile" data-go="downloads"><div class="feature-image image-launch"><span class="tile-icon"><img src="assets/icons/play.png" alt=""></span></div><div class="feature-inner"><strong>Launcher Windows</strong><span>Profile, wersje gry, modpacki i szybkie uruchamianie.</span><b>Pobierz projekt <i>↗</i></b></div></button>
- </div>
- <div class="bottom-band"><div class="band-symbol">✦</div><div><strong>Stwórz coś wyjątkowego w MINEVORA.</strong><p>Edytuj skina tutaj lub pobierz pełny launcher do zarządzania grą.</p></div><button data-go="skins" class="secondary-link">Zacznij tworzyć →</button></div>
- <div class="home-footer">MINEVORA • Nieoficjalny launcher społecznościowy dla Minecraft Java Edition. Nie jest produktem Mojang ani Microsoft.</div>
-</section>
-      <section class="screen" id="skinsScreen" hidden>
-        <div class="page-title-row"><div><div class="overline">MINEVORA / NARZĘDZIA KREATYWNE</div><h1>Edytor skinów <em>3D</em></h1><p>Klasyczny układ edytora — pełna kontrola nad każdym pikselem.</p></div><span class="version-chip">SKIN STUDIO • 17.5 WEB</span></div>
-        <div class="skin-layout">
-          <section class="skin-editor" aria-label="Edytor 3D">
-            <div class="editor-header"><button id="uploadBtn">↥ &nbsp; Importuj skin</button><button id="downloadBtn">↧ &nbsp; Pobierz PNG</button></div>
-            <div class="workspace" id="workspace">
-              <div class="model-label"><span class="live-circle"></span> <span id="viewMode">EDYTUJ MODEL 3D</span></div>
-              <div id="viewport" class="viewport" aria-label="Interaktywny model skina Minecraft 3D">
-                <div id="modelScene" class="model-scene"><div id="model" class="skin-model"></div></div>
-                <div class="viewport-hint">LEWY: MALUJ &nbsp; • &nbsp; PRZECIĄGNIJ TŁO: OBRÓĆ &nbsp; • &nbsp; SCROLL: ZOOM</div>
-              </div>
-              <div class="layer-previews" aria-label="Podgląd warstw">
-                <button class="preview active" id="bodyPreview" title="Warstwa podstawowa"><span>Body</span><canvas id="basePreview" width="64" height="64"></canvas></button>
-                <button class="preview active" id="overlayPreview" title="Druga warstwa"><span>Overlay</span><canvas id="extraPreview" width="64" height="64"></canvas></button>
-              </div>
-              <div id="notification" class="toast" role="status"></div>
-            </div>
-            <div class="toolbar" role="toolbar" aria-label="Narzędzia malowania">
-              <button class="tool active" data-tool="brush" title="Pędzel (B)">✎</button>
-              <button class="tool" data-tool="picker" title="Pipeta (I)">♧</button>
-              <button class="tool" data-tool="bucket" title="Wypełnij (G)">▣</button>
-              <button class="tool" data-tool="eraser" title="Gumka (E)">⌫</button>
-              <span class="tool-divider"></span>
-              <button class="tool" id="rotateLeft" title="Obróć w lewo">⟲</button>
-              <button class="tool" id="rotateRight" title="Obróć w prawo">⟳</button>
-              <button class="tool" id="zoomIn" title="Przybliż">⊕</button>
-              <button class="tool" id="zoomOut" title="Oddal">⊖</button>
-              <button class="tool" id="resetView" title="Resetuj widok">⌖</button>
-              <div class="tool-stretch"></div>
-              <button class="tool" id="undoBtn" title="Cofnij (Ctrl+Z)">↶</button>
-              <button class="tool" id="redoBtn" title="Ponów (Ctrl+Y)">↷</button>
-            </div>
-            <div class="palette-row">
-              <div class="selected-color"><input type="color" id="colorPicker" value="#0088d8" aria-label="Wybierz kolor"><span id="colorHex">#0088D8</span></div>
-              <div class="swatches" id="swatches"></div>
-              <label class="size-control">Pędzel <select id="brushSize" aria-label="Rozmiar pędzla"><option value="1">1 px</option><option value="2">2 px</option><option value="3">3 px</option></select></label>
-            </div>
-            <div class="bottom-controls">
-              <label>Model <select id="modelType"><option value="steve">Steve (4 px)</option><option value="alex">Alex (3 px)</option></select></label>
-              <label>Pozycja <select id="stance"><option value="normal">Domyślna</option><option value="walk">Chód</option><option value="pose">Pozowanie</option><option value="tpose">T-pose</option></select></label>
-              <label class="small-check"><input type="checkbox" id="gridCheck"> Siatka</label>
-              <label class="small-check"><input type="checkbox" id="overlayCheck" checked> Druga warstwa</label>
-            </div>
-          </section>
-          <aside class="skin-sidebar">
-            <div class="sidebar-card"><h3>Twój skin <span class="small-tag">PNG 64×64</span></h3><div class="skin-name"><span class="small-steve">▦</span><div><strong id="skinFileName">Nowy skin</strong><small>Zmiany zapiszesz przez „Pobierz PNG”</small></div></div><button class="side-primary" id="saveBtn">↧ &nbsp; Zapisz skin na komputerze</button></div>
-            <div class="sidebar-card"><h3>Gotowe skiny</h3><p>Wybierz bazę do własnego projektu.</p><div class="preset-grid"><button class="preset selected" data-preset="steve"><canvas width="64" height="64"></canvas><span>Steve</span></button><button class="preset" data-preset="alex"><canvas width="64" height="64"></canvas><span>Alex</span></button><button class="preset" data-preset="zombie"><canvas width="64" height="64"></canvas><span>Zombie</span></button><button class="preset" data-preset="blank"><canvas width="64" height="64"></canvas><span>Pusty</span></button></div></div>
-            <div class="sidebar-card"><h3>Warstwy modelu</h3><div class="setting-line"><span>Podstawowa (Body)</span><label class="switch"><input id="bodyCheck" type="checkbox" checked><span></span></label></div><div class="setting-line"><span>Druga (Overlay)</span><label class="switch"><input id="layerCheck" type="checkbox" checked><span></span></label></div><div class="setting-line"><span>Wybór narzędzia</span><strong id="currentTool">Pędzel</strong></div></div>
-            <div class="sidebar-card hint-card"><div class="hint-icon">✦</div><h3>Twórz bez ograniczeń</h3><p>Importuj własny skin, obracaj model i maluj na ścianach bloków. Wszystkie zmiany pozostają lokalnie w przeglądarce.</p></div>
-          </aside>
+<div class="shell">
+  <aside class="sidebar" aria-label="Główna nawigacja">
+    <a class="logo" href="#home" data-link="home" aria-label="MINEVORA — strona główna"><img src="assets/minevora_logo.png" alt=""><span><b>MINEVORA</b><small>THE ENCHANTED LAUNCHER</small></span></a>
+    <div class="nav-label">NAWIGACJA</div>
+    <nav class="menu">
+      <a class="nav-link active" href="#home" data-link="home"><img src="assets/icons/home.png" alt=""><span>Strona główna</span></a>
+      <a class="nav-link" href="#download" data-link="download"><img src="assets/icons/download.png" alt=""><span>Pobierz launcher</span></a>
+      <a class="nav-link" href="#features" data-link="features"><img src="assets/icons/play.png" alt=""><span>Funkcje launchera</span></a>
+      <a class="nav-link" href="#help" data-link="help"><img src="assets/icons/shield.png" alt=""><span>Pomoc</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="status-pill"><span class="status-dot"></span><span><b>Wersja 17.4</b><small>Windows · Minecraft Java</small></span></div>
+      <p>Niezależny projekt społecznościowy. Nie jest powiązany z Mojang ani Microsoft.</p>
+    </div>
+  </aside>
+  <div class="body-shell">
+    <header class="topbar"><div class="breadcrumbs"><span class="spark">✦</span> MINEVORA <span class="slash">/</span> <span id="locationLabel">ODKRYWAJ</span></div><div class="topbar-actions"><span class="release">● EDYCJA ENCHANTED</span><a class="top-cta" href="downloads/MINEVORA_17_4_AUDYT_NAPRAWIONE.zip" download><img src="assets/icons/download.png" alt=""> Pobierz 17.4</a></div></header>
+    <main id="mainContent">
+      <section class="page" id="homeScreen">
+        <div class="hero">
+          <div class="hero-backdrop"></div>
+          <div class="hero-copy"><span class="eyebrow">✧ THE ENCHANTED LAUNCHER <span class="version">17.4</span></span><h1>Twój świat Minecraft.<br><em>Twoje zasady.</em></h1><p>Nowoczesny launcher Java Edition. Wszystkie najważniejsze funkcje i profile Minecraft w jednym miejscu.</p>
+            <div class="actions"><a class="action-primary" href="downloads/MINEVORA_17_4_AUDYT_NAPRAWIONE.zip" download><img src="assets/icons/download.png" alt=""> Pobierz MINEVORA 17.4 <span>↗</span></a><a class="action-secondary" href="#features">Poznaj launcher <span>→</span></a></div>
+            <div class="hero-metadata"><span>◈ Windows 11</span><span>◈ Minecraft Java</span><span>◈ Projekt ENCHANTED</span></div>
+          </div>
         </div>
+        <div class="section-header"><div><div class="sup">MINEVORA / ODKRYWAJ</div><h2>Wszystko w jednym launcherze.</h2><p>Prosty dostęp do gry, profili i narzędzi społecznościowych.</p></div><span class="section-note">ODKRYJ FUNKCJE ↘</span></div>
+        <div class="feature-row">
+          <article class="feature-card"><div class="feature-head"><img src="assets/icons/play.png" alt=""><span>01 / GRA</span></div><h3>Graj wygodniej</h3><p>Uruchamiaj wybrane wersje gry, zarządzaj instancjami oraz pamięcią RAM.</p></article>
+          <article class="feature-card"><div class="feature-head"><img src="assets/icons/profile.png" alt=""><span>02 / PROFILE</span></div><h3>Twoje profile</h3><p>Oddzielaj instalacje, korzystaj z konta Microsoft i swoich ustawień.</p></article>
+          <article class="feature-card"><div class="feature-head"><img src="assets/icons/discord.png" alt=""><span>03 / SPOŁECZNOŚĆ</span></div><h3>Razem w Minevora</h3><p>Odkrywaj dostępne funkcje społecznościowe bez opuszczania launchera.</p></article>
+        </div>
+        <div class="character-card">
+          <div class="character-copy"><span class="sup">POSTAĆ / PODGLĄD 3D</span><h2>Każdy detal <em>ma znaczenie.</em></h2><p>Podgląd postaci korzysta z prawdziwej tekstury Minecraft PNG 64×64. Poprawne mapowanie każdej ściany zachowuje szczegóły stroju także podczas obrotu.</p><div class="mini-chips"><span>Tekstura 64×64</span><span>Obrót 3D</span><span>Widok lokalny</span></div><p class="preview-note">To tylko podgląd postaci — edycja wyglądu pozostaje w aplikacji Windows.</p></div>
+          <div class="character-stage" id="characterStage" tabindex="0" aria-label="Interaktywny podgląd postaci 3D; przeciągnij aby obrócić, użyj strzałek klawiatury do obrotu"><div class="stage-halo"></div><div class="stage-floor"></div><div class="avatar-root" id="avatarRoot"><div class="avatar-model" id="avatarModel"></div></div><div class="preview-controls"><button type="button" id="rotatePrev" aria-label="Obróć postać w lewo">↶</button><span>PRZECIĄGNIJ, ABY OBRÓCIĆ</span><button type="button" id="rotateNext" aria-label="Obróć postać w prawo">↷</button></div></div>
+        </div>
+        <div class="banner-bottom"><strong>Gotowy na własną przygodę?</strong><span>Pobierz aplikację MINEVORA i uruchom Minecraft na swoim komputerze.</span><a href="#download">Zobacz instrukcję →</a></div>
       </section>
-      <section class="screen" id="modsScreen" hidden>
-        <div class="page-title-row"><div><div class="overline">MINEVORA / KATALOG</div><h1>Mody i dodatki</h1><p>Szukaj projektów Modrinth. Instaluj w launcherze MINEVORA na Windows.</p></div><span class="version-chip">MODRINTH API</span></div>
-        <div class="mod-head"><div class="mod-tabs" role="tablist"><button class="active" data-type="mod">Mody</button><button data-type="modpack">Pakiety modów</button><button data-type="resourcepack">Paczki zasobów</button><button data-type="shader">Paczki shaderów</button></div><input id="modSearch" placeholder="⌕  Szukaj mody" aria-label="Szukaj modów"></div>
-        <div class="mod-layout"><aside class="mod-filters"><h2>Filtry</h2><label>Wersja Minecraft<select id="modVersion"><option value="">Wszystkie wersje</option><option>1.21.10</option><option>1.21.9</option><option>1.21.8</option><option>1.21.7</option><option>1.21.6</option><option>1.21.5</option><option>1.21.4</option><option>1.21.1</option><option>1.20.1</option><option>1.19.4</option></select></label><div class="filter-group"><strong>Moduł ładujący mody</strong><label><input type="checkbox" class="loader" value="fabric"> Fabric</label><label><input type="checkbox" class="loader" value="forge"> Forge</label><label><input type="checkbox" class="loader" value="neoforge"> NeoForge</label><label><input type="checkbox" class="loader" value="quilt"> Quilt</label></div><div class="filter-group"><strong>Kategoria</strong><label><input type="checkbox" class="category" value="optimization"> Optymalizacja</label><label><input type="checkbox" class="category" value="utility"> Narzędzia</label><label><input type="checkbox" class="category" value="technology"> Technologia</label><label><input type="checkbox" class="category" value="adventure"> Przygodowe</label></div><button id="clearFilters" class="clear-btn">Wyczyść filtry</button></aside>
-        <section class="mod-results"><div class="mod-sort"><select id="modSort"><option value="relevance">Znaczące</option><option value="downloads">Najczęściej pobierane</option><option value="follows">Popularne</option><option value="newest">Najnowsze</option><option value="updated">Ostatnio aktualizowane</option></select><select id="modLimit"><option>20</option><option>10</option><option>40</option></select><span id="modCounter">Ładowanie katalogu…</span><div class="mod-pages"><button id="prevPage">‹</button><span id="pageIndicator">1</span><button id="nextPage">›</button></div></div><h4>Popularne</h4><div id="featuredMods" class="featured-mods"></div><div id="modList" class="mod-list"></div><p id="modInfo" class="mod-disclaimer">Strona korzysta z publicznego API Modrinth. Pobranie pliku moda na stronie nie instaluje go automatycznie do Minecrafta. Instalację do profilu obsługuje katalog modów w launcherze.</p></section></div>
-      </section>
-      <section class="screen" id="downloadsScreen" hidden>
- <div class="page-title-row"><div><div class="overline">MINEVORA / POBIERANIE</div><h1>Pobierz launcher <em>17.4</em></h1><p>Wersja Enchanted dla Windows, zgodna z Twoim aktualnym projektem.</p></div><span class="version-chip">ALL IN ONE</span></div>
- <div class="download-layout"><div class="download-main"><div class="download-mark">M</div><span class="eyebrow">NAJNOWSZA UDOSTĘPNIONA PACZKA</span><h2>MINEVORA <em>17.4</em></h2><p>Pełny projekt launchera z profilami Minecraft, Modrinth, Skin Studio, Marketplace, PvP, Together i pozostałymi modułami. Archiwum zawiera pliki Python i skrypty startowe — to nie jest samodzielny instalator EXE.</p><a class="primary-link" href="downloads/MINEVORA_17_4_AUDYT_NAPRAWIONE.zip" download><img src="assets/icons/download.png" alt=""> Pobierz launcher (ZIP) ↘</a><div class="download-file"><span>◈ Windows 11</span><span>◈ Python 3.15</span><span>◈ 3.4 MB ZIP</span></div></div>
- <div class="download-aside"><h3>Jak uruchomić?</h3><ol><li>Pobierz ZIP i rozpakuj pliki.</li><li>Otwórz folder <code>MINEVORA_17_4_ENCHANTED</code>.</li><li>Uruchom <code>SPRAWDZ_LAUNCHER.bat</code>, a następnie <code>URUCHOM_MINEVORA.bat</code>.</li><li>W razie błędu sprawdź konsolę i brakujące biblioteki.</li></ol><div class="checksum">SHA-256 archiwum<code id="releaseHash">b1bc47bee5dc96e44ba314a6e8a61528944d1eddf1d72aaeb3acf3fa1174d912</code><button id="copyHash" class="copy-btn" type="button">Kopiuj sumę</button></div></div></div>
- <div class="download-fineprint"><strong>Informacja:</strong> publiczna strona służy do pobierania i edycji skinów. Instalowanie modów i modpacków do gry odbywa się w aplikacji Windows; wyszukiwarka WWW otwiera wybrane projekty Modrinth.</div>
-</section>
-      <section class="screen" id="helpScreen" hidden><div class="page-title-row"><div><div class="overline">POMOC I FAQ</div><h1>Jak korzystać z <em>MINEVORA?</em></h1><p>Najważniejsze informacje o launcherze i narzędziach online.</p></div></div>
- <div class="faq-grid"><details open><summary>Jak uruchomić launcher?</summary><p>Pobierz plik ZIP z zakładki Pobierz, rozpakuj i uruchom SPRAWDZ_LAUNCHER.bat, a potem URUCHOM_MINEVORA.bat. Potrzebujesz zgodnego środowiska Python i bibliotek.</p></details>
- <details><summary>Jak zapisać własny skin Minecraft?</summary><p>Otwórz Skin Studio, użyj pędzla, gumki albo importu PNG. Kliknij „Pobierz PNG”, aby zapisać teksturę 64×64 na komputerze.</p></details>
- <details><summary>Jak obracać postać 3D?</summary><p>Przeciągnij pusty obszar obok postaci. Kółko myszy zmienia przybliżenie. Skróty: B — pędzel, E — gumka, G — wypełnianie, I — pipeta, Ctrl+Z — cofnij, Ctrl+Y — ponów.</p></details>
- <details><summary>Czy strona sama instaluje modpacki?</summary><p>Nie. Na stronie można wyszukiwać projekty Modrinth i przejść do pobierania. Pełny instalator modpacków dostępny jest w aplikacji MINEVORA dla Windows.</p></details>
- <details><summary>Czy strona wymaga działającego komputera?</summary><p>Po wdrożeniu na hosting GitHub Pages pliki statyczne będą dostępne bez pozostawiania komputera włączonego. Działanie wyszukiwarki zależy od dostępu do API Modrinth.</p></details></div>
- <div class="help-shortcuts"><strong>Skróty Skin Studio</strong><span>B — Pędzel</span><span>E — Gumka</span><span>I — Pipeta</span><span>G — Wypełnij</span><span>Ctrl+Z — Cofnij</span></div></section>
+      <section class="page" id="downloadScreen" hidden><div class="page-banner"><div class="sup">MINEVORA / POBIERANIE</div><h1>Pobierz <em>MINEVORA 17.4</em></h1><p>Wersja Enchanted dla Windows. Pliki źródłowe launchera oraz skrypty uruchamiania.</p></div><div class="download-grid"><div class="download-panel"><div class="product-icon"><img src="assets/minevora_logo.png" alt=""></div><span class="sup">AKTUALNIE UDOSTĘPNIONA PACZKA</span><h2>MINEVORA 17.4</h2><p>Gotowy do pobrania projekt programu. Archiwum zawiera pliki Python i pliki wsparcia — nie jest to samodzielny instalator EXE.</p><a class="action-primary" href="downloads/MINEVORA_17_4_AUDYT_NAPRAWIONE.zip" download><img src="assets/icons/download.png" alt=""> Pobierz launcher ZIP ↗</a><div class="mini-chips"><span>Windows 11</span><span>Python 3.15</span><span>~3,5 MB</span></div></div><div class="instructions"><h3>Jak uruchomić?</h3><ol><li>Pobierz archiwum i wybierz „Wyodrębnij wszystkie”.</li><li>Wejdź do folderu <code>MINEVORA_17_4_ENCHANTED</code>.</li><li>Uruchom <code>SPRAWDZ_LAUNCHER.bat</code>.</li><li>Następnie uruchom <code>URUCHOM_MINEVORA.bat</code>.</li></ol><p class="help-info">Program wymaga bibliotek Pythona. Jeśli diagnostyka wykryje brakujące moduły, sprawdź komunikat w konsoli.</p><div class="hash-area"><strong>SHA-256 archiwum</strong><code id="releaseHash">b1bc47bee5dc96e44ba314a6e8a61528944d1eddf1d72aaeb3acf3fa1174d912</code><button type="button" id="copyHash">Kopiuj SHA-256</button></div></div></div></section>
+      <section class="page" id="featuresScreen" hidden><div class="page-banner"><div class="sup">MINEVORA / MOŻLIWOŚCI</div><h1>Jeden launcher. <em>Wiele możliwości.</em></h1><p>Wspólna kolorystyka i nawigacja, spójny projekt i wybrane funkcje Minecraft.</p></div><div class="capability-grid"><div><span class="num">01</span><h3>Uruchamianie Minecraft</h3><p>Wybór wersji, zarządzanie profilami i parametrami uruchamiania.</p></div><div><span class="num">02</span><h3>Logowanie Microsoft</h3><p>Połączenie z kontem gracza z poziomu launchera.</p></div><div><span class="num">03</span><h3>Światy i instalacje</h3><p>Oddzielne środowiska gry oraz wygodna biblioteka profili.</p></div><div><span class="num">04</span><h3>Społeczność</h3><p>Funkcje Discord, PvP i Together w aplikacji Windows.</p></div><div><span class="num">05</span><h3>Personalizacja</h3><p>Ustawienia RAM, języka oraz wyglądu launchera.</p></div><div><span class="num">06</span><h3>Aktualizacje</h3><p>Pobierz udostępnione wydanie i zachowaj kopię starszej wersji.</p></div></div></section>
+      <section class="page" id="helpScreen" hidden><div class="page-banner"><div class="sup">MINEVORA / POMOC</div><h1>Centrum <em>pomocy.</em></h1><p>Najważniejsze informacje dotyczące pobierania i uruchamiania.</p></div><div class="faq"><details open><summary>Jak pobrać launcher?</summary><p>Przejdź do zakładki „Pobierz launcher” i pobierz archiwum ZIP. Rozpakuj je, a następnie uruchom diagnostykę i skrypt startowy.</p></details><details><summary>Czy strona WWW zastępuje aplikację Windows?</summary><p>Nie. Publiczna strona służy do prezentacji projektu i pobierania programu. Zaawansowane funkcje pozostają w aplikacji MINEVORA dla Windows.</p></details><details><summary>Czy potrzebuję Pythona?</summary><p>Tak. Udostępniana paczka zawiera pliki źródłowe Pythona. Na wcześniej testowanym komputerze działa Python 3.15 z PySide6 i biblioteką minecraft-launcher-lib.</p></details><details><summary>Czy GitHub Pages działa, kiedy komputer jest wyłączony?</summary><p>Tak. Po publikacji GitHub Pages udostępnia stronę z serwerów hostingu niezależnie od Twojego komputera. Dostępność zależy od usługi GitHub Pages.</p></details></div></section>
     </main>
-    <div class="statusbar"><span>✦ MINEVORA <span class="status-dim">WEB 17.5</span></span><span id="statusText">Gotowy do pracy</span><span>SKIN: 64×64 PNG</span></div>
+    <footer class="footer"><span>✦ MINEVORA WEB 17.6</span><span id="webStatus">Strona gotowa do przeglądania</span><span>THE ENCHANTED LAUNCHER</span></footer>
   </div>
 </div>
-<input type="file" accept="image/png" id="skinInput" hidden>
-<script src="skin3d.js"></script><script src="mods.js"></script><script src="app.js"></script>
-</body></html>
+<script src="avatar-preview.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
