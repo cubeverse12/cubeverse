@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "minevora_pvp_hud",
+  "version": "${version}",
+  "name": "MINEVORA PvP HUD",
+  "description": "Cosmetic client-side HUD controlled from the MINEVORA launcher.",
+  "environment": "client",
+  "entrypoints": { "client": ["pl.minevora.pvphud.MinevoraPvpHud"] },
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "license": "MIT"
+}
