@@ -54,3 +54,39 @@
 @media(max-width:525px){.home-hero{height:380px;min-height:380px}.home-hero .hero-brand h1{font-size:30px}.home-hero .hero-brand img{width:78px}}
 
 #minigamesView{height:auto;min-height:557px}#minigamesView .coming-soon-announcement{margin:18px 0;padding:24px}#minigamesView .coming-soon-announcement h2{font-size:clamp(22px,2.5vw,33px)}
+
+/* MINEVORA — strona informacyjna i konto Microsoft, październik 2026 */
+.nav-emoji{width:31px;flex:0 0 31px;font-size:24px;text-align:center;line-height:1}
+.visitor-badge{font-size:11px;font-weight:900;letter-spacing:1px;color:#d4c4f8;border:1px solid #57458d;background:#2b2050;padding:7px 10px;border-radius:999px}
+.account-shortcut{font-size:13px;font-weight:800;color:#f3eaff;padding:8px 11px;border:1px solid #6b55a4;border-radius:8px;background:#21183d}
+.account-shortcut:hover{background:#472782}
+.home-extras{height:auto!important;max-width:1080px;margin:20px auto 0;display:grid;gap:17px}
+.home-extras .eyebrow{font-size:11px;letter-spacing:1.8px;color:#be91ff;font-weight:900;margin:0 0 8px}
+.home-intro{display:flex;align-items:flex-start;justify-content:space-between;gap:22px;padding:24px 26px;border:1px solid #414177;border-radius:13px;background:linear-gradient(110deg,#15183a,#0b152e)}
+.home-intro h2{font-size:clamp(22px,2.5vw,31px);line-height:1.2;margin:0 0 8px}
+.home-intro p:not(.eyebrow){font-size:14px;line-height:1.7;color:#d2d1eb;max-width:675px;margin:0}
+.prelaunch-pill{flex:0 0 auto;white-space:nowrap;padding:8px 11px;border:1px solid #865fae;border-radius:999px;background:#35245a;color:#e9d9ff;font-size:10px;font-weight:900;letter-spacing:.5px}
+.prelaunch-pill span{color:#ffc872;margin-right:6px}
+.home-feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.home-feature{display:flex;gap:14px;padding:23px 18px;min-height:160px;border:1px solid #544482;border-radius:13px;background:radial-gradient(circle at 0 0,#42276b70,transparent 67%),linear-gradient(140deg,#171b42,#10142e);transition:transform .2s,border-color .2s}
+.home-feature:hover{transform:translateY(-3px);border-color:#af7cff}
+.feature-emoji{display:grid;place-items:center;flex:0 0 57px;width:57px;height:57px;border-radius:14px;font-size:31px;background:#271f56;border:1px solid #5440a2}
+.feature-copy{display:flex;flex-direction:column;gap:7px;min-width:0}
+.feature-copy strong{font-size:17px;font-weight:900}
+.feature-copy small{font-size:12px;line-height:1.6;color:#bac0df}
+.feature-copy b{font-size:12px;color:#c79cff;margin-top:auto}
+.home-update{display:flex;align-items:center;justify-content:space-between;gap:20px;border:1px solid #4d4384;border-radius:13px;padding:25px 26px;background:linear-gradient(120deg,#2b1d59,#111c3c)}
+.home-update h3{font-size:22px;margin:0 0 6px}
+.home-update p:not(.eyebrow){font-size:13px;line-height:1.7;color:#d0c8ec;max-width:670px;margin:0}
+.secondary-cta{flex:0 0 auto;background:#342259;border:1px solid #a974ef;border-radius:10px;padding:12px 16px;color:#fff;font-weight:850;font-size:12px}
+.secondary-cta:hover{background:#6430aa}
+.account-panel{height:auto;max-height:none;overflow:visible}
+.account-setup-card{display:flex;flex-direction:column;align-items:flex-start;gap:18px;max-width:680px;border:1px solid #725ba5;background:linear-gradient(135deg,#302059,#0d193a);border-radius:16px;margin:25px 0;padding:30px}
+.account-mark{display:grid;place-items:center;width:54px;height:54px;color:#fff;background:linear-gradient(135deg,#7e35ec,#4c6cd5);border-radius:13px;font-size:29px}
+.account-setup-card h2{font-size:24px;margin:0 0 8px}
+.account-setup-card p{font-size:14px;line-height:1.7;color:#d2d0ee;margin:0}
+.account-setup-card .primary{margin:0}
+.account-setup-card small{font-size:12px;line-height:1.6;color:#b6b8d9}
+@media(max-width:1150px){.home-feature{flex-direction:column}.home-intro{flex-direction:column}.home-update{align-items:flex-start;flex-direction:column}}
+@media(max-width:800px){.home-feature-grid{grid-template-columns:1fr}.home-feature{flex-direction:row;min-height:120px}.home-extras{margin-top:13px}.home-intro,.home-update{padding:20px}}
+@media(max-width:525px){.visitor-badge{display:none}.account-shortcut{font-size:10px;padding:7px}.home-feature{padding:17px}.feature-emoji{flex-basis:46px;width:46px;height:46px;font-size:25px}.home-intro h2{font-size:24px}.prelaunch-pill{font-size:9px}.account-setup-card{padding:20px}.nav-emoji{width:27px;flex-basis:27px;font-size:21px}}
