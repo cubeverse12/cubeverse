@@ -10,6 +10,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: minevora-msal-bundle
+  cancel-in-progress: true
+
 jobs:
   bundle:
     runs-on: ubuntu-latest
@@ -24,12 +28,27 @@ jobs:
           npm install --no-save --no-package-lock @azure/msal-browser@4.29.0 esbuild@0.25.12
           ./node_modules/.bin/esbuild auth-src.js --bundle --format=iife --target=es2020 --minify --outfile=msal-auth.bundle.js
           test -s msal-auth.bundle.js
-      - name: Commit built asset to main
+      - name: Publish built asset safely even if main advances
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add msal-auth.bundle.js
-          if ! git diff --cached --quiet; then
+          cp msal-auth.bundle.js /tmp/minevora-msal.bundle.js
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            git reset --hard origin/main
+            cp /tmp/minevora-msal.bundle.js msal-auth.bundle.js
+            git add msal-auth.bundle.js
+            if git diff --cached --quiet; then
+              echo "MSAL asset is already up to date"
+              exit 0
+            fi
             git commit -m "Build pinned MSAL browser bundle for MINEVORA site"
-            git push
-          fi
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Could not publish after retries"
+          exit 1
