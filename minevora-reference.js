@@ -12,7 +12,10 @@ function navigate(){const name=Object.hasOwn(routes,location.hash.slice(1))?loca
 window.addEventListener('hashchange',navigate);document.getElementById('backBtn').addEventListener('click',()=>location.hash='home');
 navigate();
 document.querySelectorAll('a[href="#account"]').forEach(a=>a.addEventListener('click',()=>{
-  if(location.hash==='#account') navigate();
+  // Do not rely solely on hashchange: clicking the currently selected page
+  // must always re-open the profile view and focus its content.
+  location.hash='account';
+  navigate();
 }));
 let toastTimer;function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.hidden=true,4200)}
 function safeGet(key,defaultValue){try{const v=localStorage.getItem(key);return v?JSON.parse(v):defaultValue}catch(e){return defaultValue}}
