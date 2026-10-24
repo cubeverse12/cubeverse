@@ -75,6 +75,7 @@ class NativeLauncher(QObject):
         self.game_busy = False
         self.available_versions = []
         self.initial_prompted = False
+        self.pending_launch = None
 
     def emit_state(self, kind, **values):
         self.event.emit(json.dumps({"kind": kind, **values}, ensure_ascii=False))
@@ -125,6 +126,7 @@ class NativeLauncher(QObject):
                 "skin": self.import_skin,
                 "bulk": self.install_everything,
                 "stop_bulk": self.stop_bulk,
+                "profile_import": self.import_web_profile,
             }
             if action not in routes:
                 raise ValueError("Nieobsługiwane polecenie: " + action[:40])
@@ -134,10 +136,10 @@ class NativeLauncher(QObject):
 
     def ready(self):
         self.profiles()
+        if isinstance(self.data.get("web_profile"), dict):
+            self.emit_state("minevora_profile", **self.data["web_profile"])
         self.fetch_versions()
-        if not self.initial_prompted:
-            self.initial_prompted = True
-            QTimer.singleShot(2000, self.offer_initial_bulk)
+        # Bulk installation is opt-in. Never prompt automatically at startup.
 
     def fetch_versions(self):
         def finished(versions):
@@ -208,6 +210,8 @@ class NativeLauncher(QObject):
             self.profiles()
             warnings = result.get("warnings", [])
             self.status("Instalacja ukończona." + (" Uwagi: " + "; ".join(warnings) if warnings else ""))
+            if self.pending_launch == (version, loader):
+                QTimer.singleShot(250, lambda: self.play({"version": version, "loader": loader}))
         self.run_job(f"Instalowanie Minecraft {version} / {loader}…",
                      lambda report: install_profile(snapshot, report), done)
 
@@ -230,6 +234,9 @@ class NativeLauncher(QObject):
             self.session = session
             self.emit_state("account", name=session.get("name", "Minecraft"))
             self.status("Zalogowano do konta Minecraft: " + session.get("name", ""))
+            if self.pending_launch:
+                version, loader = self.pending_launch
+                QTimer.singleShot(250, lambda: self.play({"version": version, "loader": loader}))
         self.login_job.done.connect(logged_in)
         self.login_job.start()
 
@@ -240,6 +247,7 @@ class NativeLauncher(QObject):
         version, loader = self.normalize(args)
         profile = self.ensure_profile(version, loader)
         if not profile_installed(profile):
+            self.pending_launch = (version, loader)
             self.status("Ta wersja nie jest jeszcze pobrana. Rozpoczynam instalację.")
             self.install(args)
             return
@@ -247,6 +255,7 @@ class NativeLauncher(QObject):
             self.status("Zaloguj się przez Microsoft, aby uruchomić grę.")
             self.login()
             return
+        self.pending_launch = None
         self.game_job = PlayWorker(profile["game_id"], self.data.get("ram", 4),
                                    self.session, game_path(profile))
         self.game_busy = True
@@ -294,6 +303,35 @@ class NativeLauncher(QObject):
         encoded = base64.b64encode(dest.read_bytes()).decode("ascii")
         self.emit_state("skin", url="data:image/png;base64," + encoded)
         self.status("Skin PNG zapisany i przekazany do podglądu 3D.")
+
+    def import_web_profile(self):
+        """Import a consent-based profile export; no Microsoft tokens involved."""
+        path, _ = QFileDialog.getOpenFileName(
+            self.window, "Importuj profil MINEVORA", str(Path.home()), "Profil JSON (*.json)")
+        if not path:
+            return
+        source = Path(path)
+        if source.stat().st_size > 550_000:
+            raise ValueError("Profil WWW jest zbyt duży.")
+        doc = json.loads(source.read_text(encoding="utf-8-sig"))
+        if not isinstance(doc, dict) or doc.get("format") != "minevora-profile-v1":
+            raise ValueError("Nieprawidłowy format eksportu MINEVORA.")
+        nickname = str(doc.get("nickname", ""))
+        if not re.fullmatch(r"[A-Za-z0-9_-]{3,20}", nickname):
+            raise ValueError("Nick musi mieć 3–20 znaków.")
+        avatar = str(doc.get("avatarData", ""))
+        if avatar and (len(avatar) > 400_000 or
+                       not re.fullmatch(r"data:image/webp;base64,[A-Za-z0-9+/=]+", avatar)):
+            raise ValueError("Nieprawidłowe zdjęcie profilu.")
+        favorite = str(doc.get("mode", "BedWars"))
+        if favorite not in ("BedWars", "SkyWars", "Crystal PvP", "Parkour",
+                            "TNT Run", "Build Battle", "Spleef", "Duels"):
+            favorite = "BedWars"
+        profile = {"nickname": nickname, "avatarData": avatar, "mode": favorite}
+        self.data["web_profile"] = profile
+        save_store(self.data)
+        self.emit_state("minevora_profile", **profile)
+        self.status("Profil zaimportowany lokalnie. Synchronizacja online wymaga osobnego serwera kont.")
 
     def offer_initial_bulk(self):
         marker = HOME / "web_desktop_first_run.json"
