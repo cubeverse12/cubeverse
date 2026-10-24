@@ -4,6 +4,7 @@ on:
     branches: [ main ]
     paths:
       - 'auth-src.js'
+      - 'auth-redirect-bridge-src.js'
       - '.github/workflows/build-msal-web.yml'
   workflow_dispatch:
 
@@ -25,9 +26,11 @@ jobs:
           node-version: '22'
       - name: Bundle official MSAL Browser locally
         run: |
-          npm install --no-save --no-package-lock @azure/msal-browser@4.29.0 esbuild@0.25.12
+          npm install --no-save --no-package-lock @azure/msal-browser@5.26.0 esbuild@0.25.12
           ./node_modules/.bin/esbuild auth-src.js --bundle --format=iife --target=es2020 --minify --outfile=msal-auth.bundle.js
+          ./node_modules/.bin/esbuild auth-redirect-bridge-src.js --bundle --format=iife --target=es2020 --minify --outfile=auth-redirect-bridge.bundle.js
           test -s msal-auth.bundle.js
+          test -s auth-redirect-bridge.bundle.js
       - name: Publish built asset safely even if main advances
         shell: bash
         run: |
@@ -35,11 +38,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           cp msal-auth.bundle.js /tmp/minevora-msal.bundle.js
+          cp auth-redirect-bridge.bundle.js /tmp/minevora-msal-bridge.bundle.js
           for attempt in 1 2 3 4; do
             git fetch origin main
             git reset --hard origin/main
             cp /tmp/minevora-msal.bundle.js msal-auth.bundle.js
-            git add msal-auth.bundle.js
+            cp /tmp/minevora-msal-bridge.bundle.js auth-redirect-bridge.bundle.js
+            git add msal-auth.bundle.js auth-redirect-bridge.bundle.js
             if git diff --cached --quiet; then
               echo "MSAL asset is already up to date"
               exit 0
