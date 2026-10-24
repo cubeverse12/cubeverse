@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { handleRequest, validateProfile, SITE_ORIGIN } from "../src/worker.js";
 
-const sample = { nickname: "Player_77", mode: "BedWars", color: "#8539D9", avatarData: "" };
+const sample = { nickname: "Player_77", mode: "BedWars", color: "purple", avatarData: "" };
 const msftAuth = () => "private-user-sub-001";
 
 function mockDatabase() {
@@ -47,7 +47,7 @@ test("unsafe avatar, markup nickname, external URL, extra long nick rejected", (
     { ...sample, nickname:"../admin" },
     { ...sample, avatarData:"https://example.com/avatar.svg" },
     { ...sample, avatarData:"data:image/svg+xml;base64,AA==" },
-    { ...sample, color:"#fff" },
+    { ...sample, color:"<red>" },
     { ...sample, mode:"NOT_A_GAME" }
   ]) assert.equal(validateProfile(p), null);
 });
