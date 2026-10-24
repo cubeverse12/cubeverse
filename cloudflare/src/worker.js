@@ -1,5 +1,5 @@
 // MINEVORA profile API: Cloudflare Worker + D1.
-// ID tokens are verified server-side against Microsoft public signing keys.
+// Scoped API access tokens are verified server-side against Microsoft public signing keys.
 // No passwords, refresh tokens, access tokens or Microsoft email are persisted.
 import { createRemoteJWKSet, jwtVerify } from "jose";
 
@@ -44,24 +44,26 @@ export function validateProfile(value) {
   return { nickname, mode, color, avatarData };
 }
 
-async function verifyMicrosoftIDToken(request, env) {
+async function verifyMicrosoftAccessToken(request, env) {
   const header = request.headers.get("Authorization") || "";
   const matched = /^Bearer ([A-Za-z0-9._~-]+)$/.exec(header);
   if (!matched || matched[1].length > 16000) return null;
-  if (!env.MS_CLIENT_ID || !/^[0-9a-fA-F-]{36}$/.test(env.MS_CLIENT_ID)) {
+  if (!env.MS_API_AUDIENCE || !/^[0-9a-fA-F-]{36}$/.test(env.MS_API_AUDIENCE)) {
     throw new Error("Missing Microsoft client configuration");
   }
   try {
     const { payload } = await jwtVerify(matched[1], JWKS, {
       algorithms: ["RS256"],
-      audience: env.MS_CLIENT_ID,
+      audience: env.MS_API_AUDIENCE,
       issuer: ISSUER,
       clockTolerance: 30,
       maxTokenAge: "90m"
     });
     if (payload.tid !== CONSUMER_TENANT || typeof payload.sub !== "string" ||
-        payload.sub.length < 8 || payload.sub.length > 256 || payload.ver !== "2.0") return null;
-    // The OIDC subject is stable for the same client application.
+        payload.sub.length < 8 || payload.sub.length > 256 || payload.ver !== "2.0" ||
+        typeof payload.scp !== "string" ||
+        !payload.scp.split(" ").includes("profile.sync")) return null;
+    // This OIDC subject is issued for this API audience, stable across approved clients.
     return payload.sub;
   } catch {
     return null;
@@ -74,7 +76,7 @@ function serializeProfile(row) {
            avatarData: row.avatar_data, updatedAt: row.updated_at };
 }
 
-export async function handleRequest(request, env, authenticate = verifyMicrosoftIDToken) {
+export async function handleRequest(request, env, authenticate = verifyMicrosoftAccessToken) {
   const url = new URL(request.url);
   const origin = request.headers.get("Origin");
   if (origin && origin !== SITE_ORIGIN) return json({ error: "origin_not_allowed" }, 403, origin);
