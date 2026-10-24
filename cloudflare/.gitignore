@@ -1,0 +1,10 @@
+# Local dependencies and Cloudflare build cache
+node_modules/
+.wrangler/
+
+# Never upload local secrets or private authentication configuration
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+*.log
