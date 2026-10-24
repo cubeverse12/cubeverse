@@ -73,7 +73,19 @@ def read_store():
             clean.append(item)
         selected=obj.get('selected','')
         if selected not in [p['id'] for p in clean]:selected=clean[0]['id'] if clean else ''
-        return {'instances':clean,'selected':selected,'ram':max(2,min(32,int(obj.get('ram',4)))),'skin':str(obj.get('skin',''))[:600]}
+        result={'instances':clean,'selected':selected,'ram':max(2,min(32,int(obj.get('ram',4)))),'skin':str(obj.get('skin',''))[:600]}
+        imported = obj.get('web_profile')
+        if isinstance(imported,dict):
+            nick = imported.get('nickname','')
+            avatar = imported.get('avatarData','')
+            mode = imported.get('mode','BedWars')
+            if (isinstance(nick,str) and re.fullmatch(r'[A-Za-z0-9_-]{3,20}',nick)
+                    and isinstance(avatar,str) and len(avatar) <= 400000
+                    and (not avatar or re.fullmatch(r'data:image/webp;base64,[A-Za-z0-9+/=]+',avatar))):
+                result['web_profile']={'nickname':nick,'avatarData':avatar,
+                                      'mode':mode if mode in ('BedWars','SkyWars','Crystal PvP','Parkour',
+                                                             'TNT Run','Build Battle','Spleef','Duels') else 'BedWars'}
+        return result
     except (OSError,ValueError,TypeError,OverflowError):
         result=initial_store()
         result['instances']=legacy_instances()
