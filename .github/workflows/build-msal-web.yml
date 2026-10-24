@@ -1,0 +1,35 @@
+name: Build MSAL browser bundle for MINEVORA
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'auth-src.js'
+      - '.github/workflows/build-msal-web.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Bundle official MSAL Browser locally
+        run: |
+          npm install --no-save --no-package-lock @azure/msal-browser@4.29.0 esbuild@0.25.12
+          ./node_modules/.bin/esbuild auth-src.js --bundle --format=iife --target=es2020 --minify --outfile=msal-auth.bundle.js
+          test -s msal-auth.bundle.js
+      - name: Commit built asset to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add msal-auth.bundle.js
+          if ! git diff --cached --quiet; then
+            git commit -m "Build pinned MSAL browser bundle for MINEVORA site"
+            git push
+          fi
