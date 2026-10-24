@@ -127,6 +127,7 @@ class NativeLauncher(QObject):
                 "bulk": self.install_everything,
                 "stop_bulk": self.stop_bulk,
                 "profile_import": self.import_web_profile,
+                "web_account": self.open_web_account,
             }
             if action not in routes:
                 raise ValueError("Nieobsługiwane polecenie: " + action[:40])
@@ -303,6 +304,11 @@ class NativeLauncher(QObject):
         encoded = base64.b64encode(dest.read_bytes()).decode("ascii")
         self.emit_state("skin", url="data:image/png;base64," + encoded)
         self.status("Skin PNG zapisany i przekazany do podglądu 3D.")
+
+    def open_web_account(self):
+        # Fixed official project URL; the local page cannot choose arbitrary URLs.
+        if not QDesktopServices.openUrl(QUrl("https://cubeverse12.github.io/cubeverse/#account")):
+            self.error("Nie udało się otworzyć konta MINEVORA w przeglądarce.")
 
     def import_web_profile(self):
         """Import a consent-based profile export; no Microsoft tokens involved."""
