@@ -51,7 +51,7 @@
             <div class="home-feature-grid">
               <a class="home-feature" href="#minigames"><span class="feature-emoji" aria-hidden="true">⚔️</span><span class="feature-copy"><strong>Minigry i PvP</strong><small>BedWars, SkyWars, Duels, Parkour i inne planowane tryby</small><b>Poznaj tryby →</b></span></a>
               <a class="home-feature" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer"><span class="feature-emoji" aria-hidden="true">💬</span><span class="feature-copy"><strong>Społeczność</strong><small>Poznaj graczy i śledź ogłoszenia dotyczące premiery</small><b>Dołącz na Discord →</b></span></a>
-              <a class="home-feature" href="#account"><span class="feature-emoji" aria-hidden="true">🛡️</span><span class="feature-copy"><strong>Konto MINEVORA</strong><small>Przygotowujemy dostęp przez konto Microsoft</small><b>Informacje o logowaniu →</b></span></a>
+              <a class="home-feature" href="#account"><span class="feature-emoji" aria-hidden="true">🛡️</span><span class="feature-copy"><strong>Konto MINEVORA</strong><small>Zaloguj bez osobnego hasła MINEVORA</small><b>Informacje o logowaniu →</b></span></a>
             </div>
             <div class="home-update">
               <div><p class="eyebrow">CO NOWEGO?</p><h3>MINEVORA powstaje!</h3><p>Launcher Windows 11 jest dostępny w wersji testowej. Serwer minigier dopiero przygotowujemy; nie podajemy niepotwierdzonej daty startu ani liczby graczy.</p></div>
@@ -81,9 +81,12 @@
             <p class="subtext">Jedno konto do strony MINEVORA i wejścia na stronę logowania z launchera. Nie musisz tworzyć dodatkowego hasła MINEVORA.</p>
             <div class="account-setup-card">
               <span class="account-mark" aria-hidden="true">▦</span>
-              <div><h2>Logowanie przez Microsoft</h2><p>Przygotowujemy bezpieczne połączenie z logowaniem Microsoft. Aktywacja wymaga identyfikatora aplikacji (Client ID) i adresu przekierowania zarejestrowanego w Microsoft Entra. Do tego czasu rejestracja nie jest uruchomiona.</p></div>
-              <button class="primary" type="button" disabled aria-describedby="accountNotice">Zaloguj przez Microsoft — wkrótce</button>
-              <small id="accountNotice">Nie wpisuj hasła Microsoft bezpośrednio na stronie MINEVORA. Po aktywacji logowanie będzie odbywać się przez oficjalną stronę Microsoft.</small>
+              <div><h2>Logowanie przez Microsoft</h2><p>Zaloguj się istniejącym kontem Microsoft lub utwórz je na oficjalnej stronie Microsoft. MINEVORA nie zbiera ani nie przechowuje Twojego hasła.</p></div>
+              <p id="accountState" role="status" aria-live="polite">Ładowanie logowania Microsoft…</p>
+              <p id="accountProfile" hidden></p>
+              <button id="msalLogin" class="primary" type="button" disabled aria-describedby="accountNotice">Zaloguj przez Microsoft</button>
+              <button id="msalLogout" class="primary" type="button" hidden>Wyloguj</button>
+              <small id="accountNotice">Witryna korzysta z autoryzacji Microsoft. Sesja dotyczy strony WWW; launcher Minecraft wymaga oddzielnego zalogowania i licencji na grę.</small>
             </div>
             <p class="subtext">Uwaga: dostęp do konta MINEVORA i posiadanie Minecraft Java to dwie różne rzeczy. Do uruchamiania gry launcher nadal wymaga autoryzacji oraz odpowiedniej licencji.</p>
           </section>
@@ -101,5 +104,6 @@
 </div>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <script src="minevora-reference.js" defer></script>
+<script src="msal-auth.bundle.js" defer></script>
 </body>
 </html>
