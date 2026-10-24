@@ -1,0 +1,19 @@
+{
+  // Existing Cloudflare Worker and D1 database already created in the dashboard.
+  "name": "wandering-cell-cf47minevora-profile-api",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  "vars": {
+    "MS_API_AUDIENCE": "9136b5e6-145b-40d0-bbc4-dca668321195"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "minevora-profiles",
+      "database_id": "f71869b8-7e43-4ca1-9324-0c5922b86cc0",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "observability": { "enabled": false }
+}
