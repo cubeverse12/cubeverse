@@ -107,6 +107,7 @@
       };
     });
     intercept("addSkinButton", "skin");
+    intercept("launcherAccountLogin", "login");
     var top = document.querySelector(".user-area");
     makeButton(top, "Zaloguj Microsoft", "login");
     var installation = document.querySelector("#installationsView .create-profile");
@@ -128,6 +129,10 @@
       if (event.kind === "account") {
         var label = document.querySelector(".user-area strong");
         if (label) label.textContent = event.name;
+        var name = document.getElementById("launcherMinecraftName");
+        var status = document.getElementById("launcherAccountStatus");
+        if (name) name.textContent = event.name || "Minecraft";
+        if (status) status.textContent = "Zalogowano do Minecraft Java przez Microsoft.";
         notify("Zalogowano: " + event.name);
       }
       if (event.kind === "skin") {
