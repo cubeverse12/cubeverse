@@ -45,7 +45,7 @@ function loadProfile(user) {
       nickname: validNickname(saved.nickname) ? saved.nickname : empty.nickname,
       mode: modes.includes(saved.mode) ? saved.mode : "BedWars",
       color: colors.includes(saved.color) ? saved.color : "purple",
-      createdAt: typeof saved.createdAt === "string" && /^\\d{4}-\\d{2}-\\d{2}T/.test(saved.createdAt) ? saved.createdAt : null
+      createdAt: typeof saved.createdAt === "string" && /^\d{4}-\d{2}-\d{2}T/.test(saved.createdAt) ? saved.createdAt : null
     };
   } catch { return empty; }
 }
