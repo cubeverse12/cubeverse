@@ -45,3 +45,15 @@
 .account-shortcut{padding:8px 13px;border:1px solid #9771d7;border-radius:8px;background:linear-gradient(120deg,#4b2492,#37266f);font-size:12px;font-weight:800;color:#fff;white-space:nowrap}
 .account-shortcut:hover{background:#7041b8}
 @media(max-width:760px){.account-shortcut{font-size:10px;padding:7px 8px}}
+
+
+/* Windows launcher Microsoft account overview; separate from the browser-only player preferences. */
+.nav-emoji{width:31px;flex:0 0 31px;font-size:25px;text-align:center}
+.launcher-account-view{height:auto;min-height:557px;max-height:none}
+.launcher-account-card{display:flex;align-items:center;gap:19px;margin:25px 0;padding:23px;background:linear-gradient(125deg,#372065,#14213e);border:1px solid #7454bc;border-radius:15px}
+.launcher-user-icon{display:grid;place-items:center;font-size:42px;flex:0 0 76px;width:76px;height:76px;border-radius:16px;background:linear-gradient(120deg,#6d32c9,#292f78)}
+.launcher-account-details h2{margin:3px 0 5px;font-size:23px;overflow-wrap:anywhere}
+.launcher-account-details p:not(.eyebrow){font-size:13px;color:#c9c7e7;margin:0}
+.launcher-account-actions{display:flex;gap:12px;flex-wrap:wrap}
+.launcher-account-notice{font-size:13px;line-height:1.8;color:#c2c4e3;margin-top:23px;max-width:700px}
+@media(max-width:580px){.launcher-account-card{flex-direction:column;align-items:flex-start;padding:17px}.nav-emoji{font-size:23px;width:27px;flex-basis:27px}}
