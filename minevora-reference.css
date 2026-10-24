@@ -122,8 +122,13 @@
 @media(max-width:600px){.player-profile{padding:14px}.player-banner{gap:12px}.player-avatar{width:65px;height:65px;flex-basis:65px;font-size:32px}.profile-stats{grid-template-columns:1fr}}
 
 /* MINEVORA: consistent menu icons and visible player profile */
-.sidefoot .navitem img[src$="discord.png"]{width:39px;height:39px;filter:drop-shadow(0 0 7px #8e5fff88)}
 .player-profile:not([hidden]){order:-1;scroll-margin-top:88px}
 .visitor-badge{cursor:pointer;text-decoration:none}
 .visitor-badge:hover{filter:brightness(1.2)}
-@media(max-width:525px){.sidefoot .navitem img[src$="discord.png"]{width:33px;height:33px}}
+
+/* Discord: original recognizable symbol with MINEVORA neon glow */
+.discord-neon-icon{position:relative;width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:13px;background:radial-gradient(circle,#5865f23d 10%,#753bde0b 72%,transparent 80%)}
+.discord-neon-icon::before{content:"";position:absolute;inset:9px;border-radius:50%;background:#9271ff;filter:blur(12px);opacity:.65;pointer-events:none}
+.discord-neon-icon svg{position:relative;z-index:1;width:36px;height:36px;fill:#e5e0ff;filter:drop-shadow(0 0 4px #b78cff) drop-shadow(0 0 10px #5865f2);transition:fill .18s,filter .18s}
+.sidefoot .navitem:hover .discord-neon-icon svg{fill:#fff;filter:drop-shadow(0 0 5px #fff) drop-shadow(0 0 14px #8d67ff)}
+@media(max-width:525px){.discord-neon-icon{width:34px;height:34px;flex-basis:34px}.discord-neon-icon svg{width:29px;height:29px}}
