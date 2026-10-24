@@ -189,7 +189,7 @@ if (resetButton) resetButton.addEventListener("click", () => {
         authority: "https://login.microsoftonline.com/consumers",
         redirectUri: REDIRECT_URI + "auth-popup.html",
         postLogoutRedirectUri: REDIRECT_URI,
-        navigateToLoginRequestUrl: false
+        navigateToLoginRequestUrl: true
       },
       // Keep the MSAL session available when opening MINEVORA in another tab.
       // MSAL, not our profile code, manages encrypted authentication artifacts.
@@ -217,7 +217,7 @@ if (resetButton) resetButton.addEventListener("click", () => {
       } catch (e) {
         btn.disabled = false;
         const code = typeof e?.errorCode === "string" ? e.errorCode.replace(/[^a-zA-Z0-9_]/g, "").slice(0, 70) : "";
-        status("Logowanie nie powiodło się" + (code ? " (kod: " + code + ")" : "") + ". Spróbuj opcji przekierowania poniżej lub sprawdź blokadę wyskakujących okien.");
+        status("Logowanie nie powiodło się" + (code ? " (kod: " + code + ")" : " (kod: popup_unknown)") + ". Wyślij nam wyłącznie ten kod błędu, bez danych logowania.");
       }
     });
     if (redirectFallback) {
@@ -226,11 +226,11 @@ if (resetButton) resetButton.addEventListener("click", () => {
         redirectFallback.disabled = true;
         status("Przekierowuję do Microsoft…");
         try {
-          await msal.loginRedirect({ scopes: ["openid", "profile"], redirectUri: REDIRECT_URI, redirectStartPage: REDIRECT_URI + "#account" });
+          await msal.loginRedirect({ scopes: ["openid", "profile"], redirectUri: REDIRECT_URI + "auth-popup.html", redirectStartPage: REDIRECT_URI + "#account" });
         } catch (e) {
           redirectFallback.disabled = false;
           const code = typeof e?.errorCode === "string" ? e.errorCode.replace(/[^a-zA-Z0-9_]/g, "").slice(0, 70) : "";
-          status("Nie udało się otworzyć Microsoft" + (code ? " (kod: " + code + ")" : "") + ".");
+          status("Nie udało się otworzyć Microsoft" + (code ? " (kod: " + code + ")" : " (kod: redirect_unknown)") + ". Wyślij kod błędu.");
         }
       });
     }
@@ -241,6 +241,7 @@ if (resetButton) resetButton.addEventListener("click", () => {
     });
   } catch (e) {
     if (btn) btn.disabled = true;
-    status("Logowanie Microsoft jest chwilowo niedostępne. Sprawdź, czy aplikacja w Entra obsługuje osobiste konta Microsoft.");
+    const code = typeof e?.errorCode === "string" ? e.errorCode.replace(/[^a-zA-Z0-9_]/g, "").slice(0, 70) : "init_failed";
+    status("Błąd inicjalizacji Microsoft (kod: " + code + "). Nie zmieniaj ustawień Entra; prześlij ten kod.");
   }
 })();
