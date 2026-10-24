@@ -1,0 +1,62 @@
+name: MINEVORA Windows EXE (website 1-to-1)
+
+on:
+  push:
+    branches:
+      - codex/minevora-desktop-site-parity-20261024
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout exact web interface and launcher code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install build dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r desktop/requirements.txt "pyinstaller>=6.10,<7"
+
+      - name: Build standalone Windows launcher folder
+        shell: pwsh
+        run: |
+          pyinstaller --noconfirm --clean --onedir --windowed --name MINEVORA `
+            --collect-all PySide6.QtWebEngineCore `
+            --add-data "index.html;." `
+            --add-data "minevora-reference.css;." `
+            --add-data "minevora-reference.js;." `
+            --add-data "avatar-preview.js;." `
+            --add-data "assets;assets" `
+            --add-data "desktop/native-bridge.js;desktop" `
+            desktop/main.py
+
+      - name: Verify bundle contains executable and website assets
+        shell: pwsh
+        run: |
+          if (!(Test-Path "dist/MINEVORA/MINEVORA.exe")) { throw "Missing Windows executable" }
+          if (!(Test-Path "dist/MINEVORA/_internal/index.html")) { throw "Missing bundled UI HTML" }
+          if (!(Test-Path "dist/MINEVORA/_internal/minevora-reference.css")) { throw "Missing website CSS" }
+          if (!(Test-Path "dist/MINEVORA/_internal/desktop/native-bridge.js")) { throw "Missing native bridge" }
+
+      - name: Pack downloadable Windows ZIP
+        shell: pwsh
+        run: Compress-Archive -Path "dist/MINEVORA/*" -DestinationPath "MINEVORA_LAUNCHER_WIN11.zip" -Force
+
+      - name: Upload Windows download
+        uses: actions/upload-artifact@v4
+        with:
+          name: MINEVORA-LAUNCHER-WIN11
+          path: MINEVORA_LAUNCHER_WIN11.zip
+          if-no-files-found: error
+          retention-days: 14
