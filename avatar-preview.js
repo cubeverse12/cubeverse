@@ -59,6 +59,12 @@
  }
  const img=new Image();img.onload=()=>{if(img.naturalWidth!==64||img.naturalHeight!==64)throw Error('Expected skin PNG 64x64');build(img)};
  img.onerror=()=>{viewport.setAttribute('aria-label','Podgląd 3D niedostępny: nie załadowano pliku tekstury');};
+ window.MINEVORA_SET_SKIN = function(source){
+  if(typeof source!=='string'||source.length>6*1024*1024||!source.startsWith('data:image/png;base64,'))return;
+  const next=new Image();
+  next.onload=()=>{if(next.naturalWidth===64&&next.naturalHeight===64)build(next);};
+  next.src=source;
+ };
  img.src=TEXTURE;
  viewport.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;drag=true;lastX=e.clientX;lastY=e.clientY;viewport.classList.add('dragging');viewport.setPointerCapture(e.pointerId);});
  viewport.addEventListener('pointermove',e=>{if(!drag)return;rotationY+=(e.clientX-lastX)*.5;rotationX=Math.max(-35,Math.min(35,rotationX-(e.clientY-lastY)*.25));lastX=e.clientX;lastY=e.clientY;renderRotation();});
