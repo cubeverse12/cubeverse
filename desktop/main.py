@@ -22,8 +22,9 @@ from core import (HOME, MC_DIR, game_path, instance_id, profile_installed,
 from minevora_engine import (LoginWorker, PlayWorker, client_id, redirect_uri,
                              save_oauth_config)
 
-REPO = Path(__file__).resolve().parent.parent
+REPO = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parent.parent))
 STATIC_PAGE = REPO / "index.html"
+BRIDGE_FILE = (REPO / "desktop" / "native-bridge.js") if getattr(sys, "frozen", False) else Path(__file__).with_name("native-bridge.js")
 LOADER_NAMES = ("vanilla", "fabric", "forge", "neoforge", "quilt")
 VERSION_PATTERN = re.compile(r"\d+\.\d+(?:\.\d+)?\Z")
 
@@ -416,7 +417,7 @@ class LauncherWindow(QMainWindow):
         if not ok:
             QMessageBox.critical(self, "MINEVORA", "Nie udało się wczytać strony launchera.")
             return
-        script = Path(__file__).with_name("native-bridge.js").read_text(encoding="utf-8")
+        script = BRIDGE_FILE.read_text(encoding="utf-8")
         self.web.page().runJavaScript(script)
 
 def main():
