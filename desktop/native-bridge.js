@@ -137,7 +137,7 @@
         const nickname=typeof event.nickname==="string"?event.nickname:"";
         if(nickname){byId("nativeProfileName").value=nickname;byId("nativeWebNickname").textContent=nickname;}
         const avatar=byId("nativeWebAvatar");
-        if(typeof event.avatarData==="string" && /^data:image\\/webp;base64,[A-Za-z0-9+/=]+$/.test(event.avatarData) && event.avatarData.length<400000){avatar.src=event.avatarData;avatar.style.display="inline-block"}
+        if(typeof event.avatarData==="string" && event.avatarData.startsWith("data:image/webp;base64,") && event.avatarData.length<400000){avatar.src=event.avatarData;avatar.style.display="inline-block"}
         else {avatar.removeAttribute("src");avatar.style.display="none";}
         message("Zaimportowano profil ze strony MINEVORA. Synchronizacja online wymaga jeszcze usługi kont.");
       }
