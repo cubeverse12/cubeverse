@@ -119,6 +119,7 @@
                   <div class="profile-actions">
                     <button class="primary" type="submit">Zapisz profil</button>
                     <button id="resetProfile" class="profile-secondary" type="button">Przywróć domyślne</button>
+                    <button id="exportProfile" class="profile-secondary" type="button" title="Eksport profilu bez hasła i tokenów">Eksportuj profil do launchera (JSON)</button>
                   </div>
                   <p class="profile-notice" id="profileSaveStatus" role="status" aria-live="polite"></p>
                 </form>
@@ -150,6 +151,6 @@
 </div>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <script src="minevora-reference.js?v=20261024-profile-photo" defer></script>
-<script src="msal-auth.bundle.js?v=20261024-msal5-factory-fix" defer></script>
+<script src="msal-auth.bundle.js?v=20261024-profile-export-v1" defer></script>
 </body>
 </html>

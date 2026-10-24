@@ -170,6 +170,31 @@ if (playerForm) playerForm.addEventListener("submit", event => {
     profileMessage.textContent = "Profil zapisany w tej przeglądarce. Synchronizacja z launcherem wymaga serwera kont.";
   } catch { profileMessage.textContent = "Nie udało się zapisać danych w tej przeglądarce."; }
 });
+const exportButton = document.getElementById("exportProfile");
+if (exportButton) exportButton.addEventListener("click", () => {
+  if (!currentUser) { status("Zaloguj się, aby eksportować swój profil."); return; }
+  const profileData = loadProfile(currentUser);
+  // Export only user-editable profile fields. Never export Microsoft tokens,
+  // the MSAL cache, identifiers, passwords or personal-account metadata.
+  const exported = {
+    format: "minevora-profile-v1",
+    nickname: profileData.nickname,
+    mode: profileData.mode,
+    color: profileData.color,
+    avatarData: profileData.avatarData
+  };
+  const blob = new Blob([JSON.stringify(exported, null, 2)], {type: "application/json"});
+  const href = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = href;
+  a.download = "MINEVORA-profil.json";
+  a.style.display = "none";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(href), 1000);
+  if (profileMessage) profileMessage.textContent = "Pobrano plik profilu. Importuj go w launcherze — zmiany nie synchronizują się automatycznie.";
+});
 if (resetButton) resetButton.addEventListener("click", () => {
   if (!currentUser || !confirm("Usunąć lokalny nick, zdjęcie, tryb i kolor avatara?")) return;
   const key = accountStorageKey(currentUser);
