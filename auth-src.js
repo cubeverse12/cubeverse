@@ -208,7 +208,7 @@ if (resetButton) resetButton.addEventListener("click", () => {
       btn.disabled = true;
       status("Otwieram okno logowania Microsoft…");
       try {
-        const response = await msal.loginPopup({ scopes: ["openid", "profile"] });
+        const response = await msal.loginPopup({ scopes: ["openid", "profile"], redirectUri: REDIRECT_URI + "auth-popup.html" });
         if (!response?.account) throw new Error("Brak konta po zalogowaniu.");
         msal.setActiveAccount(response.account);
         setUser(response.account);
