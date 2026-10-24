@@ -90,3 +90,33 @@
 @media(max-width:1150px){.home-feature{flex-direction:column}.home-intro{flex-direction:column}.home-update{align-items:flex-start;flex-direction:column}}
 @media(max-width:800px){.home-feature-grid{grid-template-columns:1fr}.home-feature{flex-direction:row;min-height:120px}.home-extras{margin-top:13px}.home-intro,.home-update{padding:20px}}
 @media(max-width:525px){.visitor-badge{display:none}.account-shortcut{font-size:10px;padding:7px}.home-feature{padding:17px}.feature-emoji{flex-basis:46px;width:46px;height:46px;font-size:25px}.home-intro h2{font-size:24px}.prelaunch-pill{font-size:9px}.account-setup-card{padding:20px}.nav-emoji{width:27px;flex-basis:27px;font-size:21px}}
+
+
+/* MINEVORA player profile: signed-in view, browser-local preferences only. */
+.player-profile{width:100%;max-width:750px;border:1px solid #6852a9;border-radius:16px;background:linear-gradient(145deg,#1b2147,#111831);padding:20px;display:grid;gap:19px;box-shadow:0 14px 34px #0003}
+.player-profile[hidden]{display:none!important}
+.player-banner{display:flex;align-items:center;gap:18px;border-bottom:1px solid #363b72;padding-bottom:18px}
+.player-avatar{width:90px;height:90px;flex:0 0 90px;display:grid;place-items:center;border-radius:20px;background:linear-gradient(145deg,#8d37ff,#3d236f);color:#fff;font-size:43px;font-weight:1000;border:2px solid #b988ff;box-shadow:0 0 24px #803dff50}
+.player-avatar[data-color="blue"]{background:linear-gradient(135deg,#338df5,#1f3477);border-color:#8ac3ff}
+.player-avatar[data-color="teal"]{background:linear-gradient(135deg,#169e99,#164f5c);border-color:#8cf3d4}
+.player-avatar[data-color="rose"]{background:linear-gradient(135deg,#dc63a9,#632e83);border-color:#ffa1db}
+.player-identity{min-width:0}
+.player-identity h2{font-size:clamp(22px,2.7vw,30px);margin:4px 0 2px;overflow-wrap:anywhere}
+.player-identity p{font-size:13px;color:#cbd1ee;margin:4px 0 10px;overflow-wrap:anywhere}
+.profile-connected{font-size:11px;font-weight:850;color:#8af3c1;background:#173f365c;padding:6px 10px;border:1px solid #347d60;border-radius:30px}
+.profile-form{display:grid;gap:9px}
+.profile-form label{display:block;font-size:13px;font-weight:850;margin-top:8px}
+.profile-form input,.profile-form select{width:100%;max-width:480px;min-height:44px;background:#0c1530;border:1px solid #64589b;color:#fff;border-radius:9px;padding:10px 12px;font-size:14px}
+.profile-form input:focus-visible,.profile-form select:focus-visible{outline:2px solid #b28cfe;outline-offset:2px}
+.field-hint{color:#a5a9d1;font-weight:500;font-size:11px}
+.profile-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.profile-secondary{border:1px solid #7163a8;background:#242449;border-radius:10px;padding:12px 15px;color:#fff;font-weight:700}
+.profile-secondary:hover{background:#393466}
+.profile-notice{font-size:12px;color:#d2c6ff;min-height:18px;margin:0}
+.profile-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.profile-stats div{background:#161c3d;border:1px solid #45497c;border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.profile-stats span{font-size:11px;color:#a5acd4}
+.profile-stats strong{font-size:15px;color:#f1ebff}
+.profile-disclaimer{font-size:12px;line-height:1.7;color:#c3c7e4;margin:0}
+.profile-launcher-link{font-size:13px;color:#cab3ff;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:600px){.player-profile{padding:14px}.player-banner{gap:12px}.player-avatar{width:65px;height:65px;flex-basis:65px;font-size:32px}.profile-stats{grid-template-columns:1fr}}
