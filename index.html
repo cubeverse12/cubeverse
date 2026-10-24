@@ -84,9 +84,47 @@
               <div><h2>Logowanie przez Microsoft</h2><p>Zaloguj się istniejącym kontem Microsoft lub utwórz je na oficjalnej stronie Microsoft. MINEVORA nie zbiera ani nie przechowuje Twojego hasła.</p></div>
               <p id="accountState" role="status" aria-live="polite">Ładowanie logowania Microsoft…</p>
               <p id="accountProfile" hidden></p>
+              <section id="playerProfile" class="player-profile" aria-label="Profil gracza MINEVORA" hidden>
+                <div class="player-banner">
+                  <div class="player-avatar" id="profileAvatar" data-color="purple" aria-hidden="true">M</div>
+                  <div class="player-identity">
+                    <span class="eyebrow">PROFIL GRACZA</span>
+                    <h2 id="profileNickname">Gracz MINEVORA</h2>
+                    <p id="profileMicrosoftName">Microsoft · połączono</p>
+                    <span class="profile-connected">● Konto Microsoft połączone</span>
+                  </div>
+                </div>
+                <form id="profileForm" class="profile-form" autocomplete="off">
+                  <label for="profileNick">Nick w MINEVORA <span class="field-hint">(3–20 znaków, bez danych osobowych)</span></label>
+                  <input id="profileNick" name="nickname" type="text" maxlength="20" minlength="3" pattern="[a-zA-Z0-9_-]{3,20}" placeholder="Np. Gracz_123" required spellcheck="false"/>
+                  <label for="profileMode">Ulubiona minigra</label>
+                  <select id="profileMode" name="mode">
+                    <option value="BedWars">BedWars</option><option value="SkyWars">SkyWars</option>
+                    <option value="Crystal PvP">Crystal PvP</option><option value="Parkour">Parkour</option>
+                    <option value="TNT Run">TNT Run</option><option value="Build Battle">Build Battle</option>
+                    <option value="Spleef">Spleef</option><option value="Duels">Duels</option>
+                  </select>
+                  <label for="profileColor">Kolor awatara</label>
+                  <select id="profileColor" name="color">
+                    <option value="purple">Fioletowy</option><option value="blue">Niebieski</option>
+                    <option value="teal">Turkusowy</option><option value="rose">Różowy</option>
+                  </select>
+                  <div class="profile-actions">
+                    <button class="primary" type="submit">Zapisz profil</button>
+                    <button id="resetProfile" class="profile-secondary" type="button">Przywróć domyślne</button>
+                  </div>
+                  <p class="profile-notice" id="profileSaveStatus" role="status" aria-live="polite"></p>
+                </form>
+                <div class="profile-stats">
+                  <div><span>Ulubiony tryb</span><strong id="profileFavorite">—</strong></div>
+                  <div><span>Profil na urządzeniu</span><strong id="profileSince">—</strong></div>
+                </div>
+                <p class="profile-disclaimer">Nick, ulubiony tryb i kolor są zapisywane <strong>tylko w tej przeglądarce</strong> dla zalogowanego konta Microsoft. Nie są jeszcze synchronizowane między urządzeniami ani z launcherem. Nie są to statystyki serwera Minecraft.</p>
+                <a class="profile-launcher-link" href="#download">Pobierz launcher MINEVORA →</a>
+              </section>
               <button id="msalLogin" class="primary" type="button" disabled aria-describedby="accountNotice">Zaloguj przez Microsoft</button>
               <button id="msalLogout" class="primary" type="button" hidden>Wyloguj</button>
-              <small id="accountNotice">Witryna korzysta z autoryzacji Microsoft. Sesja dotyczy strony WWW; launcher Minecraft wymaga oddzielnego zalogowania i licencji na grę.</small>
+              <small id="accountNotice">Witryna korzysta z autoryzacji Microsoft. Profil jest lokalny dla tej przeglądarki; uruchomienie Minecraft Java nadal wymaga osobnego uwierzytelnienia i licencji.</small>
             </div>
             <p class="subtext">Uwaga: dostęp do konta MINEVORA i posiadanie Minecraft Java to dwie różne rzeczy. Do uruchamiania gry launcher nadal wymaga autoryzacji oraz odpowiedniej licencji.</p>
           </section>
