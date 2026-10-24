@@ -1,0 +1,19 @@
+{
+  // Replace the D1 ID after running: npx wrangler d1 create minevora-profiles
+  "name": "minevora-profile-api",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  "vars": {
+    "MS_CLIENT_ID": "72a4154b-5254-4c4b-958f-0a5181a0ad93"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "minevora-profiles",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "observability": { "enabled": false }
+}
