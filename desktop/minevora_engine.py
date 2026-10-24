@@ -49,9 +49,9 @@ def save_oauth_config(application_id, callback):
 
 def client_id():
     try:
-        return str(json.loads(CONFIG.read_text(encoding='utf-8')).get('client_id', '')).strip()
+        return str(json.loads(CONFIG.read_text(encoding='utf-8')).get('client_id', '72a4154b-5254-4c4b-958f-0a5181a0ad93')).strip()
     except (OSError, ValueError, TypeError):
-        return ''
+        return '72a4154b-5254-4c4b-958f-0a5181a0ad93'
 
 
 def save_client_id(value):
