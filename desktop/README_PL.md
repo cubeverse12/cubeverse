@@ -1,29 +1,39 @@
-# MINEVORA — wygląd 1:1 ze stroną GitHub Pages
+# MINEVORA Launcher — wersja integracyjna (Windows 11)
 
-Ta wersja nie tworzy drugiego interfejsu w Qt. Uruchamia w oknie aplikacji **dokładnie ten sam lokalny** `../index.html`, `../minevora-reference.css`, `../avatar-preview.js`, `../minevora-reference.js` oraz `../assets/`, co strona https://cubeverse12.github.io/cubeverse/.
+## Co zawiera
 
-Dzięki temu menu, logo, fioletowo-granatowe kolory, grafiki i model 3D pochodzą z tych samych plików. Plik `native-bridge.js` jest wstrzykiwany **tylko wewnątrz Windows** i zamienia demonstracyjne kliknięcia w ograniczone wywołania Pythona.
+- Launcher Qt korzysta z **tych samych** plików strony `index.html`, `minevora-reference.css`, ikonek i fioletowego wilka. Obok istniejącego menu dodaje lokalną zakładkę **Graj / Instalacje**.
+- Wybór oficjalnych stabilnych wydań Minecraft Java i loaderów Vanilla / Fabric / Forge / NeoForge / Quilt. Nie każda wersja wspiera wszystkie loadery.
+- Kliknięcie **GRAJ** może automatycznie uruchomić instalację brakującego profilu, a następnie wznowić uruchamianie. Do gry potrzebne jest osobne logowanie Microsoft z licencją Minecraft Java.
+- Pobieranie wielu wersji wymaga **wyraźnego potwierdzenia**; program nie uruchamia ogromnej instalacji samoczynnie.
+- Ręczny transfer profilu WWW: zaloguj się na stronie, wyeksportuj profil w **Moje konto → Eksportuj profil do launchera (JSON)**, a następnie w aplikacji wybierz **Importuj profil WWW (JSON)**. Plik zawiera wyłącznie nick, ulubiony tryb, kolor i awatar — nigdy tokeny lub hasła.
+- Strona „Moje konto” otwiera się w przeglądarce systemowej. Logowanie do strony i do Minecraft Java to odrębne sesje.
 
-## Uruchomienie — Windows 11
+## Ważne ograniczenia
 
-1. Pobierz **całe repozytorium** ZIP z tej gałęzi (sam folder `desktop` nie wystarczy).
-2. Rozpakuj do własnego folderu, nie uruchamiaj skryptów z archiwum.
-3. Uruchom `desktop/START_WINDOWS.bat`. Skrypt instaluje zależności we własnym .venv.
-4. W aplikacji: wybierz wersję i loader, przejdź do **Instalacje** i kliknij instalację. Możesz też wprost kliknąć **GRAJ** — brakujące wydanie zostanie pobrane.
-5. Do uruchomienia Minecraft Java potrzebne jest legalne konto Microsoft z grą. Kliknij **Zaloguj Microsoft**. Logowanie wymaga *Twojego własnego* Client ID z Entra i zgodnego `http://localhost:8765/callback` w konfiguracji aplikacji. Nie wpisuj hasła do launchera.
-6. Kliknij `+` przy skinie, aby wczytać lokalny PNG 64×64 lub 64×32. Animacje na stronie zachowują dotychczasowe tryby.
-7. Opcja **Pobierz wszystkie stabilne wersje** wymaga dodatkowego potwierdzenia i dużego zapasu miejsca. Przerwanie następuje dopiero po bieżącej operacji.
+**Synchronizacja profilu nie jest jeszcze automatyczna.** Wymaga hostowanego API, bazy danych i poprawnego sprawdzania tokenów Microsoft po stronie serwera. GitHub Pages nie może sam pełnić roli prywatnego backendu. Nie dodawaj sekretów ani tokenów do statycznej strony lub do repozytorium.
 
-## Zakres i ograniczenia
+**Inteligentna kontrola aplikacji Windows 11:** kompilacja EXE nie oznacza, że Windows pozwoli uruchomić plik. Publiczne wydanie powinno być poprawnie podpisane przez zweryfikowanego wydawcę. Workflow oferuje podpis Authenticode, jeśli administrator repozytorium skonfiguruje zaufany certyfikat w `MINEVORA_SIGNING_PFX_BASE64` i `MINEVORA_SIGNING_PFX_PASSWORD`. W przeciwnym razie ZIP jest oznaczony **UNSIGNED DEVELOPMENT BUILD** i może zostać zablokowany. **Nie wyłączaj Smart App Control, aby to obejść.**
 
-- **Ten sam wygląd**: wynika z użycia dosłownie tego samego HTML, CSS, JS i obrazów. Wszystko jest ładowane z dysku, więc GitHub Pages nie musi działać w czasie uruchamiania.
-- **Backend**: zawiera oryginalne moduły MINEVORA 20 (`backend.py`, `core.py`, `minevora_engine.py`, `auth_diagnostics.py`). Zachowuje profile, instalację Java, zgodne loadery i uruchamianie gry.
-- **Skins**: import lokalnych PNG i render 3D; nie pobiera automatycznie aktualnego skina z konta Microsoft. Historyczny format 64×32 jest dopełniany pustą warstwą; stara geometria ramion może wymagać dalszego odwzorowania.
-- **Marketplace** pozostaje demonstracyjny. Nie ma aktywnych zakupów ani płatności.
-- **PvP HUD** działa wyłącznie w dotychczas wspieranej kombinacji Fabric 1.21.1, o ile pobranie zweryfikowanego wydania się powiedzie.
-- **Wersje** są pobierane z katalogu stabilnych Minecraft Java; nie każda stara wersja ma zgodne loadery.
-- **Testy**: składnię modułu wejściowego sprawdzono statycznie. Nie zweryfikowano jeszcze uruchomienia graficznego, logowania Microsoft, wszystkich wersji ani builda EXE na Windows 11. To gałąź testowa do przeglądu.
+## Testy i budowanie
 
-## Dlaczego nie otwiera od razu publicznej strony?
+Repozytorium ma workflow `.github/workflows/minevora-desktop-dev.yml` uruchamiany na gałęzi integracyjnej:
+- `python -m compileall -q desktop`
+- `node --check desktop/native-bridge.js`
+- `python -m unittest discover -s desktop/tests -v`
+- PyInstaller Windows 11: plik EXE, lokalne zasoby HTML/CSS/JS oraz grafiki w jednym katalogu.
 
-Aplikacja wyświetla lokalny, znany kod strony. Połączenie do systemu plików i gry otrzymuje tylko ta lokalna kopia; nie udostępniamy uprzywilejowanego mostu dowolnej zdalnej witrynie. Żadnych haseł ani tokenów nie zapisuje się w projektowych plikach.
+Archiwum *development* z GitHub Actions nie jest produkcyjnym, podpisanym instalatorem. Należy oddzielnie sprawdzić logowanie Microsoft, instalacje wersji i uruchamianie gry na Windows 11.
+
+## Jak używać profilu z witryny
+
+1. Na https://cubeverse12.github.io/cubeverse/#account zaloguj się i zapisz profil.
+2. Kliknij **Eksportuj profil do launchera (JSON)** (po wdrożeniu zmian z tej gałęzi na stronę).
+3. W launcherze otwórz **Graj / Instalacje**, kliknij **Importuj profil WWW (JSON)** i wybierz pobrany plik.
+4. Ponów eksport/import, jeśli później zmienisz zdjęcie lub nick. To import lokalny, nie synchronizacja w tle.
+
+## Pozostałe kroki do wydania publicznego
+
+1. Właściciel projektu dostarcza zaufany certyfikat podpisywania oprogramowania i konfiguruje workflow. Sprawdzić podpis i reputację przed rozpowszechnianiem.
+2. Hostować chronione HTTPS API synchronizacji, weryfikujące token Microsoft i uprawnienia przed zapisem/odczytem profilu. Ustalić zasady przechowywania i usuwania danych (zwłaszcza zdjęć).
+3. Osobno przetestować Minecraft Java i instalacje Vanilla/Fabric/Forge/NeoForge/Quilt na wspieranych wersjach. PvP HUD wspierany tylko tam, gdzie dostępny jest zgodny mod.
