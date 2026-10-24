@@ -1,6 +1,6 @@
 // MINEVORA: Microsoft sign-in on GitHub Pages using MSAL Browser (auth code + PKCE).
 // This frontend does not store Minecraft tokens or create a server-side MINEVORA profile.
-import { PublicClientApplication } from "@azure/msal-browser";
+import { createStandardPublicClientApplication } from "@azure/msal-browser";
 const CLIENT_ID = "72a4154b-5254-4c4b-958f-0a5181a0ad93";
 const REDIRECT_URI = "https://cubeverse12.github.io/cubeverse/";
 const btn = document.getElementById("msalLogin");
@@ -183,7 +183,7 @@ if (resetButton) resetButton.addEventListener("click", () => {
 (async () => {
   if (!btn || !logoutBtn) return;
   try {
-    const msal = await PublicClientApplication.createPublicClientApplication({
+    const msal = await createStandardPublicClientApplication({
       auth: {
         clientId: CLIENT_ID,
         authority: "https://login.microsoftonline.com/consumers",
