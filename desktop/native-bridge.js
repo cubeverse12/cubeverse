@@ -39,7 +39,7 @@
     const navlink = document.createElement("a");
     navlink.className = "navitem native-nav";
     navlink.href = "#launcher";
-    navlink.textContent = "⚡ Graj / Instalacje";
+    const navIcon=document.createElement("img");navIcon.src="assets/icons/download.png";navIcon.alt="";navlink.append(navIcon,document.createTextNode(" Graj / Instalacje"));
     nav.prepend(navlink);
 
     const panel = document.createElement("section");
@@ -66,6 +66,7 @@
       </div>
       <h2>Moje konto Minecraft Java</h2>
       <p id="nativeAccount">Nie zalogowano do Minecraft Java. Konto MINEVORA na stronie nie jest jeszcze połączone automatycznie z tym launcherem.</p>
+      <p><img id="nativeWebAvatar" alt="Zdjęcie profilu MINEVORA" style="width:64px;height:64px;border-radius:12px;object-fit:cover;display:none;border:2px solid #9673e8"> <span id="nativeWebNickname"></span></p>
       <div class="desktop-row">
         <button type="button" id="nativeLogin">Zaloguj przez Microsoft</button>
         <button type="button" id="nativeSkin">Wczytaj skin PNG</button>
@@ -89,6 +90,7 @@
     byId("nativeInstall").addEventListener("click", () => post("install",settings()));
     byId("nativeCreate").addEventListener("click", () => post("create_profile",{...settings(),name:byId("nativeProfileName").value}));
     byId("nativeLogin").addEventListener("click",()=>post("login"));
+    document.querySelectorAll("a[href='#account']").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();e.stopImmediatePropagation();post("web_account")},true));
     byId("nativeSkin").addEventListener("click",()=>post("skin"));
     byId("nativeProfileImport").addEventListener("click",()=>post("profile_import"));
     byId("nativeBulk").addEventListener("click",()=>post("bulk"));
@@ -133,7 +135,10 @@
       }
       if(event.kind==="minevora_profile"){
         const nickname=typeof event.nickname==="string"?event.nickname:"";
-        if(nickname)byId("nativeProfileName").value=nickname;
+        if(nickname){byId("nativeProfileName").value=nickname;byId("nativeWebNickname").textContent=nickname;}
+        const avatar=byId("nativeWebAvatar");
+        if(typeof event.avatarData==="string" && /^data:image\\/webp;base64,[A-Za-z0-9+/=]+$/.test(event.avatarData) && event.avatarData.length<400000){avatar.src=event.avatarData;avatar.style.display="inline-block"}
+        else {avatar.removeAttribute("src");avatar.style.display="none";}
         message("Zaimportowano profil ze strony MINEVORA. Synchronizacja online wymaga jeszcze usługi kont.");
       }
       if(event.kind==="skin")message("Zapisano skin Minecraft w launcherze.");
