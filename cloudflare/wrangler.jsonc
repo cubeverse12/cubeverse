@@ -5,7 +5,7 @@
   "compatibility_date": "2026-10-01",
   "workers_dev": true,
   "vars": {
-    "MS_CLIENT_ID": "72a4154b-5254-4c4b-958f-0a5181a0ad93"
+    "MS_API_AUDIENCE": "72a4154b-5254-4c4b-958f-0a5181a0ad93"
   },
   "d1_databases": [
     {
