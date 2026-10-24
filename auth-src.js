@@ -186,7 +186,7 @@ if (resetButton) resetButton.addEventListener("click", () => {
     const msal = await PublicClientApplication.createPublicClientApplication({
       auth: {
         clientId: CLIENT_ID,
-        authority: "https://login.microsoftonline.com/common",
+        authority: "https://login.microsoftonline.com/consumers",
         redirectUri: REDIRECT_URI + "auth-popup.html",
         postLogoutRedirectUri: REDIRECT_URI,
         navigateToLoginRequestUrl: false
@@ -226,7 +226,7 @@ if (resetButton) resetButton.addEventListener("click", () => {
         redirectFallback.disabled = true;
         status("Przekierowuję do Microsoft…");
         try {
-          await msal.loginRedirect({ scopes: ["openid", "profile"], redirectStartPage: REDIRECT_URI + "#account" });
+          await msal.loginRedirect({ scopes: ["openid", "profile"], redirectUri: REDIRECT_URI, redirectStartPage: REDIRECT_URI + "#account" });
         } catch (e) {
           redirectFallback.disabled = false;
           const code = typeof e?.errorCode === "string" ? e.errorCode.replace(/[^a-zA-Z0-9_]/g, "").slice(0, 70) : "";
