@@ -130,6 +130,7 @@
                 <a class="profile-launcher-link" href="#download">Pobierz launcher MINEVORA →</a>
               </section>
               <button id="msalLogin" class="primary" type="button" disabled aria-describedby="accountNotice">Zaloguj przez Microsoft</button>
+              <button id="msalRedirectFallback" class="profile-secondary" type="button" disabled>Alternatywnie: zaloguj przez przekierowanie</button>
               <button id="msalLogout" class="primary" type="button" hidden>Wyloguj</button>
               <small id="accountNotice">Witryna korzysta z autoryzacji Microsoft. Profil jest lokalny dla tej przeglądarki; uruchomienie Minecraft Java nadal wymaga osobnego uwierzytelnienia i licencji.</small>
             </div>
@@ -149,6 +150,6 @@
 </div>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <script src="minevora-reference.js?v=20261024-profile-photo" defer></script>
-<script src="msal-auth.bundle.js?v=20261024-account-session-v2" defer></script>
+<script src="msal-auth.bundle.js?v=20261024-popup-login-v1" defer></script>
 </body>
 </html>
