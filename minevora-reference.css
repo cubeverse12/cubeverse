@@ -57,3 +57,10 @@
 .launcher-account-actions{display:flex;gap:12px;flex-wrap:wrap}
 .launcher-account-notice{font-size:13px;line-height:1.8;color:#c2c4e3;margin-top:23px;max-width:700px}
 @media(max-width:580px){.launcher-account-card{flex-direction:column;align-items:flex-start;padding:17px}.nav-emoji{font-size:23px;width:27px;flex-basis:27px}}
+
+/* Discord: original recognizable symbol with MINEVORA neon glow */
+.discord-neon-icon{position:relative;width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:13px;background:radial-gradient(circle,#5865f23d 10%,#753bde0b 72%,transparent 80%)}
+.discord-neon-icon::before{content:"";position:absolute;inset:9px;border-radius:50%;background:#9271ff;filter:blur(12px);opacity:.65;pointer-events:none}
+.discord-neon-icon svg{position:relative;z-index:1;width:36px;height:36px;fill:#e5e0ff;filter:drop-shadow(0 0 4px #b78cff) drop-shadow(0 0 10px #5865f2);transition:fill .18s,filter .18s}
+.sidefoot .navitem:hover .discord-neon-icon svg{fill:#fff;filter:drop-shadow(0 0 5px #fff) drop-shadow(0 0 14px #8d67ff)}
+@media(max-width:525px){.discord-neon-icon{width:34px;height:34px;flex-basis:34px}.discord-neon-icon svg{width:29px;height:29px}}
