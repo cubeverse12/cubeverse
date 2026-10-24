@@ -81,7 +81,8 @@
             <p class="subtext">Jedno konto do strony MINEVORA i wejścia na stronę logowania z launchera. Nie musisz tworzyć dodatkowego hasła MINEVORA.</p>
             <div class="account-setup-card">
               <span class="account-mark" aria-hidden="true">▦</span>
-              <div><h2>Logowanie przez Microsoft</h2><p>Zaloguj się istniejącym kontem Microsoft lub utwórz je na oficjalnej stronie Microsoft. MINEVORA nie zbiera ani nie przechowuje Twojego hasła.</p></div>
+              <div id="signInExplanation"><h2>Logowanie przez Microsoft</h2><p>Zaloguj się istniejącym kontem Microsoft lub utwórz je na oficjalnej stronie Microsoft. MINEVORA nie zbiera ani nie przechowuje Twojego hasła.</p></div>
+              <h2 id="signedInHeading" hidden>Edytuj swój profil MINEVORA</h2>
               <p id="accountState" role="status" aria-live="polite">Ładowanie logowania Microsoft…</p>
               <p id="accountProfile" hidden></p>
               <section id="playerProfile" class="player-profile" aria-label="Profil gracza MINEVORA" hidden>
@@ -148,6 +149,6 @@
 </div>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <script src="minevora-reference.js?v=20261024-profile-photo" defer></script>
-<script src="msal-auth.bundle.js?v=20261024-profile-photo-97ecf" defer></script>
+<script src="msal-auth.bundle.js?v=20261024-account-session-v2" defer></script>
 </body>
 </html>
