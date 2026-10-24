@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090e26">
-<meta name="description" content="MINEVORA — launcher Minecraft Java, instalacje, minigry, Marketplace i animowana postać Minecraft 3D. Spójny podgląd projektu.">
+<meta name="description" content="MINEVORA — świat minigier Minecraft. Serwer już wkrótce! Aktualności, planowane tryby i Marketplace.">
 <title>MINEVORA — Twój świat minigier</title>
 <link rel="icon" href="assets/minevora_logo.png" type="image/png">
 <link rel="stylesheet" href="minevora-reference.css">
@@ -14,19 +14,16 @@
   <aside class="sidebar" aria-label="Menu MINEVORA">
     <a class="brand" href="#home" aria-label="MINEVORA — strona główna">
       <img src="assets/minevora_logo.png" alt="MINEVORA">
-      <span class="brand-ver">v1.0.0 · PODGLĄD STRONY</span>
+      <span class="brand-ver">SERWER · WKRÓTCE</span>
     </a>
     <nav class="sidenav" aria-label="Nawigacja">
       <a class="navitem active" href="#home" data-route="home"><img src="assets/icons/home.png" alt=""> Strona główna</a>
-      <a class="navitem" href="#versions" data-route="versions"><img src="assets/icons/play.png" alt=""> Graj / Wersje</a>
-      <a class="navitem" href="#installations" data-route="installations"><img src="assets/icons/package.png" alt=""> Instalacje</a>
+      <a class="navitem" href="#play" data-route="play"><img src="assets/icons/play.png" alt=""> Graj</a>
       <a class="navitem" href="#minigames" data-route="minigames"><img src="assets/icons/minigames.png" alt=""> Minigry</a>
       <a class="navitem" href="#marketplace" data-route="marketplace"><img src="assets/icons/marketplace.png" alt=""> Marketplace</a>
-      <a class="navitem" href="#skins" data-route="skins"><img src="assets/icons/skins.png" alt=""> Skórki</a>
-      <a class="navitem" href="#settings" data-route="settings"><img src="assets/icons/settings.png" alt=""> Ustawienia</a>
     </nav>
     <div class="sidefoot">
-      <a class="navitem" href="#discord" data-route="discord"><img src="assets/icons/discord.png" alt=""> Discord <span class="side-indicator" aria-hidden="true"></span></a>
+      <a class="navitem" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer"><img src="assets/icons/discord.png" alt=""> Discord <span class="side-indicator" aria-hidden="true"></span></a>
       <a class="navitem" href="#download" data-route="download"><img src="assets/icons/download.png" alt=""> Pobieranie</a>
     </div>
   </aside>
@@ -41,38 +38,20 @@
           <section class="view home-hero" id="homeView" data-view="home">
             <div class="fantasy-backdrop" aria-hidden="true"></div>
             <div class="hero-text">
-              <div class="hero-brand"><img src="assets/minevora_logo.png" alt=""><div><h1>MINEVORA</h1><strong>TWÓJ ŚWIAT MINIGIER</strong></div></div>
-              <div class="hero-modes">BEDWARS • SKYWARS • PVP • PARKOUR • I WIĘCEJ!</div>
-              <a href="#minigames" class="join-btn">DOŁĄCZ TERAZ <span>→</span></a>
-            </div>
-            <div class="game-launch">
-              <button type="button" id="playBtn" class="mega-play"><span class="play-triangle">▶</span> GRAJ</button>
-              <div class="launch-controls">
-                <label>Wersja<select id="gameVersion"><option>1.21.4</option><option>1.21.1</option><option>1.20.1</option><option>1.19.4</option></select></label>
-                <label>Loader<select id="gameLoader"><option>Fabric</option><option>Vanilla</option><option>Forge</option><option>NeoForge</option><option>Quilt</option></select></label>
-                <label>Profil<select id="gameProfile"><option>MINEVORA</option></select></label>
-                <a href="#installations" class="config-btn" title="Zarządzaj instalacjami">☷</a>
-              </div>
-              <div class="game-options">
-                <label><input type="checkbox" id="rememberVersion" checked> Pamiętaj wybór</label>
-                <label><input type="checkbox" id="fullscreenCheck" checked> Pełny ekran</label>
-                <label><input type="checkbox" id="fpsCheck" checked> Optymalizacje FPS</label>
-              </div>
+              <div class="hero-brand"><img src="assets/minevora_logo.png" alt=""><div><h1>MINEVORA</h1><strong>TWÓJ ŚWIAT GIER</strong></div></div>
             </div>
           </section>
-          <section class="view tab-panel" id="versionsView" data-view="versions" hidden>
-            <p class="eyebrow">MINEVORA / MINECRAFT JAVA</p><h1>Graj / <em>Wersje</em></h1>
-            <p class="subtext">Wybierz wersję i loader. Tutaj testujesz interfejs strony — uruchomienie Minecrafta wymaga aplikacji Windows.</p>
-            <div class="fieldgrid"><label>Wersja<select id="tabVersion"><option>1.21.4</option><option>1.21.1</option><option>1.20.1</option><option>1.19.4</option></select></label><label>Loader<select id="tabLoader"><option>Fabric</option><option>Vanilla</option><option>Forge</option><option>NeoForge</option><option>Quilt</option></select></label></div>
-            <div class="profile-example"><div><b>MINEVORA — aktualny profil</b><p id="profileSummary">Minecraft Java 1.21.4 • Fabric</p></div><span>PRZYKŁAD</span></div>
-            <button class="primary" id="tabPlay" type="button">▶ GRAJ</button>
-            <div class="inline-info" role="status" id="playInfo">To podgląd strony WWW. Przycisk GRAJ nie uruchamia gry w przeglądarce.</div>
-          </section>
-          <section class="view tab-panel" id="installationsView" data-view="installations" hidden>
-            <p class="eyebrow">MINEVORA / MENEDŻER</p><h1>Twoje <em>instalacje</em></h1>
-            <p class="subtext">Układ w stylu launchera Minecraft. Przykładowe profile są przechowywane w tej przeglądarce.</p>
-            <div id="profileList" class="profile-list"></div>
-            <div class="create-profile"><h2>＋ Nowa instalacja</h2><div class="fieldgrid"><label>Nazwa<input type="text" id="newProfileName" maxlength="36" placeholder="Moja instalacja"></label><label>Wersja<select id="newProfileVersion"><option>1.21.4</option><option>1.21.1</option><option>1.20.1</option><option>1.19.4</option></select></label><label>Loader<select id="newProfileLoader"><option>Vanilla</option><option>Fabric</option><option>Forge</option><option>NeoForge</option><option>Quilt</option></select></label></div><button class="primary" type="button" id="createProfile">Utwórz profil</button></div>
+          <section class="view tab-panel" id="playView" data-view="play" hidden>
+            <p class="eyebrow">MINEVORA / ŚWIAT GIER</p>
+            <h1>MINEVORA — <em>Twój świat gier</em></h1>
+            <div class="coming-soon-announcement" role="status">
+              <span class="eyebrow">OGŁOSZENIE</span>
+              <h2>Serwer Minecraft MINEVORA już wkrótce!</h2>
+              <p>Pracujemy nad światem minigier, w którym zagrasz ze znajomymi. Planujemy między innymi BedWars, SkyWars, Parkour i pojedynki PvP.</p>
+              <p>Datę otwarcia ogłosimy, kiedy serwer będzie gotowy. Na razie możesz zobaczyć planowane tryby.</p>
+              <a class="primary as-link" href="#minigames">ZOBACZ PLANOWANE MINIGRY →</a>
+              <a class="primary as-link discord-invite" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer">DOŁĄCZ NA DISCORD →</a>
+            </div>
           </section>
           <section class="view tab-panel" id="minigamesView" data-view="minigames" hidden>
             <p class="eyebrow">MINEVORA / SERWER</p><h1>Świat <em>minigier</em></h1><p class="subtext">Tryby projektowane dla serwera. Kafelki nie oznaczają dostępności serwerów w czasie rzeczywistym.</p>
@@ -84,66 +63,22 @@
             <p class="eyebrow">MINEVORA / SKLEP</p><h1>Marketplace <em>MINEVORA</em></h1><p class="subtext">Mapy, budowle, pluginy i mody. To demonstracja sklepu — nie można tu kupować ani sprzedawać.</p>
             <div class="fieldgrid"><label class="grow">Szukaj<input id="shopSearch" type="search" placeholder="Wpisz nazwę produktu…"></label><label>Kategoria<select id="shopFilter"><option value="all">Wszystkie</option><option value="mapy">Mapy</option><option value="budowle">Budowle</option><option value="pluginy">Pluginy</option><option value="mody">Mody</option></select></label></div><div id="shopGrid" class="shop-grid"></div>
           </section>
-          <section class="view tab-panel" id="skinsView" data-view="skins" hidden>
-            <p class="eyebrow">MINEVORA / SKÓRKI</p><h1>Twój avatar <em>3D</em></h1><p class="subtext">Obracaj postać po prawej stronie, zmieniaj animacje i wybieraj pokazowe warianty. Podgląd wykorzystuje teksturę Minecraft 64×64.</p>
-            <div class="motion-options" id="motionOptions">
-              <button type="button" data-motion="idle" aria-pressed="true">🧍 Spoczynek</button>
-              <button type="button" data-motion="walk" aria-pressed="false">🚶 Chód</button>
-              <button type="button" data-motion="run" aria-pressed="false">🏃 Bieg</button>
-              <button type="button" data-motion="wave" aria-pressed="false">👋 Machanie</button>
-            </div>
-            <p class="subtext">Zapis własnej tekstury skina w launcherze wymaga osobnego połączenia z aplikacją Windows.</p>
-          </section>
-          <section class="view tab-panel" id="settingsView" data-view="settings" hidden>
-            <p class="eyebrow">MINEVORA / PERSONALIZACJA</p><h1>Ustawienia <em>wyglądu</em></h1><p class="subtext">Spójne barwy, typografia i układ na stronie oraz w projekcie aplikacji.</p>
-            <div class="settings-group"><label><input type="checkbox" id="effectCheck" checked> Efekt neonowego podświetlenia</label><label><input type="checkbox" id="motionCheck" checked> Animacje interfejsu</label><label><input type="checkbox" id="rememberSettings" checked> Zapamiętaj wybory na tym urządzeniu</label></div>
-          </section>
-          <section class="view tab-panel" id="discordView" data-view="discord" hidden>
-            <p class="eyebrow">MINEVORA / SPOŁECZNOŚĆ</p><h1>Nasza <em>społeczność</em></h1><p class="subtext">Wspólna przestrzeń dla graczy Minecraft, twórców map i fanów MINEVORA.</p><p>Link do serwera Discord będzie dostępny, gdy zostanie podany i potwierdzony.</p>
-          </section>
+          
+          
+          
           <section class="view tab-panel" id="downloadView" data-view="download" hidden>
             <p class="eyebrow">MINEVORA / POBIERANIE</p><h1>Pobierz <em>launcher</em></h1><p class="subtext">Nowy wygląd strony jest podglądem. Gotowy instalator aplikacji Windows z tym wyglądem nie został jeszcze opublikowany.</p>
             <a class="primary as-link" href="https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.3" target="_blank" rel="noopener noreferrer">Zobacz starsze wydanie 18.3.3 ↗</a>
             <p class="subtext">To starsza paczka źródłowa, a nie nowy instalator EXE.</p>
           </section>
         </div>
-        <section class="character-panel" aria-label="Twoja postać">
-          <div class="character-hdr">TWOJA POSTAĆ <span>3D PREVIEW</span></div>
-          <div class="character-stage" id="characterStage" tabindex="0" aria-label="Postać 3D. Przeciągnij myszką lub użyj strzałek, aby obrócić.">
-            <div class="stage-halo"></div><div class="stage-floor"></div>
-            <div class="avatar-root" id="avatarRoot"><div class="avatar-model" id="avatarModel"></div></div>
-            <div class="preview-controls"><button id="rotatePrev" type="button" aria-label="Obróć postać w lewo">↶</button><span>OBRÓĆ POSTAĆ</span><button id="rotateNext" type="button" aria-label="Obróć postać w prawo">↷</button></div>
-          </div>
-          <div class="skin-gallery" aria-label="Przykładowe warianty kolorów">
-            <button type="button" id="addSkinButton" class="skin-plus" title="Funkcja dodawania skina będzie dostępna w aplikacji" aria-label="Informacje o dodawaniu skina">＋</button>
-            <button type="button" class="skin-thumb picked" data-skin="0" aria-label="Wariant 1: oryginalny"><img src="assets/skin_hoodie_64.png" alt=""></button>
-            <button type="button" class="skin-thumb" data-skin="1" aria-label="Wariant 2: pokazowy"><img src="assets/skin_hoodie_64.png" alt=""></button>
-            <button type="button" class="skin-thumb" data-skin="2" aria-label="Wariant 3: pokazowy"><img src="assets/skin_hoodie_64.png" alt=""></button>
-            <button type="button" class="skin-thumb" data-skin="3" aria-label="Wariant 4: pokazowy"><img src="assets/skin_hoodie_64.png" alt=""></button>
-          </div>
-          <div class="avatar-actions"><a href="#skins">♟ Zmień skórkę</a><button type="button" id="animationsBtn">♧ Animacje</button><button type="button" id="threeDBtn">⬡ 3D</button></div>
-        </section>
+        
       </div>
-      <section id="homeExtra">
-        <div class="feature-tiles">
-          <a class="feature-tile tile-install" href="#installations"><div class="tile-icon">🧱</div><div><h2>INSTALACJE</h2><p>Zarządzaj wersjami,<br>loaderami i modami</p></div><span class="tile-arrow">→</span></a>
-          <a class="feature-tile tile-games" href="#minigames"><div class="tile-icon">⚔️</div><div><h2>MINIGRY</h2><p>BedWars, SkyWars,<br>Duels i więcej!</p></div><span class="tile-arrow">→</span></a>
-          <a class="feature-tile tile-market" href="#marketplace"><div class="tile-icon">💎</div><div><h2>MARKETPLACE</h2><p>Mapy, pluginy,<br>budowle i dodatki</p></div><span class="tile-arrow">→</span></a>
-          <a class="feature-tile tile-skins" href="#skins"><div class="tile-icon">🧑‍🎤</div><div><h2>SKÓRKI</h2><p>Edytor skórek 3D<br>i galeria</p></div><span class="tile-arrow">→</span></a>
-        </div>
-        <div class="bottom-row">
-          <section class="news"><h2>AKTUALNOŚCI</h2><div class="news-inner">
-            <article class="news-post"><img src="assets/enchanted_hero.jpg" alt="Fantastyczny świat Minecraft"><div><strong>WIELKA AKTUALIZACJA</strong><p>Nowy wygląd WWW inspirowany MINEVORA Launcher.</p><small>24.10.2026</small></div><a href="#versions" aria-label="Zobacz aktualizację">→</a></article>
-            <article class="news-post"><img src="assets/en_marketplace.jpg" alt="Ilustracja Marketplace"><div><strong>NOWY MARKETPLACE</strong><p>Podgląd sklepu z mapami i dodatkami.</p><small>Projekt</small></div><a href="#marketplace" aria-label="Otwórz Marketplace">→</a></article>
-          </div></section>
-          <section class="server-status"><h2>STATUS SERWERA <span>DEMO</span></h2><div class="server-state"><span class="status-dot amber"></span> Niezweryfikowany</div><p>Dane o graczach i dostępności nie są połączone z serwerem.</p><dl><dt>Wersja gry:</dt><dd>1.21.4 (przykład)</dd><dt>Tryby:</dt><dd>9 planowanych</dd></dl></section>
-        </div>
-      </section>
-      <p class="legal">MINEVORA to niezależny projekt Minecraft. Podgląd WWW nie instaluje gry, modów ani nie obsługuje płatności. Nie jest powiązany z Mojang ani Microsoft.</p>
+      <p class="legal">MINEVORA to niezależny projekt Minecraft. Strona informacyjna. Instalowanie Minecrafta odbywa się w launcherze Windows; Marketplace jest demonstracyjny. Nie jest powiązany z Mojang ani Microsoft.</p>
     </main>
   </div>
 </div>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
-<script src="avatar-preview.js" defer></script><script src="minevora-reference.js" defer></script>
+<script src="minevora-reference.js" defer></script>
 </body>
 </html>
