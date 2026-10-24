@@ -5,6 +5,7 @@ const CLIENT_ID = "72a4154b-5254-4c4b-958f-0a5181a0ad93";
 const REDIRECT_URI = "https://cubeverse12.github.io/cubeverse/";
 const btn = document.getElementById("msalLogin");
 const logoutBtn = document.getElementById("msalLogout");
+const redirectFallback = document.getElementById("msalRedirectFallback");
 const state = document.getElementById("accountState");
 const profile = document.getElementById("accountProfile");
 const badge = document.querySelector(".visitor-badge");
@@ -82,6 +83,7 @@ function setUser(user) {
   pendingAvatarData = null;
   if (btn) btn.hidden = Boolean(user);
   if (logoutBtn) logoutBtn.hidden = !user;
+  if (redirectFallback) redirectFallback.hidden = Boolean(user);
   if (profile) {
     profile.textContent = user ? "Zalogowano jako: " + (user.name || "Konto Microsoft") : "";
     profile.hidden = !user;
@@ -200,16 +202,38 @@ if (resetButton) resetButton.addEventListener("click", () => {
     // After a successful Microsoft redirect, show the actual account screen.
     if (response?.account && !location.hash) location.hash = "#account";
     btn.disabled = false;
+    // A popup keeps the main site loaded, so a completed sign-in updates the
+    // player profile immediately even if full-page redirects fail in Chrome.
     btn.addEventListener("click", async () => {
       btn.disabled = true;
-      status("Otwieram bezpieczne logowanie Microsoft…");
+      status("Otwieram okno logowania Microsoft…");
       try {
-        await msal.loginRedirect({ scopes: ["openid", "profile"], redirectStartPage: REDIRECT_URI + "#account" });
-      } catch (_) {
+        const response = await msal.loginPopup({ scopes: ["openid", "profile"] });
+        if (!response?.account) throw new Error("Brak konta po zalogowaniu.");
+        msal.setActiveAccount(response.account);
+        setUser(response.account);
+        location.hash = "#account";
+        document.getElementById("playerProfile")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      } catch (e) {
         btn.disabled = false;
-        status("Nie udało się rozpocząć logowania. Sprawdź ustawienia aplikacji Microsoft.");
+        const code = typeof e?.errorCode === "string" ? e.errorCode.replace(/[^a-zA-Z0-9_]/g, "").slice(0, 70) : "";
+        status("Logowanie nie powiodło się" + (code ? " (kod: " + code + ")" : "") + ". Spróbuj opcji przekierowania poniżej lub sprawdź blokadę wyskakujących okien.");
       }
     });
+    if (redirectFallback) {
+      redirectFallback.disabled = false;
+      redirectFallback.addEventListener("click", async () => {
+        redirectFallback.disabled = true;
+        status("Przekierowuję do Microsoft…");
+        try {
+          await msal.loginRedirect({ scopes: ["openid", "profile"], redirectStartPage: REDIRECT_URI + "#account" });
+        } catch (e) {
+          redirectFallback.disabled = false;
+          const code = typeof e?.errorCode === "string" ? e.errorCode.replace(/[^a-zA-Z0-9_]/g, "").slice(0, 70) : "";
+          status("Nie udało się otworzyć Microsoft" + (code ? " (kod: " + code + ")" : "") + ".");
+        }
+      });
+    }
     logoutBtn.addEventListener("click", async () => {
       logoutBtn.disabled = true;
       try { await msal.logoutRedirect({ postLogoutRedirectUri: REDIRECT_URI }); }
