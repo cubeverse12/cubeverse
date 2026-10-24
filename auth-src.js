@@ -8,6 +8,8 @@ const logoutBtn = document.getElementById("msalLogout");
 const state = document.getElementById("accountState");
 const profile = document.getElementById("accountProfile");
 const badge = document.querySelector(".visitor-badge");
+const signInExplanation = document.getElementById("signInExplanation");
+const signedInHeading = document.getElementById("signedInHeading");
 const homeCard = document.querySelector('a[href="#account"] .feature-copy small');
 function status(message) { if (state) state.textContent = message; }
 // Public-site-only profile. Never save MSAL tokens or passwords in MINEVORA profile storage.
@@ -85,6 +87,8 @@ function setUser(user) {
     profile.hidden = !user;
   }
   if (badge) badge.textContent = user ? "ZALOGOWANO" : "GOŚĆ";
+  if (signInExplanation) signInExplanation.hidden = Boolean(user);
+  if (signedInHeading) signedInHeading.hidden = !user;
   if (homeCard) homeCard.textContent = user ? "Konto Microsoft połączone na tej stronie" : "Zaloguj przez Microsoft bez dodatkowego hasła";
   status(user ? "Sesja Microsoft aktywna na stronie MINEVORA." : "Nie jesteś zalogowany.");
   if (playerPanel) renderProfile(user, user ? loadProfile(user) : null);
@@ -185,7 +189,9 @@ if (resetButton) resetButton.addEventListener("click", () => {
         postLogoutRedirectUri: REDIRECT_URI,
         navigateToLoginRequestUrl: false
       },
-      cache: { cacheLocation: "sessionStorage" }
+      // Keep the MSAL session available when opening MINEVORA in another tab.
+      // MSAL, not our profile code, manages encrypted authentication artifacts.
+      cache: { cacheLocation: "localStorage" }
     });
     const response = await msal.handleRedirectPromise();
     const signed = response?.account || msal.getActiveAccount() || msal.getAllAccounts()[0] || null;
