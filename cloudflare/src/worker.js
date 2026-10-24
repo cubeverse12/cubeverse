@@ -8,8 +8,8 @@ export const CONSUMER_TENANT = "9188040d-6c67-4c5b-b112-36a304b66dad";
 export const ISSUER = "https://login.microsoftonline.com/" + CONSUMER_TENANT + "/v2.0";
 const JWKS = createRemoteJWKSet(new URL("https://login.microsoftonline.com/consumers/discovery/v2.0/keys"));
 const MODES = new Set(["BedWars", "SkyWars", "TNT Run", "Parkour", "Build Battle", "Spleef", "Duels", "Crystal PvP"]);
-const MAX_JSON = 180_000;
-const MAX_AVATAR = 120_000;
+const MAX_JSON = 450_000;
+const MAX_AVATAR = 400_000;
 
 function cors(origin) {
   const result = {
@@ -37,7 +37,7 @@ export function validateProfile(value) {
   const { nickname, mode, color, avatarData } = value;
   if (typeof nickname !== "string" || !/^[A-Za-z0-9_-]{3,20}$/.test(nickname)) return null;
   if (typeof mode !== "string" || !MODES.has(mode)) return null;
-  if (typeof color !== "string" || !/^#[0-9a-fA-F]{6}$/.test(color)) return null;
+  if (!["purple", "blue", "teal", "rose"].includes(color)) return null;
   if (typeof avatarData !== "string" || avatarData.length > MAX_AVATAR) return null;
   // Browser exports a local resized WebP image. No remote URLs, SVG or HTML.
   if (avatarData !== "" && !/^data:image\/webp;base64,[A-Za-z0-9+/]+={0,2}$/.test(avatarData)) return null;
