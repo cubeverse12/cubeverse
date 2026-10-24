@@ -22,6 +22,7 @@
       <a class="navitem" href="#installations" data-route="installations"><img src="assets/icons/package.png" alt=""> Instalacje</a>
       <a class="navitem" href="#minigames" data-route="minigames"><img src="assets/icons/minigames.png" alt=""> Minigry</a>
       <a class="navitem" href="#marketplace" data-route="marketplace"><img src="assets/icons/marketplace.png" alt=""> Marketplace</a>
+      <a class="navitem" href="#launcherAccount" data-route="launcherAccount"><span class="nav-emoji" aria-hidden="true">👤</span> Moje konto</a>
       <a class="navitem" href="#skins" data-route="skins"><img src="assets/icons/skins.png" alt=""> Skórki</a>
       <a class="navitem" href="#settings" data-route="settings"><img src="assets/icons/settings.png" alt=""> Ustawienia</a>
     </nav>
@@ -33,7 +34,7 @@
   <div class="workspace">
     <header class="topbar">
       <div class="back-search"><button class="back-btn" id="backBtn" type="button" title="Wróć na stronę główną" aria-label="Wróć na stronę główną">‹</button><span class="current-section" id="sectionName">MINEVORA</span></div>
-      <div class="user-area"><img class="user-avatar" src="assets/skin_hoodie_64.png" alt=""><span><strong>WILCZQ</strong><small><span class="status-dot"></span> Podgląd WWW</small></span><a class="account-shortcut" href="https://cubeverse12.github.io/cubeverse/#account" aria-label="Otwórz logowanie do konta MINEVORA na stronie">Konto MINEVORA ↗</a><a class="header-download" href="#download">Pobierz ↗</a></div>
+      <div class="user-area"><img class="user-avatar" src="assets/skin_hoodie_64.png" alt=""><span><strong>Nie zalogowano</strong><small><span class="status-dot amber"></span> Minecraft Java</small></span><a class="account-shortcut" href="https://cubeverse12.github.io/cubeverse/#account" aria-label="Otwórz logowanie do konta MINEVORA na stronie">Konto MINEVORA ↗</a><a class="header-download" href="#download">Pobierz ↗</a></div>
     </header>
     <main class="page">
       <div class="first-row">
@@ -83,6 +84,24 @@
           <section class="view tab-panel" id="marketplaceView" data-view="marketplace" hidden>
             <p class="eyebrow">MINEVORA / SKLEP</p><h1>Marketplace <em>MINEVORA</em></h1><p class="subtext">Mapy, budowle, pluginy i mody. To demonstracja sklepu — nie można tu kupować ani sprzedawać.</p>
             <div class="fieldgrid"><label class="grow">Szukaj<input id="shopSearch" type="search" placeholder="Wpisz nazwę produktu…"></label><label>Kategoria<select id="shopFilter"><option value="all">Wszystkie</option><option value="mapy">Mapy</option><option value="budowle">Budowle</option><option value="pluginy">Pluginy</option><option value="mody">Mody</option></select></label></div><div id="shopGrid" class="shop-grid"></div>
+          </section>
+          <section class="view tab-panel launcher-account-view" id="launcherAccountView" data-view="launcherAccount" hidden>
+            <p class="eyebrow">MINEVORA / KONTO</p>
+            <h1>Profil <em>gracza</em></h1>
+            <p class="subtext">Korzystaj z konta Microsoft do uruchamiania Minecraft Java. Profil MINEVORA na stronie otworzysz w swojej przeglądarce.</p>
+            <div class="launcher-account-card">
+              <span class="launcher-user-icon" aria-hidden="true">👤</span>
+              <div class="launcher-account-details">
+                <p class="eyebrow">MINECRAFT JAVA</p>
+                <h2 id="launcherMinecraftName">Nie zalogowano</h2>
+                <p id="launcherAccountStatus" role="status">Zaloguj się do Minecrafta przez Microsoft, aby uruchamiać grę.</p>
+              </div>
+            </div>
+            <div class="launcher-account-actions">
+              <button class="primary" id="launcherAccountLogin" type="button">Zaloguj Microsoft w launcherze</button>
+              <a class="primary" href="https://cubeverse12.github.io/cubeverse/#account">Otwórz mój profil MINEVORA ↗</a>
+            </div>
+            <p class="launcher-account-notice">Na stronie możesz zmienić nick i ulubioną minigrę. Te preferencje są na razie zapisywane lokalnie w przeglądarce. Launcher nie pobiera ich automatycznie, ponieważ projekt nie ma jeszcze wspólnej bazy kont. Nie przesyłamy tokenów logowania między aplikacją a stroną.</p>
           </section>
           <section class="view tab-panel" id="skinsView" data-view="skins" hidden>
             <p class="eyebrow">MINEVORA / SKÓRKI</p><h1>Twój avatar <em>3D</em></h1><p class="subtext">Obracaj postać po prawej stronie, zmieniaj animacje i wybieraj pokazowe warianty. Podgląd wykorzystuje teksturę Minecraft 64×64.</p>
