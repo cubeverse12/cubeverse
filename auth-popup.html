@@ -3,14 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="no-referrer">
   <title>MINEVORA — Kończenie logowania</title>
 </head>
 <body>
-  <!--
-    Dedicated, script-free MSAL v4 popup redirect page.
-    Keep authorization response in the URL fragment for MSAL in the opener.
-    Do not load the full site, JS router or auth-src bundle here.
-  -->
   <p>Trwa kończenie logowania Microsoft. To okno powinno zamknąć się automatycznie.</p>
+  <!-- Bundled, first-party MSAL v5 redirect bridge. No other JS is allowed here. -->
+  <script src="./auth-redirect-bridge.bundle.js"></script>
 </body>
 </html>
