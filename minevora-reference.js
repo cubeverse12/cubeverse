@@ -1,5 +1,5 @@
 (()=>{'use strict';
-const routes={home:"STRONA GŁÓWNA",minigames:"MINIGRY",download:"POBIERANIE"};
+const routes={home:"STRONA GŁÓWNA",minigames:"MINIGRY",account:"MOJE KONTO",download:"POBIERANIE"};
 const views=[...document.querySelectorAll('[data-view]')];
 function navigate(){const name=Object.hasOwn(routes,location.hash.slice(1))?location.hash.slice(1):'home';
   for(const v of views)v.hidden=v.dataset.view!==name;
