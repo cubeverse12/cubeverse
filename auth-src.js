@@ -187,7 +187,7 @@ if (resetButton) resetButton.addEventListener("click", () => {
       auth: {
         clientId: CLIENT_ID,
         authority: "https://login.microsoftonline.com/common",
-        redirectUri: REDIRECT_URI,
+        redirectUri: REDIRECT_URI + "auth-popup.html",
         postLogoutRedirectUri: REDIRECT_URI,
         navigateToLoginRequestUrl: false
       },
