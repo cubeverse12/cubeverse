@@ -16,3 +16,29 @@
 .mv-play small{display:block;font-size:10px;font-weight:600;margin-top:4px}.mv-outline{font-size:12px;border:1px solid #5d67a7;background:#252e58}
 .mv-market-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.mv-product{border-radius:17px;background:#151e3c;border:1px solid #4a5089;padding:19px}.mv-product h2{font-size:20px}.mv-product p{color:#b8bddb;line-height:1.7}.mv-product strong{display:block;color:#c6c4ff;margin-top:16px}.mv-art{height:148px;display:grid;place-items:center;background:radial-gradient(circle,#3c447b,#121a34);border-radius:12px;font-size:55px;margin-bottom:20px}.mv-notice{margin-top:18px;color:#b0b5d4;font-size:12px;line-height:1.7}
 @media(max-width:850px){.mv-market-grid{grid-template-columns:1fr 1fr}.mv-install{flex-wrap:wrap}}@media(max-width:590px){.mv-market-grid{grid-template-columns:1fr}.mv-toolbar{flex-wrap:wrap}.mv-play,.mv-outline{width:100%}}
+
+/* MINEVORA WEB 19.3.1 — odróżnialna, duża sekcja powitalna w stylu launchera */
+.hero-v2{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(355px,.95fr);align-items:center;min-height:510px;height:auto;overflow:hidden;border-color:#6b74d9;background:#0d1630;box-shadow:0 24px 80px #050718ab}
+.hero-v2 .hero-backdrop{background:linear-gradient(96deg,#0e142be8 0%,#0f1730ed 60%,#101e42a8 100%),url('assets/enchanted_hero.jpg') center/cover no-repeat;filter:saturate(.65)}
+.hero-v2 .hero-copy{padding:48px 36px 48px 48px;max-width:none}
+.hero-v2 h1{font-size:clamp(35px,3.8vw,58px)}
+.hero-v2 .hero-copy>p{max-width:510px}
+.mv-big-cta{min-height:58px;font-size:15px;padding:16px 24px}
+.launcher-demo{position:relative;z-index:2;margin:30px 32px 30px 0;border:1px solid #8d8af2;border-radius:17px;overflow:hidden;box-shadow:0 24px 65px #06061dcb,0 0 35px #6559ff3b;background:#0c1226;transform:rotate(.6deg);min-width:0}
+.demo-head{display:flex;align-items:center;gap:9px;padding:12px 16px;background:#151c36;border-bottom:1px solid #414970}
+.demo-head img{width:29px;height:29px;object-fit:contain}.demo-head strong{font-size:14px;letter-spacing:1px}.demo-head>span{margin-left:auto;letter-spacing:5px;color:#777fa3;font-size:10px}
+.demo-content{display:flex;min-height:348px}
+.demo-side{width:51px;flex-shrink:0;border-right:1px solid #343f67;background:#111b34;display:flex;flex-direction:column;align-items:center;gap:17px;padding:22px 5px;font-size:19px;color:#8995bc}
+.demo-side .demo-active{display:grid;place-items:center;background:#5654cf;border-radius:10px;color:white;width:34px;height:34px}
+.demo-main{padding:20px 23px 22px;flex:1;min-width:0}.demo-tag{font-size:9px;font-weight:850;letter-spacing:1.2px;color:#a9b5f1}.demo-main h2{font-size:19px;margin:10px 0 14px}
+.demo-world{height:96px;border-radius:11px;overflow:hidden;position:relative;background:linear-gradient(180deg,#263e77,#72548c)}
+.demo-world-sky{position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,#d4a8ffbb 0 8px,transparent 10px),linear-gradient(0deg,transparent,#7998d840)}
+.demo-world-ground{position:absolute;bottom:0;left:0;right:0;height:31px;background:linear-gradient(180deg,#385b68 0 30%,#2c3e53 30% 100%);clip-path:polygon(0 35%,18% 35%,18% 15%,40% 15%,40% 55%,100% 55%,100% 100%,0 100%)}
+.demo-world-trees{position:absolute;right:20px;bottom:18px;font-size:45px;letter-spacing:-6px;color:#1b445a}
+.demo-version{display:flex;gap:12px;align-items:center;border:1px solid #3a4b79;border-radius:9px;background:#151e3a;margin:13px 0 10px;padding:11px 13px}
+.demo-version span{font-size:9px;letter-spacing:.6px;color:#939ec0}.demo-version b{font-size:12px;flex:1;white-space:nowrap}.demo-version small{color:#adb5e7}
+.demo-play{display:block;text-align:center;border-radius:11px;border:1px solid #cfcbff;background:linear-gradient(115deg,#857dff,#6258e9);padding:12px;color:white;font-size:22px;font-weight:900;letter-spacing:1px;box-shadow:0 8px 26px #6257e951}
+.demo-play:hover{background:#827fff}.demo-disclaimer{display:block;color:#a0a9c7;text-align:center;margin-top:9px;font-size:9px}
+.mv-feature-link{color:#c7c4ff;font-weight:800}
+@media(max-width:1150px){.hero-v2{grid-template-columns:1fr}.hero-v2 .hero-copy{padding:40px 32px 12px}.launcher-demo{width:min(470px,calc(100% - 44px));margin:12px auto 30px}.hero-v2 h1{max-width:850px}}
+@media(max-width:590px){.hero-v2 .hero-copy{padding:31px 20px 10px}.hero-v2 .hero-copy>p{font-size:12px}.launcher-demo{width:calc(100% - 24px)}.demo-content{min-height:325px}.demo-main{padding:18px 13px}.demo-version{gap:5px;padding:9px 6px}.demo-version b{font-size:10px}.demo-side{width:40px}.hero-v2 .actions{gap:9px}}
