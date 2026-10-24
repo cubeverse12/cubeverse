@@ -2,6 +2,20 @@
 
 **Status: kod demonstracyjny. Nie jest wdrożony ani podłączony do strony i launchera.** Strona GitHub Pages z działającym logowaniem Microsoft pozostaje bez zmian.
 
+## Konfiguracja istniejącej instancji (24.10.2026)
+
+Baza `minevora-profiles` i Worker `wandering-cell-cf47minevora-profile-api` już zostały utworzone przez właściciela projektu w panelu Cloudflare. Zmienna produkcyjna `MS_API_AUDIENCE` oraz binding D1 `DB` są skonfigurowane. Plik `wrangler.jsonc` w tej gałęzi wskazuje dokładnie istniejący Worker i identyfikator istniejącej bazy, więc **nie uruchamiaj ponownie `d1 create`**.
+
+Aby podpiąć kod bez ręcznego wklejania modułów NPM:
+
+1. W Cloudflare wybierz istniejący Worker → **Settings → Builds → Connect** → **GitHub** i połącz tylko repozytorium `cubeverse12/cubeverse` (autoryzację zatwierdza użytkownik).
+2. Wybierz produkcyjną gałąź **`codex/minevora-profile-sync-cloudflare-20261024`**, a katalog główny projektu (**Root directory**) ustaw na **`cloudflare`**.
+3. Pole **Build command** pozostaw puste (o ile automatyczna instalacja NPM działa), zaś **Deploy command** ustaw na `npx wrangler deploy`.
+4. Sprawdź nazwę Workera — musi być identyczna z polem `name` w `wrangler.jsonc`. Zapisz połączenie i uruchom Build/Deploy. Jeżeli panel wymaga nowego commitu, zmianę w gałęzi wykonaj dopiero po skonfigurowaniu projektu.
+5. Po opublikowaniu sprawdź `/health`, bez wpisywania jakichkolwiek tokenów. **Działający endpoint /health nie oznacza jeszcze gotowej synchronizacji**, bo wymagany zakres `profile.sync` i klienckie żądania API nie są jeszcze skonfigurowane.
+
+Nie przenoś produkcyjnej gałęzi strony `main` do Cloudflare Workers. Nie dodawaj haseł, tokenów dostępu ani kluczy API do repozytorium.
+
 ## Architektura
 
 - **GitHub Pages**: publiczny interfejs MINEVORA, dotychczasowe logowanie MSAL.
