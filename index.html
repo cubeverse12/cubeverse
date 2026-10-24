@@ -7,7 +7,7 @@
 <meta name="description" content="MINEVORA — świat minigier Minecraft. Serwer już wkrótce! Poznaj planowane tryby i dołącz do Discorda.">
 <title>MINEVORA — Twój świat minigier</title>
 <link rel="icon" href="assets/minevora_logo.png" type="image/png">
-<link rel="stylesheet" href="minevora-reference.css">
+<link rel="stylesheet" href="minevora-reference.css?v=20261024-profile">
 </head>
 <body>
 <div class="app">
@@ -19,7 +19,7 @@
     <nav class="sidenav" aria-label="Nawigacja">
       <a class="navitem active" href="#home" data-route="home"><img src="assets/icons/home.png" alt=""> Strona główna</a>
       <a class="navitem" href="#minigames" data-route="minigames"><img src="assets/icons/minigames.png" alt=""> Minigry</a>
-      <a class="navitem" href="#account" data-route="account"><span class="nav-emoji" aria-hidden="true">👤</span> Moje konto</a>
+      <a class="navitem" href="#account" data-route="account"><img src="assets/icons/profile.png" alt=""> Moje konto</a>
     </nav>
     <div class="sidefoot">
       <a class="navitem" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer"><img src="assets/icons/discord.png" alt=""> Discord <span class="side-indicator" aria-hidden="true"></span></a>
@@ -29,7 +29,7 @@
   <div class="workspace">
     <header class="topbar">
       <div class="back-search"><button class="back-btn" id="backBtn" type="button" title="Wróć na stronę główną" aria-label="Wróć na stronę główną">‹</button><span class="current-section" id="sectionName">MINEVORA</span></div>
-      <div class="user-area"><span class="visitor-badge">GOŚĆ</span><a class="account-shortcut" href="#account">Moje konto ↗</a><a class="header-download" href="#download">Pobierz ↗</a></div>
+      <div class="user-area"><a class="visitor-badge" href="#account" title="Otwórz moje konto MINEVORA">GOŚĆ</a><a class="account-shortcut" href="#account">Moje konto ↗</a><a class="header-download" href="#download">Pobierz ↗</a></div>
     </header>
     <main class="page">
       <div class="first-row">
@@ -141,7 +141,7 @@
   </div>
 </div>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
-<script src="minevora-reference.js" defer></script>
-<script src="msal-auth.bundle.js" defer></script>
+<script src="minevora-reference.js?v=20261024-profile" defer></script>
+<script src="msal-auth.bundle.js?v=20261024-profile" defer></script>
 </body>
 </html>

@@ -120,3 +120,10 @@
 .profile-disclaimer{font-size:12px;line-height:1.7;color:#c3c7e4;margin:0}
 .profile-launcher-link{font-size:13px;color:#cab3ff;font-weight:800;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:600px){.player-profile{padding:14px}.player-banner{gap:12px}.player-avatar{width:65px;height:65px;flex-basis:65px;font-size:32px}.profile-stats{grid-template-columns:1fr}}
+
+/* MINEVORA: consistent menu icons and visible player profile */
+.sidefoot .navitem img[src$="discord.png"]{width:39px;height:39px;filter:drop-shadow(0 0 7px #8e5fff88)}
+.player-profile:not([hidden]){order:-1;scroll-margin-top:88px}
+.visitor-badge{cursor:pointer;text-decoration:none}
+.visitor-badge:hover{filter:brightness(1.2)}
+@media(max-width:525px){.sidefoot .navitem img[src$="discord.png"]{width:33px;height:33px}}

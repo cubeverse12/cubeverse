@@ -7,9 +7,13 @@ function navigate(){const name=Object.hasOwn(routes,location.hash.slice(1))?loca
   document.getElementById('sectionName').textContent=routes[name];
   document.title='MINEVORA — '+routes[name];
   window.scrollTo({top:0,behavior:'instant'});
+  if(name==="account") {const profile=document.getElementById("playerProfile"); if(profile && !profile.hidden) profile.scrollIntoView({behavior:"auto",block:"start"});}
 }
 window.addEventListener('hashchange',navigate);document.getElementById('backBtn').addEventListener('click',()=>location.hash='home');
 navigate();
+document.querySelectorAll('a[href="#account"]').forEach(a=>a.addEventListener('click',()=>{
+  if(location.hash==='#account') navigate();
+}));
 let toastTimer;function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.hidden=true,4200)}
 function safeGet(key,defaultValue){try{const v=localStorage.getItem(key);return v?JSON.parse(v):defaultValue}catch(e){return defaultValue}}
 function safeSet(key,v){try{localStorage.setItem(key,JSON.stringify(v))}catch(e){}}
