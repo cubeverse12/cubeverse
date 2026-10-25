@@ -163,6 +163,21 @@ jobs:
           Set-Content -Path $report -Value $lines -Encoding UTF8
           Get-Content $report
 
+      - name: Create Microsoft Store MSIX submission draft
+        shell: pwsh
+        run: |
+          python -m pip install "Pillow>=11,<13"
+          ./msix/build-store-msix.ps1
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MINEVORA-MSIX-STORE-DRAFT
+          path: |
+            dist/store-msix/MINEVORA_Launcher_0.2.0.0_x64_STORE_DRAFT.msix
+            dist/store-msix/READ_ME_STORE_DRAFT.txt
+          if-no-files-found: error
+          retention-days: 7
+
       - name: Package development archive
         shell: pwsh
         run: Compress-Archive -Path "dist/MINEVORA/*" -DestinationPath "MINEVORA_WIN11_DEVELOPMENT.zip" -Force
