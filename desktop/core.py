@@ -82,7 +82,9 @@ def read_store():
             if (isinstance(nick,str) and re.fullmatch(r'[A-Za-z0-9_-]{3,20}',nick)
                     and isinstance(avatar,str) and len(avatar) <= 400000
                     and (not avatar or re.fullmatch(r'data:image/webp;base64,[A-Za-z0-9+/=]+',avatar))):
+                color = imported.get('color', 'purple')
                 result['web_profile']={'nickname':nick,'avatarData':avatar,
+                                      'color':color if color in ('purple','blue','teal','rose') else 'purple',
                                       'mode':mode if mode in ('BedWars','SkyWars','Crystal PvP','Parkour',
                                                              'TNT Run','Build Battle','Spleef','Duels') else 'BedWars'}
         return result
