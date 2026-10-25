@@ -1,7 +1,7 @@
 name: MINEVORA integrated Windows launcher (development)
 on:
   push:
-    branches: [codex/minevora-integrated-launcher-20261024]
+    branches: [codex/minevora-desktop-profile-cloud-sync-20261025]
   pull_request:
     branches: [main]
   workflow_dispatch:
