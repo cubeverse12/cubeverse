@@ -47,6 +47,18 @@ Repozytorium ma workflow `.github/workflows/minevora-desktop-dev.yml` uruchamian
 
 Archiwum *development* z GitHub Actions nie jest produkcyjnym, podpisanym instalatorem. Należy oddzielnie sprawdzić logowanie Microsoft, instalacje wersji i uruchamianie gry na Windows 11.
 
+## Instalator Windows 11 (przygotowany do testów)
+
+CI na tej gałęzi tworzy teraz **dwa osobne artefakty**:
+- `MINEVORA-WIN11-DEVELOPMENT` — archiwum folderowe PyInstaller.
+- `MINEVORA-WIN11-INSTALLER-DEVELOPMENT` — instalator `MINEVORA_Setup_DEVELOPMENT.exe` budowany przez Inno Setup 6, przeznaczony **wyłącznie do testów**.
+
+Instalator jest dla bieżącego użytkownika (bez żądania uprawnień administratora), tworzy skrót w menu Start, a opcjonalnie na pulpicie, i daje standardowe odinstalowanie. Przechowuje cały folder `_internal`. Odinstalowanie nie usuwa danych Minecraft ani zapisanych w profilu ustawień użytkownika.
+
+**Ograniczenie bezpieczeństwa:** bez zaufanego certyfikatu instalator i launcher pozostają **niepodpisane**. Artefakt zawiera informację `UNSIGNED_SETUP.txt`; **Smart App Control może zablokować jego uruchomienie**. Nie wyłączaj zabezpieczeń i nie udostępniaj tego wydania graczom jako gotowego instalatora. Obecny workflow posiada tylko opcjonalne podpisywanie z PFX zapisanym w GitHub Actions Secrets. Certyfikaty wymagające podpisywania w usłudze/HSM muszą zostać podłączone przez właściwy interfejs dostawcy, a nie eksport klucza do repozytorium. Nawet prawidłowy podpis nie jest gwarancją akceptacji przez Smart App Control — wymagane są testy na Windows 11.
+
+Kod instalatora: `installer/MINEVORA.iss`. Nie publikuj instalatora na stronie WWW, dopóki podpis i uruchomienie w Windows 11 nie zostaną potwierdzone.
+
 ## Jak używać profilu z witryny
 
 1. Na https://cubeverse12.github.io/cubeverse/#account zaloguj się i zapisz profil.
