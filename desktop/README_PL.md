@@ -9,6 +9,20 @@
 - Ręczny transfer profilu WWW: zaloguj się na stronie, wyeksportuj profil w **Moje konto → Eksportuj profil do launchera (JSON)**, a następnie w aplikacji wybierz **Importuj profil WWW (JSON)**. Plik zawiera wyłącznie nick, ulubiony tryb, kolor i awatar — nigdy tokeny lub hasła.
 - Strona „Moje konto” otwiera się w przeglądarce systemowej. Logowanie do strony i do Minecraft Java to odrębne sesje.
 
+## Nowość: zakładka ⚔ PvP HUD (wersja rozwojowa)
+
+W menu launchera pojawia się osobna zakładka **PvP HUD** z trzema niezależnymi przełącznikami:
+
+- **HP gracza** — aktualne/maksymalne zdrowie (odczytywane z Minecrafta);
+- **Poziom głodu** — aktualne 0–20;
+- **Liczba sztuk jedzenia** — suma jedzenia z ekwipunku i drugiej ręki (bez skrzyń).
+
+Przyciski **Wczytaj ustawienia moda** i **Zapisz PvP HUD** edytują `config/minevora_pvp.json` wybranej instancji Fabric 1.21.1. Pozostałe ustawienia moda nie są usuwane. Nie trzeba ręcznie kopiować kodu Java do Pythonowego launchera.
+
+Mod realizujący te wskaźniki jest rozwijany w repozytorium `cubeverse12/minevora-pvp-hud.`, wersja **2.0.15**. Kod został skompilowany, ale aktualnie **najnowszym opublikowanym** modem instalowanym automatycznie może być jeszcze **2.0.14** — wtedy nowe przełączniki nie będą miały efektu w grze. Poczekaj na nowe wydanie JAR po sprawdzeniu działania. Funkcja jest przeznaczona wyłącznie dla Minecraft Java **1.21.1 Fabric**. Nie zmienia rzeczywistego HP, głodu ani liczby przedmiotów i nie działa na wersjach Forge/NeoForge.
+
+**MSIX 0.2.0.0 już przesłany do Partner Center nie zawiera tej aktualizacji.** Nową wersję pakietu sklepowego trzeba zbudować z nowego kodu i ponownie zweryfikować na Windows przed zgłoszeniem; nie przedstawiaj starego MSIX jako wyposażonego w nowe funkcje.
+
 ## Nowość: profil MINEVORA w Cloudflare D1 (wersja testowa)
 
 Ta gałąź dodaje w natywnej zakładce **Graj / Instalacje** przyciski:
