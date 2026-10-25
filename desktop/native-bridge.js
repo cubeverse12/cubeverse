@@ -144,13 +144,14 @@
     byId("nativeCloudPull").addEventListener("click",()=>post("cloud_pull"));
     byId("nativeCloudPush").addEventListener("click",()=>post("cloud_push"));
     byId("nativeCloudDisconnect").addEventListener("click",()=>post("cloud_disconnect"));
+    const hudProfile = () => ({version:"1.21.1",loader:"fabric"});
     const hudOptions = () => ({
-      ...settings(),
+      ...hudProfile(),
       showHealth:byId("nativeHudHealth").checked,
       showHunger:byId("nativeHudHunger").checked,
       showFoodCount:byId("nativeHudFoodCount").checked
     });
-    byId("nativeHudLoad").addEventListener("click",()=>post("hud_settings_load",settings()));
+    byId("nativeHudLoad").addEventListener("click",()=>post("hud_settings_load",hudProfile()));
     byId("nativeHudSave").addEventListener("click",()=>post("hud_settings_save",hudOptions()));
     byId("nativeBulk").addEventListener("click",()=>post("bulk"));
     byId("nativeStopBulk").addEventListener("click",()=>post("stop_bulk"));
