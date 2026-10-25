@@ -17,6 +17,7 @@ from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QFileDialog, QInputDialog
 
 from backend import install_profile, official_releases, free_disk_gb
+from cloud_profile import MicrosoftProfileSession, call_profile_api, validate_profile
 from core import (HOME, MC_DIR, game_path, instance_id, profile_installed,
                   read_store, safe_name, save_store, selected_instance)
 from minevora_engine import (LoginWorker, PlayWorker, client_id, redirect_uri,
@@ -76,6 +77,8 @@ class NativeLauncher(QObject):
         self.available_versions = []
         self.initial_prompted = False
         self.pending_launch = None
+        self.cloud_session = MicrosoftProfileSession()
+        self.cloud_job = None
 
     def emit_state(self, kind, **values):
         self.event.emit(json.dumps({"kind": kind, **values}, ensure_ascii=False))
@@ -127,6 +130,9 @@ class NativeLauncher(QObject):
                 "bulk": self.install_everything,
                 "stop_bulk": self.stop_bulk,
                 "profile_import": self.import_web_profile,
+                "cloud_pull": self.cloud_pull,
+                "cloud_push": self.cloud_push,
+                "cloud_disconnect": self.cloud_disconnect,
                 "web_account": self.open_web_account,
             }
             if action not in routes:
@@ -333,11 +339,91 @@ class NativeLauncher(QObject):
         if favorite not in ("BedWars", "SkyWars", "Crystal PvP", "Parkour",
                             "TNT Run", "Build Battle", "Spleef", "Duels"):
             favorite = "BedWars"
-        profile = {"nickname": nickname, "avatarData": avatar, "mode": favorite}
+        profile = {"nickname": nickname, "avatarData": avatar, "mode": favorite,
+                   "color": str(doc.get("color", "purple"))}
         self.data["web_profile"] = profile
         save_store(self.data)
         self.emit_state("minevora_profile", **profile)
-        self.status("Profil zaimportowany lokalnie. Synchronizacja online wymaga osobnego serwera kont.")
+        self.status("Profil zaimportowany lokalnie. Możesz go dobrowolnie wysłać do chmury.")
+
+    def run_cloud_job(self, label, method, payload=None):
+        """Microsoft login + HTTPS request run outside the Qt UI thread."""
+        if self.cloud_job and self.cloud_job.isRunning():
+            self.status("Poczekaj na zakończenie synchronizacji profilu.")
+            return
+        self.status(label)
+        def task(_progress):
+            token = self.cloud_session.access_token()
+            # Never return or log a Microsoft token; only the validated profile.
+            return call_profile_api(token, method=method, value=payload)
+        job = Job(task)
+        self.cloud_job = job
+        job.status.connect(self.status)
+        def failed(message):
+            # Do not leak internal library traces or OAuth response content.
+            self.status("Synchronizacja MINEVORA nie powiodła się. " +
+                        (message[:180] if "token" not in message.lower() else
+                         "Spróbuj ponownie po zalogowaniu."))
+            self.emit_state("cloud_sync", ok=False)
+        job.failed.connect(failed)
+        def finished(result):
+            if method == "GET":
+                if result is None:
+                    self.status("Brak profilu w chmurze. Najpierw zapisz profil na stronie.")
+                    self.emit_state("cloud_sync", ok=True, empty=True)
+                    return
+                local = validate_profile(result)
+                self.data["web_profile"] = local
+                save_store(self.data)
+                self.emit_state("minevora_profile", **local)
+                self.status("Profil MINEVORA pobrany z chmury i zapisany lokalnie.")
+            elif method == "PUT":
+                self.status("Profil MINEVORA wysłany do chmury.")
+            self.emit_state("cloud_sync", ok=True, empty=False)
+        job.done.connect(finished)
+        job.finished.connect(lambda: setattr(self, "cloud_job", None))
+        job.start()
+
+    def cloud_pull(self):
+        if self.cloud_job and self.cloud_job.isRunning():
+            self.status("Synchronizacja już trwa.")
+            return
+        existing = self.data.get("web_profile")
+        if existing:
+            answer = QMessageBox.question(
+                self.window, "MINEVORA / Cloudflare",
+                "Pobrać profil z chmury i zastąpić lokalny nick, kolor oraz zdjęcie w launcherze? "
+                "Dane na stronie internetowej pozostaną bez zmian.",
+                QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+            if answer != QMessageBox.Yes:
+                return
+        self.run_cloud_job("Otwieram bezpieczne logowanie Microsoft do profilu MINEVORA…", "GET")
+
+    def cloud_push(self):
+        if self.cloud_job and self.cloud_job.isRunning():
+            self.status("Synchronizacja już trwa.")
+            return
+        local = self.data.get("web_profile")
+        if not local:
+            self.status("Najpierw pobierz profil z chmury lub zaimportuj lokalny profil.")
+            return
+        profile = validate_profile(local)
+        answer = QMessageBox.question(
+            self.window, "MINEVORA / Cloudflare",
+            "Wysłać lokalne dane profilu (nick, zdjęcie, kolor i ulubioną minigrę) "
+            "do Cloudflare? Zastąpią zapis profilu w chmurze.",
+            QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        if answer != QMessageBox.Yes:
+            return
+        self.run_cloud_job("Łączenie z kontem Microsoft i zapisywanie profilu w chmurze…",
+                           "PUT", profile)
+
+    def cloud_disconnect(self):
+        if self.cloud_job and self.cloud_job.isRunning():
+            self.status("Zaczekaj na koniec synchronizacji przed odłączeniem.")
+            return
+        self.cloud_session.disconnect()
+        self.status("Rozłączono sesję profilu MINEVORA w launcherze (bez usuwania chmury).")
 
     def offer_initial_bulk(self):
         marker = HOME / "web_desktop_first_run.json"
