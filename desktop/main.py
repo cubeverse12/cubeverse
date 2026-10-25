@@ -18,6 +18,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QFileDialo
 
 from backend import install_profile, official_releases, free_disk_gb
 from cloud_profile import MicrosoftProfileSession, call_profile_api, validate_profile
+from pvp_hud_settings import read_settings as read_pvp_hud_settings, save_settings as save_pvp_hud_settings
 from core import (HOME, MC_DIR, game_path, instance_id, profile_installed,
                   read_store, safe_name, save_store, selected_instance)
 from minevora_engine import (LoginWorker, PlayWorker, client_id, redirect_uri,
@@ -133,6 +134,8 @@ class NativeLauncher(QObject):
                 "cloud_pull": self.cloud_pull,
                 "cloud_push": self.cloud_push,
                 "cloud_disconnect": self.cloud_disconnect,
+                "hud_settings_load": lambda: self.load_hud_settings(args),
+                "hud_settings_save": lambda: self.save_hud_settings(args),
                 "web_account": self.open_web_account,
             }
             if action not in routes:
@@ -424,6 +427,31 @@ class NativeLauncher(QObject):
             return
         self.cloud_session.disconnect()
         self.status("Rozłączono sesję profilu MINEVORA w launcherze (bez usuwania chmury).")
+
+    def load_hud_settings(self, args):
+        version, loader = self.normalize(args)
+        if version != "1.21.1" or loader != "fabric":
+            raise ValueError("HUD HP, głód i jedzenie wymaga Fabric 1.21.1.")
+        existing = next((p for p in self.data["instances"]
+                         if p["version"] == version and p["loader"] == loader), None)
+        current = read_pvp_hud_settings(existing) if existing else {
+            "showHealth": True, "showHunger": True, "showFoodCount": True
+        }
+        self.emit_state("hud_settings", **current)
+        self.status("Ustawienia PvP HUD wczytane. Wybierz przełączniki i kliknij Zapisz.")
+
+    def save_hud_settings(self, args):
+        version, loader = self.normalize(args)
+        if version != "1.21.1" or loader != "fabric":
+            raise ValueError("Mod PvP HUD 2.0.15+ obsługuje obecnie tylko Fabric 1.21.1.")
+        selected = {key: args.get(key) for key in ("showHealth","showHunger","showFoodCount")}
+        if any(type(value) is not bool for value in selected.values()):
+            raise ValueError("Nieprawidłowe przełączniki ustawień HUD.")
+        profile = self.ensure_profile(version, loader)
+        settings = save_pvp_hud_settings(profile, selected)
+        self.emit_state("hud_settings", **settings)
+        self.status("Zapisano HUD dla Fabric 1.21.1. Mod odczyta ustawienia po uruchomieniu gry. "
+                    "Wskaźniki nie zmieniają HP ani głodu w Minecraft.")
 
     def offer_initial_bulk(self):
         marker = HOME / "web_desktop_first_run.json"
