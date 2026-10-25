@@ -1,2 +1,3 @@
 PySide6>=6.8,<7
 minecraft-launcher-lib>=8,<10
+msal>=1.34,<2
