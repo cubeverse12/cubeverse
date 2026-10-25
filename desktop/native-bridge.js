@@ -13,28 +13,28 @@
 
     const style = document.createElement("style");
     style.textContent = `
-      #minevoraDesktopPanel{margin:0 auto;max-width:1100px;border:1px solid #6552aa;
+      .minevora-native-panel{margin:0 auto;max-width:1100px;border:1px solid #6552aa;
         background:linear-gradient(120deg,#161939,#0c132b);border-radius:16px;
         padding:clamp(18px,3vw,35px);color:#f7f4ff}
-      #minevoraDesktopPanel[hidden]{display:none}
-      #minevoraDesktopPanel .desktop-row{display:flex;gap:14px;flex-wrap:wrap;align-items:end;margin:20px 0}
-      #minevoraDesktopPanel label{display:grid;gap:9px;flex:1 1 175px;font-weight:700;font-size:14px}
-      #minevoraDesktopPanel input,#minevoraDesktopPanel select{width:100%;min-height:43px;
+      .minevora-native-panel[hidden]{display:none}
+      .minevora-native-panel .desktop-row{display:flex;gap:14px;flex-wrap:wrap;align-items:end;margin:20px 0}
+      .minevora-native-panel label{display:grid;gap:9px;flex:1 1 175px;font-weight:700;font-size:14px}
+      .minevora-native-panel input,.minevora-native-panel select{width:100%;min-height:43px;
         padding:9px 12px;background:#090f28;border:1px solid #7965a8;border-radius:10px;color:#fff}
-      #minevoraDesktopPanel button{padding:11px 18px;background:#5b28bd;border:1px solid #ad87f2;
+      .minevora-native-panel button{padding:11px 18px;background:#5b28bd;border:1px solid #ad87f2;
         color:#fff;border-radius:10px;font-weight:800;cursor:pointer}
-      #minevoraDesktopPanel button:hover{background:#7535e6}
-      #minevoraDesktopPanel h1{font-size:clamp(27px,4vw,46px);margin:0}
-      #minevoraDesktopPanel h2{font-size:20px;margin:20px 0 7px}
-      #minevoraDesktopPanel p{color:#c3c8e8;line-height:1.55}
-      #minevoraDesktopPanel .desktop-status{border:1px solid #564b91;background:#1e224a;
+      .minevora-native-panel button:hover{background:#7535e6}
+      .minevora-native-panel h1{font-size:clamp(27px,4vw,46px);margin:0}
+      .minevora-native-panel h2{font-size:20px;margin:20px 0 7px}
+      .minevora-native-panel p{color:#c3c8e8;line-height:1.55}
+      .minevora-native-panel .desktop-status{border:1px solid #564b91;background:#1e224a;
         padding:13px;border-radius:9px;word-wrap:break-word}
-      #minevoraDesktopPanel .desktop-profile{display:flex;justify-content:space-between;gap:10px;
+      .minevora-native-panel .desktop-profile{display:flex;justify-content:space-between;gap:10px;
         border:1px solid #45456f;padding:12px;border-radius:9px;margin-top:9px}
-      #minevoraDesktopPanel .desktop-warning{font-size:12px}
-      #minevoraDesktopPanel .hud-option{flex:1 1 190px;display:flex;align-items:center;gap:12px;
+      .minevora-native-panel .desktop-warning{font-size:12px}
+      .minevora-native-panel .hud-option{flex:1 1 190px;display:flex;align-items:center;gap:12px;
         border:1px solid #6352a2;background:#121936;border-radius:10px;padding:12px;cursor:pointer}
-      #minevoraDesktopPanel .hud-option input[type="checkbox"]{width:20px;height:20px;min-height:20px;accent-color:#9562f1}
+      .minevora-native-panel .hud-option input[type="checkbox"]{width:20px;height:20px;min-height:20px;accent-color:#9562f1}
       .native-nav{cursor:pointer}
     `;
     document.head.appendChild(style);
@@ -43,10 +43,18 @@
     navlink.className = "navitem native-nav";
     navlink.href = "#launcher";
     const navIcon=document.createElement("img");navIcon.src="assets/icons/download.png";navIcon.alt="";navlink.append(navIcon,document.createTextNode(" Graj / Instalacje"));
-    nav.prepend(navlink);
+    const hudNav = document.createElement("a");
+    hudNav.className = "navitem native-nav";
+    hudNav.href = "#pvp-hud";
+    const hudIcon = document.createElement("span");
+    hudIcon.textContent = "⚔";
+    hudIcon.style.cssText = "display:inline-flex;align-items:center;justify-content:center;width:24px;font-size:20px";
+    hudNav.append(hudIcon, document.createTextNode(" PvP HUD"));
+    nav.prepend(navlink, hudNav);
 
     const panel = document.createElement("section");
     panel.id = "minevoraDesktopPanel";
+    panel.className = "minevora-native-panel";
     panel.hidden = true;
     panel.setAttribute("aria-label", "MINEVORA Launcher Windows");
     panel.innerHTML = `
@@ -86,6 +94,25 @@
       <p class="desktop-warning">Logowanie otwiera oficjalną przeglądarkę Microsoft.
       W Entra aplikacji MINEVORA Launcher musi być dodany adres „http://localhost” w
       platformie „Aplikacje mobilne i klasyczne”. Nie udostępniaj tokenów, kodów logowania ani haseł.</p>
+      <h2>Zapisane instalacje</h2>
+      <div id="nativeProfileList"><p>Ładowanie instalacji…</p></div>
+      <h2>Instalacja zbiorcza</h2>
+      <p class="desktop-warning">Instalacja wszystkich stabilnych wersji może zająć wiele godzin i setki GB.
+      Jest opcjonalna i wymaga osobnego potwierdzenia. Nie wszystkie loadery obsługują każdą wersję.</p>
+      <div class="desktop-row">
+        <button type="button" id="nativeBulk">Pobierz wszystkie wersje</button>
+        <button type="button" id="nativeStopBulk">Zatrzymaj po bieżącym pobraniu</button>
+      </div>
+      <p class="desktop-status" id="nativeStatus" role="status">Uruchamianie MINEVORA…</p>
+    `;
+    const hudPanel = document.createElement("section");
+    hudPanel.id = "minevoraPvpHudPanel";
+    hudPanel.className = "minevora-native-panel";
+    hudPanel.hidden = true;
+    hudPanel.setAttribute("aria-label", "Ustawienia MINEVORA PvP HUD");
+    hudPanel.innerHTML = `
+      <p style="color:#c89cff;font-weight:900">MINEVORA · PVP HUD · FABRIC 1.21.1</p>
+      <h1>⚔ USTAWIENIA PVP HUD</h1>
       <h2>⚔ PvP HUD · HP, głód i jedzenie</h2>
       <p>Ustaw, jakie informacje mają pojawiać się w grze Minecraft. Mod pokazuje prawdziwe wartości,
       nie zmienia HP ani poziomu głodu. Wymagany MINEVORA PvP HUD 2.0.15+ na Fabric 1.21.1.</p>
@@ -98,20 +125,13 @@
         <button type="button" id="nativeHudLoad">Wczytaj ustawienia moda</button>
         <button type="button" id="nativeHudSave">Zapisz PvP HUD</button>
       </div>
-      <p class="desktop-warning">Najpierw wybierz wersję Minecraft 1.21.1 i loader Fabric powyżej.
+      <p class="desktop-warning">Ustawienia dotyczą profilu Minecraft 1.21.1 na Fabric.
       Mod liczy jedzenie w ekwipunku i drugiej ręce, bez skrzyń ani ekwipunków innych graczy.</p>
-      <h2>Zapisane instalacje</h2>
-      <div id="nativeProfileList"><p>Ładowanie instalacji…</p></div>
-      <h2>Instalacja zbiorcza</h2>
-      <p class="desktop-warning">Instalacja wszystkich stabilnych wersji może zająć wiele godzin i setki GB.
-      Jest opcjonalna i wymaga osobnego potwierdzenia. Nie wszystkie loadery obsługują każdą wersję.</p>
-      <div class="desktop-row">
-        <button type="button" id="nativeBulk">Pobierz wszystkie wersje</button>
-        <button type="button" id="nativeStopBulk">Zatrzymaj po bieżącym pobraniu</button>
-      </div>
-      <p class="desktop-status" id="nativeStatus" role="status">Uruchamianie MINEVORA…</p>
+      <p class="desktop-status" id="nativeHudStatus" role="status">
+        Zaznacz wskaźniki i kliknij „Zapisz PvP HUD”.
+      </p>
     `;
-    firstRow.before(panel);
+    firstRow.before(panel, hudPanel);
     const byId = id => document.getElementById(id);
     const settings = () => ({version:byId("nativeVersion").value,loader:byId("nativeLoader").value});
     byId("nativePlay").addEventListener("click", () => post("play",settings()));
@@ -135,18 +155,27 @@
     byId("nativeBulk").addEventListener("click",()=>post("bulk"));
     byId("nativeStopBulk").addEventListener("click",()=>post("stop_bulk"));
     function updateNavigation(){
-      const enabled=location.hash === "#launcher";
-      panel.hidden=!enabled;
-      firstRow.hidden=enabled;
-      navlink.classList.toggle("active",enabled);
-      if(enabled) window.scrollTo(0,0);
+      const launcher=location.hash === "#launcher";
+      const hud=location.hash === "#pvp-hud";
+      panel.hidden=!launcher;
+      hudPanel.hidden=!hud;
+      firstRow.hidden=launcher || hud;
+      navlink.classList.toggle("active",launcher);
+      hudNav.classList.toggle("active",hud);
+      if(launcher || hud) window.scrollTo(0,0);
     }
     window.addEventListener("hashchange",updateNavigation);
     navlink.addEventListener("click",()=>setTimeout(updateNavigation,0));
+    hudNav.addEventListener("click",()=>setTimeout(updateNavigation,0));
     document.querySelectorAll("a[href='#account'],a[href='#home'],a[href='#minigames'],a[href='#download']")
       .forEach(a=>a.addEventListener("click",()=>setTimeout(updateNavigation,0)));
     updateNavigation();
-    const message = text => {byId("nativeStatus").textContent = String(text || "");};
+    const message = text => {
+      ["nativeStatus","nativeHudStatus"].forEach(id => {
+        const node=byId(id);
+        if(node)node.textContent=String(text || "");
+      });
+    };
     bridge.event.connect(raw=>{
       let event;
       try{event=JSON.parse(raw)}catch(_){return}
