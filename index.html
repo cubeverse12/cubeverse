@@ -7,7 +7,7 @@
 <meta name="description" content="MINEVORA — świat minigier Minecraft. Serwer już wkrótce! Poznaj planowane tryby i dołącz do Discorda.">
 <title>MINEVORA — Twój świat minigier</title>
 <link rel="icon" href="assets/minevora_logo.png" type="image/png">
-<link rel="stylesheet" href="minevora-reference.css?v=20261024-profile-photo">
+<link rel="stylesheet" href="minevora-reference.css?v=20261025-cloud-profile-beta1">
 </head>
 <body>
 <div class="app">
@@ -101,7 +101,7 @@
                   <div class="profile-photo-upload">
                     <label for="profilePhoto">Zdjęcie profilowe MINEVORA</label>
                     <input id="profilePhoto" type="file" accept="image/png,image/jpeg,image/webp" aria-describedby="photoHelp"/>
-                    <p id="photoHelp" class="field-hint">Wybierz PNG, JPG lub WebP (maks. 5 MB). Zdjęcie zostanie zmniejszone i zapisane wyłącznie w tej przeglądarce.</p>
+                    <p id="photoHelp" class="field-hint">Wybierz PNG, JPG lub WebP (maks. 5 MB). Po kliknięciu „Zapisz profil” zdjęcie będzie lokalne; możesz je też dobrowolnie przesłać do chmury.</p>
                     <button id="removeProfilePhoto" class="profile-secondary" type="button">Usuń zdjęcie</button>
                   </div>
                   <label for="profileMode">Ulubiona minigra</label>
@@ -119,21 +119,31 @@
                   <div class="profile-actions">
                     <button class="primary" type="submit">Zapisz profil</button>
                     <button id="resetProfile" class="profile-secondary" type="button">Przywróć domyślne</button>
-                    <button id="exportProfile" class="profile-secondary" type="button" title="Eksport profilu bez hasła i tokenów">Eksportuj profil do launchera (JSON)</button>
                   </div>
                   <p class="profile-notice" id="profileSaveStatus" role="status" aria-live="polite"></p>
                 </form>
+                <section id="cloudSyncArea" class="cloud-sync" aria-labelledby="cloudSyncTitle">
+                  <h3 id="cloudSyncTitle">☁ Synchronizacja profilu MINEVORA</h3>
+                  <p>Opcjonalna chmura: możesz przesłać nick, ulubioną minigrę, kolor i zdjęcie profilowe na prywatne konto MINEVORA. Microsoft może poprosić o zgodę na zakres <code>profile.sync</code>. Żadne hasła ani tokeny nie są przesyłane jako dane profilu.</p>
+                  <div class="profile-actions">
+                    <button id="cloudUpload" class="primary" type="button">Wyślij zapisany profil do chmury</button>
+                    <button id="cloudDownload" class="profile-secondary" type="button">Pobierz profil z chmury</button>
+                    <button id="cloudDelete" class="profile-secondary cloud-delete" type="button">Usuń mój profil z chmury</button>
+                  </div>
+                  <p id="cloudStatus" class="profile-notice" role="status" aria-live="polite">Synchronizacja jest dobrowolna. Profil w tej przeglądarce pozostaje niezależny.</p>
+                  <p class="field-hint">Twoje zdjęcie i ustawienia będą przechowywane na Cloudflare D1 do czasu ich zmiany lub usunięcia. Synchronizacja z launcherem Windows będzie wymagała osobnej aktualizacji aplikacji.</p>
+                </section>
                 <div class="profile-stats">
                   <div><span>Ulubiony tryb</span><strong id="profileFavorite">—</strong></div>
                   <div><span>Profil na urządzeniu</span><strong id="profileSince">—</strong></div>
                 </div>
-                <p class="profile-disclaimer">Nick, zdjęcie, ulubiony tryb i kolor są zapisywane <strong>tylko w tej przeglądarce</strong> dla zalogowanego konta Microsoft. Nie są jeszcze synchronizowane między urządzeniami ani z launcherem. Nie są to statystyki serwera Minecraft.</p>
+                <p class="profile-disclaimer">Przycisk „Zapisz profil” zachowuje dane lokalnie. Opcjonalne przyciski w sekcji „Synchronizacja” pozwalają osobno zapisywać lub pobierać dane na konto w chmurze. Launcher nie obsługuje jeszcze automatycznego pobierania tego profilu. Nie są to statystyki serwera Minecraft.</p>
                 <a class="profile-launcher-link" href="#download">Pobierz launcher MINEVORA →</a>
               </section>
               <button id="msalLogin" class="primary" type="button" disabled aria-describedby="accountNotice">Zaloguj przez Microsoft</button>
               <button id="msalRedirectFallback" class="profile-secondary" type="button" disabled>Alternatywnie: zaloguj przez przekierowanie</button>
               <button id="msalLogout" class="primary" type="button" hidden>Wyloguj</button>
-              <small id="accountNotice">Witryna korzysta z autoryzacji Microsoft. Profil jest lokalny dla tej przeglądarki; uruchomienie Minecraft Java nadal wymaga osobnego uwierzytelnienia i licencji.</small>
+              <small id="accountNotice">Logowanie odbywa się przez Microsoft. Profil zapisujesz lokalnie albo dobrowolnie w chmurze. Uruchomienie Minecraft Java nadal wymaga osobnej autoryzacji i licencji.</small>
             </div>
             <p class="subtext">Uwaga: dostęp do konta MINEVORA i posiadanie Minecraft Java to dwie różne rzeczy. Do uruchamiania gry launcher nadal wymaga autoryzacji oraz odpowiedniej licencji.</p>
           </section>
@@ -151,6 +161,6 @@
 </div>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <script src="minevora-reference.js?v=20261024-profile-photo" defer></script>
-<script src="msal-auth.bundle.js?v=20261024-profile-export-v1" defer></script>
+<script src="msal-auth.bundle.js?v=20261025-cloud-sync-beta1" defer></script>
 </body>
 </html>
