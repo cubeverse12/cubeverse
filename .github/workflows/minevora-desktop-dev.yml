@@ -84,7 +84,7 @@ jobs:
       - name: Install Inno Setup compiler
         shell: pwsh
         run: |
-          $iscc = "${env:ProgramFiles(x86)}\\Inno Setup 6\\ISCC.exe"
+          $iscc = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
           if (!(Test-Path $iscc)) {
             choco install innosetup --yes --no-progress
             if ($LASTEXITCODE -ne 0) { throw "Inno Setup installation failed" }
@@ -94,8 +94,8 @@ jobs:
       - name: Build MINEVORA Windows installer
         shell: pwsh
         run: |
-          $iscc = "${env:ProgramFiles(x86)}\\Inno Setup 6\\ISCC.exe"
-          & $iscc /Qp "installer\\MINEVORA.iss"
+          $iscc = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+          & $iscc /Qp "installer\MINEVORA.iss"
           if ($LASTEXITCODE -ne 0) { throw "Installer compilation failed" }
           if (!(Test-Path "dist/installer/MINEVORA_Setup_DEVELOPMENT.exe")) { throw "Installer output is missing" }
 
@@ -114,18 +114,8 @@ jobs:
           $pfx = Join-Path $env:RUNNER_TEMP "minevora-setup-sign.pfx"
           try {
             [IO.File]::WriteAllBytes($pfx,[Convert]::FromBase64String($env:SIGN_PFX_B64))
-            $tools = Get-ChildItem "${env:ProgramFiles(x86)}\\Windows Kits\\10\\bin" -Recurse -Filter signtool.exe
-            $signtool = $tools | Where-Object { $_.FullName -match '\\\\x64\\\\signtool.exe
-        shell: pwsh
-        run: Compress-Archive -Path "dist/MINEVORA/*" -DestinationPath "MINEVORA_WIN11_DEVELOPMENT.zip" -Force
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: MINEVORA-WIN11-DEVELOPMENT
-          path: MINEVORA_WIN11_DEVELOPMENT.zip
-          if-no-files-found: error
-          retention-days: 7
- } | Sort-Object FullName -Descending | Select-Object -First 1
+            $tools = Get-ChildItem "${env:ProgramFiles(x86)}\Windows Kits\10\bin" -Recurse -Filter signtool.exe
+            $signtool = $tools | Where-Object { $_.FullName.EndsWith("\x64\signtool.exe", [StringComparison]::OrdinalIgnoreCase) } | Sort-Object FullName -Descending | Select-Object -First 1
             if (!$signtool) { throw "Missing Microsoft SignTool" }
             & $signtool.FullName sign /fd SHA256 /f $pfx /p $env:SIGN_PFX_PASS /tr http://timestamp.digicert.com /td SHA256 $setup
             if ($LASTEXITCODE -ne 0) { throw "Installer signing failed" }
