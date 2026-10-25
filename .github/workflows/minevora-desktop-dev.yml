@@ -125,6 +125,44 @@ jobs:
             Remove-Item $pfx -ErrorAction SilentlyContinue
           }
 
+      - name: Smoke-test installer and clean uninstall (CI runner only)
+        shell: pwsh
+        run: |
+          $setup = (Resolve-Path "dist/installer/MINEVORA_Setup_DEVELOPMENT.exe").Path
+          $target = Join-Path $env:RUNNER_TEMP "MINEVORA_INNO_SMOKE"
+          $install = Start-Process -FilePath $setup -ArgumentList @("/VERYSILENT", "/SUPPRESSMSGBOXES", "/NORESTART", "/SP-", "/DIR=`"$target`"") -PassThru -Wait
+          if ($install.ExitCode -ne 0) { throw "Silent installer failed with exit code $($install.ExitCode)" }
+          foreach ($relative in @("MINEVORA.exe", "_internal\\index.html", "_internal\\desktop\\native-bridge.js", "unins000.exe")) {
+            if (!(Test-Path (Join-Path $target $relative))) { throw "Missing installed file: $relative" }
+          }
+          $uninstaller = Join-Path $target "unins000.exe"
+          $uninstall = Start-Process -FilePath $uninstaller -ArgumentList @("/VERYSILENT", "/SUPPRESSMSGBOXES", "/NORESTART") -PassThru -Wait
+          if ($uninstall.ExitCode -ne 0) { throw "Silent uninstaller failed with exit code $($uninstall.ExitCode)" }
+          Start-Sleep -Seconds 2
+          if (Test-Path (Join-Path $target "MINEVORA.exe")) { throw "Launcher EXE left behind after uninstall" }
+          Write-Host "CI smoke test passed: installer created expected files and uninstaller removed EXE."
+          Write-Host "This does not validate Smart App Control or app login on the user's device."
+
+      - name: Record SHA256 checksums and signature states
+        shell: pwsh
+        run: |
+          $launcher = "dist/MINEVORA/MINEVORA.exe"
+          $setup = "dist/installer/MINEVORA_Setup_DEVELOPMENT.exe"
+          $report = "dist/installer/BUILD_CHECKSUMS_SHA256.txt"
+          $lines = @("MINEVORA development build - checksums / signatures", "Not a public release. These SHA256 hashes do not replace publisher signatures.", "")
+          foreach ($p in @($launcher, $setup)) {
+            $digest = Get-FileHash -Path $p -Algorithm SHA256
+            $sig = Get-AuthenticodeSignature -FilePath $p
+            $lines += "${p} SHA256: $($digest.Hash)"
+            $lines += "${p} Authenticode: $($sig.Status)"
+            if ($sig.SignerCertificate) {
+              $lines += "${p} Publisher: $($sig.SignerCertificate.Subject)"
+            }
+            $lines += ""
+          }
+          Set-Content -Path $report -Value $lines -Encoding UTF8
+          Get-Content $report
+
       - name: Package development archive
         shell: pwsh
         run: Compress-Archive -Path "dist/MINEVORA/*" -DestinationPath "MINEVORA_WIN11_DEVELOPMENT.zip" -Force
@@ -142,5 +180,6 @@ jobs:
           path: |
             dist/installer/MINEVORA_Setup_DEVELOPMENT.exe
             dist/installer/UNSIGNED_SETUP.txt
+            dist/installer/BUILD_CHECKSUMS_SHA256.txt
           if-no-files-found: error
           retention-days: 7
