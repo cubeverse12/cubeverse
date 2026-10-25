@@ -32,6 +32,9 @@
       #minevoraDesktopPanel .desktop-profile{display:flex;justify-content:space-between;gap:10px;
         border:1px solid #45456f;padding:12px;border-radius:9px;margin-top:9px}
       #minevoraDesktopPanel .desktop-warning{font-size:12px}
+      #minevoraDesktopPanel .hud-option{flex:1 1 190px;display:flex;align-items:center;gap:12px;
+        border:1px solid #6352a2;background:#121936;border-radius:10px;padding:12px;cursor:pointer}
+      #minevoraDesktopPanel .hud-option input[type="checkbox"]{width:20px;height:20px;min-height:20px;accent-color:#9562f1}
       .native-nav{cursor:pointer}
     `;
     document.head.appendChild(style);
@@ -83,6 +86,20 @@
       <p class="desktop-warning">Logowanie otwiera oficjalną przeglądarkę Microsoft.
       W Entra aplikacji MINEVORA Launcher musi być dodany adres „http://localhost” w
       platformie „Aplikacje mobilne i klasyczne”. Nie udostępniaj tokenów, kodów logowania ani haseł.</p>
+      <h2>⚔ PvP HUD · HP, głód i jedzenie</h2>
+      <p>Ustaw, jakie informacje mają pojawiać się w grze Minecraft. Mod pokazuje prawdziwe wartości,
+      nie zmienia HP ani poziomu głodu. Wymagany MINEVORA PvP HUD 2.0.15+ na Fabric 1.21.1.</p>
+      <div class="desktop-row">
+        <label class="hud-option"><input type="checkbox" id="nativeHudHealth" checked> HP gracza</label>
+        <label class="hud-option"><input type="checkbox" id="nativeHudHunger" checked> Poziom głodu</label>
+        <label class="hud-option"><input type="checkbox" id="nativeHudFoodCount" checked> Liczba sztuk jedzenia</label>
+      </div>
+      <div class="desktop-row">
+        <button type="button" id="nativeHudLoad">Wczytaj ustawienia moda</button>
+        <button type="button" id="nativeHudSave">Zapisz PvP HUD</button>
+      </div>
+      <p class="desktop-warning">Najpierw wybierz wersję Minecraft 1.21.1 i loader Fabric powyżej.
+      Mod liczy jedzenie w ekwipunku i drugiej ręce, bez skrzyń ani ekwipunków innych graczy.</p>
       <h2>Zapisane instalacje</h2>
       <div id="nativeProfileList"><p>Ładowanie instalacji…</p></div>
       <h2>Instalacja zbiorcza</h2>
@@ -107,6 +124,14 @@
     byId("nativeCloudPull").addEventListener("click",()=>post("cloud_pull"));
     byId("nativeCloudPush").addEventListener("click",()=>post("cloud_push"));
     byId("nativeCloudDisconnect").addEventListener("click",()=>post("cloud_disconnect"));
+    const hudOptions = () => ({
+      ...settings(),
+      showHealth:byId("nativeHudHealth").checked,
+      showHunger:byId("nativeHudHunger").checked,
+      showFoodCount:byId("nativeHudFoodCount").checked
+    });
+    byId("nativeHudLoad").addEventListener("click",()=>post("hud_settings_load",settings()));
+    byId("nativeHudSave").addEventListener("click",()=>post("hud_settings_save",hudOptions()));
     byId("nativeBulk").addEventListener("click",()=>post("bulk"));
     byId("nativeStopBulk").addEventListener("click",()=>post("stop_bulk"));
     function updateNavigation(){
@@ -155,7 +180,12 @@
         else {avatar.removeAttribute("src");avatar.style.display="none";}
         message("Profil MINEVORA załadowany do launchera.");
       }
-      if(event.kind==="skin")message("Zapisano skin Minecraft w launcherze.");
+      if(event.kind==="hud_settings"){
+         byId("nativeHudHealth").checked=event.showHealth===true;
+         byId("nativeHudHunger").checked=event.showHunger===true;
+         byId("nativeHudFoodCount").checked=event.showFoodCount===true;
+       }
+       if(event.kind==="skin")message("Zapisano skin Minecraft w launcherze.");
     });
     post("ready");
   }
