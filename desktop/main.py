@@ -241,8 +241,9 @@ class NativeLauncher(QObject):
                         supported=supported, installed=installed,
                         enabled=bool(active), available=bool(active or disabled))
 
+
     def pvp_toggle(self, args):
-        """Enable/disable a client-only mod without changing Minecraft mechanics."""
+        """Enable/disable the existing client-side Fabric 1.21.1 mod for its own profile."""
         version, loader = self.normalize(args)
         if version != "1.21.1" or loader != "fabric":
             raise ValueError("MINEVORA PvP HUD obsługuje obecnie Fabric 1.21.1.")
@@ -250,15 +251,32 @@ class NativeLauncher(QObject):
             raise ValueError("Nieprawidłowy stan przełącznika.")
         if self.game_busy:
             raise ValueError("Zamknij Minecraft przed zmianą plików moda.")
+        if self.busy():
+            raise ValueError("Zaczekaj na zakończenie bieżącej instalacji.")
+        desired = args["enabled"]
         profile = next((p for p in self.data["instances"]
                         if p["version"] == version and p["loader"] == loader), None)
-        if not profile or not profile_installed(profile):
-            raise ValueError("Najpierw zainstaluj Fabric 1.21.1 w zakładce Graj.")
-        mods = game_path(profile) / "mods"
-        desired = args["enabled"]
+        if profile is None:
+            if not desired:
+                self.pvp_state(args)
+                self.status("PvP Mods jest już wyłączony.")
+                return
+            profile = self.ensure_profile(version, loader)
+        installed = profile_installed(profile)
         snapshot = dict(profile)
+        ident = profile["id"]
+        if not installed and not desired:
+            self.pvp_state(args)
+            self.status("PvP Mods jest już wyłączony.")
+            return
+        mods = game_path(profile) / "mods"
 
         def change(progress):
+            game_id = None
+            if desired and not installed:
+                progress("Instalowanie Minecraft 1.21.1 / Fabric…")
+                result = install_profile(snapshot, progress, with_pvp=False)
+                game_id = result["id"]
             mods.mkdir(parents=True, exist_ok=True)
             active = sorted(mods.glob("MINEVORA-PVP-HUD-*-FABRIC-1.21.1.jar"))
             disabled = sorted(mods.glob("MINEVORA-PVP-HUD-*-FABRIC-1.21.1.jar.disabled"))
@@ -272,19 +290,25 @@ class NativeLauncher(QObject):
                             raise ValueError("Plik moda już istnieje. Nie nadpisano go.")
                         disabled[-1].rename(target)
                     else:
-                        progress("Pobieranie i sprawdzanie podpisanej sumą SHA-256 wersji PvP HUD…")
+                        progress("Pobieranie PvP HUD i sprawdzanie sumy SHA-256…")
                         install_pvp(snapshot)
-                return "Włączono MINEVORA PvP HUD. Uruchom grę, aby zobaczyć menu."
+                return {"message": "Włączono PvP Mods. Uruchom grę, aby zobaczyć menu.", "game_id": game_id}
             for jar in active:
                 target = jar.with_name(jar.name + ".disabled")
                 if target.exists():
                     raise ValueError("Istnieje kopia wyłączonego moda. Niczego nie nadpisano.")
                 jar.rename(target)
-            return "Wyłączono MINEVORA PvP HUD. Uruchom grę ponownie, aby zastosować zmianę."
+            return {"message": "Wyłączono PvP Mods. Uruchom grę ponownie, aby zastosować zmianę.", "game_id": game_id}
 
-        def finished(message):
+        def finished(result):
+            if result.get("game_id"):
+                saved = next((p for p in self.data["instances"] if p["id"] == ident), None)
+                if saved:
+                    saved["game_id"] = result["game_id"]
+                    save_store(self.data)
+                    self.profiles()
             self.pvp_state(args)
-            self.status(message)
+            self.status(result["message"])
         self.run_job("Zmiana ustawień MINEVORA PvP HUD…", change, finished)
 
     def login(self):
