@@ -16,9 +16,9 @@ from PySide6.QtWebEngineCore import QWebEnginePage, QWebEngineSettings
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QFileDialog, QInputDialog
 
-from backend import install_profile, official_releases, free_disk_gb
+from backend import install_profile, official_releases, free_disk_gb, install_fabric_api
 from cloud_profile import MicrosoftProfileSession, call_profile_api, validate_profile
-from core import (HOME, MC_DIR, game_path, instance_id, profile_installed,
+from core import (HOME, MC_DIR, game_path, instance_id, profile_installed, install_pvp,
                   read_store, safe_name, save_store, selected_instance)
 from minevora_engine import (LoginWorker, PlayWorker, client_id, redirect_uri,
                              save_oauth_config)
@@ -134,6 +134,8 @@ class NativeLauncher(QObject):
                 "cloud_push": self.cloud_push,
                 "cloud_disconnect": self.cloud_disconnect,
                 "web_account": self.open_web_account,
+                "pvp_state": lambda: self.pvp_state(args),
+                "pvp_toggle": lambda: self.pvp_toggle(args),
             }
             if action not in routes:
                 raise ValueError("Nieobsługiwane polecenie: " + action[:40])
@@ -220,7 +222,70 @@ class NativeLauncher(QObject):
             if self.pending_launch == (version, loader):
                 QTimer.singleShot(250, lambda: self.play({"version": version, "loader": loader}))
         self.run_job(f"Instalowanie Minecraft {version} / {loader}…",
-                     lambda report: install_profile(snapshot, report), done)
+                     lambda report: install_profile(snapshot, report, with_pvp=False), done)
+
+
+    def pvp_state(self, args):
+        """Report actual enabled JAR state for one Minecraft installation."""
+        version, loader = self.normalize(args)
+        supported = version == "1.21.1" and loader == "fabric"
+        profile = next((p for p in self.data["instances"]
+                        if p["version"] == version and p["loader"] == loader), None)
+        installed = bool(profile and profile_installed(profile))
+        active, disabled = [], []
+        if profile and supported:
+            mods = game_path(profile) / "mods"
+            active = sorted(mods.glob("MINEVORA-PVP-HUD-*-FABRIC-1.21.1.jar"))
+            disabled = sorted(mods.glob("MINEVORA-PVP-HUD-*-FABRIC-1.21.1.jar.disabled"))
+        self.emit_state("pvp", version=version, loader=loader,
+                        supported=supported, installed=installed,
+                        enabled=bool(active), available=bool(active or disabled))
+
+    def pvp_toggle(self, args):
+        """Enable/disable a client-only mod without changing Minecraft mechanics."""
+        version, loader = self.normalize(args)
+        if version != "1.21.1" or loader != "fabric":
+            raise ValueError("MINEVORA PvP HUD obsługuje obecnie Fabric 1.21.1.")
+        if not isinstance(args.get("enabled"), bool):
+            raise ValueError("Nieprawidłowy stan przełącznika.")
+        if self.game_busy:
+            raise ValueError("Zamknij Minecraft przed zmianą plików moda.")
+        profile = next((p for p in self.data["instances"]
+                        if p["version"] == version and p["loader"] == loader), None)
+        if not profile or not profile_installed(profile):
+            raise ValueError("Najpierw zainstaluj Fabric 1.21.1 w zakładce Graj.")
+        mods = game_path(profile) / "mods"
+        desired = args["enabled"]
+        snapshot = dict(profile)
+
+        def change(progress):
+            mods.mkdir(parents=True, exist_ok=True)
+            active = sorted(mods.glob("MINEVORA-PVP-HUD-*-FABRIC-1.21.1.jar"))
+            disabled = sorted(mods.glob("MINEVORA-PVP-HUD-*-FABRIC-1.21.1.jar.disabled"))
+            if desired:
+                progress("Sprawdzanie Fabric API dla PvP HUD…")
+                install_fabric_api(snapshot)
+                if not active:
+                    if disabled:
+                        target = disabled[-1].with_suffix("")
+                        if target.exists():
+                            raise ValueError("Plik moda już istnieje. Nie nadpisano go.")
+                        disabled[-1].rename(target)
+                    else:
+                        progress("Pobieranie i sprawdzanie podpisanej sumą SHA-256 wersji PvP HUD…")
+                        install_pvp(snapshot)
+                return "Włączono MINEVORA PvP HUD. Uruchom grę, aby zobaczyć menu."
+            for jar in active:
+                target = jar.with_name(jar.name + ".disabled")
+                if target.exists():
+                    raise ValueError("Istnieje kopia wyłączonego moda. Niczego nie nadpisano.")
+                jar.rename(target)
+            return "Wyłączono MINEVORA PvP HUD. Uruchom grę ponownie, aby zastosować zmianę."
+
+        def finished(message):
+            self.pvp_state(args)
+            self.status(message)
+        self.run_job("Zmiana ustawień MINEVORA PvP HUD…", change, finished)
 
     def login(self):
         if self.login_job and self.login_job.isRunning():
