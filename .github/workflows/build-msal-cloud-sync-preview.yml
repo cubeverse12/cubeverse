@@ -1,0 +1,56 @@
+name: MINEVORA cloud profile preview
+on:
+  push:
+    branches:
+      - codex/minevora-web-profile-cloud-sync-20261025
+    paths:
+      - auth-src.js
+      - index.html
+      - minevora-reference.css
+      - .github/workflows/build-msal-cloud-sync-preview.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: minevora-cloud-preview
+  cancel-in-progress: true
+
+jobs:
+  test-and-bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax and compile pinned official MSAL library
+        run: |
+          node --check auth-src.js
+          npm install --no-save --no-package-lock --no-audit @azure/msal-browser@5.26.0 esbuild@0.25.12
+          ./node_modules/.bin/esbuild auth-src.js --bundle --format=iife --target=es2020 --minify --outfile=msal-auth.bundle.js
+          test -s msal-auth.bundle.js
+          grep -q 'cloudUpload' index.html
+          grep -q 'cloudDownload' index.html
+          grep -q 'cloudDelete' index.html
+          grep -q 'profile.sync' auth-src.js
+      - name: Commit branch-local preview bundle without modifying production
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          cp msal-auth.bundle.js /tmp/minevora-cloud-msal.bundle.js
+          for attempt in 1 2 3; do
+            git fetch origin codex/minevora-web-profile-cloud-sync-20261025
+            git reset --hard origin/codex/minevora-web-profile-cloud-sync-20261025
+            cp /tmp/minevora-cloud-msal.bundle.js msal-auth.bundle.js
+            git add msal-auth.bundle.js
+            if git diff --cached --quiet; then exit 0; fi
+            git commit -m "Build MSAL cloud sync preview bundle"
+            if git push origin HEAD:codex/minevora-web-profile-cloud-sync-20261025; then exit 0; fi
+            sleep 2
+          done
+          exit 1
