@@ -9,9 +9,31 @@
 - Ręczny transfer profilu WWW: zaloguj się na stronie, wyeksportuj profil w **Moje konto → Eksportuj profil do launchera (JSON)**, a następnie w aplikacji wybierz **Importuj profil WWW (JSON)**. Plik zawiera wyłącznie nick, ulubiony tryb, kolor i awatar — nigdy tokeny lub hasła.
 - Strona „Moje konto” otwiera się w przeglądarce systemowej. Logowanie do strony i do Minecraft Java to odrębne sesje.
 
+## Nowość: profil MINEVORA w Cloudflare D1 (wersja testowa)
+
+Ta gałąź dodaje w natywnej zakładce **Graj / Instalacje** przyciski:
+
+- **Pobierz profil z chmury** — po autoryzacji Microsoft przez oficjalną przeglądarkę pobiera nick, ulubioną minigrę, kolor i dobrowolnie dodane zdjęcie WebP z działającego API `/v1/profile`; po potwierdzeniu zastępuje lokalną kopię.
+- **Wyślij lokalny profil do chmury** — tylko po wyraźnym potwierdzeniu; zachowuje kopię na Cloudflare D1.
+- **Rozłącz konto profilu** — usuwa tokeny przechowywane w pamięci procesu (nie usuwa profilu w chmurze).
+
+**Konta są rozdzielone:** dostęp do Minecraft Java wciąż wymaga własnego logowania i licencji. Token Minecraft Java nie może służyć do logowania do profilu MINEVORA. Logowanie profilu używa MSAL Python (OAuth PKCE), aplikacji Entra **MINEVORA Launcher**, zakresu `api://9136b5e6-145b-40d0-bbc4-dca668321195/profile.sync` i prywatnego Cloudflare API. Użytkownik świadomie wybiera konto przy pierwszym logowaniu, później tokeny są przechowywane tylko w pamięci RAM do zamknięcia lub rozłączenia aplikacji. Żadne tokeny nie trafiają do pliku profilu.
+
+### Jednorazowy wymagany krok w Microsoft Entra (właściciel aplikacji)
+
+1. Otwórz **Microsoft Entra → Rejestracje aplikacji → MINEVORA Launcher → Authentication / Uwierzytelnianie**.
+2. W sekcji **Mobile and desktop applications / Aplikacje mobilne i klasyczne** **dodaj** identyfikator URI przekierowania `http://localhost` (bez portu, ścieżki i ukośnika na końcu), jeśli jeszcze go nie ma.
+3. **Pozostaw** istniejący `http://localhost:8765/callback` — jest używany przez niezależne logowanie Minecraft Java. **Nie zmieniaj** adresów SPA `https://cubeverse12.github.io/cubeverse/` i `auth-popup.html`, bo obsługują działające logowanie na stronie.
+4. Zapisz konfigurację. Sprawdź, czy aplikacja **MINEVORA Launcher** ma delegowane uprawnienie `MINEVORA Profile API → profile.sync`.
+5. Po udostępnieniu podpisanej wersji launchera kliknij **Pobierz profil z chmury**; systemowa przeglądarka otworzy oficjalną stronę Microsoft. Wybierz to samo konto co na stronie MINEVORA i zatwierdź uprawnienie tylko wtedy, gdy chcesz przechowywać profil w chmurze.
+
+Zgodnie z dokumentacją MSAL Python jego interaktywne logowanie używa **`http://localhost`** z dynamicznym portem i nie obsługuje niestandardowej ścieżki `/callback` w tej metodzie. Bez dodatkowego adresu autoryzacja launchera może zakończyć się błędem przekierowania.
+
+**Status:** kod i kompilacja CI **nie zastępują rzeczywistego testu na Windows 11**. Należy sprawdzić osobno logowanie Microsoft do profilu, odczyt i zapis konta, izolację kont oraz start Minecraft. Aplikacja bez zaufanego podpisu może być zablokowana przez Windows Smart App Control — nie wyłączaj go.
+
 ## Ważne ograniczenia
 
-**Synchronizacja profilu nie jest jeszcze automatyczna.** Wymaga hostowanego API, bazy danych i poprawnego sprawdzania tokenów Microsoft po stronie serwera. GitHub Pages nie może sam pełnić roli prywatnego backendu. Nie dodawaj sekretów ani tokenów do statycznej strony lub do repozytorium.
+**Synchronizacja jest teraz dostępna na żądanie.** Cloudflare D1 i weryfikacja tokenów działają po stronie API; launcher nie wysyła profilu automatycznie. Wymaga to zgody użytkownika i weryfikacji na Windows. Nie dodawaj sekretów ani tokenów do repozytorium.
 
 **Inteligentna kontrola aplikacji Windows 11:** kompilacja EXE nie oznacza, że Windows pozwoli uruchomić plik. Publiczne wydanie powinno być poprawnie podpisane przez zweryfikowanego wydawcę. Workflow oferuje podpis Authenticode, jeśli administrator repozytorium skonfiguruje zaufany certyfikat w `MINEVORA_SIGNING_PFX_BASE64` i `MINEVORA_SIGNING_PFX_PASSWORD`. W przeciwnym razie ZIP jest oznaczony **UNSIGNED DEVELOPMENT BUILD** i może zostać zablokowany. **Nie wyłączaj Smart App Control, aby to obejść.**
 
