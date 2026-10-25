@@ -72,6 +72,17 @@
         <button type="button" id="nativeSkin">Wczytaj skin PNG</button>
         <button type="button" id="nativeProfileImport">Importuj profil WWW (JSON)</button>
       </div>
+      <h2>☁ Konto MINEVORA · Cloudflare</h2>
+      <p>Użyj osobnego logowania Microsoft do synchronizacji nicku, zdjęcia, koloru i ulubionej minigry.
+      Konto Minecraft Java jest niezależne. Nic nie synchronizuje się automatycznie.</p>
+      <div class="desktop-row">
+        <button type="button" id="nativeCloudPull">Pobierz profil z chmury</button>
+        <button type="button" id="nativeCloudPush">Wyślij lokalny profil do chmury</button>
+        <button type="button" id="nativeCloudDisconnect">Rozłącz konto profilu</button>
+      </div>
+      <p class="desktop-warning">Logowanie otwiera oficjalną przeglądarkę Microsoft.
+      W Entra aplikacji MINEVORA Launcher musi być dodany adres „http://localhost” w
+      platformie „Aplikacje mobilne i klasyczne”. Nie udostępniaj tokenów, kodów logowania ani haseł.</p>
       <h2>Zapisane instalacje</h2>
       <div id="nativeProfileList"><p>Ładowanie instalacji…</p></div>
       <h2>Instalacja zbiorcza</h2>
@@ -93,6 +104,9 @@
     document.querySelectorAll("a[href='#account']").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();e.stopImmediatePropagation();post("web_account")},true));
     byId("nativeSkin").addEventListener("click",()=>post("skin"));
     byId("nativeProfileImport").addEventListener("click",()=>post("profile_import"));
+    byId("nativeCloudPull").addEventListener("click",()=>post("cloud_pull"));
+    byId("nativeCloudPush").addEventListener("click",()=>post("cloud_push"));
+    byId("nativeCloudDisconnect").addEventListener("click",()=>post("cloud_disconnect"));
     byId("nativeBulk").addEventListener("click",()=>post("bulk"));
     byId("nativeStopBulk").addEventListener("click",()=>post("stop_bulk"));
     function updateNavigation(){
@@ -139,7 +153,7 @@
         const avatar=byId("nativeWebAvatar");
         if(typeof event.avatarData==="string" && event.avatarData.startsWith("data:image/webp;base64,") && event.avatarData.length<400000){avatar.src=event.avatarData;avatar.style.display="inline-block"}
         else {avatar.removeAttribute("src");avatar.style.display="none";}
-        message("Zaimportowano profil ze strony MINEVORA. Synchronizacja online wymaga jeszcze usługi kont.");
+        message("Profil MINEVORA załadowany do launchera.");
       }
       if(event.kind==="skin")message("Zapisano skin Minecraft w launcherze.");
     });
