@@ -1,8 +1,10 @@
 // MINEVORA: Microsoft sign-in on GitHub Pages using MSAL Browser (auth code + PKCE).
 // This frontend does not store Minecraft tokens or create a server-side MINEVORA profile.
-import { createStandardPublicClientApplication } from "@azure/msal-browser";
+import { createStandardPublicClientApplication, InteractionRequiredAuthError } from "@azure/msal-browser";
 const CLIENT_ID = "72a4154b-5254-4c4b-958f-0a5181a0ad93";
 const REDIRECT_URI = "https://cubeverse12.github.io/cubeverse/";
+const CLOUD_API = "https://wandering-cell-cf47minevora-profile-api.niedospialirek855.workers.dev/v1/profile";
+const CLOUD_SCOPE = "api://9136b5e6-145b-40d0-bbc4-dca668321195/profile.sync";
 const btn = document.getElementById("msalLogin");
 const logoutBtn = document.getElementById("msalLogout");
 const redirectFallback = document.getElementById("msalRedirectFallback");
@@ -25,6 +27,13 @@ const photoField = document.getElementById("profilePhoto");
 const removePhotoBtn = document.getElementById("removeProfilePhoto");
 let currentUser = null;
 let pendingAvatarData = null;
+let authClient = null;
+let cloudBusy = false;
+const cloudStatus = document.getElementById("cloudStatus");
+const cloudUpload = document.getElementById("cloudUpload");
+const cloudDownload = document.getElementById("cloudDownload");
+const cloudDelete = document.getElementById("cloudDelete");
+const cloudControls = [cloudUpload, cloudDownload, cloudDelete].filter(Boolean);
 
 function accountStorageKey(user) {
   // homeAccountId identifies the account but is not an access token.
@@ -167,7 +176,7 @@ if (playerForm) playerForm.addEventListener("submit", event => {
     localStorage.setItem(key, JSON.stringify(data));
     pendingAvatarData = null;
     renderProfile(currentUser, data);
-    profileMessage.textContent = "Profil zapisany w tej przeglądarce. Synchronizacja z launcherem wymaga serwera kont.";
+    profileMessage.textContent = "Profil zapisany w tej przeglądarce. Aby przechowywać kopię online, wybierz „Wyślij zapisany profil do chmury”.";
   } catch { profileMessage.textContent = "Nie udało się zapisać danych w tej przeglądarce."; }
 });
 if (resetButton) resetButton.addEventListener("click", () => {
@@ -180,6 +189,126 @@ if (resetButton) resetButton.addEventListener("click", () => {
     profileMessage.textContent = "Przywrócono domyślne ustawienia profilu.";
   } catch { profileMessage.textContent = "Nie udało się przywrócić ustawień."; }
 });
+
+/* Private profile cloud sync. Disabled by default: only explicit user clicks
+   obtain delegated API consent or transfer locally saved profile data. */
+function cloudMessage(message) { if (cloudStatus) cloudStatus.textContent = message; }
+function cloudLock(locked) {
+  cloudBusy = locked;
+  cloudControls.forEach(button => { button.disabled = locked; });
+}
+async function cloudToken(owner) {
+  if (!authClient || !owner) throw new Error("Najpierw zaloguj się do Microsoft.");
+  const req = { account: owner, scopes: [CLOUD_SCOPE] };
+  let result;
+  try {
+    result = await authClient.acquireTokenSilent(req);
+  } catch (error) {
+    if (!(error instanceof InteractionRequiredAuthError)) throw error;
+    result = await authClient.acquireTokenPopup({
+      ...req, redirectUri: REDIRECT_URI + "auth-popup.html"
+    });
+  }
+  if (currentUser !== owner || !result?.accessToken) {
+    throw new Error("Sesja Microsoft zmieniła się. Zaloguj się ponownie.");
+  }
+  return result.accessToken;
+}
+function checkedCloudProfile(value) {
+  if (!value || !validNickname(value.nickname) ||
+      !modes.includes(value.mode) || !colors.includes(value.color) ||
+      typeof value.avatarData !== "string" ||
+      (value.avatarData !== "" &&
+       (!/^data:image\/webp;base64,[a-zA-Z0-9+/=]+$/.test(value.avatarData) ||
+        value.avatarData.length > 400000))) {
+    throw new Error("Serwer zwrócił nieprawidłowe dane profilu.");
+  }
+  return { nickname: value.nickname, mode: value.mode,
+           color: value.color, avatarData: value.avatarData };
+}
+async function cloudRequest(method, owner, payload) {
+  const token = await cloudToken(owner);
+  // The token is used only as an Authorization header, never logged or stored
+  // with the profile. The backend verifies issuer, signature, audience and scope.
+  const opts = {
+    method,
+    headers: { Authorization: "Bearer " + token },
+    signal: AbortSignal.timeout(20000)
+  };
+  if (method === "PUT") {
+    opts.headers["Content-Type"] = "application/json";
+    opts.body = JSON.stringify(payload);
+  }
+  const result = await fetch(CLOUD_API, opts);
+  const reply = await result.json().catch(() => ({}));
+  if (currentUser !== owner) throw new Error("Zmieniono konto Microsoft podczas synchronizacji.");
+  if (!result.ok) {
+    const publicErrors = {
+      authentication_required: "Serwer nie zaakceptował tokenu Microsoft. Sprawdź zgodę profile.sync.",
+      storage_unavailable: "Baza profili jest chwilowo niedostępna.",
+      invalid_profile: "Dane profilu nie przeszły weryfikacji serwera.",
+      profile_too_large: "Zdjęcie lub profil są zbyt duże.",
+      auth_configuration_error: "Konfiguracja API Microsoft wymaga poprawki."
+    };
+    throw new Error(publicErrors[reply?.error] || "Synchronizacja nie powiodła się (HTTP " + result.status + ").");
+  }
+  return reply;
+}
+async function doCloudAction(operation) {
+  if (cloudBusy || !currentUser || !authClient) return;
+  const owner = currentUser;
+  const storageKey = accountStorageKey(owner);
+  if (!storageKey) { cloudMessage("Brak identyfikatora profilu Microsoft."); return; }
+  if (operation === "upload" && pendingAvatarData !== null) {
+    cloudMessage("Najpierw kliknij „Zapisz profil”, aby uwzględnić zmianę zdjęcia.");
+    return;
+  }
+  if (operation === "upload" && !confirm(
+      "Czy zapisać kopię profilu (nick, minigra, kolor, opcjonalne zdjęcie) " +
+      "na prywatnym koncie MINEVORA w Cloudflare? Dane pozostaną tam do ich zmiany lub usunięcia.")) return;
+  if (operation === "delete" && !confirm(
+      "Usunąć Twój profil z chmury? Kopia zapisana w tej przeglądarce pozostanie bez zmian.")) return;
+  cloudLock(true);
+  cloudMessage("Trwa autoryzacja Microsoft i łączenie z prywatnym API…");
+  try {
+    if (operation === "upload") {
+      const p = checkedCloudProfile(loadProfile(owner));
+      await cloudRequest("PUT", owner, p);
+      cloudMessage("Profil bezpiecznie zapisany w chmurze. Można pobrać go na innym urządzeniu.");
+    } else if (operation === "download") {
+      const result = await cloudRequest("GET", owner);
+      if (!result.profile) {
+        cloudMessage("W chmurze nie ma jeszcze profilu dla tego konta. Najpierw wyślij zapisany profil.");
+        return;
+      }
+      const remote = checkedCloudProfile(result.profile);
+      if (!confirm("Zastąpić lokalny nick, zdjęcie i ustawienia profilem z chmury?")) {
+        cloudMessage("Pobieranie anulowane. Lokalny profil nie został zmieniony.");
+        return;
+      }
+      const old = loadProfile(owner);
+      const next = { ...remote, createdAt: old.createdAt || new Date().toISOString() };
+      localStorage.setItem(storageKey, JSON.stringify(next));
+      pendingAvatarData = null;
+      renderProfile(owner, next);
+      cloudMessage("Pobrano profil z chmury i zapisano w tej przeglądarce.");
+    } else if (operation === "delete") {
+      await cloudRequest("DELETE", owner);
+      cloudMessage("Usunięto profil z chmury. Lokalny profil pozostał bez zmian.");
+    }
+  } catch (error) {
+    // Never print or expose OAuth access tokens or raw login responses.
+    const code = typeof error?.errorCode === "string" ? error.errorCode.replace(/[^a-zA-Z0-9_]/g, "").slice(0, 50) : "";
+    const message = code ? "Autoryzacja Microsoft: " + code : (error?.message || "Nieznany błąd synchronizacji.");
+    cloudMessage(message);
+  } finally {
+    cloudLock(false);
+  }
+}
+if (cloudUpload) cloudUpload.addEventListener("click", () => void doCloudAction("upload"));
+if (cloudDownload) cloudDownload.addEventListener("click", () => void doCloudAction("download"));
+if (cloudDelete) cloudDelete.addEventListener("click", () => void doCloudAction("delete"));
+
 (async () => {
   if (!btn || !logoutBtn) return;
   try {
@@ -195,6 +324,7 @@ if (resetButton) resetButton.addEventListener("click", () => {
       // MSAL, not our profile code, manages encrypted authentication artifacts.
       cache: { cacheLocation: "localStorage" }
     });
+    authClient = msal;
     const response = await msal.handleRedirectPromise();
     const signed = response?.account || msal.getActiveAccount() || msal.getAllAccounts()[0] || null;
     if (signed) msal.setActiveAccount(signed);
