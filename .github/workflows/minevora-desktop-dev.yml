@@ -1,0 +1,200 @@
+name: MINEVORA integrated Windows launcher (development)
+on:
+  push:
+    branches: [codex/minevora-desktop-profile-cloud-sync-20261025]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: minevora-desktop-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check Python and JavaScript, then test profile validation
+        run: |
+          python -m compileall -q desktop
+          node --check desktop/native-bridge.js
+          python -m unittest discover -s desktop/tests -v
+
+  build-windows:
+    needs: validate
+    runs-on: windows-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install dependencies
+        shell: pwsh
+        run: python -m pip install -r desktop/requirements.txt "pyinstaller>=6.10,<7"
+
+      - name: Build desktop launcher from shared HTML and artwork
+        shell: pwsh
+        run: pyinstaller --noconfirm --clean --onedir --windowed --name MINEVORA --collect-all PySide6.QtWebEngineCore --add-data "index.html;." --add-data "minevora-reference.css;." --add-data "minevora-reference.js;." --add-data "msal-auth.bundle.js;." --add-data "auth-redirect-bridge.bundle.js;." --add-data "auth-popup.html;." --add-data "avatar-preview.js;." --add-data "assets;assets" --add-data "desktop/native-bridge.js;desktop" desktop/main.py
+
+      - name: Verify executable and assets
+        shell: pwsh
+        run: |
+          foreach ($p in @("dist/MINEVORA/MINEVORA.exe","dist/MINEVORA/_internal/index.html","dist/MINEVORA/_internal/minevora-reference.css","dist/MINEVORA/_internal/desktop/native-bridge.js")) {
+            if (!(Test-Path $p)) { throw "Missing build output: $p" }
+          }
+
+      # The private signing key must be stored only in GitHub Actions Secrets.
+      # Without a trusted certificate, do not claim Windows will allow this app.
+      - name: Optional trusted Authenticode signing
+        shell: pwsh
+        env:
+          SIGN_PFX_B64: ${{ secrets.MINEVORA_SIGNING_PFX_BASE64 }}
+          SIGN_PFX_PASS: ${{ secrets.MINEVORA_SIGNING_PFX_PASSWORD }}
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:SIGN_PFX_B64) -or [string]::IsNullOrWhiteSpace($env:SIGN_PFX_PASS)) {
+            "UNSIGNED DEVELOPMENT BUILD — Windows Smart App Control may block this file." | Out-File "dist/MINEVORA/UNSIGNED_BUILD.txt" -Encoding utf8
+            Write-Host "No signing certificate. Not ready for public release."
+            exit 0
+          }
+          $pfx = Join-Path $env:RUNNER_TEMP "minevora-sign.pfx"
+          try {
+            [IO.File]::WriteAllBytes($pfx,[Convert]::FromBase64String($env:SIGN_PFX_B64))
+            $tools = Get-ChildItem "${env:ProgramFiles(x86)}\Windows Kits\10\bin" -Recurse -Filter signtool.exe
+            $signtool = $tools | Where-Object { $_.FullName -match '\\x64\\signtool.exe$' } | Sort-Object FullName -Descending | Select-Object -First 1
+            if (!$signtool) { throw "Missing Microsoft SignTool" }
+            & $signtool.FullName sign /fd SHA256 /f $pfx /p $env:SIGN_PFX_PASS /tr http://timestamp.digicert.com /td SHA256 "dist/MINEVORA/MINEVORA.exe"
+            if ($LASTEXITCODE -ne 0) { throw "Signing failed" }
+            & $signtool.FullName verify /pa "dist/MINEVORA/MINEVORA.exe"
+            if ($LASTEXITCODE -ne 0) { throw "Signature check failed" }
+          } finally {
+            Remove-Item $pfx -ErrorAction SilentlyContinue
+          }
+
+      - name: Install Inno Setup compiler
+        shell: pwsh
+        run: |
+          $iscc = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+          if (!(Test-Path $iscc)) {
+            choco install innosetup --yes --no-progress
+            if ($LASTEXITCODE -ne 0) { throw "Inno Setup installation failed" }
+          }
+          if (!(Test-Path $iscc)) { throw "Missing Inno Setup compiler" }
+
+      - name: Build MINEVORA Windows installer
+        shell: pwsh
+        run: |
+          $iscc = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+          & $iscc /Qp "installer\MINEVORA.iss"
+          if ($LASTEXITCODE -ne 0) { throw "Installer compilation failed" }
+          if (!(Test-Path "dist/installer/MINEVORA_Setup_DEVELOPMENT.exe")) { throw "Installer output is missing" }
+
+      - name: Optionally sign and verify installer
+        shell: pwsh
+        env:
+          SIGN_PFX_B64: ${{ secrets.MINEVORA_SIGNING_PFX_BASE64 }}
+          SIGN_PFX_PASS: ${{ secrets.MINEVORA_SIGNING_PFX_PASSWORD }}
+        run: |
+          $setup = "dist/installer/MINEVORA_Setup_DEVELOPMENT.exe"
+          if ([string]::IsNullOrWhiteSpace($env:SIGN_PFX_B64) -or [string]::IsNullOrWhiteSpace($env:SIGN_PFX_PASS)) {
+            "UNSIGNED DEVELOPMENT INSTALLER - Windows Smart App Control may block this installer or launcher. Do not disable Windows security." | Out-File "dist/installer/UNSIGNED_SETUP.txt" -Encoding utf8
+            Write-Host "No trusted signing certificate: installer is development-only."
+            exit 0
+          }
+          $pfx = Join-Path $env:RUNNER_TEMP "minevora-setup-sign.pfx"
+          try {
+            [IO.File]::WriteAllBytes($pfx,[Convert]::FromBase64String($env:SIGN_PFX_B64))
+            $tools = Get-ChildItem "${env:ProgramFiles(x86)}\Windows Kits\10\bin" -Recurse -Filter signtool.exe
+            $signtool = $tools | Where-Object { $_.FullName.EndsWith("\x64\signtool.exe", [StringComparison]::OrdinalIgnoreCase) } | Sort-Object FullName -Descending | Select-Object -First 1
+            if (!$signtool) { throw "Missing Microsoft SignTool" }
+            & $signtool.FullName sign /fd SHA256 /f $pfx /p $env:SIGN_PFX_PASS /tr http://timestamp.digicert.com /td SHA256 $setup
+            if ($LASTEXITCODE -ne 0) { throw "Installer signing failed" }
+            & $signtool.FullName verify /pa $setup
+            if ($LASTEXITCODE -ne 0) { throw "Installer signature verification failed" }
+          } finally {
+            Remove-Item $pfx -ErrorAction SilentlyContinue
+          }
+
+      - name: Smoke-test installer and clean uninstall (CI runner only)
+        shell: pwsh
+        run: |
+          $setup = (Resolve-Path "dist/installer/MINEVORA_Setup_DEVELOPMENT.exe").Path
+          $target = Join-Path $env:RUNNER_TEMP "MINEVORA_INNO_SMOKE"
+          $install = Start-Process -FilePath $setup -ArgumentList @("/VERYSILENT", "/SUPPRESSMSGBOXES", "/NORESTART", "/SP-", "/DIR=`"$target`"") -PassThru -Wait
+          if ($install.ExitCode -ne 0) { throw "Silent installer failed with exit code $($install.ExitCode)" }
+          foreach ($relative in @("MINEVORA.exe", "_internal\\index.html", "_internal\\desktop\\native-bridge.js", "unins000.exe")) {
+            if (!(Test-Path (Join-Path $target $relative))) { throw "Missing installed file: $relative" }
+          }
+          $uninstaller = Join-Path $target "unins000.exe"
+          $uninstall = Start-Process -FilePath $uninstaller -ArgumentList @("/VERYSILENT", "/SUPPRESSMSGBOXES", "/NORESTART") -PassThru -Wait
+          if ($uninstall.ExitCode -ne 0) { throw "Silent uninstaller failed with exit code $($uninstall.ExitCode)" }
+          Start-Sleep -Seconds 2
+          if (Test-Path (Join-Path $target "MINEVORA.exe")) { throw "Launcher EXE left behind after uninstall" }
+          Write-Host "CI smoke test passed: installer created expected files and uninstaller removed EXE."
+          Write-Host "This does not validate Smart App Control or app login on the user's device."
+
+      - name: Record SHA256 checksums and signature states
+        shell: pwsh
+        run: |
+          $launcher = "dist/MINEVORA/MINEVORA.exe"
+          $setup = "dist/installer/MINEVORA_Setup_DEVELOPMENT.exe"
+          $report = "dist/installer/BUILD_CHECKSUMS_SHA256.txt"
+          $lines = @("MINEVORA development build - checksums / signatures", "Not a public release. These SHA256 hashes do not replace publisher signatures.", "")
+          foreach ($p in @($launcher, $setup)) {
+            $digest = Get-FileHash -Path $p -Algorithm SHA256
+            $sig = Get-AuthenticodeSignature -FilePath $p
+            $lines += "${p} SHA256: $($digest.Hash)"
+            $lines += "${p} Authenticode: $($sig.Status)"
+            if ($sig.SignerCertificate) {
+              $lines += "${p} Publisher: $($sig.SignerCertificate.Subject)"
+            }
+            $lines += ""
+          }
+          Set-Content -Path $report -Value $lines -Encoding UTF8
+          Get-Content $report
+
+      - name: Create Microsoft Store MSIX submission draft
+        shell: pwsh
+        run: |
+          python -m pip install "Pillow>=11,<13"
+          ./msix/build-store-msix.ps1
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MINEVORA-MSIX-STORE-DRAFT
+          path: |
+            dist/store-msix/MINEVORA_Launcher_0.2.0.0_x64_STORE_DRAFT.msix
+            dist/store-msix/READ_ME_STORE_DRAFT.txt
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Package development archive
+        shell: pwsh
+        run: Compress-Archive -Path "dist/MINEVORA/*" -DestinationPath "MINEVORA_WIN11_DEVELOPMENT.zip" -Force
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MINEVORA-WIN11-DEVELOPMENT
+          path: MINEVORA_WIN11_DEVELOPMENT.zip
+          if-no-files-found: error
+          retention-days: 7
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MINEVORA-WIN11-INSTALLER-DEVELOPMENT
+          path: |
+            dist/installer/MINEVORA_Setup_DEVELOPMENT.exe
+            dist/installer/UNSIGNED_SETUP.txt
+            dist/installer/BUILD_CHECKSUMS_SHA256.txt
+          if-no-files-found: error
+          retention-days: 7
