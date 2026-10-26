@@ -14,10 +14,12 @@
 <link rel="stylesheet" href="launcher-start.css?v=20261026-2-5" />
 <link rel="stylesheet" href="unified-2-5.css?v=20261026-2-5" />
 <link rel="stylesheet" href="visual-2-6.css?v=20261026-2-6">
+<link rel="stylesheet" href="mobile-2-6-hotfix.css?v=20261026-1">
 </head>
 <body>
 <div class="app">
-  <aside class="sidebar" aria-label="Menu MINEVORA">
+  <aside class="sidebar" id="mvSiteSidebar" aria-label="Menu MINEVORA">
+    <div class="mv-mobile-drawer-top"><span>MENU MINEVORA</span><button type="button" class="mv-mobile-close" id="mvMobileMenuClose" aria-label="Zamknij menu">×</button></div>
     <a class="brand" href="#home" aria-label="MINEVORA — strona główna">
       <img src="assets/minevora_brand_2_6.png" alt="MINEVORA" class="mv-brand-unified">
       <span class="mv-brand-name">MINEVORA</span><span class="brand-ver">MINEVORA / BETA</span>
@@ -38,8 +40,10 @@
       <a class="navitem" href="#download" data-route="download"><img src="assets/icons/download.png" alt=""> Pobieranie</a>
     </div>
   </aside>
+  <button type="button" class="mv-mobile-scrim" id="mvMobileScrim" tabindex="-1" aria-label="Zamknij menu"></button>
   <div class="workspace">
     <header class="topbar">
+      <button type="button" class="mv-mobile-menu-toggle" id="mvMobileMenuOpen" aria-controls="mvSiteSidebar" aria-expanded="false" aria-label="Otwórz menu MINEVORA">☰</button>
       <div class="back-search"><button class="back-btn" id="backBtn" type="button" title="Wróć na stronę główną" aria-label="Wróć na stronę główną">‹</button><span class="current-section" id="sectionName">MINEVORA</span></div>
       <a href="#home" class="mv-site-header-brand" aria-label="MINEVORA — Start"><img src="assets/minevora_brand_2_6.png" alt="MINEVORA"></a>
       <nav class="mv-site-top-tabs" aria-label="Zakładki strony MINEVORA">
@@ -381,5 +385,6 @@
 <script src="minevora-reference.js?v=20261026-2-5" defer></script>
 <script src="poradnik.js?v=20261026-1" defer></script>
 <script src="msal-auth.bundle.js?v=20261025-cloud-sync-beta1" defer></script>
+<script src="mobile-2-6-hotfix.js?v=20261026-1" defer></script>
 </body>
 </html>
