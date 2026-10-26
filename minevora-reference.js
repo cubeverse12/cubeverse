@@ -1,5 +1,5 @@
 (()=>{'use strict';
-const routes={home:"STRONA GŁÓWNA",odkrywaj:"O PROJEKCIE",sklep:"SKLEP · WKRÓTCE",minigames:"MINIGRY",pvp:"PVP MODE",rankings:"RANKINGI",account:"MOJE KONTO",poradnik:"PORADNIK",podglad:"PODGLĄD LAUNCHERA",download:"POBIERANIE"};
+const routes={home:"STRONA GŁÓWNA",odkrywaj:"O PROJEKCIE",sklep:"SKLEP · WKRÓTCE",minigames:"MINIGRY",pvp:"PVP MODE",rankings:"RANKINGI",account:"MOJE KONTO",poradnik:"PORADNIK",podglad:"PODGLĄD LAUNCHERA",download:"POBIERANIE",plus:"MINEVORA PLUS",studio:"SKIN STUDIO PLUS"};
 const views=[...document.querySelectorAll('[data-view]')];
 function navigate(){const name=Object.hasOwn(routes,location.hash.slice(1))?location.hash.slice(1):'home';
   for(const v of views)v.hidden=v.dataset.view!==name;
