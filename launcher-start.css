@@ -1,0 +1,60 @@
+/* MINEVORA desktop skin v2.4 — applies only to the trusted native WebChannel shell. */
+body.mv-desktop-mode{--mv-start-purple:#9a42ff;--mv-start-light:#d9b3ff;background:#090d20;overflow-x:hidden}
+.mv-desktop-mode .app{grid-template-columns:220px minmax(0,1fr)}
+.mv-desktop-mode .sidebar{padding:0 9px 16px;background:linear-gradient(180deg,#090d1d 0%,#101328 65%,#0c1024 100%);border-right:1px solid #343057;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#4e3077 transparent}
+.mv-desktop-mode .brand{flex-direction:row;align-items:center;justify-content:flex-start;gap:7px;height:80px;min-height:80px;padding:10px 8px;margin:0 0 10px}
+.mv-desktop-mode .brand img{height:49px;width:49px;object-fit:contain;filter:drop-shadow(0 0 9px #864cf966)}
+.mv-desktop-mode .brand .mv-brand-name{display:inline!important;font-weight:950;font-size:18px;letter-spacing:1.1px;color:#d7ccff}
+.mv-desktop-mode .brand .brand-ver{display:none}
+.mv-desktop-mode .sidenav{gap:5px}
+.mv-desktop-mode .navitem{height:53px;min-height:53px;gap:15px;padding:0 11px;font-size:14px;color:#e3e0f7;border-radius:7px}
+.mv-desktop-mode .navitem img{width:26px;height:26px;object-fit:contain}
+.mv-desktop-mode .navitem.active{background:linear-gradient(100deg,#38216d,#211a47);border:1px solid #6d35b8;box-shadow:inset 3px 0 0 #b765ff,0 0 16px #581fa92f}
+.mv-desktop-mode .navitem:hover{background:#332353;border-color:#58397f}
+.mv-desktop-mode .sidefoot{padding-top:8px}
+.mv-desktop-mode .workspace{background:linear-gradient(180deg,#0c1023,#090d1e)}
+.mv-desktop-mode .topbar{height:70px;justify-content:flex-start;padding:0 22px;border-bottom:1px solid #353058;background:linear-gradient(180deg,#0b1021,#0e1125)}
+.mv-desktop-mode .topbar .back-search,.mv-desktop-mode .topbar .user-area{display:none}
+.mv-desktop-mode .mv-desktop-top-tabs{height:100%;display:flex;align-items:center;gap:30px}
+.mv-desktop-mode .mv-desktop-top-tabs a{color:#bab9d8;text-decoration:none;font-size:16px;padding:24px 8px 21px;align-self:stretch;display:flex;align-items:center;border-bottom:3px solid transparent;white-space:nowrap;font-weight:550;transition:color .15s,border-color .15s}
+.mv-desktop-mode .mv-desktop-top-tabs a:hover{color:#f8f0ff}
+.mv-desktop-mode .mv-desktop-top-tabs a.active{color:#fff;border-bottom-color:#c07aff;text-shadow:0 0 10px #9331ff;font-weight:800}
+.mv-desktop-mode .page{padding:13px 14px 12px;max-width:none;overflow:visible}
+.mv-desktop-mode .legal{font-size:11px;opacity:.55;margin:16px 4px}
+#mvNativeStart[hidden],#mvNativeExtra[hidden]{display:none!important}
+.mv-desktop-mode #mvNativeStart{width:100%;min-width:0;margin:0 auto}
+.mv-desktop-mode .mv-launcher-scene{width:100%;height:clamp(525px,73vh,720px);position:relative;border-radius:10px;overflow:hidden;border:1px solid #382b69;background:#10102b;box-shadow:0 16px 32px #0006}
+.mv-desktop-mode .mv-launcher-art{position:absolute;inset:0;background-image:linear-gradient(180deg,transparent 52%,#080c1d1c 70%,#07091d6b 100%),url('assets/launcher/start-hero.webp');background-size:cover;background-position:center;pointer-events:none}
+.mv-desktop-mode .mv-launcher-controls{position:absolute;inset:0;pointer-events:none}
+.mv-desktop-mode .mv-launcher-controls>*{pointer-events:auto}
+.mv-desktop-mode .mv-quick-settings{position:absolute;bottom:14px;left:12px;width:292px;max-width:38%;display:grid;gap:8px}
+.mv-desktop-mode .mv-version-select-wrap{display:flex;gap:9px;align-items:center;min-height:68px;border-radius:13px;padding:7px 14px;background:#070c1eed;border:1px solid #6854a5;box-shadow:0 5px 18px #0007;backdrop-filter:blur(11px)}
+.mv-desktop-mode .mv-tile-icon{font-size:25px;display:grid;place-items:center;width:37px;flex:0 0 37px;height:38px;color:#ca95ff;text-shadow:0 0 16px #a25aff}
+.mv-desktop-mode .mv-tile-text{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.mv-desktop-mode .mv-tile-text label{font-size:12px;font-weight:850;color:#fff}
+.mv-desktop-mode .mv-tile-text select{border:0;background:transparent;color:#c5c4ea;font-size:14px;min-height:26px;width:100%;outline-offset:2px;cursor:pointer}
+.mv-desktop-mode .mv-tile-text select option{background:#11152b;color:#fff}
+.mv-desktop-mode .mv-quick-server{display:flex;align-items:center;gap:10px;border:1px solid #514179;border-radius:10px;background:#101124e7;color:#d0caec;min-height:39px;font-size:11px;padding:7px 11px}
+.mv-desktop-mode .mv-quick-server strong{font-size:10px;color:#f9bc70;white-space:nowrap;display:block;letter-spacing:.4px}
+.mv-desktop-mode .mv-server-dot{width:10px;height:10px;border-radius:50%;background:#f4b35b;box-shadow:0 0 11px #ecaa62aa;flex:none}
+.mv-desktop-mode .mv-mega-play{position:absolute;bottom:33px;left:50%;transform:translateX(-50%);height:84px;width:min(33vw,360px);min-width:230px;background:linear-gradient(160deg,#a014ed,#6312d0 70%,#4a139a);color:#fff;border:2px solid #b35bff;border-radius:14px;box-shadow:inset 0 2px 0 #ffffff30,0 0 24px #9e24fc78,0 8px 32px #140020a8;font-weight:950;letter-spacing:2px;font-size:30px;text-shadow:0 0 7px #8c27f3;cursor:pointer;transition:filter .15s,transform .15s}
+.mv-desktop-mode .mv-mega-play span{font-size:31px;margin-right:16px}
+.mv-desktop-mode .mv-mega-play:hover{filter:brightness(1.17);transform:translateX(-50%) translateY(-2px)}
+.mv-desktop-mode .mv-mega-play:active{transform:translateX(-50%) translateY(0)}
+.mv-desktop-mode .mv-options-btn{position:absolute;bottom:15px;right:14px;border-radius:9px;border:1px solid #54437c;background:#080e22e9;color:#d8cff5;padding:11px 15px;font-size:12px;font-weight:750;cursor:pointer}
+.mv-desktop-mode .mv-options-btn:hover{border-color:#a068ea;background:#201338}
+.mv-desktop-mode .mv-native-below{margin:12px 0 0;padding:18px 21px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:#0f1530;border-radius:12px;border:1px solid #353357}
+.mv-desktop-mode .mv-native-below h2{font-size:17px;margin:2px 0;color:#f0e9ff}
+.mv-desktop-mode .mv-native-below p{font-size:12px;margin:0;color:#bcb8de;max-width:800px}
+.mv-desktop-mode .mv-below-kicker{font-size:11px;letter-spacing:1.7px;font-weight:950;color:#be8dff}
+.mv-desktop-mode .mv-home-guide{padding:12px 14px;border:1px solid #7850a8;background:#3a226c;color:#fff;border-radius:9px;font-size:12px;letter-spacing:.5px;font-weight:850;white-space:nowrap}
+.mv-desktop-mode .mv-home-guide:hover{background:#6b34b6}
+.mv-desktop-mode #mvNativeExtra{min-height:70vh;display:grid;place-items:center;padding:45px}
+.mv-desktop-mode .mv-extra-card{max-width:700px;width:100%;border-radius:20px;background:linear-gradient(145deg,#231740,#11172f);border:1px solid #634097;padding:40px;box-shadow:0 16px 50px #0008}
+.mv-desktop-mode .mv-extra-card h1{font-size:clamp(26px,4vw,42px);margin:10px 0 15px}
+.mv-desktop-mode .mv-extra-card p{line-height:1.75;font-size:15px;color:#c5c1e5;margin-bottom:32px}
+.mv-desktop-mode #minevoraDesktopPanel{max-width:none;border-radius:14px;padding:25px 28px}
+.mv-desktop-mode #minevoraDesktopPanel .desktop-head{padding-top:0}
+.mv-desktop-mode #minevoraDesktopPanel .desktop-section-title{scroll-margin-top:30px}
+@media(max-width:1250px){.mv-desktop-mode .app{grid-template-columns:192px minmax(0,1fr)}.mv-desktop-mode .navitem{gap:8px;font-size:12px}.mv-desktop-mode .brand .mv-brand-name{font-size:16px}.mv-desktop-mode .mv-launcher-scene{height:clamp(485px,68vh,660px)}.mv-desktop-mode .mv-mega-play{height:68px;font-size:24px;bottom:27px;width:250px}.mv-desktop-mode .mv-quick-settings{width:245px}}
+@media(max-width:930px){.mv-desktop-mode .mv-launcher-art{background-position:center}.mv-desktop-mode .mv-quick-settings{left:9px;bottom:12px;width:215px;max-width:42%}.mv-desktop-mode .mv-mega-play{min-width:160px;width:190px;height:63px;font-size:20px}.mv-desktop-mode .mv-options-btn{bottom:10px;padding:8px;font-size:10px}.mv-desktop-mode .mv-desktop-top-tabs{gap:8px}.mv-desktop-mode .mv-desktop-top-tabs a{font-size:13px}}

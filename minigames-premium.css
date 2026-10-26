@@ -1,0 +1,117 @@
+/* MINEVORA 2.1 — widok MINIGRY odtworzony na podstawie zaakceptowanego projektu graficznego.
+   Plik nie zmienia implementacji konta Microsoft ani backendu launchera. */
+@media (min-width:1101px){
+  .app{grid-template-columns:205px minmax(0,1fr)}
+}
+.brand{gap:1px}
+.brand img{width:112px;height:112px;max-width:100%;margin:3px auto 0;filter:drop-shadow(0 0 12px #7c40fc66)}
+.mv-brand-name{display:block;font-weight:950;font-size:18px;letter-spacing:2.8px;color:#ddd4ff;text-shadow:0 0 8px #8051ef5c}
+.brand-ver{margin-top:-1px;font-size:10px;letter-spacing:.7px}
+.navitem{height:52px;gap:14px;font-size:15px;padding:0 14px}
+.navitem img{width:28px;height:28px}
+.sidebar{padding-top:9px}
+.sidefoot{padding-top:12px}
+.account-shortcut{border:1px solid #67529a;border-radius:7px;padding:7px 13px;background:#211a45}
+.visitor-badge{border-radius:20px;padding:6px 12px;background:#302052;border:1px solid #7051af}
+.header-download{margin-left:9px}
+
+/* Do not let the previous scrollable 650px tab style clip the premium page. */
+#minigamesView.mv-minigames{
+  display:block;
+  position:relative;
+  width:100%;
+  height:auto;
+  min-height:0;
+  max-height:none;
+  margin:0;
+  padding:0;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  overflow:visible;
+  background:transparent;
+  isolation:isolate;
+}
+#minigamesView.mv-minigames[hidden]{display:none!important}
+#minigamesView .mv-hero{position:relative;min-height:340px;height:340px;overflow:hidden;border-radius:17px;border:1px solid #9263e6;background:linear-gradient(105deg,#28164f,#11173c 60%,#19124b);box-shadow:0 0 0 1px #7b47db44,0 10px 32px #06051fa0,inset 0 0 22px #7940eb30}
+#minigamesView .mv-hero-image{position:absolute;right:0;top:0;bottom:0;width:64%;background-image:url('assets/minigames/hero-portal.webp');background-size:cover;background-position:center;mask-image:linear-gradient(90deg,transparent 0%,#000 24%,#000 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 24%,#000 100%)}
+#minigamesView .mv-hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#28174cdc 0%,#150f37e0 38%,#13113749 69%,transparent 100%),linear-gradient(0deg,#15103441,transparent 30%)}
+#minigamesView .mv-hero-content{position:relative;z-index:1;padding:26px 44px 24px 47px;max-width:690px;text-shadow:0 2px 10px #07081a96}
+#minigamesView .mv-label{font-size:11px;color:#c69cff;letter-spacing:1.2px;font-weight:850;margin:0 0 11px}
+#minigamesView .mv-hero h1{font-size:clamp(24px,2.2vw,34px);font-weight:900;line-height:1.11;letter-spacing:-.8px;margin:0 0 15px;color:#fff;text-shadow:0 1px 3px #300f4d,0 0 18px #7841c53a}
+#minigamesView .mv-hero h1 span{color:#d5c6ff}
+#minigamesView .mv-hero p:not(.mv-label){font-size:14px;line-height:1.48;margin:0 0 14px;color:#e6def9;max-width:560px}
+#minigamesView .mv-discord-cta{display:inline-flex;align-items:center;justify-content:center;gap:13px;min-height:51px;padding:11px 18px;color:white;background:linear-gradient(110deg,#6655fb,#4130ce);border:1px solid #b2a1ff;border-radius:9px;box-shadow:0 4px 20px #6e53f88a;font-size:13px;font-weight:900;letter-spacing:.1px;text-shadow:0 1px 5px #100c43}
+#minigamesView .mv-discord-cta:hover{filter:brightness(1.14);transform:translateY(-1px)}
+#minigamesView .mv-status-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin:18px 2px 17px}
+#minigamesView .mv-status-card{height:80px;min-width:0;border:1px solid #5d529d;border-radius:11px;background:linear-gradient(115deg,#151b40,#0d1630);display:flex;align-items:center;gap:19px;padding:12px 22px;box-shadow:inset 0 0 12px #2c1f6325}
+#minigamesView .mv-status-icon{font-size:35px;line-height:1;width:48px;flex:0 0 48px;color:#c4a7ff;text-shadow:0 0 10px #ae62ff,0 0 22px #8245ff}
+#minigamesView .mv-status-head{color:#fff;font-size:26px;font-weight:900;text-shadow:0 0 10px #8c72ff}
+#minigamesView .mv-status-card strong{display:block;font-size:17px;color:#f8f5ff;font-weight:800;line-height:1.15}
+#minigamesView .mv-status-card:first-child strong{font-size:13px}
+#minigamesView .mv-status-card small{display:block;margin-top:4px;color:#b8b7de;font-size:12px;line-height:1.3}
+#minigamesView .mv-status-link:hover{background:#242250;border-color:#a08bfa}
+#minigamesView .mv-modes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:0 2px}
+#minigamesView .mv-mode-card{position:relative;min-width:0;height:177px;text-align:left;color:white;border-radius:13px;border:1px solid #7556bf;background:#171c42;padding:0;overflow:hidden;isolation:isolate;box-shadow:inset 0 0 0 1px #ffffff0a,0 5px 16px #02071430;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+#minigamesView .mv-mode-card:hover,#minigamesView .mv-mode-card:focus-visible{transform:translateY(-3px);border-color:#bb7aff;box-shadow:0 0 21px #7846ed78,0 8px 22px #0008}
+#minigamesView .mv-mode-card:active{transform:scale(.992)}
+#minigamesView .mv-mode-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform .24s ease}
+#minigamesView .mv-mode-card:hover .mv-mode-art{transform:scale(1.045)}
+#minigamesView .mv-mode-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#100d3249 0%,transparent 28%,#090d2d48 58%,#0b102ccf 74%,#0b102cef 100%);z-index:0;pointer-events:none}
+#minigamesView .mv-mode-badge{position:absolute;left:11px;top:9px;display:inline-flex;align-items:center;min-height:26px;padding:4px 10px;border-radius:9px;border:1px solid #9176dc;background:#15183cda;color:#f8f3ff;font-size:11px;font-weight:950;z-index:1;text-shadow:0 1px 4px #07051d}
+#minigamesView .mv-announcement-badge{border-color:#4889de;background:#0e2953d9;color:#8ce3ff}
+#minigamesView .mv-mode-info{position:absolute;left:12px;right:10px;bottom:10px;display:flex;align-items:center;gap:11px;min-width:0;z-index:1;text-shadow:0 1px 4px #000d}
+#minigamesView .mv-mode-icon{font-size:30px;line-height:1;min-width:36px;text-align:center;filter:drop-shadow(0 1px 2px #0007)}
+#minigamesView .mv-mode-copy{min-width:0;display:block;flex:1}
+#minigamesView .mv-mode-copy strong{font-size:16px;font-weight:850;line-height:1.15;display:block;color:#fff}
+#minigamesView .mv-mode-copy small{font-size:11px;line-height:1.2;display:block;margin-top:5px;color:#c0bce3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#minigamesView .mv-mode-arrow{display:grid;place-items:center;border:1px solid #877acb;background:#111a45d9;color:#f5ecff;border-radius:50%;flex:0 0 32px;width:32px;height:32px;font-size:20px;font-weight:700}
+#minigamesView .mv-modes-notice{font-size:11px;color:#999dc9;margin:12px 4px 0}
+#minigamesView .mv-mode-dialog{border:1px solid #a97bf5;border-radius:18px;padding:0 22px 24px;max-width:min(470px,calc(100vw - 28px));width:100%;background:linear-gradient(145deg,#241d52,#0c1230);color:white;box-shadow:0 25px 80px #030518ef,0 0 45px #7c49ed55}
+#minigamesView .mv-mode-dialog::backdrop{background:#020516bc;backdrop-filter:blur(6px)}
+#minigamesView .mv-mode-dialog img{display:block;width:calc(100% + 44px);height:180px;margin:0 -22px 18px;object-fit:cover;object-position:center}
+#minigamesView .mv-mode-dialog .mv-mode-badge{position:static}
+#minigamesView .mv-mode-dialog h2{font-size:28px;margin:14px 0 9px;color:white}
+#minigamesView .mv-mode-dialog p{font-size:14px;line-height:1.55;color:#cfcae9;margin:0 0 20px}
+#minigamesView .mv-dialog-close{position:absolute;right:12px;top:10px;border:1px solid #8f77ce;background:#11132bdc;color:white;font-size:23px;width:34px;height:34px;border-radius:50%;z-index:4}
+
+@media(max-width:1450px){
+  #minigamesView .mv-hero-content{max-width:650px;padding:27px 34px}
+  #minigamesView .mv-hero p:not(.mv-label){font-size:13px}
+  #minigamesView .mv-status-card{padding:12px 13px;gap:10px}
+  #minigamesView .mv-status-icon{font-size:27px;width:34px;flex-basis:34px}
+  #minigamesView .mv-mode-info{gap:5px;left:7px;right:7px}
+  #minigamesView .mv-mode-icon{font-size:22px;min-width:29px}
+  #minigamesView .mv-mode-copy strong{font-size:14px}
+  #minigamesView .mv-mode-copy small{font-size:10px}
+  #minigamesView .mv-mode-arrow{flex-basis:29px;width:29px;height:29px}
+}
+@media(max-width:1100px){
+  .mv-brand-name{display:none}
+  #minigamesView .mv-hero-content{max-width:610px}
+  #minigamesView .mv-hero-image{width:73%}
+  #minigamesView .mv-modes{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  #minigamesView .mv-mode-card{height:189px}
+  #minigamesView .mv-status-card strong{font-size:13px}
+  #minigamesView .mv-status-card small{font-size:10px}
+}
+@media(max-width:800px){
+  #minigamesView .mv-hero{height:auto;min-height:360px}
+  #minigamesView .mv-hero-content{padding:28px 23px;max-width:100%}
+  #minigamesView .mv-hero-image{width:100%;opacity:.42;mask-image:none;-webkit-mask-image:none}
+  #minigamesView .mv-hero:after{background:linear-gradient(90deg,#18113ae8,#15143491)}
+  #minigamesView .mv-hero h1{font-size:26px}
+  #minigamesView .mv-hero p:not(.mv-label){max-width:610px}
+  #minigamesView .mv-status-grid{grid-template-columns:1fr;gap:9px}
+  #minigamesView .mv-status-card{height:65px}
+  #minigamesView .mv-status-icon{flex-basis:40px}
+}
+@media(max-width:580px){
+  #minigamesView .mv-modes{grid-template-columns:1fr}
+  #minigamesView .mv-mode-card{height:188px}
+  #minigamesView .mv-hero-content{padding:22px 16px}
+  #minigamesView .mv-hero h1{font-size:23px}
+  #minigamesView .mv-hero p:not(.mv-label){font-size:12px}
+  #minigamesView .mv-discord-cta{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){#minigamesView .mv-mode-card,#minigamesView .mv-mode-art,#minigamesView .mv-discord-cta{transition:none}}

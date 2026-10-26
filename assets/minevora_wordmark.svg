@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 260" role="img" aria-label="MINEVORA">
+<defs><linearGradient id="stone" x2="0" y2="1"><stop stop-color="#fff"/><stop offset=".50" stop-color="#e0dcf9"/><stop offset="1" stop-color="#9373cb"/></linearGradient><linearGradient id="crystal" x2="1" y2="1"><stop stop-color="#fae8ff"/><stop offset=".42" stop-color="#b56dff"/><stop offset="1" stop-color="#4f08ac"/></linearGradient><filter id="glow" x="-40%" y="-70%" width="180%" height="240%"><feGaussianBlur stdDeviation="12"/></filter></defs>
+<path d="M460 8 516 74 460 146 404 74Z" fill="#842bff" opacity=".8" filter="url(#glow)"/>
+<g stroke="#28123f" stroke-width="9" stroke-linejoin="round"><path d="m460 9 40 54-40 63-40-63Z" fill="url(#crystal)"/><path d="m460 25 16 38-16 42-16-42Z" stroke-width="3" fill="#f3d6ff"/><path d="m377 53 54 22 29 65-78-34Z" fill="#5f2aaa"/><path d="m543 53-54 22-29 65 78-34Z" fill="#5f2aaa"/><path d="M347 63 396 91 407 149 345 105Z" fill="#301459"/><path d="M573 63 524 91 513 149 575 105Z" fill="#301459"/></g>
+<text x="460" y="207" font-family="Impact,'Arial Black',sans-serif" text-anchor="middle" font-size="145" font-weight="900" letter-spacing="3" stroke="#07091d" stroke-width="21" stroke-linejoin="round" fill="#080920">MINEVORA</text>
+<text x="460" y="192" font-family="Impact,'Arial Black',sans-serif" text-anchor="middle" font-size="145" font-weight="900" letter-spacing="3" stroke="#401177" stroke-width="15" stroke-linejoin="round" fill="#311052">MINEVORA</text>
+<text x="460" y="181" font-family="Impact,'Arial Black',sans-serif" text-anchor="middle" font-size="145" font-weight="900" letter-spacing="3" stroke="#131329" stroke-width="7" stroke-linejoin="round" fill="url(#stone)">MINEVORA</text>
+<path d="M412 201 460 254 508 201Z" fill="#2c104c" stroke="#8542fc" stroke-width="5"/><path d="M460 217 480 235 460 249 440 235Z" fill="url(#crystal)" stroke="#e9b6ff" stroke-width="3"/>
+</svg>

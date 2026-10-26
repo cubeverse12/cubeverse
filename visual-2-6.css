@@ -1,0 +1,67 @@
+[hidden]{display:none!important}
+/* MINEVORA 2.6 — visual system shared by desktop and website. Preserve existing controllers. */
+:root{--v26-bg:#060919;--v26-panel:#0b1028;--v26-border:#553486;--v26-ink:#f8f5ff;--v26-light:#c6b9e9;--v26-purple:#993dff;--v26-glow:#a34aff}
+html{scroll-behavior:smooth} body{color:var(--v26-ink);background:#060819}
+body .app{background:transparent}body .workspace{min-width:0}
+body .page{background:transparent}
+body .navitem:focus-visible,body a:focus-visible,body button:focus-visible,body select:focus-visible{outline:3px solid #d3a9ff;outline-offset:3px}
+/* An identical logo asset is loaded in both programs. */
+body .mv-site-header-brand img{object-fit:contain!important}
+body:not(.mv-desktop-mode){background:radial-gradient(ellipse 75% 42% at 52% 0%,#3e1877 0%,transparent 70%),linear-gradient(#060819,#0b1024)}
+body:not(.mv-desktop-mode) .topbar{background:#070b1df1!important;border-bottom:1px solid #553187;box-shadow:0 6px 40px #02030b90;padding:0 clamp(15px,3vw,42px)}
+body:not(.mv-desktop-mode) .mv-site-header-brand{width:245px;flex-basis:245px}
+body:not(.mv-desktop-mode) .mv-site-header-brand img{width:230px!important;max-height:74px!important;filter:drop-shadow(0 0 8px #823aff70)!important}
+body:not(.mv-desktop-mode) .mv-site-top-tabs a.active{border-color:transparent!important;background:linear-gradient(transparent,#3b1c7459)!important;border-bottom:2px solid #cf8eff!important;box-shadow:0 10px 20px #7826ed10!important}
+body:not(.mv-desktop-mode) .header-download,body:not(.mv-desktop-mode) .mv-site-btn{background:linear-gradient(140deg,#bc3dff,#6512d4)!important;color:white!important;border:1px solid #d495ff!important;box-shadow:inset 0 1px 0 #ffffff5c,0 0 26px #a02aff64!important;border-radius:12px!important;letter-spacing:.4px}
+body:not(.mv-desktop-mode) .mv-site-btn.outline{background:#090c23dd!important;border-color:#8870b0!important;box-shadow:0 4px 20px #0005!important}
+body:not(.mv-desktop-mode) .page{max-width:1550px!important;padding:24px clamp(15px,3vw,36px)!important}
+body:not(.mv-desktop-mode) .home-hero{height:clamp(580px,73vh,790px);min-height:580px;border:1px solid #6643a2!important;border-radius:19px!important;box-shadow:0 15px 70px #06020fdd,0 0 34px #983efc19!important}
+body:not(.mv-desktop-mode) .home-hero .fantasy-backdrop{background-image:linear-gradient(180deg,#04051919 0%,#07051820 36%,#08091bdb 100%),url('assets/launcher/start-world-2-6.webp')!important;background-size:cover!important;background-position:50% 43%!important}
+body:not(.mv-desktop-mode) .home-hero::after{background:linear-gradient(0deg,#05081980,transparent 44%)!important}
+body:not(.mv-desktop-mode) .mv-site-home-copy{margin:0 auto;max-width:850px;align-items:center;justify-content:center;text-align:center;padding:25px 20px!important;gap:3px}
+body:not(.mv-desktop-mode) .mv-site-kicker{border:1px solid #9e6fd7;background:#130d2ec9;padding:8px 16px;border-radius:30px;color:#edccff;letter-spacing:2.7px;font-size:11px}
+body:not(.mv-desktop-mode) .mv-site-home-logo{width:clamp(340px,53vw,800px);max-width:95%;height:auto;filter:drop-shadow(0 18px 24px #160124) drop-shadow(0 0 24px #9f4affa);margin:0 0 12px}
+body:not(.mv-desktop-mode) .mv-site-home-copy h1{font-size:clamp(28px,3.9vw,58px);font-weight:1000;letter-spacing:1.4px;text-transform:uppercase;text-shadow:0 3px 12px #050519,0 0 15px #6828ae}
+body:not(.mv-desktop-mode) .mv-site-home-copy p{font-size:clamp(14px,1.5vw,17px);line-height:1.65;max-width:640px;text-shadow:0 3px 8px #030316}
+body:not(.mv-desktop-mode) .mv-site-prelaunch{border-color:#9a58d6;background:#090a1ad9;color:#d3baf7;letter-spacing:.9px}
+body:not(.mv-desktop-mode) .mv-home-navcards{display:block;margin-top:23px!important;min-height:0!important;border:none!important;background:transparent!important;padding:0 0 34px!important}
+body .mv-home-navcards[hidden]{display:none!important}
+.mv-home-navhead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:4px 0 17px}
+.mv-home-navhead span{color:#bd91fa;font-size:11px;font-weight:900;letter-spacing:2px}.mv-home-navhead h2{font-size:clamp(23px,3vw,31px);margin:5px 0;color:#f7eeff}.mv-home-navhead p{color:#c3b8d8;font-size:13px;margin:0}
+.mv-home-navgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.mv-home-navgrid a{display:flex;flex-direction:column;gap:5px;text-decoration:none;background:linear-gradient(145deg,#101632,#0d1025);border:1px solid #4d347c;border-radius:13px;padding:8px 8px 13px;color:#fff;overflow:hidden;transition:transform .15s,border-color .15s}
+.mv-home-navgrid a:hover{transform:translateY(-3px);border-color:#b767ff}
+.mv-home-navgrid img{display:block;object-fit:cover;width:100%;height:135px;border-radius:9px}
+.mv-home-navgrid strong{padding:3px 6px 0;font-size:14px;letter-spacing:1px}.mv-home-navgrid small{padding:0 6px;font-size:12px;color:#bfb0dd;line-height:1.35}
+/* Desktop shell */
+body.mv-desktop-mode{background:#070a1a}
+.mv-desktop-mode .app{grid-template-columns:224px minmax(0,1fr)!important;min-height:100vh}
+.mv-desktop-mode .sidebar{background:linear-gradient(180deg,#0b0b20,#090e22 62%,#130a2c)!important;border-right:1px solid #4c2779!important}
+.mv-desktop-mode .brand{height:106px!important;min-height:106px!important;flex-direction:column!important;justify-content:center!important;gap:0!important;margin-bottom:3px!important}
+.mv-desktop-mode .brand img.mv-brand-unified{width:190px!important;height:68px!important;object-fit:contain!important;filter:drop-shadow(0 1px 10px #a33bff9a)!important}
+.mv-desktop-mode .brand .mv-brand-name,.mv-desktop-mode .brand .brand-ver{display:none!important}
+.mv-desktop-mode .navitem{margin:2px 0;border:1px solid transparent;border-radius:10px!important}
+.mv-desktop-mode .navitem.active{background:linear-gradient(96deg,#6222ad,#311858)!important;border-color:#9b4be1!important;box-shadow:inset 3px 0 0 #e5adff,0 0 14px #831bfa32!important}
+.mv-desktop-mode .workspace{background:linear-gradient(180deg,#0b1024,#070b1b)!important}
+.mv-desktop-mode .topbar{background:#0a0f24!important;border-color:#45276a!important;min-height:71px}
+.mv-desktop-mode .mv-desktop-top-tabs a.active{border-color:#ce8dff!important}
+.mv-desktop-mode .page{padding:12px 14px!important}
+.mv-desktop-mode .mv-launcher-scene{height:clamp(540px,75vh,800px);border-radius:13px!important;border-color:#65428e!important;box-shadow:0 13px 50px #03020ecc!important}
+.mv-desktop-mode .mv-launcher-art{background-image:linear-gradient(180deg,#04051812 0%,#04051800 39%,#0707179e 84%,#050716ec 100%),url('assets/launcher/start-world-2-6.webp')!important;background-position:center 41%!important}
+.mv-launcher-brand-hero{position:absolute;z-index:2;top:2%;left:50%;transform:translateX(-50%);display:flex;align-items:center;flex-direction:column;justify-content:center;width:70%;pointer-events:none;filter:drop-shadow(0 0 24px #3f08a6)}
+.mv-launcher-brand-hero img{display:block;width:min(97%,760px);height:auto;max-height:255px;object-fit:contain}
+.mv-launcher-brand-hero span{color:#f9e4ff;font-size:clamp(10px,1.1vw,14px);letter-spacing:4px;text-shadow:0 3px 10px #080319;font-weight:900;margin-top:-11px}
+.mv-desktop-mode .mv-quick-settings{left:15px!important;bottom:16px!important;max-width:43%;width:280px!important;gap:7px}
+.mv-desktop-mode .mv-version-select-wrap{background:#050a1fe8!important;border-color:#654699!important;box-shadow:0 5px 30px #000a!important;min-height:62px}
+.mv-desktop-mode .mv-quick-server{background:#050a1fee!important;border:1px solid #665295!important;color:#f1ddff}
+.mv-desktop-mode .mv-mega-play{bottom:23px!important;height:76px!important;min-width:235px;width:min(34vw,345px)!important;background:linear-gradient(175deg,#b63dff,#6611cb 70%,#51119a)!important;border:2px solid #dc88ff!important;box-shadow:0 0 33px #b32bff9a,inset 0 2px #ffffff60!important}
+.mv-desktop-mode .mv-options-btn{border-color:#8164b9;background:#090e21ef}
+.mv-desktop-mode .mv-native-below{background:#0d1331!important;border-color:#513887!important}
+.mv-desktop-mode .mv-native-screen{background:linear-gradient(148deg,#0e1230,#0b0d20);border:1px solid #44326b;border-radius:16px;padding:20px!important}
+.mv-desktop-mode .mv-native-screen-heading{border-bottom-color:#513477}
+.mv-desktop-mode #minevoraDesktopPanel{background:#0e142e!important;border:1px solid #594088!important}
+.mv-desktop-mode .desktop-head .desktop-logo{width:185px!important;min-width:185px!important;max-height:100px;object-fit:contain}
+@media(max-width:1050px){.mv-desktop-mode .app{grid-template-columns:180px minmax(0,1fr)!important}.mv-desktop-mode .brand img.mv-brand-unified{width:157px!important}.mv-desktop-mode .navitem{font-size:12px!important}.mv-launcher-brand-hero{width:78%}.mv-desktop-mode .mv-quick-settings{width:224px!important}.mv-home-navgrid img{height:110px}}
+@media(max-width:720px){body:not(.mv-desktop-mode) .mv-home-navgrid{grid-template-columns:repeat(2,minmax(0,1fr))}body:not(.mv-desktop-mode) .home-hero{min-height:555px}body:not(.mv-desktop-mode) .mv-site-home-logo{width:95%}body:not(.mv-desktop-mode) .mv-site-home-copy{max-width:100%}.mv-home-navhead{align-items:start;flex-direction:column}}
+@media(max-width:460px){body:not(.mv-desktop-mode) .mv-home-navgrid img{height:94px}body:not(.mv-desktop-mode) .home-hero{min-height:590px}}
+@media(prefers-reduced-motion:reduce){.mv-home-navgrid a,body a,body button{transition:none!important}html{scroll-behavior:auto!important}}
