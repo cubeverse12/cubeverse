@@ -1,0 +1,48 @@
+name: Refresh MINEVORA Website Images
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/refresh_website_photos.py'
+      - '.github/workflows/refresh-website-photos.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Pillow
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Create optimized images
+        run: python tools/refresh_website_photos.py
+      - name: Verify generated images
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          folder=Path('assets/website-photos-20261027')
+          files=list(folder.glob('*.webp'))
+          assert len(files)==7, f'Expected 7 images, found {len(files)}'
+          for f in files:
+              with Image.open(f) as im:
+                  im.verify()
+          print('Verified',len(files),'WebP images')
+          PY
+      - name: Commit images
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/website-photos-20261027/*.webp
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh MINEVORA homepage photos in WebP'
+            git push origin HEAD:main
+          else
+            echo 'Images already current'
+          fi
