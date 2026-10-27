@@ -1,0 +1,56 @@
+/* MINEVORA website photography refresh (27 October 2026)
+ * For browser site only: preserve desktop Qt/WebChannel launcher appearance.
+ */
+body:not(.mv-desktop-mode) .home-hero .fantasy-backdrop {
+  background-image:
+    linear-gradient(180deg,#080b241f 0%,#09091f46 39%,#070b20e8 100%),
+    url("assets/website-photos-20261027/home-hero.webp")!important;
+  background-position:center 46%!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+}
+body:not(.mv-desktop-mode) .mv-home-navgrid>a {
+  overflow:hidden;
+  background:linear-gradient(155deg,#171332,#0b1028);
+  border:1px solid #594283;
+  border-radius:13px;
+  transition:border-color .2s ease,transform .2s ease;
+}
+body:not(.mv-desktop-mode) .mv-home-navgrid>a:hover {
+  border-color:#bb83ff;
+  transform:translateY(-2px);
+}
+body:not(.mv-desktop-mode) .mv-home-navgrid>a>img {
+  display:block!important;
+  width:100%!important;
+  height:clamp(110px,15vw,180px)!important;
+  object-fit:cover!important;
+  object-position:50% 45%!important;
+  border-radius:10px 10px 5px 5px;
+  image-rendering:auto!important;
+  filter:saturate(1.04) contrast(1.03);
+}
+body:not(.mv-desktop-mode) .mv-home-navgrid>a>strong {
+  color:#f5eaff;
+  letter-spacing:.6px;
+}
+body:not(.mv-desktop-mode) .mv-home-navgrid>a>small {
+  color:#c4bbd9;
+}
+@media(max-width:720px) {
+  body:not(.mv-desktop-mode) .home-hero .fantasy-backdrop {
+    background-position:53% center!important;
+  }
+  body:not(.mv-desktop-mode) .mv-home-navgrid>a>img {
+    height:clamp(105px,28vw,155px)!important;
+    object-position:center!important;
+  }
+}
+@media(max-width:419px) {
+  body:not(.mv-desktop-mode) .mv-home-navgrid>a>img {
+    height:clamp(148px,44vw,225px)!important;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+ body:not(.mv-desktop-mode) .mv-home-navgrid>a {transition:none}
+}
