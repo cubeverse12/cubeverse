@@ -78,7 +78,9 @@
     studio:"studio", download:"pobierz", poradnik:"pomoc",
     podglad:"launcher", odkrywaj:"start"
   };
-  const old = decodeURIComponent(location.hash.slice(1));
+  // A malformed URL fragment must not disable the rest of the page's controls.
+  let old = location.hash.slice(1);
+  try { old = decodeURIComponent(old); } catch (_) { old = ""; }
   if (Object.prototype.hasOwnProperty.call(aliases,old) && aliases[old] !== old) {
     history.replaceState(null, "", location.pathname + location.search + "#" + aliases[old]);
     document.getElementById(aliases[old])?.scrollIntoView({block:"start"});
