@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090e26">
+<meta name="description" content="MINEVORA — świat minigier Minecraft. Serwer już wkrótce! Poznaj planowane tryby i dołącz do Discorda.">
+<title>MINEVORA — Więcej niż Minecraft</title>
+<link rel="icon" href="assets/minevora_crystal_emblem.svg?v=20261027-crystal-fit" type="image/svg+xml">
+<link rel="stylesheet" href="minevora-reference.css?v=20261025-premium-minigames">
+<link rel="stylesheet" href="minigames-premium.css?v=20261025" />
+<link rel="stylesheet" href="pvp-premium.css?v=20261025-2-2" />
+<link rel="stylesheet" href="poradnik.css?v=20261026-1" />
+<link rel="stylesheet" href="launcher-start.css?v=20261026-2-5" />
+<link rel="stylesheet" href="unified-2-5.css?v=20261026-2-5" />
+<link rel="stylesheet" href="visual-2-6.css?v=20261026-2-6">
+<link rel="stylesheet" href="mobile-2-6-hotfix.css?v=20261026-1">
+<link rel="stylesheet" href="website-2-8.css?v=20261026-2-8">
+<link rel="stylesheet" href="website-2-9.css?v=20261027-2-9">
+<link rel="stylesheet" href="website-crystal.css?v=20261027-crystal">
+<link rel="stylesheet" href="website-photos-20261027.css?v=20261027-gallery">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="mvSiteSidebar" aria-label="Menu MINEVORA">
+    <div class="mv-mobile-drawer-top"><span>MENU MINEVORA</span><button type="button" class="mv-mobile-close" id="mvMobileMenuClose" aria-label="Zamknij menu">×</button></div>
+    <a class="brand" href="#home" aria-label="MINEVORA — strona główna">
+      <img src="assets/minevora_crystal_logo.svg?v=20261027-crystal-fit" alt="MINEVORA" class="mv-brand-unified">
+      <span class="mv-brand-name">MINEVORA</span><span class="brand-ver">MINEVORA / BETA</span>
+    </a>
+    <nav class="sidenav" aria-label="Nawigacja">
+      <a class="navitem active" href="#home" data-route="home"><img src="assets/icons/neon/home.svg" alt=""> Strona główna</a>
+      <a class="navitem" href="#minigames" data-route="minigames"><img src="assets/icons/neon/minigames.svg" alt=""> Minigry</a>
+      <a class="navitem" href="#pvp" data-route="pvp"><img src="assets/icons/neon/pvp.svg" alt=""> PvP Mode</a>
+      <a class="navitem" href="#rankings" data-route="rankings"><img src="assets/icons/neon/ranking.svg" alt=""> Rankingi</a>
+      <a class="navitem" href="#odkrywaj" data-route="odkrywaj"><img src="assets/icons/neon/default.svg" alt=""> O projekcie</a>
+      <a class="navitem" href="#sklep" data-route="sklep"><img src="assets/icons/neon/marketplace.svg" alt=""> Sklep (wkrótce)</a>
+      <a class="navitem mv28-special" href="#plus" data-route="plus"><img src="assets/icons/neon/plus.svg" alt=""> MINEVORA PLUS <span class="mv28-demo-tag">DEMO</span></a>
+      <a class="navitem mv28-special" href="#studio" data-route="studio"><img src="assets/icons/neon/skins.svg" alt=""> Skin Studio PLUS</a>
+      <a class="navitem" href="#poradnik" data-route="poradnik"><img src="assets/icons/neon/poradnik.svg" alt=""> Poradnik</a>
+      <a class="navitem" href="#podglad" data-route="podglad"><img src="assets/icons/neon/versions.svg" alt=""> Podgląd launchera</a>
+      <a class="navitem" href="#account" data-route="account"><img src="assets/icons/neon/profile.svg" alt=""> Moje konto</a>
+    </nav>
+    <div class="sidefoot">
+      <a class="navitem" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer"><span class="discord-neon-icon" aria-hidden="true" style="display:inline-grid;place-items:center;flex:0 0 42px;width:42px;height:42px"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false" width="36" height="36" fill="#e5e0ff"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"></path></svg></span> Discord <span class="side-indicator" aria-hidden="true"></span></a>
+      <a class="navitem" href="#download" data-route="download"><img src="assets/icons/neon/download.svg" alt=""> Pobieranie</a>
+    </div>
+  </aside>
+  <button type="button" class="mv-mobile-scrim" id="mvMobileScrim" tabindex="-1" aria-label="Zamknij menu"></button>
+  <div class="workspace">
+    <header class="topbar">
+      <button type="button" class="mv-mobile-menu-toggle" id="mvMobileMenuOpen" aria-controls="mvSiteSidebar" aria-expanded="false" aria-label="Otwórz menu MINEVORA">☰</button>
+      <div class="back-search"><button class="back-btn" id="backBtn" type="button" title="Wróć na stronę główną" aria-label="Wróć na stronę główną">‹</button><span class="current-section" id="sectionName">MINEVORA</span></div>
+      <a href="#home" class="mv-site-header-brand" aria-label="MINEVORA — Start"><img src="assets/minevora_crystal_logo.svg?v=20261027-crystal-fit" alt="MINEVORA"></a>
+      <nav class="mv-site-top-tabs" aria-label="Zakładki strony MINEVORA">
+        <a href="#home" data-route="home">Start</a><a href="#minigames" data-route="minigames">Minigry</a><a href="#pvp" data-route="pvp">PvP</a><a href="#rankings" data-route="rankings">Rankingi</a><a class="mv28-special" href="#plus" data-route="plus"><img src="assets/icons/neon/plus.svg" alt=""> PLUS</a><a class="mv28-special" href="#studio" data-route="studio"><img src="assets/icons/neon/skins.svg" alt=""> Skin Studio</a><a href="#poradnik" data-route="poradnik">Poradnik</a><a href="#sklep" data-route="sklep">Sklep</a><a href="#odkrywaj" data-route="odkrywaj">O projekcie</a>
+      </nav>
+      <div class="user-area"><a class="visitor-badge" href="#account" title="Otwórz moje konto MINEVORA">GOŚĆ</a><a class="account-shortcut" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer">Discord ↗</a><a class="header-download" href="#download">Pobierz ↗</a></div>
+    </header>
+    <main class="page">
+      <div class="first-row">
+        <div class="left-main">
+          <section class="view home-hero" id="homeView" data-view="home">
+            <div class="fantasy-backdrop" aria-hidden="true"></div>
+            <div class="mv-site-home-copy">
+              <span class="mv-site-kicker">MINEVORA / WIĘCEJ NIŻ MINECRAFT</span>
+              <img class="mv-site-home-logo" src="assets/minevora_crystal_logo.svg?v=20261027-crystal-fit" alt="MINEVORA — więcej niż Minecraft">
+              <h1>WIĘCEJ NIŻ MINECRAFT</h1>
+              <p>Odkrywaj minigry, PvP i wyjątkowe światy. Własny launcher i społeczność MINEVORA — wszystko w jednym stylu. Serwer jest w przygotowaniu.</p>
+              <div class="mv-site-actions"><a href="#download" class="mv-site-btn">✦ POBIERZ LAUNCHER</a><a href="https://discord.gg/M2fZVJBCqh" class="mv-site-btn outline" target="_blank" rel="noopener noreferrer">DOŁĄCZ NA DISCORD</a></div>
+              <div class="mv-site-prelaunch">● SERWER W PRZYGOTOWANIU · BRAK DATY PREMIERY</div>
+            </div>
+          </section>
+          <section class="view mv28-update-strip" data-view="home" aria-label="Aktualizacja MINEVORA 2.8">
+            <div class="mv28-update-heading"><img src="assets/icons/neon/plus.svg" alt=""><span>NOWE GRAFIKI MINEVORA</span></div>
+            <p>Odświeżone zdjęcia na stronie głównej: minigry, PvP, rankingi, poradnik, PLUS i Skin Studio.</p>
+            <a href="#podglad">Zobacz launcher <span aria-hidden="true">→</span></a>
+          </section>
+          <section class="view mv-home-navcards" data-view="home" aria-label="Poznaj MINEVORA">
+             <div class="mv-home-navhead"><div><span>ODKRYWAJ MINEVORA</span><h2>Wybierz swoją przygodę</h2></div><p>Każda funkcja ma osobną zakładkę.</p></div>
+             <div class="mv-home-navgrid">
+               <a href="#minigames"><img src="assets/website-photos-20261027/home-minigry.webp" alt="Planowana arena BedWars"><strong>MINIGRY</strong><small>BedWars, SkyWars, Parkour i więcej</small></a>
+               <a href="#pvp"><img src="assets/website-photos-20261027/home-pvp.webp" alt="Crystal PvP"><strong>PVP MODE</strong><small>Areny i style walki</small></a>
+               <a href="#rankings"><img src="assets/website-photos-20261027/home-rankingi.webp" alt="Demonstracja rankingów"><strong>RANKINGI</strong><small>Rangi i animacje — demo</small></a>
+               <a href="#poradnik"><img src="assets/website-photos-20261027/home-poradnik.webp" alt="Poradnik do launchera"><strong>PORADNIK</strong><small>Wersje, mody, konto i start gry</small></a>
+               <a href="#plus"><img src="assets/website-photos-20261027/home-plus.webp" alt="Ekran MINEVORA PLUS w launcherze"><strong>MINEVORA PLUS · DEMO</strong><small>Motywy Nebula, Ocean i Ember — bez płatności</small></a>
+               <a href="#studio"><img src="assets/website-photos-20261027/home-studio.webp" alt="Podgląd edytora Skin Studio PLUS"><strong>SKIN STUDIO PLUS</strong><small>Edytor skinów 3D i eksport PNG w launcherze</small></a>
+             </div>
+          </section>
+          
+
+          <section class="view mv29-home-features" data-view="home" aria-label="Funkcje launchera MINEVORA">
+            <div class="mv29-head">
+              <div>
+                <span class="mv29-eyebrow">MINEVORA / NOWY WYGLĄD</span>
+                <h2>Wszystkie funkcje. Jeden launcher.</h2>
+                <p>Odkryj moduły MINEVORA w tym samym fioletowo-granatowym stylu co strona. Wybierz kartę, by zobaczyć szczegóły.</p>
+              </div>
+              <a href="#podglad">Podgląd launchera →</a>
+            </div>
+            <div class="mv29-grid"><a class="mv29-feature" href="#podglad"><img src="assets/icons/neon/versions.svg" alt="" loading="lazy"><strong>Wersje i profile</strong><small>Vanilla, Fabric, Forge, NeoForge i Quilt.</small><em>Profile Minecraft →</em></a>
+<a class="mv29-feature" href="#poradnik"><img src="assets/icons/neon/mods.svg" alt="" loading="lazy"><strong>Mody i dodatki</strong><small>Mody, instalacje i zgodność wersji.</small><em>W aplikacji Windows →</em></a>
+<a class="mv29-feature" href="#pvp"><img src="assets/icons/neon/pvp.svg" alt="" loading="lazy"><strong>PvP HUD</strong><small>Konfiguracja HUD i obsługiwane wydania Fabric.</small><em>Zależnie od profilu →</em></a>
+<a class="mv29-feature" href="#studio"><img src="assets/icons/neon/skins.svg" alt="" loading="lazy"><strong>Skin Studio 3D</strong><small>Podgląd, edycja i eksport skina PNG.</small><em>W launcherze →</em></a>
+<a class="mv29-feature" href="#minigames"><img src="assets/icons/neon/minigames.svg" alt="" loading="lazy"><strong>Minigry</strong><small>BedWars, SkyWars, Parkour, Duels i inne.</small><em>Serwer w przygotowaniu →</em></a>
+<a class="mv29-feature" href="#rankings"><img src="assets/icons/neon/ranking.svg" alt="" loading="lazy"><strong>Rankingi</strong><small>Tabela wyników, rangi i animacje.</small><em>Dane demonstracyjne →</em></a>
+<a class="mv29-feature" href="#account"><img src="assets/icons/neon/profile.svg" alt="" loading="lazy"><strong>Konto</strong><small>Informacje o logowaniu i profilach.</small><em>Bez logowania na stronie →</em></a>
+<a class="mv29-feature" href="#plus"><img src="assets/icons/neon/plus.svg" alt="" loading="lazy"><strong>MINEVORA PLUS</strong><small>Motywy i personalizacja — prezentacja.</small><em>Demo bez płatności →</em></a></div>
+            <p class="mv29-note">Strona prezentuje funkcje aplikacji Windows. Nie uruchamia Minecrafta w przeglądarce; niektóre moduły są demonstracyjne lub w przygotowaniu.</p>
+          </section>
+
+          <section class="view home-extras" data-view="odkrywaj" aria-label="Odkryj MINEVORA" hidden>
+            <div class="home-intro">
+              <div><p class="eyebrow">WITAJ W MINEVORA</p><h2>Przygoda dopiero się zaczyna.</h2><p>Budujemy miejsce dla fanów Minecrafta: minigry, pojedynki i społeczność graczy. Serwer jest w przygotowaniu — datę otwarcia ogłosimy na Discordzie.</p></div>
+              <span class="prelaunch-pill"><span aria-hidden="true">●</span> SERWER W PRZYGOTOWANIU</span>
+            </div>
+            <div class="home-feature-grid">
+              <a class="home-feature" href="#minigames"><span class="feature-emoji" aria-hidden="true">⚔️</span><span class="feature-copy"><strong>Minigry i PvP</strong><small>BedWars, SkyWars, Duels, Parkour i inne planowane tryby</small><b>Poznaj tryby →</b></span></a>
+              <a class="home-feature" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer"><span class="feature-emoji" aria-hidden="true">💬</span><span class="feature-copy"><strong>Społeczność</strong><small>Poznaj graczy i śledź ogłoszenia dotyczące premiery</small><b>Dołącz na Discord →</b></span></a>
+              <a class="home-feature" href="#account"><span class="feature-emoji" aria-hidden="true">🛡️</span><span class="feature-copy"><strong>Konto MINEVORA</strong><small>Zaloguj bez osobnego hasła MINEVORA</small><b>Informacje o logowaniu →</b></span></a>
+            </div>
+            <div class="home-update">
+              <div><p class="eyebrow">CO NOWEGO?</p><h3>MINEVORA powstaje!</h3><p>Launcher Windows 11 jest dostępny w wersji testowej. Serwer minigier dopiero przygotowujemy; nie podajemy niepotwierdzonej daty startu ani liczby graczy.</p></div>
+              <a href="#download" class="secondary-cta">Sprawdź launcher →</a>
+            </div>
+          </section>
+
+          <section class="view mv28-page mv28-plus-page" id="mv28Plus" data-view="plus" aria-label="MINEVORA PLUS — demonstracja" hidden>
+            <div class="mv28-page-header">
+              <span class="mv28-kicker"><img src="assets/icons/neon/plus.svg" alt=""> MINEVORA 2.8 / DEMO</span>
+              <h1>MINEVORA <span>PLUS</span></h1>
+              <p>Sprawdź kierunek rozwoju wersji PLUS. To demonstracja wyglądu — żadnych zakupów, subskrypcji ani danych płatniczych.</p>
+            </div>
+            <div class="mv28-package-row">
+              <article class="mv28-package"><span class="mv28-tag">ZAWSZE DARMOWE</span><h2>MINEVORA FREE</h2><p class="mv28-price">0 zł</p><p>Wersje Minecrafta, profile, mody i podstawowe narzędzia launchera pozostają dostępne bez abonamentu.</p></article>
+              <article class="mv28-package mv28-package-plus"><span class="mv28-tag">POGLĄDOWY PAKIET</span><h2>MINEVORA PLUS</h2><p class="mv28-price">DEMO</p><p>Trzy motywy wyglądu, animowany blask i nowe możliwości personalizacji. Nie ma aktywnej sprzedaży.</p></article>
+            </div>
+            <div class="mv28-split">
+              <div class="mv28-preview mv28-preview-nebula" id="mv28ThemePreview" data-theme="nebula">
+                <div class="mv28-preview-top"><span class="mv28-dot"></span> MINEVORA PLUS · PODGLĄD</div>
+                <img src="assets/minevora_crystal_logo.svg?v=20261027-crystal-fit" alt="Logo MINEVORA">
+                <strong id="mv28ThemeTitle">NEBULA</strong><small>Wybrany motyw demonstracyjny</small>
+              </div>
+              <div class="mv28-explainer">
+                <h2>Wybierz motyw</h2><p>Wygląd po lewej zmienia się tutaj na stronie. Ustawienia prawdziwego launchera wybiera się w aplikacji Windows.</p>
+                <div class="mv28-theme-buttons" role="group" aria-label="Motywy demonstracyjne">
+                  <button type="button" data-mv28-theme="nebula" aria-pressed="true">Nebula</button>
+                  <button type="button" data-mv28-theme="ocean" aria-pressed="false">Ocean</button>
+                  <button type="button" data-mv28-theme="ember" aria-pressed="false">Em​ber</button>
+                </div>
+                <a class="mv28-cta" href="#studio">Poznaj Skin Studio PLUS →</a>
+              </div>
+            </div>
+            <p class="mv28-disclaimer">Wszystkie funkcje PLUS są demonstracyjne. Nie ma tutaj płatności ani systemu subskrypcji.</p>
+          </section>
+          <section class="view mv28-page mv28-studio-page" id="mv28Studio" data-view="studio" aria-label="Skin Studio PLUS MINEVORA" hidden>
+            <div class="mv28-page-header"><span class="mv28-kicker"><img src="assets/icons/neon/skins.svg" alt=""> SKIN STUDIO PLUS / MINEVORA 2.8</span>
+              <h1>Twój skin. <span>Twój styl.</span></h1>
+              <p>Zaawansowana edycja skinów Minecraft wewnątrz launchera MINEVORA — z podglądem postaci 3D i eksportem PNG.</p>
+            </div>
+            <div class="mv28-studio-showcase">
+              <a class="mv28-studio-shot" href="assets/guide/skin-studio-plus-2-8.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/guide/skin-studio-plus-2-8.jpg" loading="lazy" alt="Ekran Skin Studio PLUS z modelem 3D i narzędziami edycji"></a>
+              <div class="mv28-studio-details"><h2>Funkcje edytora</h2>
+                <ul><li>Podgląd i obracanie modelu 3D</li><li>Pędzel, gumka, pipeta i wypełnianie</li><li>Szablony Steve, Alex i Zombie</li><li>Warstwy skina i nakładki</li><li>Import PNG 64×64 i 64×32</li><li>Eksport gotowego PNG 64×64</li></ul>
+                <a class="mv28-cta" href="#poradnik">Zobacz poradnik →</a>
+                <a class="mv28-link" href="#download">Informacje o launcherze</a>
+              </div>
+            </div>
+            <p class="mv28-disclaimer">To podgląd funkcji aplikacji Windows, a nie edytor działający w przeglądarce. Przed publicznym wydaniem wymagane są dalsze testy.</p>
+          </section>
+          <section class="view mv-site-shop" id="mvSiteShop" data-view="sklep" aria-label="Sklep MINEVORA" hidden>
+            <span class="mv-site-kicker">MINEVORA / MARKETPLACE</span><h1>Sklep i dodatki</h1>
+            <p>To będzie osobna przestrzeń dla map, budowli i dodatków. Sklep jest na etapie przygotowania — obecnie nie przyjmuje płatności, zamówień ani zakupów.</p>
+            <div class="mv-site-shop-grid"><article><img src="assets/en_marketplace.jpg" alt="Przykładowy wygląd marketplace MINEVORA"><h2>Marketplace</h2><p>Planowany katalog darmowych i płatnych dodatków.</p></article><article><img src="assets/minigames/build-battle.webp" alt="Przykładowa budowla do Minecraft"><h2>Mapy i budowle</h2><p>Materiały twórców będą dostępne po uruchomieniu sklepu.</p></article></div>
+            <a class="mv-site-btn outline" href="#odkrywaj">Więcej o projekcie →</a>
+          </section>
+          <section class="view mv-minigames" id="minigamesView" data-view="minigames" aria-label="Minigry MINEVORA" hidden>
+  <div class="mv-hero">
+    <div class="mv-hero-image" role="img" aria-label="Zamek Minecraft w fioletowym świetle, latające wyspy i portal MINEVORA"></div>
+    <div class="mv-hero-content">
+      <p class="mv-label">OGŁOSZENIE MINEVORA</p>
+      <h1>Serwer Minecraft z tymi minigrami <span>już wkrótce!</span></h1>
+      <p>Budujemy serwer MINEVORA, na którym planujemy BedWars, SkyWars, Crystal PvP, Parkour, TNT Run, Build Battle, Spleef i Duels. Tryby poniżej są zapowiedzią, a nie działającymi już serwerami.</p>
+      <p>Datę startu podamy po zakończeniu przygotowań. Obserwuj nasz Discord, żeby nie przegapić ogłoszenia.</p>
+      <a class="mv-discord-cta" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">◉</span> DOŁĄCZ NA DISCORD <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+  <div class="mv-status-grid" aria-label="Informacje o serwerze">
+    <div class="mv-status-card"><span class="mv-status-icon" aria-hidden="true">⬡</span><span class="mv-status-head">8</span><span><strong>unikalnych trybów minigier</strong><small>Różnorodna rozgrywka dla każdego gracza</small></span></div>
+    <a class="mv-status-card mv-status-link" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer"><span class="mv-status-icon" aria-hidden="true">♧</span><span><strong>Discord</strong><small>Dołącz do społeczności<br>Bądź na bieżąco z nowościami</small></span></a>
+    <div class="mv-status-card"><span class="mv-status-icon" aria-hidden="true">▦</span><span><strong>W przygotowaniu</strong><small>Prace nad serwerem trwają<br>Więcej informacji już wkrótce</small></span></div>
+  </div>
+  <div class="mv-modes" aria-label="Osiem zapowiedzianych minigier">
+<button type="button" class="mv-mode-card" data-mode="bedwars" aria-label="BedWars — szczegóły zapowiedzianego trybu">
+     <img class="mv-mode-art" src="assets/minigames/bedwars.webp" alt="" loading="eager">
+     <span class="mv-mode-badge">WKRÓTCE</span>
+     <span class="mv-mode-info"><span class="mv-mode-icon" aria-hidden="true">⚔️</span><span class="mv-mode-copy"><strong>BedWars</strong><small>Chroń swoje łóżko i pokonuj przeciwników</small></span><span class="mv-mode-arrow" aria-hidden="true">→</span></span>
+  </button>
+<button type="button" class="mv-mode-card" data-mode="skywars" aria-label="SkyWars — szczegóły zapowiedzianego trybu">
+     <img class="mv-mode-art" src="assets/minigames/skywars.webp" alt="" loading="eager">
+     <span class="mv-mode-badge">WKRÓTCE</span>
+     <span class="mv-mode-info"><span class="mv-mode-icon" aria-hidden="true">☁️</span><span class="mv-mode-copy"><strong>SkyWars</strong><small>Walcz na latających wyspach</small></span><span class="mv-mode-arrow" aria-hidden="true">→</span></span>
+  </button>
+<button type="button" class="mv-mode-card" data-mode="crystal-pvp" aria-label="Crystal PvP — szczegóły zapowiedzianego trybu">
+     <img class="mv-mode-art" src="assets/minigames/crystal-pvp.webp" alt="" loading="eager">
+     <span class="mv-mode-badge">WKRÓTCE</span>
+     <span class="mv-mode-info"><span class="mv-mode-icon" aria-hidden="true">💎</span><span class="mv-mode-copy"><strong>Crystal PvP</strong><small>Dynamiczne walki PvP</small></span><span class="mv-mode-arrow" aria-hidden="true">→</span></span>
+  </button>
+<button type="button" class="mv-mode-card" data-mode="parkour" aria-label="Parkour — szczegóły zapowiedzianego trybu">
+     <img class="mv-mode-art" src="assets/minigames/parkour.webp" alt="" loading="eager">
+     <span class="mv-mode-badge">WKRÓTCE</span>
+     <span class="mv-mode-info"><span class="mv-mode-icon" aria-hidden="true">🏃</span><span class="mv-mode-copy"><strong>Parkour</strong><small>Sprawdź swoje umiejętności</small></span><span class="mv-mode-arrow" aria-hidden="true">→</span></span>
+  </button>
+<button type="button" class="mv-mode-card" data-mode="tnt-run" aria-label="TNT Run — szczegóły zapowiedzianego trybu">
+     <img class="mv-mode-art" src="assets/minigames/tnt-run.webp" alt="" loading="lazy">
+     <span class="mv-mode-badge">WKRÓTCE</span>
+     <span class="mv-mode-info"><span class="mv-mode-icon" aria-hidden="true">🧨</span><span class="mv-mode-copy"><strong>TNT Run</strong><small>Uciekaj przed spadającymi blokami</small></span><span class="mv-mode-arrow" aria-hidden="true">→</span></span>
+  </button>
+<button type="button" class="mv-mode-card" data-mode="build-battle" aria-label="Build Battle — szczegóły zapowiedzianego trybu">
+     <img class="mv-mode-art" src="assets/minigames/build-battle.webp" alt="" loading="lazy">
+     <span class="mv-mode-badge">WKRÓTCE</span>
+     <span class="mv-mode-info"><span class="mv-mode-icon" aria-hidden="true">🧱</span><span class="mv-mode-copy"><strong>Build Battle</strong><small>Twórz i rywalizuj o najlepsze budowle</small></span><span class="mv-mode-arrow" aria-hidden="true">→</span></span>
+  </button>
+<button type="button" class="mv-mode-card" data-mode="spleef" aria-label="Spleef — szczegóły zapowiedzianego trybu">
+     <img class="mv-mode-art" src="assets/minigames/spleef.webp" alt="" loading="lazy">
+     <span class="mv-mode-badge">WKRÓTCE</span>
+     <span class="mv-mode-info"><span class="mv-mode-icon" aria-hidden="true">❄️</span><span class="mv-mode-copy"><strong>Spleef</strong><small>Niszcz bloki i zrzucaj przeciwników</small></span><span class="mv-mode-arrow" aria-hidden="true">→</span></span>
+  </button>
+<button type="button" class="mv-mode-card" data-mode="duels" aria-label="Duels — szczegóły zapowiedzianego trybu">
+     <img class="mv-mode-art" src="assets/minigames/duels.webp" alt="" loading="lazy">
+     <span class="mv-mode-badge mv-announcement-badge">ZAPOWIEDŹ</span>
+     <span class="mv-mode-info"><span class="mv-mode-icon" aria-hidden="true">⚔️</span><span class="mv-mode-copy"><strong>Duels</strong><small>1 na 1 — pokaż swoje umiejętności</small></span><span class="mv-mode-arrow" aria-hidden="true">→</span></span>
+  </button>
+  </div>
+  <div class="mv-pvp-actions"><a href="#pvp">⚔️ ODKRYJ PVP MODE <span aria-hidden="true">→</span></a><a href="#rankings">🏆 RANKINGI I RANGI <span aria-hidden="true">→</span></a></div>
+  <p class="mv-modes-notice">Wszystkie tryby są w przygotowaniu. Karty przedstawiają planowane funkcje serwera — nie są przyciskami do uruchamiania gry.</p>
+  <dialog class="mv-mode-dialog" id="mvModeDialog" aria-labelledby="mvModeTitle" aria-describedby="mvModeDescription">
+    <button type="button" class="mv-dialog-close" id="mvDialogClose" aria-label="Zamknij szczegóły">×</button>
+    <img id="mvDialogImage" src="assets/minigames/bedwars.webp" alt="" loading="lazy">
+    <span class="mv-mode-badge">TRYB W PRZYGOTOWANIU</span>
+    <h2 id="mvModeTitle">Minigra</h2>
+    <p id="mvModeDescription">Więcej informacji już wkrótce.</p>
+    <a class="mv-discord-cta" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer">OBSERWUJ OGŁOSZENIA →</a>
+  </dialog>
+</section>
+          
+          
+          
+          
+
+          <!-- PvP Mode / demonstracja UI: statystyki i punkty nie pochodzą z serwera -->
+          <section class="view pv-page" id="pvpView" data-view="pvp" aria-label="PvP Mode MINEVORA" hidden>
+            <div class="pv-hero pv-pvp-hero">
+              <div class="pv-hero-visual" aria-hidden="true"></div>
+              <div class="pv-hero-inner">
+                <span class="pv-eyebrow">MINEVORA • ARENA PVP</span>
+                <h1>PvP <em>MODE</em></h1>
+                <p>Wybierz styl walki i poznaj system rywalizacji. Areny PvP są jeszcze w przygotowaniu — poniżej dostępny jest interaktywny podgląd rang.</p>
+                <div class="pv-hero-actions"><a class="pv-primary" href="#rankings">🏆 SPRAWDŹ RANKINGI <span aria-hidden="true">→</span></a><span class="pv-live-note">● SERWER W PRZYGOTOWANIU</span></div>
+              </div>
+            </div>
+            <div class="pv-section-head"><div><span class="pv-eyebrow">TRYBY WALKI</span><h2>Wybierz swoją arenę</h2></div><span class="pv-muted-label">5 PLANOWANYCH TRYBÓW</span></div>
+            <div class="pv-mode-grid" id="pvModeGrid">
+              <button class="pv-arena active" type="button" data-pvp-mode="classic" aria-pressed="true"><img src="assets/minigames/duels.webp" alt=""><span class="pv-arena-overlay"><small>WKRÓTCE · 1V1</small><strong>⚔ Klasyczne PvP</strong><span>Miecz i refleks</span></span></button>
+              <button class="pv-arena" type="button" data-pvp-mode="crystal" aria-pressed="false"><img src="assets/minigames/crystal-pvp.webp" alt=""><span class="pv-arena-overlay"><small>WKRÓTCE · 1V1</small><strong>💎 Crystal PvP</strong><span>Precyzja i tempo</span></span></button>
+              <button class="pv-arena" type="button" data-pvp-mode="sword" aria-pressed="false"><img src="assets/minigames/bedwars.webp" alt=""><span class="pv-arena-overlay"><small>WKRÓTCE · 1V1</small><strong>🗡 Sword PvP</strong><span>Starcia mieczem</span></span></button>
+              <button class="pv-arena" type="button" data-pvp-mode="axe" aria-pressed="false"><img src="assets/minigames/skywars.webp" alt=""><span class="pv-arena-overlay"><small>WKRÓTCE · 1V1</small><strong>🪓 Axe PvP</strong><span>Taktyka tarczy</span></span></button>
+              <button class="pv-arena" type="button" data-pvp-mode="uhc" aria-pressed="false"><img src="assets/minigames/parkour.webp" alt=""><span class="pv-arena-overlay"><small>WKRÓTCE · SURVIVAL</small><strong>❤ UHC PvP</strong><span>Przetrwanie i walka</span></span></button>
+            </div>
+            <div class="pv-insight-grid">
+              <article class="pv-glass pv-selected-panel"><span class="pv-eyebrow">WYBRANA ARENA</span><h3 id="pvSelectedMode">Klasyczne PvP</h3><p id="pvSelectedDescription">Pojedynki jeden na jednego z klasycznym ekwipunkiem. Tryb planowany na premierę serwera.</p><span class="pv-plan-pill">⏳ Dostępny po otwarciu serwera</span></article>
+              <article class="pv-glass pv-selected-panel"><span class="pv-eyebrow">SYSTEM RANKINGOWY</span><h3>Walcz i awansuj</h3><p>Od Rekruta aż do Legendy. Zobacz na żywo, jak będzie wyglądać awans na kolejną rangę.</p><a class="pv-text-link" href="#rankings">Zobacz swój postęp demo →</a></article>
+            </div>
+          </section>
+
+          <!-- Wszystkie wartości rankingu opisane jako lokalny pokaz, nie dane serwera -->
+          <section class="view pv-page" id="rankingsView" data-view="rankings" aria-label="Rankingi MINEVORA — interaktywny podgląd" hidden>
+            <div class="pv-rank-hero">
+              <div><span class="pv-eyebrow">MINEVORA / SYSTEM LIGOWY</span><h1>RANKINGI <em>PVP</em></h1><p>Zdobądź punkty, pnij się po drabince i odblokuj nowe rangi. Teraz możesz przetestować ten system w trybie demonstracyjnym.</p></div>
+              <div class="pv-demo-label">✦ DEMO • DANE TESTOWE</div>
+            </div>
+            <div class="pv-rank-layout">
+              <div class="pv-rank-main">
+                <article class="pv-glass pv-progress-card">
+                  <div class="pv-card-title"><div><span class="pv-eyebrow">TWÓJ POSTĘP • LOKALNA SYMULACJA</span><h2>Twoja ranga PvP</h2></div><span id="pvCurrentModeLabel" class="pv-filter-badge">Klasyczne PvP</span></div>
+                  <div class="pv-progress-content"><div class="pv-emblem" id="pvRankEmblem" data-rank="0"><span class="pv-emblem-rays"></span><span class="pv-emblem-symbol" id="pvRankIcon">✦</span></div><div class="pv-progress-detail"><span class="pv-muted-label">AKTUALNA LIGA</span><h3 id="pvRankName">REKRUT</h3><strong class="pv-rating" id="pvRankPoints">95 RP</strong><p id="pvNextRankText">Do Brązu: 25 RP</p></div></div>
+                  <div class="pv-track" role="progressbar" aria-label="Postęp do kolejnej rangi" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pvRankProgress"><span id="pvProgressFill"></span></div><div class="pv-track-labels"><span id="pvRankLow">REKRUT</span><span id="pvRankHigh">BRĄZ</span></div>
+                  <div class="pv-demo-actions"><button class="pv-primary" type="button" id="pvDemoWin">⚔ Symuluj wygraną (+40 RP)</button><button class="pv-secondary" type="button" id="pvDemoLoss">Symuluj przegraną (−15 RP)</button></div>
+                  <div class="pv-under-actions"><button class="pv-text-button" type="button" id="pvPreviewPromotion">✧ Obejrzyj animację awansu</button><button class="pv-text-button" type="button" id="pvResetDemo">↺ Resetuj demo</button></div>
+                  <p class="pv-demo-disclaimer" role="status" id="pvStatus" aria-live="polite">Symulacja: punkty są przechowywane wyłącznie w tej przeglądarce. Nie są prawdziwymi wynikami serwera Minecraft.</p>
+                </article>
+                <article class="pv-glass pv-tiers-card"><div class="pv-card-title"><div><span class="pv-eyebrow">DRABINKA LIGOWA</span><h2>Droga do Legendy</h2></div></div><div class="pv-tiers" id="pvRankTiers"></div></article>
+              </div>
+              <div class="pv-rank-side">
+                <article class="pv-glass pv-leaderboard-card"><div class="pv-card-title"><div><span class="pv-eyebrow">TABLICA WYNIKÓW</span><h2>Top graczy</h2></div></div><label class="pv-mode-label" for="pvRankMode">Ranking trybu</label><select id="pvRankMode" class="pv-select"><option value="classic">Klasyczne PvP</option><option value="crystal">Crystal PvP</option><option value="sword">Sword PvP</option><option value="axe">Axe PvP</option><option value="uhc">UHC PvP</option></select><div class="pv-podium" id="pvPodium" aria-label="Trzy pierwsze miejsca — przykładowi gracze"></div><div id="pvLeaderRows" class="pv-leader-rows"></div><p class="pv-demo-disclaimer">Przykładowi gracze i wyniki. Publiczny ranking pojawi się dopiero po połączeniu z serwerem.</p></article>
+                <article class="pv-glass pv-info-card"><span class="pv-eyebrow">JAK DZIAŁAJĄ RANGI?</span><h3>Każda walka ma znaczenie</h3><p>Wygrane podnoszą wynik, przegrane mogą go obniżać. Po przekroczeniu progu zdobywasz wyższą rangę i widzisz animację awansu.</p><p><strong>Ważne:</strong> prawdziwe punkty i zwycięstwa będzie przyznawać wyłącznie serwer po rozegranym meczu — nie przyciski demo.</p></article>
+              </div>
+            </div>
+            <dialog class="pv-promote-modal" id="pvPromotionDialog" aria-labelledby="pvPromoteTitle" aria-describedby="pvPromoteDescription"><div class="pv-particles" id="pvPromoteParticles" aria-hidden="true"></div><div class="pv-promotion-content"><span class="pv-promotion-sup">MINEVORA • PVP RANKED</span><span class="pv-epic-shield" id="pvPromoteShield"><span id="pvPromoteSymbol">◆</span></span><span class="pv-promotion-kicker">✦ AWANS RANGI ✦</span><h2 id="pvPromoteTitle">NOWA RANGA!</h2><p id="pvPromoteDescription">Odblokowano wyższą ligę.</p><button class="pv-primary" type="button" id="pvPromotionClose">KONTYNUUJ →</button></div></dialog>
+          </section>
+
+          <section class="view tab-panel account-panel" id="accountView" data-view="account" hidden>
+            <p class="eyebrow">MINEVORA / KONTO</p><h1>Twoje konto <em>Microsoft</em></h1>
+            <p class="subtext">Jedno konto do strony MINEVORA i wejścia na stronę logowania z launchera. Nie musisz tworzyć dodatkowego hasła MINEVORA.</p>
+            <div class="account-setup-card">
+              <span class="account-mark" aria-hidden="true">▦</span>
+              <div id="signInExplanation"><h2>Logowanie przez Microsoft</h2><p>Zaloguj się istniejącym kontem Microsoft lub utwórz je na oficjalnej stronie Microsoft. MINEVORA nie zbiera ani nie przechowuje Twojego hasła.</p></div>
+              <h2 id="signedInHeading" hidden>Edytuj swój profil MINEVORA</h2>
+              <p id="accountState" role="status" aria-live="polite">Ładowanie logowania Microsoft…</p>
+              <p id="accountProfile" hidden></p>
+              <section id="playerProfile" class="player-profile" aria-label="Profil gracza MINEVORA" hidden>
+                <div class="player-banner">
+                  <div class="player-avatar" id="profileAvatar" data-color="purple" aria-hidden="true">M</div>
+                  <div class="player-identity">
+                    <span class="eyebrow">PROFIL GRACZA</span>
+                    <h2 id="profileNickname">Gracz MINEVORA</h2>
+                    <p id="profileMicrosoftName">Microsoft · połączono</p>
+                    <span class="profile-connected">● Konto Microsoft połączone</span>
+                  </div>
+                </div>
+                <form id="profileForm" class="profile-form" autocomplete="off">
+                  <label for="profileNick">Nick w MINEVORA <span class="field-hint">(3–20 znaków, bez danych osobowych)</span></label>
+                  <input id="profileNick" name="nickname" type="text" maxlength="20" minlength="3" pattern="[a-zA-Z0-9_-]{3,20}" placeholder="Np. Gracz_123" required spellcheck="false"/>
+                  <div class="profile-photo-upload">
+                    <label for="profilePhoto">Zdjęcie profilowe MINEVORA</label>
+                    <input id="profilePhoto" type="file" accept="image/png,image/jpeg,image/webp" aria-describedby="photoHelp"/>
+                    <p id="photoHelp" class="field-hint">Wybierz PNG, JPG lub WebP (maks. 5 MB). Po kliknięciu „Zapisz profil” zdjęcie będzie lokalne; możesz je też dobrowolnie przesłać do chmury.</p>
+                    <button id="removeProfilePhoto" class="profile-secondary" type="button">Usuń zdjęcie</button>
+                  </div>
+                  <label for="profileMode">Ulubiona minigra</label>
+                  <select id="profileMode" name="mode">
+                    <option value="BedWars">BedWars</option><option value="SkyWars">SkyWars</option>
+                    <option value="Crystal PvP">Crystal PvP</option><option value="Parkour">Parkour</option>
+                    <option value="TNT Run">TNT Run</option><option value="Build Battle">Build Battle</option>
+                    <option value="Spleef">Spleef</option><option value="Duels">Duels</option>
+                  </select>
+                  <label for="profileColor">Kolor awatara</label>
+                  <select id="profileColor" name="color">
+                    <option value="purple">Fioletowy</option><option value="blue">Niebieski</option>
+                    <option value="teal">Turkusowy</option><option value="rose">Różowy</option>
+                  </select>
+                  <div class="profile-actions">
+                    <button class="primary" type="submit">Zapisz profil</button>
+                    <button id="resetProfile" class="profile-secondary" type="button">Przywróć domyślne</button>
+                  </div>
+                  <p class="profile-notice" id="profileSaveStatus" role="status" aria-live="polite"></p>
+                </form>
+                <section id="cloudSyncArea" class="cloud-sync" aria-labelledby="cloudSyncTitle">
+                  <h3 id="cloudSyncTitle">☁ Synchronizacja profilu MINEVORA</h3>
+                  <p>Opcjonalna chmura: możesz przesłać nick, ulubioną minigrę, kolor i zdjęcie profilowe na prywatne konto MINEVORA. Microsoft może poprosić o zgodę na zakres <code>profile.sync</code>. Żadne hasła ani tokeny nie są przesyłane jako dane profilu.</p>
+                  <div class="profile-actions">
+                    <button id="cloudUpload" class="primary" type="button">Wyślij zapisany profil do chmury</button>
+                    <button id="cloudDownload" class="profile-secondary" type="button">Pobierz profil z chmury</button>
+                    <button id="cloudDelete" class="profile-secondary cloud-delete" type="button">Usuń mój profil z chmury</button>
+                  </div>
+                  <p id="cloudStatus" class="profile-notice" role="status" aria-live="polite">Synchronizacja jest dobrowolna. Profil w tej przeglądarce pozostaje niezależny.</p>
+                  <p class="field-hint">Twoje zdjęcie i ustawienia będą przechowywane na Cloudflare D1 do czasu ich zmiany lub usunięcia. Synchronizacja z launcherem Windows będzie wymagała osobnej aktualizacji aplikacji.</p>
+                </section>
+                <div class="profile-stats">
+                  <div><span>Ulubiony tryb</span><strong id="profileFavorite">—</strong></div>
+                  <div><span>Profil na urządzeniu</span><strong id="profileSince">—</strong></div>
+                </div>
+                <p class="profile-disclaimer">Przycisk „Zapisz profil” zachowuje dane lokalnie. Opcjonalne przyciski w sekcji „Synchronizacja” pozwalają osobno zapisywać lub pobierać dane na konto w chmurze. Launcher nie obsługuje jeszcze automatycznego pobierania tego profilu. Nie są to statystyki serwera Minecraft.</p>
+                <a class="profile-launcher-link" href="#download">Pobierz launcher MINEVORA →</a>
+              </section>
+              <button id="msalLogin" class="primary" type="button" disabled aria-describedby="accountNotice">Zaloguj przez Microsoft</button>
+              <button id="msalRedirectFallback" class="profile-secondary" type="button" disabled>Alternatywnie: zaloguj przez przekierowanie</button>
+              <button id="msalLogout" class="primary" type="button" hidden>Wyloguj</button>
+              <small id="accountNotice">Logowanie odbywa się przez Microsoft. Profil zapisujesz lokalnie albo dobrowolnie w chmurze. Uruchomienie Minecraft Java nadal wymaga osobnej autoryzacji i licencji.</small>
+            </div>
+            <p class="subtext">Uwaga: dostęp do konta MINEVORA i posiadanie Minecraft Java to dwie różne rzeczy. Do uruchamiania gry launcher nadal wymaga autoryzacji oraz odpowiedniej licencji.</p>
+          </section>
+          <section class="view guide-page" id="poradnikView" data-view="poradnik" aria-label="Poradnik MINEVORA" hidden>
+            <div class="guide-hero">
+              <span class="guide-kicker">MINEVORA / CENTRUM POMOCY</span>
+              <h1>PORADNIK <span>LAUNCHERA</span></h1>
+              <p>Wszystkie najważniejsze funkcje MINEVORA wyjaśnione prostym językiem. Zobacz, jak wyglądają ekrany i jak przygotować Minecrafta do uruchomienia.</p>
+              <div class="guide-actions"><a class="guide-btn" href="#podglad">▶ Zobacz launcher</a><a class="guide-btn guide-outline" href="#download">Informacje o pobieraniu</a></div>
+              <div class="guide-pills"><span>Windows 11</span><span>Minecraft Java</span><span>Vanilla • Fabric • Forge • NeoForge • Quilt</span></div>
+            </div>
+            <nav class="guide-quick" aria-label="Spis poradnika">
+              <a href="#poradnik" data-guide-target="guide-start">01 / Start</a><a href="#poradnik" data-guide-target="guide-hud">02 / PvP HUD</a><a href="#poradnik" data-guide-target="guide-game">03 / Tryby</a><a href="#poradnik" data-guide-target="guide-profile">04 / Konto</a><a href="#poradnik" data-guide-target="guide-faq">05 / FAQ</a>
+            </nav>
+            <section class="guide-block" id="guide-start">
+              <div class="guide-heading"><span>01 / START</span><h2>Jak uruchomić Minecrafta?</h2><p>Instalację gry obsługuje aplikacja Windows — strona WWW pokazuje informacje i podglądy, ale sama nie instaluje Minecrafta.</p></div>
+              <div class="guide-feature"><a class="guide-image" href="assets/guide/launcher-windows.webp" target="_blank" rel="noopener"><img src="assets/guide/launcher-windows.webp" alt="Wizualizacja panelu Graj i Instalacje w aplikacji MINEVORA, z wyborem wersji i loadera" loading="lazy"><span>Otwórz większy obraz</span></a>
+                <div class="guide-copy"><span class="guide-tag">GRAJ / INSTALACJE</span><h3>Wszystko do startu w jednym panelu</h3>
+                  <ol><li>Otwórz aplikację Windows i wybierz <strong>Graj / Instalacje</strong>.</li><li>Ustaw wersję Minecrafta i loader: <strong>Vanilla, Fabric, Forge, NeoForge lub Quilt</strong>, jeśli są zgodne z wersją.</li><li>Wybierz <strong>Zainstaluj</strong> albo <strong>Graj</strong>. Launcher może pobrać brakujący profil.</li><li>Zaloguj się kontem Microsoft posiadającym licencję Minecraft Java.</li></ol>
+                  <p class="guide-note">Obraz to wizualizacja na podstawie interfejsu projektu; nie przedstawia uruchomionej aplikacji Windows.</p>
+                </div>
+              </div>
+              <div class="guide-tile-grid">
+                <article class="guide-tile"><span class="guide-tile-icon">▣</span><h3>Profile i wersje</h3><p>Osobne instalacje Minecrafta, nazwy profili i wybór zgodnego loadera.</p></article>
+                <article class="guide-tile"><span class="guide-tile-icon">↓</span><h3>Instalacja dodatków</h3><p>Opcja automatycznego uzupełniania brakujących kompatybilnych plików. Każda wersja moda musi pasować do gry.</p></article>
+                <article class="guide-tile"><span class="guide-tile-icon">▶</span><h3>Przycisk Graj</h3><p>Uruchamia lokalną instancję Minecraft Java po autoryzacji konta i przygotowaniu plików gry.</p></article>
+              </div>
+            </section>
+            <section class="guide-block" id="guide-hud">
+              <div class="guide-heading"><span>02 / DODATKI</span><h2>PvP HUD — ustaw własny ekran</h2><p>W panelu aplikacji możesz zapisywać ustawienia moda dla profilu Fabric 1.21.1.</p></div>
+              <div class="guide-feature guide-hud-layout"><div class="guide-hud-visual" aria-label="Wizualizacja elementów PvP HUD">
+                <div class="guide-hud-top"><span>⚡ 144 FPS</span><span>⌖ 9 CPS</span></div><div class="guide-hud-stage"><div class="guide-hud-heart">♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥</div><div class="guide-hud-food">🍗 🍗 🍗 🍗 🍗 🍗</div><div class="guide-hud-item">⚔ Miecz w ręce</div></div><div class="guide-hud-bottom">Poglądowa wizualizacja elementów HUD</div>
+              </div><div class="guide-copy"><span class="guide-tag">FABRIC 1.21.1</span><h3>Konfiguracja wyglądu PvP</h3>
+              <p>Przełączaj m.in. <strong>HP, głód, przedmiot w ręce, CPS, FPS, zbroję, efekty mikstur i celownik</strong>. Wybieraj położenie paneli i kolor akcentu.</p>
+              <ol><li>Wybierz <strong>Fabric 1.21.1</strong>.</li><li>Kliknij <strong>Wczytaj ustawienia</strong>.</li><li>Dostosuj elementy i kliknij <strong>Zapisz HUD</strong>.</li><li>Podczas gry klawisz <strong>H</strong> przełącza HUD.</li></ol>
+              <p class="guide-note">Do działania nowych elementów w grze wymagany jest skompilowany, zgodny mod JAR. Kod źródłowy moda nie jest gotowym plikiem moda.</p>
+              </div></div>
+            </section>
+            <section class="guide-block" id="guide-game">
+              <div class="guide-heading"><span>03 / ROZGRYWKA</span><h2>PvP Mode, minigry i rankingi</h2><p>Zobacz dostępne ekrany oraz planowane tryby na MINEVORA.</p></div>
+              <div class="guide-gallery">
+                <article class="guide-gallery-card"><a href="assets/guide/pvp-mode.webp" target="_blank" rel="noopener"><img src="assets/guide/pvp-mode.webp" loading="lazy" alt="Ekran PvP Mode MINEVORA z pięcioma planowanymi trybami walki"></a><div><span>ARENA</span><h3>PvP Mode</h3><p>Podgląd pięciu stylów: klasyczne 1v1, Crystal PvP, Sword PvP, Axe PvP i UHC PvP. Areny są planowane.</p><a href="#pvp">Przejdź do PvP Mode →</a></div></article>
+                <article class="guide-gallery-card"><a href="assets/guide/rankingi.webp" target="_blank" rel="noopener"><img src="assets/guide/rankingi.webp" loading="lazy" alt="Ekran demonstracyjnego rankingu MINEVORA"></a><div><span>RYWALIZACJA</span><h3>Rankingi i rangi</h3><p>Podium, tabela wyników, pasek progresu i pokazowa animacja awansu. Wyniki są demonstracyjne, nie pochodzą z serwera.</p><a href="#rankings">Zobacz ranking demo →</a></div></article>
+                <article class="guide-gallery-card"><a href="assets/guide/minigry.webp" target="_blank" rel="noopener"><img src="assets/guide/minigry.webp" loading="lazy" alt="Ekran panelu minigier MINEVORA"></a><div><span>WYBÓR TRYBU</span><h3>Minigry</h3><p>Prezentacja planowanych trybów, takich jak BedWars, SkyWars, TNT Run, Parkour, Build Battle, Spleef i Duels.</p><a href="#minigames">Przeglądaj minigry →</a></div></article>
+                <article class="guide-gallery-card"><a href="assets/guide/awans.webp" target="_blank" rel="noopener"><img src="assets/guide/awans.webp" loading="lazy" alt="Pokazowa animacja awansu rangi MINEVORA"></a><div><span>EFEKTY</span><h3>Animacja awansu</h3><p>Pokaz nowej rangi i efektów cząsteczkowych. Włączysz go w demonstracji rankingu.</p><a href="#rankings">Sprawdź animację →</a></div></article>
+              </div>
+            </section>
+            <section class="guide-block" id="guide-profile">
+              <div class="guide-heading"><span>04 / PROFIL</span><h2>Skin, konto i synchronizacja</h2><p>Ważne: konto MINEVORA na stronie i licencja Minecraft Java są rozdzielone.</p></div>
+              <div class="guide-tile-grid">
+                <article class="guide-tile"><span class="guide-tile-icon">◉</span><h3>Konto Microsoft</h3><p>Logowanie do Minecraft Java jest osobne i wymaga ważnej licencji. Nie wpisuj hasła w nieznanych oknach.</p></article>
+                <article class="guide-tile"><span class="guide-tile-icon">▤</span><h3>Skin PNG</h3><p>W launcherze możesz wskazać lokalny plik skina PNG. Dostępność dodatkowych funkcji edytora zależy od wydania.</p></article>
+                <article class="guide-tile"><span class="guide-tile-icon">☁</span><h3>Profil w chmurze</h3><p>Dobrowolne pobranie lub wysłanie nicku, koloru, ulubionej minigry i awatara. Wymaga skonfigurowanej usługi.</p></article>
+              </div>
+            </section>
+            <section class="guide-block" id="guide-faq">
+              <div class="guide-heading"><span>05 / PYTANIA</span><h2>Najczęstsze pytania</h2></div>
+              <div class="guide-faq"><details><summary>Czy launcher działa już na każdej wersji Minecrafta?</summary><p>Można wybierać oficjalne wersje i zgodne loadery. Nie każdy loader obsługuje każdą wersję. PvP HUD w obecnym kodzie jest przeznaczony dla Fabric 1.21.1.</p></details>
+              <details><summary>Czy można pobrać moda bez osobnej instalacji?</summary><p>Launcher zawiera mechanizm pobierania brakujących kompatybilnych dodatków. Nowy mod PvP HUD wymaga udostępnienia skompilowanego JAR; nie wystarcza sam kod źródłowy.</p></details>
+              <details><summary>Czy rangi i punkty są prawdziwe?</summary><p>Jeszcze nie. Rankingi i awanse na stronie są demonstracją. Prawdziwa synchronizacja będzie wymagała działającego serwera i jego API.</p></details>
+              <details><summary>Czy strona WWW uruchomi Minecrafta?</summary><p>Nie. Do instalowania i uruchamiania gry służy desktopowy launcher Windows, a strona udostępnia informacje, konto, przegląd funkcji i podgląd.</p></details>
+              <details><summary>Czy launcher jest gotowym MSIX z Microsoft Store?</summary><p>Nie. Projekt ma źródła i pliki do przygotowania instalatora, ale wydanie wymaga podpisu, testów Windows 11 i osobnej publikacji.</p></details></div>
+            </section>
+            <div class="guide-end"><h2>GOTOWY POZNAĆ MINEVORA?</h2><p>Sprawdź wygląd launchera albo przejdź do informacji o wydaniu Windows.</p><div class="guide-actions"><a class="guide-btn" href="#podglad">Pokaż launcher →</a><a class="guide-btn guide-outline" href="#download">Pobieranie</a></div></div>
+          </section>
+          <section class="view guide-page" id="podgladView" data-view="podglad" aria-label="Podgląd launchera MINEVORA" hidden>
+            <div class="guide-hero guide-preview-hero"><span class="guide-kicker">MINEVORA / WIZUALIZACJA APLIKACJI</span><h1>TAK WYGLĄDA <span>LAUNCHER</span></h1>
+              <p>Podgląd planu interfejsu Windows 11 i rzeczywiste ekrany demonstracyjne strony wykorzystywanej przez aplikację. Nie jest to połączenie z uruchomionym Minecraftem.</p>
+              <div class="guide-actions"><a class="guide-btn" href="#poradnik">Czytaj poradnik</a><a class="guide-btn guide-outline" href="#download">Pobieranie</a></div></div>
+            <div class="guide-preview-shot"><a href="assets/guide/launcher-windows.webp" target="_blank" rel="noopener"><img src="assets/guide/launcher-windows.webp" alt="Wizualizacja widoku Graj Instalacje MINEVORA Windows 11" loading="eager"></a><p>Wizualizacja panelu launchera na podstawie kodu HTML/CSS projektu, nie zrzut z działającego programu. Natychmiastowy podgląd: kliknij obraz, aby go powiększyć.</p></div>
+            <div class="guide-gallery guide-preview-gallery">
+              <article class="guide-gallery-card"><a href="assets/guide/pvp-mode.webp" target="_blank" rel="noopener"><img src="assets/guide/pvp-mode.webp" alt="Ekran PvP MINEVORA" loading="lazy"></a><div><h3>PvP Mode</h3><p>Demonstracyjny ekran aren i pojedynków.</p></div></article>
+              <article class="guide-gallery-card"><a href="assets/guide/rankingi.webp" target="_blank" rel="noopener"><img src="assets/guide/rankingi.webp" alt="Ekran rankingów MINEVORA" loading="lazy"></a><div><h3>Rankingi</h3><p>Podgląd progresu i punktów RP.</p></div></article>
+              <article class="guide-gallery-card"><a href="assets/guide/minigry.webp" target="_blank" rel="noopener"><img src="assets/guide/minigry.webp" alt="Ekran minigier MINEVORA" loading="lazy"></a><div><h3>Minigry</h3><p>Prezentacja projektowanych trybów gry.</p></div></article>
+            </div>
+          </section>
+          <section class="view tab-panel" id="downloadView" data-view="download" hidden>
+            <p class="eyebrow">MINEVORA / POBIERANIE</p><h1>Launcher <em>w przygotowaniu</em></h1><p class="subtext">Launcher MINEVORA dla Windows 11 ma już kompilację testową i instalator, ale nadal wymaga podpisu cyfrowego zaufanego wydawcy oraz testów działania na Windows. Smart App Control może blokować obecne niepodpisane pliki.</p>
+            <div class="mv29-download">
+              <h2>Publiczna paczka testowa 18.3.4 SHARP</h2>
+              <p>Pobierz archiwum ZIP z wydania GitHub. To wersja testowa, niepodpisana przez zaufanego wydawcę i niezweryfikowana jako instalator Windows. Nie zmieniaj ustawień zabezpieczeń systemu, aby ją uruchomić.</p>
+              <a href="https://github.com/cubeverse12/minevora-launcher/releases/download/v18.3.4/MINEVORA_LAUNCHER_18_3_4_SHARP.zip" target="_blank" rel="noopener noreferrer">↓ Pobierz testowy launcher ZIP</a>
+            </div>
+            <a class="primary as-link" href="https://github.com/cubeverse12/cubeverse/pull/5" target="_blank" rel="noopener noreferrer">🔧 Postęp prac nad launcherem ↗</a>
+            <p class="subtext">Oficjalny instalator będzie dostępny tutaj po podpisaniu wydania i pomyślnych testach na Windows 11. Nie wyłączaj Inteligentnej kontroli aplikacji Windows, aby uruchamiać niepodpisaną wersję testową.</p>
+          </section>
+        </div>
+        
+      </div>
+      <p class="legal">MINEVORA to niezależny projekt Minecraft. Strona informacyjna. Instalowanie Minecrafta odbywa się w launcherze Windows; Oferta serwera i data startu zostaną ogłoszone później. Nie jest powiązany z Mojang ani Microsoft.</p>
+    </main>
+  </div>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script src="minigames-ui.js?v=20261025-premium" defer></script>
+<script src="pvp-rank-core.js?v=20261025-2-2" defer></script>
+<script src="pvp-mode.js?v=20261025-2-2" defer></script>
+<script src="minevora-reference.js?v=20261026-2-5" defer></script>
+<script src="poradnik.js?v=20261026-1" defer></script>
+<script src="msal-auth.bundle.js?v=20261025-cloud-sync-beta1" defer></script>
+<script src="mobile-2-6-hotfix.js?v=20261026-1" defer></script>
+<script src="website-2-8.js?v=20261026-2-8" defer></script>
+</body>
+</html>
