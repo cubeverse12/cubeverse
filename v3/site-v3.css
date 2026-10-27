@@ -44,7 +44,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #d7
 .mobile-nav a:hover,.mobile-nav a:focus-visible{background:#36205b;border-color:#8551c3}
 .hero-section{padding-top:20px}
 .hero-panel{position:relative;overflow:hidden;min-height:600px;display:flex;align-items:center;justify-content:center;text-align:center;border:1px solid #66419a;border-radius:20px;background:#19102b;isolation:isolate;box-shadow:0 30px 65px #02020e7a}
-.hero-visual{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,#16103242 0%,#160d3570 52%,#080a1ee9 100%),url("../assets/website-photos-20261027/home-hero.webp") center 46%/cover no-repeat}
+.hero-visual{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,#16103242 0%,#160d3570 52%,#080a1ee9 100%),url("../assets/launcher-18-3-16/hero.webp?v=18316-refresh-2") center 46%/cover no-repeat}
 .hero-panel::after{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse at 50% 36%,#2e08538a,transparent 55%)}
 .hero-content{width:min(100% - 34px,850px);padding:50px 0 48px;display:flex;flex-direction:column;align-items:center}
 .eyebrow,.section-kicker{display:inline-block;font-size:11px;font-weight:900;letter-spacing:1.7px;color:#d4afff;text-transform:uppercase}
