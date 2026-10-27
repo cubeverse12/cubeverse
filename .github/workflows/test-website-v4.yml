@@ -1,0 +1,30 @@
+name: MINEVORA 4.0 Website Browser Test
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'v4/**'
+      - 'tools/test_website_v4.py'
+      - '.github/workflows/test-website-v4.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ui-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: python -m pip install playwright
+      - name: Test standalone MINEVORA v4 on three devices
+        run: python tools/test_website_v4.py
+      - name: Screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: minevora-4-browser-screenshots
+          path: website-v4-test-screenshots
+          if-no-files-found: warn
