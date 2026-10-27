@@ -3,7 +3,7 @@
    Previous original image assets are preserved for rollback.
 */
 .hero-visual{
-  background-image:linear-gradient(180deg,#15102f28 0%,#0d083775 49%,#07091ddc 100%),url("../assets/launcher-18-3-16/hero.webp?v=18316-refresh-2")!important;
+  background-image:linear-gradient(180deg,#15102f28 0%,#0d083775 49%,#07091ddc 100%),url("../assets/launcher-316/hero.webp?v=18316-final-newphotos-3")!important;
   background-position:center 52%!important;
 }
 .hero-panel::after{background:radial-gradient(ellipse at 50% 40%,#250553a9,transparent 59%)!important}
