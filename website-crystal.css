@@ -1,0 +1,42 @@
+/* MINEVORA Crystal Logo — only the public website. Native launcher uses PNG / ICO. */
+body:not(.mv-desktop-mode) .mv-site-home-logo {
+  display:block!important;
+  width:min(650px,94%)!important;
+  max-height:260px!important;
+  height:auto!important;
+  object-fit:contain!important;
+  filter:drop-shadow(0 0 22px #8f24ed85)!important;
+  margin:0 auto 10px!important;
+}
+body:not(.mv-desktop-mode) .mv-site-header-brand img {
+  object-fit:contain!important;
+  max-height:65px!important;
+  filter:drop-shadow(0 0 9px #a13aff84)!important;
+}
+body:not(.mv-desktop-mode) .sidebar .brand img.mv-brand-unified {
+  object-fit:contain!important;
+  filter:drop-shadow(0 0 11px #ad47ff80)!important;
+}
+body:not(.mv-desktop-mode) .mv28-preview img {
+  max-width:92%!important;
+  height:auto!important;
+  object-fit:contain!important;
+}
+@media(max-width:720px) {
+ body:not(.mv-desktop-mode) .mv-site-home-logo {
+   width:min(530px,98%)!important;
+   max-height:185px!important;
+   margin:0 auto 7px!important;
+ }
+ body:not(.mv-desktop-mode) .mv-site-home-copy {
+   width:100%;
+   min-width:0;
+ }
+ body:not(.mv-desktop-mode) .mv-site-home-copy h1 {
+   line-height:1.15;
+   font-size:clamp(24px,6.3vw,38px)!important;
+ }
+}
+@media(prefers-reduced-motion:reduce) {
+ body:not(.mv-desktop-mode) .mv-site-home-logo {transition:none!important}
+}
