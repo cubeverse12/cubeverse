@@ -1,4 +1,4 @@
-/* MINEVORA 3.0 public website entrypoint.
+/* MINEVORA RESET 4.0 public website entrypoint.
  * Preserve previous desktop WebChannel launcher and old account tools.
  * Public browser visitors go to the fully rebuilt /v3/ website.
  */
@@ -6,7 +6,7 @@
   "use strict";
   const params = new URLSearchParams(location.search);
   if (params.has("legacy") || params.has("launcher") || params.has("desktop")) return;
-  if (location.pathname.includes("/v3/")) return;
+  if (location.pathname.includes("/v3/") || location.pathname.includes("/v4/")) return;
 
   function isDesktopLauncher() {
     const ua = navigator.userAgent || "";
@@ -22,11 +22,11 @@
     const map = {
       home:"start",minigames:"minigry",pvp:"pvp",
       rankings:"ranking",studio:"studio",plus:"plus",
-      download:"pobierz",podglad:"launcher",
-      poradnik:"pomoc",odkrywaj:"start",
-      sklep:"plus",account:"pomoc"
+      download:"pobierz",podglad:"start",
+      poradnik:"poradnik",odkrywaj:"start",
+      sklep:"sklep",account:"poradnik"
     };
-    const target = new URL("./v3/", window.location.href);
+    const target = new URL("./v4/", window.location.href);
     target.search = window.location.search;
     const hash = window.location.hash.slice(1);
     target.hash = "#" + (Object.hasOwn(map,hash) ? map[hash] : (hash||"start"));
