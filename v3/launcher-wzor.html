@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080919">
+<title>MINEVORA — wzór docelowego wyglądu launchera</title>
+<style>
+:root{--bg:#080b1b;--panel:#0e1230;--card:#10132d;--edge:#52417c;--light:#f9f5ff;--muted:#b9b3d8;--violet:#a427f9;--violet2:#671adb; font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--light)}
+*{box-sizing:border-box}body{margin:0;min-width:320px;background:#070b1e}a{color:inherit;text-decoration:none}button,select{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,select:focus-visible{outline:2px solid #eec2ff;outline-offset:3px}
+.design-note{font-size:12px;padding:9px 18px;background:#160a2e;border-bottom:1px solid #553879;color:#e1cdfa;text-align:center}
+.shell{min-height:840px;display:grid;grid-template-columns:260px minmax(580px,1fr) 342px;grid-template-rows:55px minmax(750px,1fr);gap:8px;padding:8px;background:linear-gradient(140deg,#080b1c,#060a20)}
+.sidebar{grid-row:1/3;background:#090e21;border:1px solid #312950;border-radius:11px;padding:9px 13px;display:flex;flex-direction:column;gap:10px}
+.brand{display:flex;align-items:center;justify-content:center;height:113px;border-bottom:1px solid #30244c}
+.brand img{max-width:98%;max-height:105px;object-fit:contain;filter:drop-shadow(0 0 13px #ba24ff88)}
+.menu{display:flex;flex-direction:column;gap:4px}.menu a{min-height:43px;display:flex;align-items:center;gap:15px;font-size:15px;border-radius:8px;padding:8px 12px;color:#ddd5f2;border:1px solid transparent}
+.menu a img{width:24px;height:24px;object-fit:contain}.menu a.active{background:linear-gradient(100deg,#40127a,#260d51);color:#fff;border-color:#af56ff;box-shadow:0 0 15px #a52bff80}.menu a:hover{background:#221747}
+.menu .break{border-top:1px solid #2d2850;margin:12px 0 7px}.menu .special{font-weight:800;color:#e767ff}
+.plusmini{margin-top:auto;border:1px solid #703cb5;border-radius:10px;padding:13px;background:linear-gradient(125deg,#260849,#52128f 62%,#1c0d4f)}
+.plusmini b{display:block;font-size:15px}.plusmini p{font-size:12px;line-height:1.5;margin:8px 0}.plusmini a{display:block;background:linear-gradient(100deg,#a733ff,#691deb);padding:10px;border-radius:7px;text-align:center;font-weight:700;font-size:13px}
+.topbar{grid-column:2/4;display:flex;align-items:stretch;justify-content:space-between;padding:0 6px;border-bottom:1px solid #29224a}
+.tabs{display:flex;align-items:stretch;gap:6px;overflow:auto hidden}.tabs a{padding:12px 12px;white-space:nowrap;font-size:14px;color:#d2cde0;border-radius:7px 7px 0 0}
+.tabs a.active,.tabs a:hover{background:linear-gradient(180deg,#331271,#260e4d);box-shadow:inset 0 -2px #af47ff;color:#fff}
+.window-icons{display:flex;gap:16px;align-items:center;color:#eee;padding:0 15px}.window-icons a{font-size:22px;color:#e0d1fa}.window-icons span{font-size:21px}
+.middle{grid-column:2;grid-row:2;min-width:0;display:flex;flex-direction:column;gap:12px}
+.hero{height:480px;min-height:480px;border:1px solid #7046a1;border-radius:10px;position:relative;overflow:hidden;background:#191141 url('../assets/website-photos-20261027/home-hero.webp') center center/cover no-repeat}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#080b1880 0%,transparent 35%,#080c2688 69%,#070b20db 100%);pointer-events:none}
+.hero-logo{position:absolute;left:0;right:0;top:5px;display:flex;flex-direction:column;align-items:center;pointer-events:none}.hero-logo img{width:min(70%,520px);max-height:200px;object-fit:contain;filter:drop-shadow(0 0 10px #480059)}.hero-logo small{letter-spacing:5px;font-weight:700;text-shadow:0 2px 10px #000;white-space:nowrap}
+.hero-bottom{position:absolute;left:10px;right:10px;bottom:11px;display:grid;grid-template-columns:minmax(180px,1fr) minmax(245px,1.08fr) minmax(152px,.7fr);align-items:end;gap:13px}
+.install{display:grid;gap:8px}.selectbox{display:flex;align-items:center;gap:10px;background:#090e27e8;border:1px solid #7050a9;border-radius:9px;padding:9px;min-height:54px;box-shadow:0 7px 15px #0008}
+.selectbox .emoji{font-size:26px}.selectbox label{flex:1;font-size:12px;font-weight:700}.selectbox select{display:block;background:transparent;color:#e7dcff;border:0;max-width:100%;width:100%;font-size:12px;margin-top:4px;outline:none}
+.selectbox option{background:#140d2d;color:#fff}
+.play{min-height:88px;color:#fff;background:linear-gradient(180deg,#b93aff,#7c15e9);border:2px solid #e8b5ff;border-radius:10px;box-shadow:0 0 22px #ac2affaa,inset 0 0 16px #d98fff7f;display:flex;align-items:center;justify-content:center;gap:21px}
+.play .tri{font-size:43px}.play strong{font-size:38px;line-height:1}.play small{display:block;font-size:13px;font-weight:500;margin-top:2px}
+.options{min-height:54px;border-radius:9px;border:1px solid #5c478c;background:#0a0f2bda;color:#fff;font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:11px}
+.card{grid-column:span 3;display:block;position:relative;min-width:0;background:#10132c;border:1px solid #624589;border-radius:9px;overflow:hidden;transition:transform .2s,border .2s}
+.card:hover{transform:translateY(-3px);border-color:#bf7aff}.card img{width:100%;height:92px;object-fit:cover;display:block}.card div{padding:8px 11px;min-height:50px}.card strong{display:block;font-size:15px}.card small{display:block;font-size:11px;color:#aaa5ca;margin-top:4px}.card .arrow{position:absolute;right:8px;bottom:11px;border:1px solid #9651cf;border-radius:50%;padding:2px 7px;background:#0d1027}
+.card.wide{grid-column:span 4}
+.right{grid-column:3;grid-row:2;display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel{background:#0c1028;border:1px solid #4a376b;border-radius:9px;overflow:hidden}.panel h2{font-size:16px;font-weight:650;margin:0;padding:12px;border-bottom:1px solid #2c2549}.accountbody{padding:12px}
+.account-flex{display:flex;gap:12px;align-items:center}.avatar{width:103px;height:103px;border:3px solid #9825ee;box-shadow:0 0 0 3px #4d126d;border-radius:50%;background:#2e2141;object-fit:cover}.account-name{font-weight:800;font-size:17px}.tag{display:inline-block;background:linear-gradient(90deg,#7722d7,#a730ee);padding:5px 8px;border-radius:6px;font-size:11px;font-weight:800;margin:5px 0}.handle{display:block;color:#afa2cd;font-size:13px}
+.account-actions{display:flex;gap:9px;margin-top:17px}.account-actions a{flex:1;text-align:center;border:1px solid #584180;border-radius:7px;padding:9px 5px;font-size:12px}.account-actions a.status{border-color:#28ba42;color:#b3ffbe;background:#124f25}
+.news h2{display:flex;align-items:center;justify-content:space-between}.news h2 a{color:#af9eca;font-size:11px;font-weight:400}
+.item{display:flex;gap:11px;margin:0 12px;padding:9px 0;border-bottom:1px solid #282344;align-items:center}.item:last-child{border:0}.item img{width:62px;height:62px;object-fit:cover;border:1px solid #64428f;border-radius:8px}.item>div{flex:1;min-width:0}.item b{display:block;font-size:12px}.item p{margin:4px 0;font-size:10px;color:#aca7cd;line-height:1.4}.item .go{border:1px solid #7048ac;border-radius:8px;padding:3px 8px;font-size:20px}
+.discord{flex:1;min-height:235px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;gap:6px;padding:14px;background:linear-gradient(180deg,#1e07586b,#2b0b56db),url('../assets/launcher-316/portal.webp') center/cover}
+.discord img{width:70px;height:70px;filter:drop-shadow(0 0 10px #a34aff)}.discord strong{font-size:17px}.discord small{font-size:13px;color:#e0d7f4}.discord a{display:block;padding:9px 29px;background:linear-gradient(100deg,#a02dff,#6f1dd2);border:1px solid #d78bff;border-radius:7px;box-shadow:0 0 12px #8a22f4;font-size:13px}
+@media(max-width:1300px){.shell{grid-template-columns:215px minmax(520px,1fr) 275px}.menu a{font-size:12px}.tabs a{font-size:12px;padding:13px 7px}.hero{height:445px;min-height:445px}.hero-bottom{grid-template-columns:minmax(150px,1fr) minmax(200px,1fr) minmax(115px,.6fr)}.play strong{font-size:27px}.play .tri{font-size:32px}.avatar{width:73px;height:73px}.right{font-size:12px}.card img{height:76px}}
+@media(max-width:1020px){.shell{grid-template-columns:190px minmax(0,1fr);grid-template-rows:55px auto}.sidebar{grid-row:1/3}.topbar{grid-column:2}.right{grid-column:2;grid-row:3;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}.middle{grid-column:2;grid-row:2}.account-flex{flex-direction:column}.account-actions{flex-direction:column}.discord{min-height:260px}.cards .card{grid-column:span 4}.shell{min-height:unset}}
+@media(max-width:720px){.shell{display:block;padding:8px}.sidebar{display:none}.topbar{height:52px;overflow:hidden}.tabs a{font-size:13px}.window-icons{display:none}.hero{height:440px;min-height:440px}.hero-logo img{width:90%}.hero-logo small{font-size:10px;letter-spacing:2px}.hero-bottom{grid-template-columns:1fr 1fr;gap:8px}.hero-bottom .install{grid-row:1;grid-column:1/3;grid-template-columns:1fr 1fr}.play{min-height:62px;grid-column:1}.play strong{font-size:24px}.options{min-height:62px;grid-column:2}.cards .card{grid-column:span 6}.right{display:grid;grid-template-columns:1fr;margin-top:12px}.account-flex{flex-direction:row}.account-actions{flex-direction:row}.discord{min-height:225px}}
+@media(max-width:400px){.hero-bottom .install{display:block}.selectbox{min-height:46px;margin-bottom:5px}.hero{height:510px;min-height:510px}.cards .card{grid-column:span 12}.card img{height:140px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="design-note">WZÓR DOCELOWY 1:1 · Interaktywny podgląd interfejsu, nie uruchomiona aplikacja Windows.</div>
+<div class="shell">
+<aside class="sidebar">
+<a class="brand" href="#start" aria-label="MINEVORA"><img src="../assets/minevora_crystal_logo.svg" alt="MINEVORA"></a>
+<nav class="menu" aria-label="Zakładki launchera">
+<a class="active" href="#start"><img src="../assets/icons/neon/home.svg" alt="">Start</a>
+<a href="#wersje"><img src="../assets/icons/neon/versions.svg" alt="">Wersje i profile</a>
+<a href="#mody"><img src="../assets/icons/neon/default.svg" alt="">Mody i dodatki</a>
+<a href="#minigry"><img src="../assets/icons/neon/minigames.svg" alt="">Minigry</a>
+<a href="#pvp"><img src="../assets/icons/neon/pvp.svg" alt="">PvP Mode</a>
+<a href="#ranking"><img src="../assets/icons/neon/ranking.svg" alt="">Rankingi</a>
+<a href="#sklep"><img src="../assets/icons/neon/marketplace.svg" alt="">Sklep</a>
+<a href="#studio"><img src="../assets/icons/neon/skins.svg" alt="">Skin Studio</a>
+<div class="break"></div>
+<a class="special" href="#plus"><img src="../assets/icons/neon/plus.svg" alt="">MINEVORA PLUS</a>
+<a href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener"><img src="../assets/icons/neon/discord.svg" alt="">Discord</a>
+<a href="#opcje"><img src="../assets/icons/neon/settings.svg" alt="">Ustawienia</a>
+<a href="/v3/#pomoc"><img src="../assets/icons/neon/poradnik.svg" alt="">Poradnik</a>
+</nav>
+<div class="plusmini"><b>♛ MINEVORA PLUS</b><p>Więcej funkcji · lepsze doświadczenie · ekskluzywne motywy</p><a href="/v3/#plus">Dowiedz się więcej</a></div>
+</aside>
+<header class="topbar">
+<nav class="tabs" aria-label="Główne menu"><a class="active" href="#start">Start</a><a href="#wersje">Wersje i profile</a><a href="#mody">Mody i dodatki</a><a href="#minigry">Minigry</a><a href="#pvp">PvPMode</a><a href="#ranking">Rankingi</a><a href="#sklep">Sklep</a><a href="#studio">Skin Studio</a></nav>
+<div class="window-icons"><a href="#opcje" aria-label="Ustawienia">⚙</a><span>−</span><span>□</span><span>×</span></div>
+</header>
+<main class="middle" id="start">
+<div class="hero">
+<div class="hero-logo"><img src="../assets/minevora_crystal_logo.svg" alt="MINEVORA"><small>WIĘCEJ NIŻ MINECRAFT</small></div>
+<div class="hero-bottom"><div class="install">
+<div class="selectbox" id="wersje"><span class="emoji">🌱</span><label>Wersja Minecraft<select aria-label="Wersja Minecraft"><option>1.21.1</option><option>1.21.4</option><option>1.20.1</option></select></label></div>
+<div class="selectbox"><span class="emoji">🟪</span><label>Typ instalacji<select aria-label="Typ instalacji"><option>Fabric</option><option>Vanilla</option><option>Forge</option><option>NeoForge</option><option>Quilt</option></select></label></div>
+</div><button class="play" id="playDemo" type="button" aria-label="Graj - demonstracja wyglądu"><span class="tri">▶</span><span><strong>GRAJ</strong><small>Uruchom Minecrafta</small></span></button><button class="options" type="button" id="opcje">⚙ Opcje gry</button></div>
+</div>
+<div class="cards" id="minigry">
+<a class="card" href="/v3/#minigry"><img src="../assets/launcher-18-3-16/game-bedwars.webp" alt=""><div><strong>Minigry</strong><small>BedWars, SkyWars, Parkour</small></div><span class="arrow">→</span></a>
+<a class="card" href="/v3/#pvp" id="pvp"><img src="../assets/launcher-18-3-16/feature-pvp.webp" alt=""><div><strong>PvP Mode</strong><small>Areny, tryby walki</small></div><span class="arrow">→</span></a>
+<a class="card" href="/v3/#ranking" id="ranking"><img src="../assets/launcher-18-3-16/feature-ranking.webp" alt=""><div><strong>Rankingi</strong><small>Rangi i statystyki</small></div><span class="arrow">→</span></a>
+<a class="card" href="/v3/#launcher" id="mody"><img src="../assets/launcher-18-3-16/game-build-battle.webp" alt=""><div><strong>Mody i dodatki</strong><small>Moduły Minecraft Java</small></div><span class="arrow">→</span></a>
+<a class="card wide" href="/v3/#studio" id="studio"><img src="../assets/launcher-18-3-16/feature-studio.webp" alt=""><div><strong>Skin Studio</strong><small>Edytor skinów 3D</small></div><span class="arrow">→</span></a>
+<a class="card wide" href="/v3/#pobierz" id="sklep"><img src="../assets/launcher-316/plus.webp" alt=""><div><strong>Sklep</strong><small>Personalizacja i dodatki</small></div><span class="arrow">→</span></a>
+<a class="card wide" href="/v3/#plus" id="plus"><img src="../assets/launcher-18-3-16/feature-plus.webp" alt=""><div><strong>MINEVORA PLUS</strong><small>Dodatkowe możliwości</small></div><span class="arrow">→</span></a>
+</div>
+</main>
+<aside class="right"><section class="panel account">
+<h2>Konto</h2><div class="accountbody"><div class="account-flex"><img class="avatar" src="../assets/skin_hoodie_64.png" alt="Podgląd skina"><div><div class="account-name">PROFIL GRACZA</div><span class="tag">MINEVORA PLUS · DEMO</span><span class="handle">Logowanie w launcherze</span></div></div>
+<div class="account-actions"><a class="status" href="/v3/#launcher">● Stan konta w aplikacji</a><a href="/v3/#pomoc">Zmień konto</a></div></div></section>
+<section class="panel news"><h2>Aktualizacje <a href="/v3/#pomoc">Zobacz wszystkie →</a></h2>
+<div class="item"><img src="../assets/minevora_crystal_emblem.svg" alt=""><div><b>MINEVORA 3.0</b><p>Projekt odświeżonego interfejsu</p></div><a class="go" href="/v3/#launcher">→</a></div>
+<div class="item"><img src="../assets/launcher-18-3-16/feature-pvp.webp" alt=""><div><b>PvP HUD</b><p>Informacje o zgodnych wersjach moda</p></div><a class="go" href="/v3/#pvp">→</a></div>
+<div class="item"><img src="../assets/launcher-18-3-16/feature-studio.webp" alt=""><div><b>Skin Studio 3D</b><p>Projekt nowego edytora skinów</p></div><a class="go" href="/v3/#studio">→</a></div></section>
+<section class="panel discord"><img src="../assets/icons/neon/discord.svg" alt=""><strong>DOŁĄCZ NA DISCORD</strong><small>Społeczność · Pomoc · Nowości</small><a href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener">Dołącz teraz</a></section>
+</aside>
+</div>
+<script>
+document.getElementById('playDemo').addEventListener('click',()=>alert('To interaktywny wzór wyglądu. Uruchamianie Minecrafta działa wyłącznie w aplikacji Windows.'));
+document.getElementById('opcje').addEventListener('click',()=>alert('To podgląd projektu. Ustawienia gry znajdują się w aplikacji MINEVORA na Windows.'));
+</script>
+</body>
+</html>
