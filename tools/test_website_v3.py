@@ -32,6 +32,8 @@ try:
             page.goto("http://127.0.0.1:8765/v3/", wait_until="networkidle", timeout=45000)
             page.evaluate("document.fonts.ready")
             for img in page.locator("img").all():
+                if not img.is_visible():
+                    continue
                 img.scroll_into_view_if_needed()
                 img.evaluate("img => img.decode().catch(() => {})")
             page.evaluate("window.scrollTo({top:0,behavior:'instant'})")
@@ -39,7 +41,10 @@ try:
             metrics = page.evaluate("""() => ({
                 scrollWidth:document.documentElement.scrollWidth,
                 viewport:window.innerWidth,
-                imageFailures:[...document.images].filter(x => !x.complete || x.naturalWidth === 0).map(x => x.src),
+                imageFailures:[...document.images].filter(x => {
+                    const rect = x.getBoundingClientRect();
+                    return rect.width > 0 && rect.height > 0 && (!x.complete || x.naturalWidth === 0);
+                }).map(x => x.src),
                 cards:document.querySelectorAll('.game-card').length,
                 heading:document.querySelector('h1')?.textContent.trim(),
                 heroHeight:document.querySelector('.hero-panel')?.getBoundingClientRect().height
