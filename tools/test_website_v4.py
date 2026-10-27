@@ -45,6 +45,21 @@ try:
    page.screenshot(path=str(OUT/f"minevora-v4-{name}.png"),full_page=True)
    results.append({"device":name,**measurements})
    page.close()
+  # Public home and bookmarked V3 paths must land on the NEW site.
+  home=browser.new_page(viewport={"width":1280,"height":850})
+  home.goto("http://127.0.0.1:8766/?from=smoke#start",wait_until="domcontentloaded",timeout=25000)
+  home.wait_for_url("**/v4/?from=smoke#start",timeout=30000)
+  assert home.locator(".shell").count()==1,"Public homepage failed to show V4"
+  home.close()
+  old=browser.new_page()
+  old.goto("http://127.0.0.1:8766/v3/?from=smoke#minigry",wait_until="domcontentloaded",timeout=25000)
+  old.wait_for_url("**/v4/?from=smoke#minigry",timeout=12000)
+  old.close()
+  legacy=browser.new_page()
+  legacy.goto("http://127.0.0.1:8766/?legacy=1#account",wait_until="domcontentloaded")
+  legacy.wait_for_timeout(800)
+  assert "/v4/" not in legacy.url,"Legacy account must remain accessible"
+  legacy.close()
   browser.close()
  (OUT/"results.json").write_text(json.dumps(results,ensure_ascii=False,indent=2),encoding="utf-8")
  print(json.dumps(results,ensure_ascii=False,indent=2))
