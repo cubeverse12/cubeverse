@@ -1,0 +1,38 @@
+/* MINEVORA 3.0 site: full launcher 18.3.16 photo refresh.
+   This file intentionally loads AFTER site-v3.css to avoid old image caching.
+   Previous original image assets are preserved for rollback.
+*/
+.hero-visual{
+  background-image:linear-gradient(180deg,#15102f28 0%,#0d083775 49%,#07091ddc 100%),url("../assets/launcher-18-3-16/hero.webp?v=18316")!important;
+  background-position:center 52%!important;
+}
+.hero-panel::after{background:radial-gradient(ellipse at 50% 40%,#250553a9,transparent 59%)!important}
+.game-image img{object-fit:cover;object-position:center}
+.game-image::after{background:linear-gradient(transparent 72%,#0e112a80)}
+/* The version badge is outside the photos, not burned into each image. */
+.game-card{box-shadow:0 8px 22px #02051230}
+.game-card:hover{box-shadow:0 14px 40px #8125e239}
+.split-art img,.ranking-image img,.plus-panel>img{filter:contrast(1.04)}
+.launcher-showcase{
+ margin:23px 0 16px;
+ padding:18px;
+ border:1px solid #8056b0;
+ border-radius:18px;
+ background:linear-gradient(145deg,#1d153c,#0d142f);
+ box-shadow:0 18px 45px #08041380;
+}
+.launcher-showcase-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.launcher-showcase>img{
+ width:100%;height:auto;display:block;
+ border-radius:12px;
+ border:1px solid #8f5abb;
+ box-shadow:0 12px 34px #0101148c;
+}
+.launcher-showcase figcaption{color:#beb6d3;font-size:12px;line-height:1.65;margin-top:13px}
+@media(max-width:600px){
+  .launcher-showcase{padding:10px;border-radius:13px}
+  .launcher-showcase>img{border-radius:8px}
+  .launcher-showcase-head{padding:7px}
+  .launcher-showcase-head .section-kicker{font-size:9px;letter-spacing:1px}
+  .launcher-showcase figcaption{font-size:11px;padding:0 5px}
+}
