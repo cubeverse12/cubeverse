@@ -1,0 +1,48 @@
+name: Export MINEVORA 3.0 artwork for native launcher
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/export-v3-launcher-art.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate site artwork
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          files = [
+            "assets/minevora_crystal_logo.svg",
+            "assets/website-photos-20261027/home-hero.webp",
+            "assets/website-photos-20261027/home-pvp.webp",
+            "assets/website-photos-20261027/home-minigry.webp",
+            "assets/website-photos-20261027/home-rankingi.webp",
+            "assets/website-photos-20261027/home-studio.webp",
+            "assets/website-photos-20261027/home-plus.webp",
+            "assets/website-photos-20261027/home-poradnik.webp",
+            "assets/minigames/bedwars.webp",
+            "assets/minigames/skywars.webp",
+            "assets/minigames/crystal-pvp.webp",
+            "assets/minigames/parkour.webp",
+            "assets/minigames/tnt-run.webp",
+            "assets/minigames/build-battle.webp",
+            "assets/minigames/spleef.webp",
+            "assets/minigames/duels.webp",
+          ]
+          for f in files:
+            if not Path(f).is_file(): raise SystemExit("Missing: " + f)
+          print("Verified", len(files), "artwork files")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: minevora-v3-launcher-artwork
+          path: |
+            assets/minevora_crystal_logo.svg
+            assets/website-photos-20261027/*.webp
+            assets/minigames/*.webp
+          if-no-files-found: error
