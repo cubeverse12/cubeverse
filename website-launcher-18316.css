@@ -1,0 +1,23 @@
+/* MINEVORA browser website update from launcher version 18.3.16.
+   Public pages only; keep the Qt-integrated launcher desktop skin unchanged.
+   Cache busting uses new immutable artwork paths.
+*/
+body:not(.mv-desktop-mode) .home-hero .fantasy-backdrop,
+body:not(.mv-desktop-mode) .mv-hero-image{
+  background-image:
+    linear-gradient(180deg,#0c093527 0%,#0d093850 40%,#080b22dd 100%),
+    url("assets/launcher-18-3-16/hero.webp?v=18316")!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+  background-position:center 50%!important;
+}
+body:not(.mv-desktop-mode) .mv-home-navgrid>a>img,
+body:not(.mv-desktop-mode) .mv-mode-art{
+  object-fit:cover!important;
+  image-rendering:auto!important;
+  filter:contrast(1.04) saturate(1.04);
+}
+body:not(.mv-desktop-mode) .mv-home-navgrid>a:hover{
+  border-color:#bd82ff!important;
+  box-shadow:0 12px 30px #5d1ab04d;
+}
