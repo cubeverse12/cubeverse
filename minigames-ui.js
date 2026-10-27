@@ -12,7 +12,7 @@
       if(!Object.prototype.hasOwnProperty.call(info,slug))return;
       nameNode.textContent=info[slug][0];
       descriptionNode.textContent=info[slug][1]+ ' Serwer MINEVORA jest nadal w przygotowaniu.';
-      imageNode.src='assets/minigames/'+slug+'.webp';
+      imageNode.src='assets/launcher-18-3-16/game-'+slug+'.webp?v=20261027-fresh-4';
       if(typeof dialog.showModal==='function')dialog.showModal();
       else dialog.setAttribute('open','');
     });
