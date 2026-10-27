@@ -57,6 +57,27 @@ try:
             page.screenshot(path=str(ARTIFACTS/f"minevora-3-{label}.png"), full_page=True)
             results.append({"device":label,**metrics})
             page.close()
+
+        # The public domain's root should redirect to v3, preserving old route intent.
+        root_page = browser.new_page(viewport={"width":393,"height":852})
+        root_page.goto("http://127.0.0.1:8765/?utm=smoke#minigames", wait_until="domcontentloaded")
+        root_page.wait_for_url("**/v3/?utm=smoke#minigry", timeout=25000)
+        assert root_page.locator("#minigry").count() == 1
+        root_page.close()
+
+        # Old account page stays available by explicit opt-in.
+        old_page = browser.new_page(viewport={"width":393,"height":852})
+        old_page.goto("http://127.0.0.1:8765/?legacy=1#account", wait_until="domcontentloaded")
+        old_page.wait_for_timeout(1300)
+        assert "/v3/" not in old_page.url, "Legacy account was unexpectedly redirected"
+        old_page.close()
+
+        # QtWebEngine user agents keep the previous launcher-compatible page.
+        native_page = browser.new_page(user_agent="Mozilla/5.0 QtWebEngine/6.12 MINEVORA-Desktop")
+        native_page.goto("http://127.0.0.1:8765/#home", wait_until="domcontentloaded")
+        native_page.wait_for_timeout(1300)
+        assert "/v3/" not in native_page.url, "Desktop launcher should not be redirected"
+        native_page.close()
         browser.close()
     (ARTIFACTS/"results.json").write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
     print(json.dumps(results,ensure_ascii=False,indent=2))
