@@ -7,7 +7,7 @@
 .pv-page h1,.pv-page h2,.pv-page h3,.pv-page p{margin-top:0}
 .pv-page .pv-glass{min-width:0;background:linear-gradient(135deg,#171b40ed,#0d1632ed);border:1px solid #57519b;border-radius:15px;box-shadow:inset 0 0 32px #5521b41a,0 12px 30px #03081925}
 .pv-hero{min-height:325px;display:flex;align-items:center;position:relative;isolation:isolate;overflow:hidden;border:1px solid #8f5fe0;border-radius:17px;background:linear-gradient(110deg,#27184f,#0b1530);box-shadow:inset 0 0 26px #8137f335,0 12px 33px #0007}
-.pv-hero-visual{position:absolute;right:0;top:0;bottom:0;width:72%;background:url('assets/minigames/crystal-pvp.webp') center 46%/cover no-repeat;mask-image:linear-gradient(90deg,transparent 2%,#000 33%);-webkit-mask-image:linear-gradient(90deg,transparent 2%,#000 33%);filter:saturate(1.12)}
+.pv-hero-visual{position:absolute;right:0;top:0;bottom:0;width:72%;background:url('assets/launcher-18-3-16/game-crystal-pvp.webp?v=20261027-fresh-4') center 46%/cover no-repeat;mask-image:linear-gradient(90deg,transparent 2%,#000 33%);-webkit-mask-image:linear-gradient(90deg,transparent 2%,#000 33%);filter:saturate(1.12)}
 .pv-hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#17133de6 0%,#16113ab8 35%,#0a11352b 73%,transparent),linear-gradient(0deg,#0b0f357d,transparent 48%)}
 .pv-hero-inner{position:relative;z-index:1;max-width:660px;padding:32px 48px}
 .pv-hero h1{font-size:clamp(42px,4.3vw,72px);line-height:1.05;margin:11px 0 17px;letter-spacing:-2.2px;font-weight:1000;text-shadow:0 0 26px #7b41c24b}
@@ -39,7 +39,7 @@
 .pv-plan-pill{display:inline-block;color:#e4cdfc;background:#3a285c;border:1px solid #69509e;font-size:11px;font-weight:800;border-radius:30px;padding:5px 10px}
 .pv-text-link{font-size:12px;color:#c9a5ff;font-weight:900}
 .pv-text-link:hover{text-decoration:underline}
-.pv-rank-hero{min-height:168px;border-radius:17px;border:1px solid #7761cd;background:linear-gradient(112deg,#281554ed 0%,#171840 55%,#101b3c 100%),url('assets/minigames/hero-portal.webp') right center/55% auto no-repeat;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px 34px;position:relative;overflow:hidden}
+.pv-rank-hero{min-height:168px;border-radius:17px;border:1px solid #7761cd;background:linear-gradient(112deg,#281554ed 0%,#171840 55%,#101b3c 100%),url('assets/launcher-18-3-16/hero.webp?v=20261027-fresh-4') right center/55% auto no-repeat;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px 34px;position:relative;overflow:hidden}
 .pv-rank-hero:before{content:"";position:absolute;right:-75px;top:-170px;width:350px;height:350px;border-radius:50%;border:55px solid #7247ff0c;box-shadow:0 0 0 80px #6835df0b}
 .pv-rank-hero>div{z-index:1}
 .pv-rank-hero h1{font-size:clamp(28px,3vw,43px);font-weight:950;letter-spacing:-1.5px;line-height:1.1;margin:7px 0 10px}
