@@ -1,0 +1,102 @@
+/* MINEVORA WEB 2.9 — updates for the actual minevora.pl repository.
+   Scoped to the information website; does not change the Qt desktop launcher. */
+body:not(.mv-desktop-mode) .mv29-home-features{
+  display:block; margin:25px 0 5px; padding:24px 23px 25px;
+  background:linear-gradient(145deg,#111431,#0b0e26);
+  border:1px solid #5c3e93;border-radius:16px;
+  box-shadow:0 12px 35px #03061877;
+}
+body:not(.mv-desktop-mode) .mv29-head{
+  display:flex;align-items:end;justify-content:space-between;gap:15px;
+  flex-wrap:wrap;margin-bottom:17px;
+}
+body:not(.mv-desktop-mode) .mv29-eyebrow{
+  color:#c9a2fc;letter-spacing:1.35px;font-size:11px;font-weight:900;
+}
+body:not(.mv-desktop-mode) .mv29-head h2{
+  font-size:clamp(23px,3vw,31px);margin:8px 0 6px;line-height:1.12;
+  font-weight:900;color:#fcf6ff;
+}
+body:not(.mv-desktop-mode) .mv29-head p{
+  margin:0;max-width:610px;line-height:1.65;color:#b7b9d6;font-size:13px;
+}
+body:not(.mv-desktop-mode) .mv29-head>a{
+  padding:11px 16px;display:inline-flex;align-items:center;justify-content:center;
+  color:#fff;min-height:42px;font-size:12px;font-weight:800;text-align:center;
+  background:#312154;border-radius:10px;border:1px solid #8351c4;
+  text-decoration:none;
+}
+body:not(.mv-desktop-mode) .mv29-head>a:hover{background:#58249c}
+body:not(.mv-desktop-mode) .mv29-grid{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;
+}
+body:not(.mv-desktop-mode) .mv29-feature{
+  position:relative;display:flex;flex-direction:column;gap:7px;padding:17px 15px;
+  min-width:0;min-height:166px;text-decoration:none;color:#fff;
+  background:linear-gradient(160deg,#1c1a43,#0d1430 78%);
+  border:1px solid #4f3a7f;border-radius:13px;
+  transition:transform .17s,border-color .17s,box-shadow .17s;
+}
+body:not(.mv-desktop-mode) .mv29-feature:hover,
+body:not(.mv-desktop-mode) .mv29-feature:focus-visible{
+  transform:translateY(-2px);border-color:#b578ff;box-shadow:0 12px 25px #44158e44;
+}
+body:not(.mv-desktop-mode) .mv29-feature img{
+  width:38px;height:38px;object-fit:contain;margin-bottom:5px;
+  filter:drop-shadow(0 0 9px #a654ff55);
+}
+body:not(.mv-desktop-mode) .mv29-feature strong{
+  font-size:14px;line-height:1.2;font-weight:850;color:#f7edff;
+}
+body:not(.mv-desktop-mode) .mv29-feature small{
+  font-size:11px;line-height:1.5;color:#bcb8d6;flex:1;
+}
+body:not(.mv-desktop-mode) .mv29-feature em{
+  font-style:normal;font-size:10px;color:#d7b9ff;
+  font-weight:750;letter-spacing:.1px;
+}
+body:not(.mv-desktop-mode) .mv29-note{
+  color:#aaacc8;font-size:11px;line-height:1.5;margin:16px 0 0;
+}
+body:not(.mv-desktop-mode) .mv29-download{
+  max-width:720px;margin:22px 0 12px;padding:18px;
+  border:1px solid #7c4aa8;border-radius:13px;
+  background:linear-gradient(120deg,#211540,#101936);
+}
+body:not(.mv-desktop-mode) .mv29-download h2{
+  margin:0 0 9px;color:#f8edff;font-size:19px;
+}
+body:not(.mv-desktop-mode) .mv29-download p{
+  color:#c8bfdc;font-size:13px;line-height:1.7;margin:0 0 14px;
+}
+body:not(.mv-desktop-mode) .mv29-download a{
+  display:inline-flex;align-items:center;min-height:44px;padding:12px 17px;
+  border-radius:10px;color:#fff;text-decoration:none;font-size:13px;font-weight:900;
+  border:1px solid #d392ff;background:linear-gradient(130deg,#af44fa,#6324cd);
+}
+body:not(.mv-desktop-mode) .mv29-download a:hover{filter:brightness(1.12)}
+/* Make the existing six homepage cards and their labels easier to read on phones. */
+@media(max-width:1100px){
+ body:not(.mv-desktop-mode) .mv29-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:720px){
+ body:not(.mv-desktop-mode) .mv29-home-features{margin:18px 0 5px;padding:20px 14px}
+ body:not(.mv-desktop-mode) .mv29-head h2{font-size:24px}
+ body:not(.mv-desktop-mode) .mv29-grid{gap:9px}
+ body:not(.mv-desktop-mode) .mv29-feature{padding:14px 12px;min-height:174px}
+ body:not(.mv-desktop-mode) .mv29-feature strong{font-size:13px}
+ body:not(.mv-desktop-mode) .mv29-feature small{font-size:11px}
+ body:not(.mv-desktop-mode) .mv-home-navgrid a strong{font-size:13px!important}
+ body:not(.mv-desktop-mode) .mv-home-navgrid a small{font-size:11px!important;line-height:1.45!important}
+ body:not(.mv-desktop-mode) .mv-home-navhead h2{font-size:clamp(23px,6.2vw,31px)!important}
+ body:not(.mv-desktop-mode) .mv-site-top-tabs{overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:none}
+ body:not(.mv-desktop-mode) .mv-site-top-tabs::-webkit-scrollbar{display:none}
+ body:not(.mv-desktop-mode) .mv-site-top-tabs a{flex:0 0 auto}
+}
+@media(max-width:419px){
+ body:not(.mv-desktop-mode) .mv29-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body:not(.mv-desktop-mode) .mv29-feature{padding:12px 10px}
+}
+@media(prefers-reduced-motion:reduce){
+ body:not(.mv-desktop-mode) .mv29-feature{transition:none}
+}
