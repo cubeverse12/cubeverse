@@ -3,7 +3,7 @@
    Previous original image assets are preserved for rollback.
 */
 .hero-visual{
-  background-image:linear-gradient(180deg,#15102f28 0%,#0d083775 49%,#07091ddc 100%),url("../assets/launcher-18-3-16/hero.webp?v=18316")!important;
+  background-image:linear-gradient(180deg,#15102f28 0%,#0d083775 49%,#07091ddc 100%),url("../assets/launcher-18-3-16/hero.webp?v=18316-refresh-2")!important;
   background-position:center 52%!important;
 }
 .hero-panel::after{background:radial-gradient(ellipse at 50% 40%,#250553a9,transparent 59%)!important}
@@ -36,3 +36,13 @@
   .launcher-showcase-head .section-kicker{font-size:9px;letter-spacing:1px}
   .launcher-showcase figcaption{font-size:11px;padding:0 5px}
 }
+
+
+/* Gallery of current MINEVORA 18.3.16 launcher imagery */
+.launcher-photo-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:14px 0 20px}
+.launcher-photo-gallery a{display:block;min-width:0;overflow:hidden;border:1px solid #694b97;background:#12142e;border-radius:13px;transition:transform .16s,border-color .16s}
+.launcher-photo-gallery a:hover{border-color:#c38afa;transform:translateY(-2px)}
+.launcher-photo-gallery img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center}
+.launcher-photo-gallery span{display:block;padding:11px 12px;color:#e3cdf8;font-size:12px;font-weight:750}
+@media(max-width:660px){.launcher-photo-gallery{grid-template-columns:1fr 1fr;gap:9px}.launcher-photo-gallery span{font-size:11px;padding:9px}}
+@media(max-width:360px){.launcher-photo-gallery{grid-template-columns:1fr}}
