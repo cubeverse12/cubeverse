@@ -47,6 +47,13 @@ try:
             assert metrics["scrollWidth"] <= metrics["viewport"] + 2, f"{label}: horizontal overflow: {metrics}"
             assert not metrics["imageFailures"], f"{label}: missing images: {metrics['imageFailures']}"
             assert metrics["cards"] == 8, f"{label}: expected 8 game cards, found {metrics['cards']}"
+            dashboard = page.locator(".mv-launcher-home")
+            assert dashboard.count() == 1 and dashboard.is_visible(), f"{label}: dashboard not visible"
+            assert page.locator(".mv-tile").count() == 8, f"{label}: missing launcher navigation cards"
+            assert page.locator(".mv-hero-play").get_attribute("href") == "#pobierz", f"{label}: missing download CTA"
+            assert page.locator('.mv-home-center .mv-hero').is_visible(), f"{label}: missing target hero"
+            assert page.locator(".mv-home-rail").is_visible(), f"{label}: missing account / updates rail"
+            page.locator(".mv-home-center").screenshot(path=str(ARTIFACTS/f"minevora-3-dashboard-{label}.png"))
             assert not errors, f"{label}: JavaScript errors {errors}"
             if label != "desktop":
                 toggle=page.get_by_role("button",name="Otwórz menu")
