@@ -1,0 +1,49 @@
+name: Refresh website graphics from launcher 18.3.16 assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/refresh_launcher_v316_website_images.py'
+      - '.github/workflows/refresh-launcher-v316-images.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install imaging dependency
+        run: python -m pip install Pillow
+      - name: Download public launcher artwork sources
+        run: |
+          curl -fsSL --retry 3 --retry-delay 3 \
+            -o /tmp/minevora-launcher.zip \
+            'https://github.com/cubeverse12/minevora-launcher/releases/download/v18.3.4/MINEVORA_LAUNCHER_18_3_4_SHARP.zip'
+          mkdir -p /tmp/minevora-release
+          unzip -q /tmp/minevora-launcher.zip -d /tmp/minevora-release
+          test -f /tmp/minevora-release/MINEVORA_18_3_ENCHANTED/assets/en_bedwars.jpg
+          test -f /tmp/minevora-release/MINEVORA_18_3_ENCHANTED/assets/en_ranking.jpg
+      - name: Create optimized label-free photographs
+        run: |
+          python tools/refresh_launcher_v316_website_images.py \
+            /tmp/minevora-release/MINEVORA_18_3_ENCHANTED/assets
+      - name: Commit new website gallery
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/launcher-316/
+          if git diff --cached --quiet; then
+            echo "No artwork changes"
+          else
+            git commit -m "Publish label-free launcher images for MINEVORA 3.0 site"
+            git push origin HEAD:main
+          fi
