@@ -1,3 +1,5 @@
+/* Browser-only: the embedded desktop launcher retains its existing views. */
+body.mv-desktop-mode .mv29-home-features{display:none!important}
 /* MINEVORA WEB 2.9 — updates for the actual minevora.pl repository.
    Scoped to the information website; does not change the Qt desktop launcher. */
 body:not(.mv-desktop-mode) .mv29-home-features{
