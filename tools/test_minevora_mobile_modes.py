@@ -86,7 +86,7 @@ try:
                 assert info["menu"]["visible"],(label,"mobile menu button missing",info)
                 assert not info["nav"]["visible"],(label,"mobile nav should start closed",info)
                 assert info["preview"]["y"]>info["heroCopy"]["y"]+info["heroCopy"]["height"]-5,(label,"preview should be below heading",info)
-                assert len(info["heroLayoutColumns"].split())==1,(label,"not one mobile column",info)
+                assert abs(info["preview"]["width"]-info["heroCopy"]["width"])<=2,(label,"mobile grid does not fill one column",info)
                 assert info["button"]["height"]>=47,(label,"download button too small",info)
                 menu=page.locator("#navToggle")
                 menu.click()
