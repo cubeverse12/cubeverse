@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="480" viewBox="0 0 1050 480" role="img" aria-label="WYBÓR TRYBU">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#171d38"/><stop offset="1" stop-color="#0c1127"/></linearGradient>
+<pattern id="grid" width="35" height="35" patternUnits="userSpaceOnUse"><path d="M35 0H0V35" fill="none" stroke="#a2a1cb" stroke-opacity=".055"/></pattern>
+</defs><rect width="1050" height="480" fill="url(#bg)"/><rect width="1050" height="480" fill="url(#grid)"/>
+<text x="36" y="52" font-family="Segoe UI,Arial,sans-serif" font-weight="800" font-size="24" fill="#f7edff">WYBÓR TRYBU</text><text x="38" y="80" font-family="Segoe UI,Arial,sans-serif" font-weight="500" font-size="14" fill="#c3bed9">Minigry MINEVORA — podgląd planowanych rozgrywek</text>
+<rect x="32" y="109" width="984" height="327" rx="16" fill="#131c32" stroke="#566283"/>
+<rect x="55" y="164" width="216" height="218" rx="13" fill="#202944" stroke="#637092"/>
+ <rect x="73" y="180" width="180" height="110" rx="10" fill="#172138" stroke="#405575"/>
+ <polygon points="100,265 163,216 227,265 163,310" fill="#507e9e"/>
+ <polygon points="100,265 100,243 163,194 163,216" fill="#b8c4d8" opacity=".36"/>
+ <polygon points="163,194 227,243 227,265 163,216" fill="#000" opacity=".2"/>
+ <text x="85" y="345" font-family="Segoe UI,Arial,sans-serif" font-weight="760" font-size="20" fill="#e8e7f5">BedWars</text><rect x="297" y="164" width="216" height="218" rx="13" fill="#202944" stroke="#637092"/>
+ <rect x="315" y="180" width="180" height="110" rx="10" fill="#172138" stroke="#405575"/>
+ <polygon points="342,265 405,216 469,265 405,310" fill="#705f9d"/>
+ <polygon points="342,265 342,243 405,194 405,216" fill="#b8c4d8" opacity=".36"/>
+ <polygon points="405,194 469,243 469,265 405,216" fill="#000" opacity=".2"/>
+ <text x="327" y="345" font-family="Segoe UI,Arial,sans-serif" font-weight="760" font-size="20" fill="#e8e7f5">SkyWars</text><rect x="539" y="164" width="216" height="218" rx="13" fill="#202944" stroke="#637092"/>
+ <rect x="557" y="180" width="180" height="110" rx="10" fill="#172138" stroke="#405575"/>
+ <polygon points="584,265 647,216 711,265 647,310" fill="#7c917e"/>
+ <polygon points="584,265 584,243 647,194 647,216" fill="#b8c4d8" opacity=".36"/>
+ <polygon points="647,194 711,243 711,265 647,216" fill="#000" opacity=".2"/>
+ <text x="569" y="345" font-family="Segoe UI,Arial,sans-serif" font-weight="760" font-size="20" fill="#e8e7f5">Parkour</text><rect x="781" y="164" width="216" height="218" rx="13" fill="#202944" stroke="#637092"/>
+ <rect x="799" y="180" width="180" height="110" rx="10" fill="#172138" stroke="#405575"/>
+ <polygon points="826,265 889,216 953,265 889,310" fill="#78649b"/>
+ <polygon points="826,265 826,243 889,194 889,216" fill="#b8c4d8" opacity=".36"/>
+ <polygon points="889,194 953,243 953,265 889,216" fill="#000" opacity=".2"/>
+ <text x="811" y="345" font-family="Segoe UI,Arial,sans-serif" font-weight="760" font-size="20" fill="#e8e7f5">Crystal PvP</text>
+<text x="62" y="144" font-family="Segoe UI,Arial,sans-serif" font-weight="760" font-size="14" fill="#bcb0e4">PRZYGOTOWYWANE TRYBY</text>
+
+<rect x="1" y="1" width="1048" height="478" rx="19" fill="none" stroke="#645584" stroke-opacity=".75" stroke-width="2"/>
+</svg>
