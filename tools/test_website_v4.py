@@ -47,6 +47,15 @@ try:
             page.on("pageerror", lambda exc: errors.append(str(exc)))
             page.goto(BASE + "#start", wait_until="networkidle", timeout=30000)
             assert page.locator(".hero").is_visible(), (name, "brak Start")
+            if name == "phone":
+                assert page.locator(".mv-menu-toggle").is_visible(), "Brak mobilnego przycisku menu"
+                assert not page.locator(".sidebar").is_visible(), "Boczne menu przykrywa stronę na telefonie"
+                page.locator(".mv-menu-toggle").click()
+                assert page.locator(".sidebar").is_visible(), "Mobilny panel nie otwiera się"
+                assert page.locator(".mv-menu-toggle").get_attribute("aria-expanded") == "true"
+                page.locator(".mv-nav-close").click()
+                assert not page.locator(".sidebar").is_visible(), "Panel nie zamyka się"
+                assert page.locator(".mv-menu-toggle").get_attribute("aria-expanded") == "false"
             assert page.locator(".mv-site-refresh").count() == 1, (name, "brak nowego stylu")
             assert not page.locator(".right").is_visible(), (name, "stare panele są widoczne")
             assert page.locator(".cards").is_visible(), (name, "brak zdjęć kafelków Start")
@@ -90,6 +99,23 @@ try:
             assert not errors, (name, "błędy JavaScript", errors)
             results.append({"device": name, **dimensions, "tabs": "OK"})
             page.close()
+
+        # Android / tryb "Wersja na komputer": szeroki viewport, ale dotykowy ekran.
+        forced_desktop = browser.new_context(
+            viewport={"width": 980, "height": 800},
+            device_scale_factor=1, has_touch=True, is_mobile=True
+        )
+        touch = forced_desktop.new_page()
+        touch.goto(BASE + "#studio", wait_until="networkidle", timeout=30000)
+        assert touch.locator("body").evaluate("el => el.classList.contains('mv-compact')"), "Układ kompaktowy nie włącza się dla telefonu"
+        assert touch.locator(".mv-menu-toggle").is_visible(), "Menu w trybie desktopowym telefonu jest niedostępne"
+        assert not touch.locator(".sidebar").is_visible(), "Menu zasłania stronę w trybie desktopowym telefonu"
+        assert touch.locator(".mv-route-view").is_visible()
+        assert touch.locator(".mv-route-view h1").evaluate("el => parseFloat(getComputedStyle(el).fontSize)") >= 25, "Za mała czcionka mobilna"
+        assert not check_images(touch), "Zdjęcia funkcji na Androidzie nie zostały załadowane"
+        assert touch.evaluate("document.documentElement.scrollWidth <= window.innerWidth + 2"), "Poziome przewijanie na Androidzie"
+        touch.screenshot(path=str(OUT / "minevora-android-desktop-mode.png"), full_page=True)
+        forced_desktop.close()
 
         home = browser.new_page(viewport={"width": 1280, "height": 850})
         home.goto("http://127.0.0.1:8766/?from=smoke#start", wait_until="domcontentloaded")
