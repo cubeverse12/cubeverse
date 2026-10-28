@@ -6,6 +6,14 @@
   var hero = main && main.querySelector('.hero');
   if (!shell || !main || !hero) return;
   document.body.classList.add('mv-site-refresh');
+  /* Usuń kolizje ID ze starymi, informacyjnymi sekcjami pod stroną. */
+  ['pobierz','poradnik'].forEach(function(id) {
+    var legacy = document.getElementById(id);
+    if (legacy) {
+      legacy.id = 'mv-legacy-' + id;
+      legacy.hidden = true;
+    }
+  });
   var play = hero.querySelector('.play');
   if (play) {
     var label = play.querySelector('strong');
@@ -141,6 +149,7 @@
     var key = aliases[raw] || raw;
     if (valid.indexOf(key) === -1) key='start';
     document.body.setAttribute('data-mv-view',key);
+    view.id = key === 'start' ? 'mv-view-inactive' : key;
     var home=key==='start';
     hero.hidden=!home;
     view.hidden=home;
