@@ -24,7 +24,13 @@ def no_overflow(page,device):
 def broken_images(page):
     return page.evaluate("""async () => {
         const images=[...document.querySelectorAll('main img')];
-        await Promise.all(images.map(img => img.decode().catch(() => {})));
+        // A lazy image below the viewport might never start loading:
+        // request it explicitly before calling decode(), with a bounded wait.
+        images.forEach(img => { img.loading='eager'; });
+        await Promise.all(images.map(img => Promise.race([
+            img.decode().catch(() => {}),
+            new Promise(resolve => setTimeout(resolve, 4000))
+        ])));
         return images.filter(img => !img.complete || img.naturalWidth===0).map(img=>img.src);
     }""")
 
@@ -40,8 +46,15 @@ try:
     results=[]
     with sync_playwright() as p:
         browser=p.chromium.launch(channel="chrome",headless=True,args=["--no-sandbox"])
-        for label,w,h in [("phone",390,844),("tablet",768,1024),("desktop",1440,900)]:
-            page=browser.new_page(viewport={"width":w,"height":h},device_scale_factor=1)
+        for label,w,h in [("small-phone",320,700),("phone",390,844),("large-phone",430,932),("tablet",768,1024),("desktop-site-on-phone",980,800),("desktop",1440,900)]:
+            desktop_android=label=="desktop-site-on-phone"
+            page=browser.new_page(
+                viewport={"width":w,"height":h},
+                device_scale_factor=2 if desktop_android else 1,
+                is_mobile=desktop_android,
+                has_touch=desktop_android,
+                user_agent=("Mozilla/5.0 (Linux; Android 16; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36" if desktop_android else None),
+            )
             js_errors=[]
             page.on("pageerror",lambda error:js_errors.append(str(error)))
             page.goto(BASE+"#start",wait_until="networkidle")
@@ -59,6 +72,20 @@ try:
             assert page.locator("a[href*='#minigry']").count()==0
             assert not broken_images(page),(label,broken_images(page))
             no_overflow(page,label+" home")
+            # The Android Chrome "Desktop site" setting should keep the
+            # same side-by-side composition as a real computer.
+            geometry=page.evaluate("""() => {
+                const el=sel=>document.querySelector(sel).getBoundingClientRect();
+                const a=el('.hero-copy'), b=el('.preview-area');
+                return {copy:{left:a.left,right:a.right,top:a.top,bottom:a.bottom},
+                        preview:{left:b.left,right:b.right,top:b.top,bottom:b.bottom}};
+            }""")
+            if w>800:
+                assert geometry["copy"]["right"]<=geometry["preview"]["left"]+3,(label,"desktop columns",geometry)
+                assert geometry["preview"]["right"]<=w+3,(label,"image clipped horizontally",geometry)
+            else:
+                assert geometry["preview"]["top"]>=geometry["copy"]["bottom"]-3,(label,"mobile should stack",geometry)
+                assert geometry["preview"]["right"]<=w+3,(label,"mobile image clipped",geometry)
             page.screenshot(path=str(OUT/("minevora-5-"+label+"-home.png")),full_page=True)
             for feature,image in [
                 ("pvp","pvp.svg"),("studio","skins.svg"),("ranking","ranking.svg"),("mody","mods.svg")
@@ -71,7 +98,7 @@ try:
                 assert page.evaluate("location.hash")=="#"+feature
                 assert not broken_images(page),(label,feature,"bad images")
                 no_overflow(page,label+" "+feature)
-            if label=="desktop":
+            if label in ("desktop","desktop-site-on-phone"):
                 page.locator("#mody").focus()
                 page.keyboard.press("ArrowRight")
                 expect(page.locator("#pvp")).to_have_attribute("aria-selected","true")
