@@ -75,7 +75,7 @@ try:
             info=boxes(page)
             assert info["scrollWidth"]<=info["innerWidth"]+2,(label,"horizontal overflow",info)
             expect(page.locator("h1")).to_have_count(1)
-            expect(page.locator("#pobierz a[href*='v18.3.7']")).to_have_count(1)
+            expect(page.locator("#pobierz a[href*='releases/tag/v18.3.7']")).to_have_count(1)
             assert not errors,(label,errors)
             if desktop:
                 assert not info["menu"]["visible"],(label,"desktop menu should be full width",info)
