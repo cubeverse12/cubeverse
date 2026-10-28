@@ -5,6 +5,11 @@ on:
   push:
     paths:
       - '.github/workflows/lighthouse-audit.yml'
+      - 'v4/index.html'
+      - 'v4/rebuild.css'
+      - 'v4/rebuild.js'
+      - 'v4/poradnik/**'
+      - 'assets/site-hd/**'
 
 permissions:
   contents: read
