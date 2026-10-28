@@ -20,15 +20,12 @@ const data={
  entry("Wybór profilu","site-refresh/settings-profiles.svg","Zainstalowane wersje i typy Minecrafta."),
  entry("Poradnik instalacji","site-refresh/guide-install.svg","Kroki przygotowania gry.")
  ]},
- pvp:{label:"PvP Mode",intro:"Pojedynki, ustawienia HUD i prezentacja aren PvP MINEVORA.",heading:"Walka, która pasuje do Ciebie",description:"Przegląd PvP Mode. Działanie HUD wymaga zgodnej wersji moda i gry. Karty przedstawiają projektowane możliwości; nie są aktywnymi ustawieniami na stronie WWW.",state:"Mod wymaga zgodności",hero:entry("Podgląd PvP Mode","launcher-18-3-16/feature-pvp.webp","Ekran trybów PvP w launcherze"),gallery:[
- entry("PvP HUD","site-refresh/guide-pvp-hud.svg","Poglądowa konfiguracja interfejsu walki."),
- entry("Crystal PvP","launcher-316/crystal-pvp.webp","Arena Crystal PvP."),
- entry("Duels","launcher-316/duels.webp","Arena pojedynków.")
+ pvp:{label:"PvP Mode",intro:"Ustawienia PvP HUD i konfiguracja walki w MINEVORA.",heading:"Walka, która pasuje do Ciebie",description:"Przegląd PvP Mode. Działanie HUD wymaga zgodnej wersji moda i gry. Karty przedstawiają projektowane możliwości; nie są aktywnymi ustawieniami na stronie WWW.",state:"Mod wymaga zgodności",hero:entry("Podgląd PvP Mode","launcher-18-3-16/feature-pvp.webp","Ekran trybów PvP w launcherze"),gallery:[
+ entry("PvP HUD","site-refresh/guide-pvp-hud.svg","Poglądowa konfiguracja interfejsu walki.")
  ]},
  ranking:{label:"Rankingi",intro:"Rangi, postęp, punkty i wizualizacje awansu graczy.",heading:"Droga do wyższej rangi",description:"Podgląd systemu rang i statystyk. Prezentowane ekrany i wartości są demonstracyjne, ponieważ strona nie pobiera na żywo wyników z serwera.",state:"Podgląd demonstracyjny",hero:entry("Ranking graczy","guide/rankingi.webp","Interfejs rankingów"),gallery:[
  entry("Ranga gracza","guide/rankingi.webp","Podgląd profilu i postępu."),
- entry("Animacja awansu","guide/awans.webp","Wizualizacja nowej rangi."),
- entry("Arena rankingowa","launcher-316/rankingi.webp","Wizualizacja przestrzeni rankingowej.")
+ entry("Animacja awansu","guide/awans.webp","Wizualizacja nowej rangi.")
  ]},
  sklep:{label:"Sklep i marketplace",intro:"Przestrzeń dla map, budowli, dodatków i twórców MINEVORA.",heading:"Mapy, dodatki, projekty",description:"Marketplace jest koncepcją w przygotowaniu. Elementy są ilustracjami poglądowymi — na tej stronie nie można obecnie kupować ani sprzedawać produktów.",state:"W przygotowaniu",hero:entry("Marketplace","site-refresh/marketplace.svg","Kategorie marketplace"),gallery:[
  entry("Mapy i budowle","site-refresh/marketplace.svg","Projekty do odkrywania."),
