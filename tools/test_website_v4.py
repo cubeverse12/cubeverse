@@ -66,7 +66,7 @@ def no_overflow(page, device, route):
 
 # Validate every new SVG independently of the browser.
 from xml.etree import ElementTree as ET
-new_illustrations = sorted((ROOT / "assets/launcher-18-3-6").glob("*.svg"))
+new_illustrations = sorted((ROOT / "assets/launcher-18-3-7").glob("*.svg"))
 assert len(new_illustrations) == 9, ("versioned illustrations missing", len(new_illustrations))
 for file in new_illustrations:
     root = ET.parse(file).getroot()
