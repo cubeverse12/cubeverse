@@ -105,15 +105,15 @@
       title:'Ustawienia',
       intro:'Ustawienia profili, dodatków i wyglądu aplikacji Windows.',
       subtitle:'Dostosuj MINEVORA',
-      description:'Parametry gry i launchera ustawisz po otwarciu aplikacji Windows. Ta strona służy do zapoznania się z funkcjami.',
-      photos:[pic('Launcher','launcher-18-3-16/launcher-preview.webp','Ekran główny'),pic('Instalacje','site-refresh/mod-catalog.svg','Wybór dodatków i profili')]
+      description:'Poglądowa ilustracja ustawień. Dostępne opcje i ich wygląd mogą różnić się w zależności od wersji launchera Windows.',
+      photos:[pic('Panel ustawień','site-refresh/settings-panel.svg','Poglądowe ustawienia aplikacji'),pic('Wersje i profile','site-refresh/settings-profiles.svg','Przykład konfiguracji profili Minecrafta')]
     },
     poradnik:{
       title:'Poradnik MINEVORA',
       intro:'Pierwsze kroki: launcher, wersje, mody, PvP HUD i Skin Studio.',
       subtitle:'Zacznij od instalacji',
       description:'Pobierz publiczne wydanie, sprawdź zgodność z Windows, a następnie otwórz aplikację i skonfiguruj profil. Nie wyłączaj zabezpieczeń systemu, aby uruchamiać niepodpisane pliki.',
-      photos:[pic('Uruchamianie','guide/launcher-windows.webp','Instrukcja startu'),pic('Wybór trybu','guide/minigry.webp','Podgląd minigier'),pic('PvP i HUD','guide/pvp-mode.webp','Konfiguracja PvP')]
+      photos:[pic('Instalacja krok po kroku','site-refresh/guide-install.svg','Pobieranie i uruchomienie launchera'),pic('Wybór trybu','site-refresh/guide-modes.svg','Przygotowywane minigry MINEVORA'),pic('PvP i HUD','site-refresh/guide-pvp-hud.svg','Poglądowe ustawienia PvP')]
     },
     pobierz:{
       title:'Pobierz launcher',
@@ -127,7 +127,7 @@
     return String(value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
   function photoMarkup(photo, extra) {
-    return '<a class="mv-photo '+(extra||'')+'" href="'+htmlEscape(photo.photo)+'" target="_blank" rel="noopener noreferrer" aria-label="Otwórz większy podgląd: '+htmlEscape(photo.name)+'"><img src="'+htmlEscape(photo.photo)+'" alt="'+htmlEscape(photo.name)+' — MINEVORA" loading="lazy" decoding="async"></a>';
+    return '<a class="mv-photo '+(extra||'')+'" href="'+htmlEscape(photo.photo)+'" target="_blank" rel="noopener noreferrer" aria-label="Otwórz większy podgląd: '+htmlEscape(photo.name)+'"><img src="'+htmlEscape(photo.photo)+'" alt="'+htmlEscape(photo.name)+' — MINEVORA" loading="eager" decoding="async" width="1050" height="480"></a>';
   }
   var view = document.createElement('section');
   view.className = 'mv-route-view';
@@ -151,11 +151,11 @@
     view.innerHTML='<span class="mv-route-kicker">MINEVORA / FUNKCJE LAUNCHERA</span>'+
       '<h1>'+htmlEscape(p.title)+'</h1><p class="mv-route-intro">'+htmlEscape(p.intro)+'</p>'+
       '<div class="mv-route-hero">'+photoMarkup(featured,'mv-hero-photo')+
-      '<div><span class="mv-tag">ZDJĘCIA FUNKCJI MINEVORA</span><h2>'+htmlEscape(p.subtitle)+'</h2>'+
+      '<div><span class="mv-tag">PODGLĄDY FUNKCJI MINEVORA</span><h2>'+htmlEscape(p.subtitle)+'</h2>'+
       '<p>'+htmlEscape(p.description)+'</p>'+action+'</div></div>'+
       '<h2 class="mv-gallery-title">Galeria funkcji</h2><div class="mv-shot-grid">'+cards+'</div>'+
       '<div class="mv-action-row"><a href="#start" class="mv-action secondary">Wróć do Start</a><a class="mv-action secondary" href="#poradnik">Poradnik</a></div>'+
-      '<p class="mv-route-fineprint">Zdjęcia poglądowe z projektu MINEVORA. Kliknij zdjęcie, aby wyświetlić je w oryginalnym rozmiarze. Tryby serwera są w przygotowaniu.</p>';
+      '<p class="mv-route-fineprint">Zdjęcia i ilustracje poglądowe MINEVORA. Kliknij obraz, aby obejrzeć go w większym rozmiarze. Dostępność funkcji zależy od wydania launchera; serwer jest w przygotowaniu.</p>';
     view.querySelectorAll('img').forEach(function(img){
       img.addEventListener('error',function(){
         var container = img.closest('.mv-photo');
@@ -166,6 +166,9 @@
             (key === 'studio' ? 'skin-gallery.svg' :
              key === 'plus' ? 'plus.svg' :
              key === 'sklep' ? 'marketplace.svg' :
+             key === 'poradnik' ? 'guide-install.svg' :
+             key === 'opcje' ? 'settings-panel.svg' :
+             key === 'pvp' ? 'guide-pvp-hud.svg' :
              'mod-catalog.svg');
           return;
         }
