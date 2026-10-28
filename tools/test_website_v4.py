@@ -15,7 +15,6 @@ BASE = "http://127.0.0.1:8766/v4/"
 ROUTES = {
     "wersje": 3,
     "mody": 3,
-    "minigry": 8,
     "pvp": 3,
     "ranking": 3,
     "sklep": 3,
@@ -88,10 +87,11 @@ try:
             page.on("pageerror", lambda err: errors.append(str(err)))
             page.goto(BASE + "#start", wait_until="networkidle")
             expect(page.locator("#content .hero")).to_be_visible()
-            assert page.locator(".feature-card").count() == 7, (device, "start tiles")
+            assert page.locator(".feature-card").count() == 6, (device, "start tiles")
             assert page.locator("#content").get_attribute("data-ssg-home") == "true"
             assert page.locator("#content h1").count() == 1
-            assert page.locator("#funkcje .feature-card").count() == 7
+            assert page.locator('a[href="#minigry"]').count() == 0, (device, "stara zakładka Minigry")
+            assert page.locator("#funkcje .feature-card").count() == 6
             assert page.locator("#pobierz #release-title").is_visible()
             assert "6,4 MB" in page.locator("#pobierz").inner_text()
             assert page.locator("a[href='https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.4']").count() >= 1
@@ -106,10 +106,10 @@ try:
 
             page.goto(BASE + "#pobierz", wait_until="domcontentloaded")
             expect(page.locator("#pobierz #release-title")).to_be_visible()
-            assert page.locator("#content .feature-card").count() == 7, (device, "download should not be a JS-only screen")
+            assert page.locator("#content .feature-card").count() == 6, (device, "download should not be a JS-only screen")
             no_overflow(page, device, "download anchor")
             page.goto(BASE + "#funkcje", wait_until="domcontentloaded")
-            expect(page.locator("#funkcje .feature-card")).to_have_count(7)
+            expect(page.locator("#funkcje .feature-card")).to_have_count(6)
             page.goto(BASE + "#start", wait_until="domcontentloaded")
             if device == "phone":
                 expect(page.locator("#menuToggle")).to_be_visible()
@@ -122,9 +122,9 @@ try:
                 assert page.locator("#menuToggle").get_attribute("aria-expanded") == "false"
             if device == "desktop":
                 expect(page.locator("#drawer")).to_be_visible()
-                page.locator("#siteSearch").fill("SkyWars")
+                page.locator("#siteSearch").fill("Dostosuj MINEVORA")
                 expect(page.locator("#content .search-hit")).to_have_count(1)
-                assert page.locator("#content .search-hit").get_attribute("href") == "#minigry"
+                assert page.locator("#content .search-hit").get_attribute("href") == "#opcje"
 
             for route, count in ROUTES.items():
                 # On each viewport verify every public page plus all the feature images.
@@ -139,7 +139,7 @@ try:
                 if device == "phone":
                     grid = page.locator("#content .gallery").evaluate("el => getComputedStyle(el).gridTemplateColumns")
                     assert len(grid.split()) == 1, (device, route, "not one gallery column", grid)
-                if route in ("opcje", "studio", "minigry"):
+                if route in ("opcje", "studio"):
                     page.screenshot(path=str(OUT / f"minevora-rebuild-{route}-{device}.png"), full_page=True)
             assert not errors, (device, "JavaScript errors", errors)
             output.append({"device": device, "routes": len(ROUTES) + 1, "broken_images": 0, "js_errors": 0})
@@ -169,7 +169,7 @@ try:
         assert nojs.locator("link[rel='canonical']").get_attribute("href") == "https://minevora.pl/v4/"
         assert nojs.locator("h1").count() == 1
         assert nojs.locator(".hero h1").is_visible(), "Brak statycznego nagłówka Start"
-        assert nojs.locator("#funkcje .feature-card").count() == 7
+        assert nojs.locator("#funkcje .feature-card").count() == 6
         assert nojs.locator("#pobierz").is_visible()
         assert nojs.locator("meta[property='og:image']").get_attribute("content").startswith("https://minevora.pl/assets/")
         assert nojs.locator("meta[name='twitter:card']").get_attribute("content") == "summary_large_image"
