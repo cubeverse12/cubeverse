@@ -39,6 +39,20 @@ def checked_images(page):
         .filter(img => img.complete && img.naturalWidth === 0)
         .map(img => img.currentSrc || img.src)""")
 
+def assert_hd_images(page, device, route):
+    """Raster photos on the rebuilt site should resolve to HD files, never 920px sources."""
+    items = page.locator("#content img").all()
+    for item in items:
+        src = item.get_attribute("src") or ""
+        if ".svg" in src:
+            continue
+        assert "site-hd/" in src, (device, route, "legacy low-resolution raster", src)
+        dimensions = item.evaluate("img => [img.naturalWidth,img.naturalHeight]")
+        assert dimensions[0] >= 1600 and dimensions[1] >= 900, (
+            device, route, "image is not HD", src, dimensions
+        )
+
+
 def no_overflow(page, device, route):
     vals = page.evaluate("""() => ({
         doc: document.documentElement.scrollWidth,
@@ -71,6 +85,7 @@ try:
             page.locator("#minecraftLoader").select_option("Fabric")
             assert "Fabric" in page.locator("#playButton").get_attribute("title")
             assert not checked_images(page), (device, "start", "broken images")
+            assert_hd_images(page, device, "start")
             no_overflow(page, device, "start")
             page.screenshot(path=str(OUT / f"minevora-rebuild-start-{device}.png"), full_page=True)
 
@@ -97,6 +112,7 @@ try:
                 expect(page.locator("#content .page-heading h1")).to_be_visible()
                 assert view.locator(".gallery-card").count() == count, (device, route, "gallery", count)
                 assert not checked_images(page), (device, route, "broken image")
+                assert_hd_images(page, device, route)
                 no_overflow(page, device, route)
                 if device == "phone":
                     grid = page.locator("#content .gallery").evaluate("el => getComputedStyle(el).gridTemplateColumns")
