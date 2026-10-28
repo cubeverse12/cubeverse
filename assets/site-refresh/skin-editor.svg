@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 480" width="1050" height="480" role="img" aria-label="Grafika poglądowa MINEVORA"><defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#161d37"/><stop offset=".58" stop-color="#151a30"/><stop offset="1" stop-color="#101629"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#27314c"/><stop offset="1" stop-color="#172039"/></linearGradient>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#64718d" stroke-opacity=".095"/></pattern>
+<filter id="soft"><feGaussianBlur stdDeviation="22"/></filter>
+</defs><rect width="1050" height="480" fill="url(#bg)"/><rect width="1050" height="480" fill="url(#grid)"/>
+<ellipse cx="710" cy="220" rx="300" ry="170" fill="#7d90b0" opacity=".09" filter="url(#soft)"/>
+
+<text x="43" y="56" font-family="Segoe UI,Arial,sans-serif" font-size="20" font-weight="800" fill="#cfc7f0">SKIN STUDIO</text>
+<text x="43" y="96" font-family="Segoe UI,Arial,sans-serif" font-size="31" font-weight="800" fill="#f0f3ff">Podgląd modelu 3D</text>
+<text x="43" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="450" fill="#bfc3d7">Edytuj kolory, warstwy i elementy postaci</text>
+<rect x="40" y="165" width="221" height="267" rx="16" fill="url(#glass)" stroke="#586182"/>
+<text x="62" y="198" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="800" fill="#b5b7d1">NARZĘDZIA</text>
+<rect x="60" y="218" width="180" height="32" rx="11" fill="#222844" stroke="#a99adc" stroke-opacity=".45"/><text x="74" y="240" font-family="Segoe UI,Arial,sans-serif" font-size="13" font-weight="650" fill="#e4d9fa">Pędzel</text>
+<rect x="60" y="261" width="180" height="32" rx="11" fill="#222844" stroke="#a99adc" stroke-opacity=".45"/><text x="74" y="283" font-family="Segoe UI,Arial,sans-serif" font-size="13" font-weight="650" fill="#e4d9fa">Wypełnij</text>
+<rect x="60" y="304" width="180" height="32" rx="11" fill="#222844" stroke="#a99adc" stroke-opacity=".45"/><text x="74" y="326" font-family="Segoe UI,Arial,sans-serif" font-size="13" font-weight="650" fill="#e4d9fa">Pipeta</text>
+<text x="62" y="364" font-family="Segoe UI,Arial,sans-serif" font-size="14" font-weight="650" fill="#c7c4df">KOLOR</text>
+<rect x="62" y="380" width="35" height="23" rx="4" fill="#55a7a1"/><rect x="105" y="380" width="35" height="23" rx="4" fill="#907fba"/><rect x="148" y="380" width="35" height="23" rx="4" fill="#cf9a71"/><rect x="191" y="380" width="35" height="23" rx="4" fill="#405881"/>
+<rect x="296" y="40" width="442" height="395" rx="20" fill="#151d37" stroke="#66648e"/>
+<text x="319" y="72" font-family="Segoe UI,Arial,sans-serif" font-size="13" font-weight="800" fill="#bec0e0">MODEL POSTACI</text>
+<g shape-rendering="crispEdges" transform="translate(422 117)">
+<ellipse cx="70" cy="268" rx="64" ry="11" fill="#080e21" opacity=".6"/>
+<rect x="31" y="0" width="78" height="72" fill="#c89675"/><polygon points="109,0 122,8 122,68 109,72" fill="#a06d4b" opacity=".7"/>
+<polygon points="31,0 44,-12 122,-12 109,0" fill="#4f3429"/>
+<rect x="31" y="0" width="78" height="16" fill="#4f3429"/><rect x="28" y="6" width="14" height="39" fill="#4f3429"/>
+<rect x="50" y="38" width="8" height="9" fill="#f5f7fb"/><rect x="84" y="38" width="8" height="9" fill="#f5f7fb"/>
+<rect x="55" y="39" width="5" height="8" fill="#252d42"/><rect x="87" y="39" width="5" height="8" fill="#252d42"/>
+<rect x="62" y="55" width="19" height="4" fill="#945c56"/>
+<rect x="22" y="73" width="97" height="104" fill="#438b84"/><polygon points="119,73 132,80 132,171 119,177" fill="#000" opacity=".20"/>
+<polygon points="22,73 35,65 130,65 119,73" fill="#fff" opacity=".16"/>
+<rect x="-5" y="76" width="27" height="100" fill="#438b84"/><rect x="-5" y="161" width="27" height="37" fill="#c89675"/>
+<rect x="119" y="77" width="27" height="100" fill="#438b84"/><rect x="119" y="163" width="27" height="35" fill="#c89675"/>
+<rect x="22" y="178" width="47" height="82" fill="#526a9d"/><rect x="72" y="178" width="47" height="82" fill="#526a9d"/>
+<rect x="22" y="246" width="47" height="17" fill="#1e2436"/><rect x="72" y="246" width="47" height="17" fill="#1e2436"/>
+</g>
+<rect x="767" y="40" width="247" height="395" rx="19" fill="url(#glass)" stroke="#586181"/>
+<text x="789" y="78" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="750" fill="#e1dff7">WARSTWY</text>
+<rect x="788" y="99" width="197" height="32" rx="11" fill="#222844" stroke="#a99adc" stroke-opacity=".45"/><text x="802" y="121" font-family="Segoe UI,Arial,sans-serif" font-size="13" font-weight="650" fill="#e4d9fa">Podstawowa</text>
+<rect x="788" y="143" width="197" height="32" rx="11" fill="#222844" stroke="#a99adc" stroke-opacity=".45"/><text x="802" y="165" font-family="Segoe UI,Arial,sans-serif" font-size="13" font-weight="650" fill="#e4d9fa">Nakładka</text>
+<text x="789" y="226" font-family="Segoe UI,Arial,sans-serif" font-size="14" font-weight="750" fill="#bec0d7">PODGLĄD</text>
+<rect x="791" y="246" width="190" height="89" rx="11" fill="#11172c" stroke="#535472"/>
+<rect x="809" y="264" width="54" height="53" rx="7" fill="#438b84"/>
+<rect x="872" y="269" width="93" height="8" rx="4" fill="#65779b"/>
+<rect x="872" y="288" width="75" height="8" rx="4" fill="#65779b"/>
+<rect x="789" y="363" width="196" height="32" rx="11" fill="#222844" stroke="#9d8acc" stroke-opacity=".45"/><text x="803" y="385" font-family="Segoe UI,Arial,sans-serif" font-size="13" font-weight="650" fill="#e4d9fa">Eksport PNG</text>
+
+<rect x="1" y="1" width="1048" height="478" rx="22" stroke="#665e8a" stroke-opacity=".56" fill="none" stroke-width="2"/>
+</svg>
