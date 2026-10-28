@@ -134,3 +134,28 @@ body.mv-site-refresh.mv-phone + .mv-site-footer{padding:16px}
 @media(prefers-reduced-motion:reduce){
  body.mv-site-refresh .mv-shot img,body.mv-site-refresh .cards img{transition:none}
 }
+
+/* Zabezpieczenie mobilnego układu również w standardowym viewport, niezależnie od rozpoznawania urządzenia. */
+@media(max-width:720px){
+ body.mv-site-refresh .mv-route-view .mv-shot-grid{
+   display:grid!important;
+   grid-template-columns:minmax(0,1fr)!important;
+   gap:15px!important;
+ }
+ body.mv-site-refresh .mv-route-view .mv-shot .mv-photo{
+   display:block;width:100%;height:auto!important;
+   aspect-ratio:16/9!important;min-height:0!important;
+ }
+ body.mv-site-refresh .mv-route-view .mv-shot-body{padding:15px 17px 18px}
+ body.mv-site-refresh .mv-route-view .mv-shot-body h3{font-size:17px}
+ body.mv-site-refresh .mv-route-view .mv-shot-body p{font-size:14px}
+ body.mv-site-refresh .mv-route-view .mv-route-intro{font-size:15px;line-height:1.7}
+ body.mv-site-refresh .mv-route-view h1{font-size:clamp(28px,7vw,36px)}
+}
+/* Ustawienia i Poradnik: ilustracje nie są rozciągane powyżej swoich proporcji. */
+body.mv-site-refresh[data-mv-view="poradnik"] .mv-photo img,
+body.mv-site-refresh[data-mv-view="opcje"] .mv-photo img{
+  object-fit:contain!important;
+  filter:none!important;
+  background:#141a30;
+}
