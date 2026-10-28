@@ -300,3 +300,118 @@ a[aria-disabled="true"]{pointer-events:none}
   .hero h1{font-size:41px}
   .promo{font-size:10px}
 }
+
+/* Responsive refinement: ordinary phone keeps a vertical layout, desktop and
+   Chrome's "Desktop site" (wide CSS viewport) keep the full desktop composition. */
+@media (min-width:801px) and (max-width:1100px){
+ .wrapper{width:min(100% - 44px,1200px)}
+ .navbar{gap:12px}
+ .logo img{width:139px}
+ .links{gap:10px}
+ .links a{font-size:12px}
+ .nav-actions .btn{padding:10px 13px;white-space:nowrap}
+ .hero{padding:77px 0 87px}
+ .hero-layout{
+   grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);
+   gap:24px;
+ }
+ .hero h1{font-size:clamp(39px,4.7vw,55px)}
+ .hero-lede{font-size:15px;line-height:1.65}
+ .preview-area{min-width:0;max-width:100%}
+ .preview-shell{transform:none;max-width:100%}
+ .mini-floating{right:0}
+ .bento{gap:14px}
+ .feature-stage{gap:20px}
+}
+@media (max-width:800px){
+ .navbar{position:relative}
+ .nav-toggle{display:flex}
+ .hero-layout{
+   display:flex;
+   flex-direction:column;
+   align-items:stretch;
+   gap:30px;
+ }
+ .hero-copy{width:100%;min-width:0;text-align:center}
+ .hero-lede{margin-inline:auto}
+ .preview-area{width:100%;min-width:0;max-width:680px}
+ .preview-shell{width:100%;max-width:100%;transform:none}
+ .mini-floating{right:3px;bottom:-4px}
+ .feature-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .feature-tab{min-width:0}
+ .feature-stage{grid-template-columns:minmax(0,1fr)}
+ .bento-card{min-width:0}
+ .guide-band{flex-wrap:wrap}
+}
+@media (max-width:540px){
+ .navbar{min-height:68px;gap:8px}
+ .logo{min-width:0}
+ .logo img{width:clamp(116px,29vw,142px);height:49px}
+ .nav-actions{flex:0 0 auto}
+ .nav-actions .btn{min-height:44px;padding:10px 12px;font-size:12px}
+ .nav-toggle{width:44px;height:44px;flex:0 0 44px}
+ .links{
+   max-height:calc(100dvh - 92px);
+   overflow-y:auto;
+   padding-bottom:25px;
+ }
+ .links a{min-height:48px;font-size:16px}
+ .promo{
+   font-size:11px;
+   line-height:1.6;
+   white-space:normal;
+   overflow-wrap:anywhere;
+ }
+ .hero{padding-top:48px;padding-bottom:59px}
+ .hero h1{
+   font-size:clamp(38px,10.7vw,59px);
+   line-height:1.075;
+   letter-spacing:-.055em;
+ }
+ .hero-lede{
+   font-size:15px;line-height:1.65;
+   max-width:440px;
+ }
+ .hero-buttons{gap:11px}
+ .hero-buttons .btn{min-height:52px;font-size:15px}
+ .hero-trust{justify-content:center;gap:10px 14px;font-size:11px}
+ .preview-area{padding:4px 0 13px}
+ .preview-shell{border-radius:13px}
+ .preview-shell img{height:auto;object-fit:contain;aspect-ratio:16/9}
+ .preview-label{min-height:37px;gap:8px}
+ .mini-floating{font-size:11px}
+ .section{padding:61px 0}
+ .section-head{margin-bottom:27px}
+ .section-head h2{font-size:clamp(30px,9vw,42px)}
+ .section-head p{font-size:15px}
+ .feature-tab{padding:16px 12px;min-height:110px}
+ .feature-tab b{font-size:15px;overflow-wrap:anywhere}
+ .feature-tab small{font-size:12px}
+ .feature-stage{padding:16px;gap:16px}
+ .stage-copy{padding:4px}
+ .stage-copy h3{font-size:clamp(27px,7vw,36px)}
+ .stage-copy p{font-size:14px}
+ .stage-visual{padding:7px}
+ .bento-card .bento-image{padding:12px 12px 0}
+ .bento-body{padding:20px 21px 24px}
+ .step h3{font-size:21px}
+ .download-card{gap:18px}
+ .download-card h2{font-size:clamp(30px,8.5vw,42px)}
+ .download-note{overflow-wrap:anywhere}
+ .footer-links{gap:17px}
+ .footer-bottom{line-height:1.6}
+}
+@media (max-width:360px){
+ .wrapper{width:calc(100% - 24px)}
+ .navbar{gap:5px}
+ .logo img{width:114px}
+ .nav-actions .btn{padding:9px 10px;font-size:11px}
+ .nav-toggle{width:42px;height:42px;flex-basis:42px}
+ .hero h1{font-size:38px}
+ .feature-tab{padding:12px 9px}
+ .feature-tab b{font-size:14px}
+ .feature-tab .tab-index{font-size:10px}
+}
+/* Prevent accidental text enlargement in Android "Desktop site" without
+   overriding its deliberately chosen wide layout. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
