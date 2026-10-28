@@ -8,7 +8,8 @@
   <title>MINEVORA — Launcher Minecraft Java na Windows</title>
   <meta name="description" content="MINEVORA — launcher Minecraft Java. Poznaj profile, mody, PvP HUD, Skin Studio i rankingi. Pobierz publiczne wydanie Windows 18.3.7 z GitHub.">
   <link rel="canonical" href="https://minevora.pl/v4/">
-  <link rel="icon" type="image/svg+xml" href="../assets/minevora_crystal_emblem.svg">
+  <link rel="icon" type="image/webp" sizes="96x96" href="./assets/minevora-icon-20261028.webp">
+  <link rel="apple-touch-icon" href="./assets/minevora-icon-20261028.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://minevora.pl/v4/">
   <meta property="og:title" content="MINEVORA — Twój Minecraft, Twoje zasady">
@@ -19,6 +20,14 @@
   <meta name="twitter:description" content="Odkryj nowy wygląd MINEVORA i pobierz wydanie Windows.">
   <meta name="twitter:image" content="https://minevora.pl/assets/site-hd/website-photos-20261027-home-hero-1280.webp">
   <link rel="preload" as="image" href="../assets/launcher-18-3-7/start.svg" fetchpriority="high">
+  <style id="minevora-brand-20261028">
+    .navbar .logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+    .navbar .logo img.brand-icon{width:48px;height:48px;max-width:48px;object-fit:cover;border-radius:13px;flex-shrink:0;filter:drop-shadow(0 0 11px #7b47ff88)}
+    .brand-wordmark{font-family:inherit;font-size:clamp(17px,1.6vw,22px);font-weight:900;letter-spacing:.045em;line-height:1;color:#e3faff;text-shadow:0 0 18px #00d8ff55}
+    .footer-brand .brand-identity{display:flex;align-items:center;gap:12px}
+    .footer-brand img.brand-icon{width:54px;height:54px;object-fit:cover;border-radius:14px;filter:drop-shadow(0 0 11px #7b47ff88)}
+    @media(max-width:600px){.navbar .logo img.brand-icon{width:36px;height:36px;max-width:36px;border-radius:10px}.navbar .logo .brand-wordmark{font-size:14px;letter-spacing:.01em}}
+  </style>
   <link rel="stylesheet" href="./modern.css">
   <script src="./modern.js" defer></script>
 </head>
@@ -31,7 +40,7 @@
 <header class="nav-wrap">
   <div class="wrapper navbar">
     <a class="logo" href="#start" aria-label="MINEVORA — Strona główna">
-      <img src="../assets/minevora_crystal_logo.svg" width="167" height="56" alt="MINEVORA">
+      <img class="brand-icon" src="./assets/minevora-icon-20261028.webp" width="48" height="48" alt="" decoding="async"><span class="brand-wordmark">MINEVORA</span>
     </a>
     <nav class="links" id="siteNav" aria-label="Nawigacja główna">
       <a href="#launcher">Launcher</a>
@@ -200,7 +209,7 @@
   <div class="wrapper">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="../assets/minevora_crystal_logo.svg" alt="MINEVORA" width="155" height="65" loading="lazy">
+        <div class="brand-identity"><img class="brand-icon" src="./assets/minevora-icon-20261028.webp" alt="" width="54" height="54" loading="lazy"><span class="brand-wordmark">MINEVORA</span></div>
         <p>Niezależny projekt launchera Minecraft Java.<br>Nie jest zatwierdzony przez Mojang Studios ani Microsoft. Minecraft jest znakiem towarowym Mojang AB.</p>
       </div>
       <nav class="footer-links" aria-label="Linki stopki">
