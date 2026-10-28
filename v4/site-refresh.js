@@ -7,7 +7,7 @@
   if (!shell || !main || !hero) return;
   document.body.classList.add('mv-site-refresh');
   /* Usuń kolizje ID ze starymi, informacyjnymi sekcjami pod stroną. */
-  ['pobierz','poradnik'].forEach(function(id) {
+  ['pobierz','poradnik','wersje','minigry','pvp','ranking','mody','studio','sklep','plus','opcje'].forEach(function(id) {
     var legacy = document.getElementById(id);
     if (legacy) {
       legacy.id = 'mv-legacy-' + id;
