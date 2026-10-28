@@ -23,7 +23,11 @@ def no_overflow(page, label):
         viewport: innerWidth,
         document: document.documentElement.scrollWidth
     })""")
-    assert dimensions["document"]<=dimensions["viewport"]+2,(label,"horizontal overflow",dimensions)
+    if dimensions["document"]>dimensions["viewport"]+2:
+        offenders=page.evaluate("""() => [...document.querySelectorAll('body *')]
+          .map(el=>{const b=el.getBoundingClientRect();return {tag:el.tagName,cls:String(el.className).slice(0,100),right:Math.round(b.right),left:Math.round(b.left),width:Math.round(b.width)};})
+          .filter(x=>x.right>innerWidth+2).sort((a,b)=>b.right-a.right).slice(0,18)""")
+        raise AssertionError((label,"horizontal overflow",dimensions,offenders))
 
 def image_is_loaded(page,selector):
     return page.locator(selector).evaluate("(img) => img.complete && img.naturalWidth > 0")
