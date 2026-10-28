@@ -104,6 +104,32 @@ try:
             assert "6,4 MB" in page.locator("#pobierz").inner_text()
             assert page.locator("a[href='https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.6']").count() >= 1
             assert page.locator("#playButton").inner_text().startswith("▶\nGRAJ")
+            if device == "phone":
+                # Check the real mobile layout against the approved composition.
+                measurements = page.evaluate("""() => {
+                    const bounds = q => {
+                        const r=document.querySelector(q).getBoundingClientRect();
+                        return {top:r.top,bottom:r.bottom,width:r.width,height:r.height};
+                    };
+                    return {
+                        header:bounds('.mobilebar'),
+                        hero:bounds('.hero'),
+                        logo:bounds('.hero-main>img'),
+                        heading:bounds('.hero-main h1'),
+                        description:bounds('.hero-main p'),
+                        selectors:bounds('.selector-group'),
+                        button:bounds('#playButton'),
+                        accent:getComputedStyle(document.querySelector('.hero-title-accent')).display
+                    };
+                }""")
+                assert measurements["hero"]["height"] >= 625, measurements
+                assert abs(measurements["header"]["bottom"] - measurements["hero"]["top"]) < 5, measurements
+                assert measurements["logo"]["bottom"] < measurements["heading"]["top"], measurements
+                assert measurements["heading"]["bottom"] <= measurements["description"]["top"] + 2, measurements
+                assert measurements["description"]["bottom"] <= measurements["selectors"]["top"] + 2, measurements
+                assert measurements["selectors"]["bottom"] < measurements["button"]["top"], measurements
+                assert measurements["button"]["bottom"] <= measurements["hero"]["bottom"], measurements
+                assert measurements["accent"] == "block", measurements
             page.locator("#minecraftVersion").select_option("1.21.1")
             page.locator("#minecraftLoader").select_option("Fabric")
             assert "Fabric" in page.locator("#playButton").get_attribute("title")
@@ -173,6 +199,11 @@ try:
         touch.goto(BASE + "#studio", wait_until="networkidle")
         assert touch.locator("body").evaluate("x => x.classList.contains('force-mobile')"), "Android desktop site: brak układu mobilnego"
         expect(touch.locator("#menuToggle")).to_be_visible()
+        touch.goto(BASE + "#start", wait_until="networkidle")
+        expect(touch.locator("#content .hero")).to_be_visible()
+        assert touch.locator(".hero-title-accent").evaluate("el => getComputedStyle(el).display") == "block"
+        assert touch.locator(".hero").evaluate("el => el.getBoundingClientRect().height") >= 625
+        touch.goto(BASE + "#studio", wait_until="networkidle")
         assert touch.locator(".gallery").evaluate("x => getComputedStyle(x).gridTemplateColumns.split(' ').length") == 1
         assert not checked_images(touch), "Android desktop site: zdjęcia"
         no_overflow(touch, "Android desktop site", "poradnik")
