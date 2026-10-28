@@ -2,7 +2,7 @@
    Does not require any of the older site-refresh scripts. */
 (()=>{"use strict";
 const A="../assets/";
-const releases="https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.5";
+const releases="https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.6";
 const discord="https://discord.gg/M2fZVJBCqh";
 const $=(s,root=document)=>root.querySelector(s);
 const $$=(s,root=document)=>[...root.querySelectorAll(s)];
@@ -32,7 +32,7 @@ const data={
  entry("Wybór trybu","site-refresh/guide-modes.svg","Poznaj planowane minigry."),
  entry("PvP HUD","site-refresh/guide-pvp-hud.svg","Podgląd konfiguracji interfejsu.")
  ]},
- pobierz:{label:"Pobierz launcher",intro:"Publiczne pliki MINEVORA Launcher dla Windows.",heading:"MINEVORA na komputerze",description:"Weryfikowalne publiczne wydanie na GitHub to 18.3.5 (ZIP). Interfejs pokazany na stronie może pochodzić z nowszej, rozwijanej wersji i nie musi odpowiadać plikowi dostępnym w wydaniu 18.3.5.",state:"Publiczne wydanie 18.3.5",hero:entry("Launcher Windows","launcher-18-3-16/launcher-preview.webp","Przykładowy widok aplikacji"),action:{label:"Otwórz wydanie 18.3.5",url:releases,external:true},gallery:[
+ pobierz:{label:"Pobierz launcher",intro:"Publiczne pliki MINEVORA Launcher dla Windows.",heading:"MINEVORA na komputerze",description:"Weryfikowalne publiczne wydanie na GitHub to 18.3.6 (ZIP). Interfejs pokazany na stronie może pochodzić z nowszej, rozwijanej wersji i nie musi odpowiadać plikowi dostępnym w wydaniu 18.3.6.",state:"Publiczne wydanie 18.3.6",hero:entry("Launcher Windows","launcher-18-3-16/launcher-preview.webp","Przykładowy widok aplikacji"),action:{label:"Otwórz wydanie 18.3.6",url:releases,external:true},gallery:[
  entry("Instalacja","site-refresh/guide-install.svg","Kroki instalacji launchera."),
  entry("Profile","site-refresh/settings-profiles.svg","Przygotowanie Minecraft Java."),
  entry("Skin Studio","guide/skin-studio-plus-2-8.jpg","Podgląd edytora skórek.")
