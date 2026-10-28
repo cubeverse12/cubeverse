@@ -1,0 +1,214 @@
+/* MINEVORA responsive layout — desktop reference preserved, touch screens redesigned.
+   Explicitly supports "desktop site" browser mode on phones (coarse pointer / JS class). */
+html{scroll-padding-top:86px}
+body.mv-site-refresh{font-synthesis:none}
+body.mv-site-refresh .sidebar .menu a img{
+  display:inline-block;width:24px;height:24px;flex:0 0 24px;
+  object-fit:contain;filter:drop-shadow(0 0 3px #a059df50);
+}
+body.mv-site-refresh .topbar .tabs a{font-weight:700}
+body.mv-site-refresh .mv-mobilebar,
+body.mv-site-refresh .mv-menu-backdrop,
+body.mv-site-refresh .mv-nav-close{display:none}
+body.mv-site-refresh .mv-hero-eyebrow{
+  position:absolute;left:0;right:0;top:28%;text-align:center;pointer-events:none;
+  color:#f8f2ff;font-weight:850;font-size:clamp(20px,2.7vw,35px);
+  text-shadow:0 3px 13px #080418;letter-spacing:.4px;
+}
+body.mv-site-refresh .mv-hero-tagline{
+  position:absolute;left:7%;right:7%;top:37%;text-align:center;pointer-events:none;
+  color:#e7d9f9;font-size:clamp(13px,1.1vw,16px);line-height:1.6;font-weight:590;
+  text-shadow:0 2px 7px #070712;
+}
+body.mv-site-refresh .mv-feature-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:23px 2px 15px}
+body.mv-site-refresh .mv-feature-heading strong{font-size:clamp(20px,2vw,27px);font-weight:830;letter-spacing:-.3px}
+body.mv-site-refresh .mv-feature-heading span{font-size:11px;letter-spacing:1.3px;color:#c3aadf;font-weight:850}
+body.mv-site-refresh .mv-feature-heading a{border:1px solid #766293;background:#24163d;border-radius:10px;padding:10px 14px;font-size:12px;font-weight:780}
+body.mv-site-refresh .mv-feature-heading a:hover{background:#402166}
+body.mv-site-refresh .mv-route-view{overflow:hidden}
+body.mv-site-refresh .mv-route-view h1{overflow-wrap:break-word}
+body.mv-site-refresh .mv-photo, body.mv-site-refresh .cards .card img{overflow:hidden}
+body.mv-site-refresh .cards .card img{object-position:center}
+body.mv-site-refresh .mv-action,body.mv-site-refresh a,body.mv-site-refresh button{-webkit-tap-highlight-color:transparent}
+/* Touch-friendly compact layout, including browsers requesting a desktop viewport. */
+body.mv-site-refresh.mv-compact{font-size:15px}
+body.mv-site-refresh.mv-compact .design-note{
+  display:block;padding:7px 12px;font-size:11px;line-height:1.45;max-width:100%;
+  overflow-wrap:anywhere
+}
+body.mv-site-refresh.mv-compact .shell{
+  display:block!important;min-height:0!important;max-width:860px;width:100%;min-width:0;
+  padding:10px 12px 24px;margin:0 auto;
+}
+body.mv-site-refresh.mv-compact .topbar{
+  position:sticky;top:0;z-index:35;
+  height:66px!important;min-height:66px;width:100%;margin:0 0 14px;padding:0 12px;
+  display:flex!important;align-items:center;
+  background:#0d1129f5;border:1px solid #52406d;border-radius:13px;
+  box-shadow:0 8px 30px #050714b8;backdrop-filter:blur(18px)
+}
+body.mv-site-refresh.mv-compact .topbar .tabs,
+body.mv-site-refresh.mv-compact .topbar .window-icons{display:none!important}
+body.mv-site-refresh.mv-compact .mv-mobilebar{
+  display:flex!important;align-items:center;justify-content:space-between;gap:10px;width:100%;min-width:0;
+}
+body.mv-site-refresh.mv-compact .mv-menu-toggle,
+body.mv-site-refresh.mv-compact .mv-nav-close{
+  display:grid!important;place-items:center;cursor:pointer;
+  height:44px;width:44px;min-width:44px;padding:0;border-radius:10px;
+  border:1px solid #6c518d;background:#22173c;color:#faf5ff;font-size:24px;
+}
+body.mv-site-refresh.mv-compact .mv-mobile-brand{display:flex;align-items:center;gap:8px;min-width:0;text-decoration:none}
+body.mv-site-refresh.mv-compact .mv-mobile-brand img{
+  height:43px;width:min(34vw,160px);object-fit:contain;filter:drop-shadow(0 0 7px #6a2aa1);
+}
+body.mv-site-refresh.mv-compact .mv-mobile-download{
+  display:inline-flex;align-items:center;justify-content:center;padding:0 13px;min-height:42px;
+  white-space:nowrap;font-size:14px;font-weight:780;border-radius:10px;
+  color:#fff;background:linear-gradient(135deg,#9335de,#5d1eb4);border:1px solid #ba7deb;
+}
+body.mv-site-refresh.mv-compact .sidebar{
+  display:flex!important;position:fixed!important;inset:0 auto 0 0;
+  height:100dvh;max-height:100dvh;overflow:auto;overscroll-behavior:contain;
+  width:min(83vw,324px);max-width:324px;padding:14px;z-index:100;
+  border-radius:0 17px 17px 0;background:#0b0d23;
+  box-shadow:18px 0 65px #030411bc;
+  transform:translateX(-105%);visibility:hidden;transition:transform .22s ease,visibility .22s ease;
+  scrollbar-width:thin;
+}
+body.mv-site-refresh.mv-compact.mv-menu-open .sidebar{
+  transform:translateX(0);visibility:visible;
+}
+body.mv-site-refresh.mv-compact .sidebar .brand{height:93px}
+body.mv-site-refresh.mv-compact .sidebar .brand img{max-height:80px}
+body.mv-site-refresh.mv-compact .sidebar .menu{gap:4px}
+body.mv-site-refresh.mv-compact .sidebar .menu a{
+  min-height:49px!important;padding:11px 12px;font-size:15px!important;line-height:1.3;
+}
+body.mv-site-refresh.mv-compact .sidebar .menu a img{width:23px;height:23px;flex-basis:23px}
+body.mv-site-refresh.mv-compact .mv-nav-close{
+  position:absolute;right:13px;top:13px;z-index:2;
+}
+body.mv-site-refresh.mv-compact .mv-menu-backdrop{
+  display:block!important;position:fixed;inset:0;z-index:90;
+  width:100%;height:100%;background:#03040bc4;border:0;cursor:pointer;
+}
+body.mv-site-refresh.mv-compact .mv-menu-backdrop[hidden]{display:none!important}
+body.mv-site-refresh.mv-compact.mv-menu-open{overflow:hidden}
+body.mv-site-refresh.mv-compact .middle{display:flex;flex-direction:column;gap:0;width:100%;min-width:0}
+body.mv-site-refresh.mv-compact .hero{
+  width:100%;height:clamp(495px,65dvh,640px);min-height:495px;border-radius:16px;
+  border:1px solid #7960a1;box-shadow:0 12px 39px #02020b75;
+  background-position:51% center!important;background-size:cover;
+}
+body.mv-site-refresh.mv-compact .hero:before{
+  background:linear-gradient(180deg,#090b2470 0%,#070b1d15 26%,#0a0b1e8a 69%,#06091cf0 100%)
+}
+body.mv-site-refresh.mv-compact .hero-logo{top:25px}
+body.mv-site-refresh.mv-compact .hero-logo img{
+  width:min(90%,470px);max-height:175px;filter:drop-shadow(0 4px 17px #07051e);
+}
+body.mv-site-refresh.mv-compact .hero-logo small{font-size:12px;letter-spacing:2px;white-space:normal;text-align:center}
+body.mv-site-refresh.mv-compact .mv-hero-eyebrow{top:37%;font-size:clamp(21px,5.2vw,30px);padding:0 10px}
+body.mv-site-refresh.mv-compact .mv-hero-tagline{top:45%;font-size:13px;left:9%;right:9%}
+body.mv-site-refresh.mv-compact .hero-bottom{
+  display:flex!important;flex-direction:column!important;align-items:stretch!important;
+  bottom:16px;left:14px;right:14px;gap:10px
+}
+body.mv-site-refresh.mv-compact .hero-bottom .install{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  width:100%!important;gap:9px;min-width:0
+}
+body.mv-site-refresh.mv-compact .hero-bottom .selectbox{
+  display:flex!important;min-width:0;min-height:76px;padding:10px;gap:7px;border-radius:11px;
+  background:#0b112bed
+}
+body.mv-site-refresh.mv-compact .hero-bottom .selectbox .emoji{display:none}
+body.mv-site-refresh.mv-compact .hero-bottom .selectbox label{display:block;min-width:0;width:100%;font-size:12px!important}
+body.mv-site-refresh.mv-compact .hero-bottom .selectbox select{
+  width:100%;font-size:15px!important;font-weight:730;min-height:30px
+}
+body.mv-site-refresh.mv-compact .hero-bottom .play{
+  display:flex!important;width:100%!important;min-height:68px;padding:10px;
+  align-self:auto!important;justify-content:center;gap:12px;
+}
+body.mv-site-refresh.mv-compact .hero-bottom .play strong{font-size:30px}
+body.mv-site-refresh.mv-compact .hero-bottom .options{display:none!important}
+body.mv-site-refresh.mv-compact .mv-feature-heading{padding:25px 3px 14px}
+body.mv-site-refresh.mv-compact .mv-feature-heading strong{font-size:22px}
+body.mv-site-refresh.mv-compact .mv-feature-heading a{font-size:12px;padding:9px 10px}
+body.mv-site-refresh.mv-compact .cards{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:12px!important;margin:0 0 18px!important;
+}
+body.mv-site-refresh.mv-compact .cards[hidden]{display:none!important}
+body.mv-site-refresh.mv-compact .cards .card{min-width:0;border-radius:12px}
+body.mv-site-refresh.mv-compact .cards .card img{
+  width:100%;height:auto!important;aspect-ratio:1050/480;object-fit:cover;
+}
+body.mv-site-refresh.mv-compact .cards .card div{padding:12px 12px 19px;min-height:87px}
+body.mv-site-refresh.mv-compact .cards .card strong{font-size:15px}
+body.mv-site-refresh.mv-compact .cards .card small{font-size:12px;line-height:1.45}
+body.mv-site-refresh.mv-compact .mv-route-view{
+  width:100%;margin:0;padding:clamp(16px,4vw,24px);min-width:0;min-height:0;
+  border-radius:15px;border:1px solid #4a396d;
+}
+body.mv-site-refresh.mv-compact .mv-route-view .mv-route-kicker{letter-spacing:1.3px;font-size:11px}
+body.mv-site-refresh.mv-compact .mv-route-view h1{
+  font-size:clamp(27px,6vw,36px);margin:10px 0;line-height:1.15
+}
+body.mv-site-refresh.mv-compact .mv-route-intro{
+  font-size:15px;line-height:1.63;margin:0 0 22px
+}
+body.mv-site-refresh.mv-compact .mv-route-hero{
+  display:flex!important;flex-direction:column;align-items:stretch;gap:18px;
+  padding:12px!important;border-radius:13px;min-width:0;
+}
+body.mv-site-refresh.mv-compact .mv-route-hero .mv-photo{
+  display:block;width:100%;height:auto!important;min-height:0!important;max-height:none!important;
+  aspect-ratio:1050/480;border-radius:11px;
+}
+body.mv-site-refresh.mv-compact .mv-route-hero h2{font-size:22px}
+body.mv-site-refresh.mv-compact .mv-route-hero p{font-size:14px;line-height:1.6}
+body.mv-site-refresh.mv-compact .mv-shot-grid{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px
+}
+body.mv-site-refresh.mv-compact .mv-shot .mv-photo{
+  height:auto!important;min-height:0!important;aspect-ratio:1050/480
+}
+body.mv-site-refresh.mv-compact .mv-shot .mv-photo img{width:100%;height:100%;object-fit:cover}
+body.mv-site-refresh.mv-compact .mv-shot-body{padding:14px}
+body.mv-site-refresh.mv-compact .mv-shot-body h3{font-size:16px}
+body.mv-site-refresh.mv-compact .mv-shot-body p{font-size:13px;line-height:1.5}
+body.mv-site-refresh.mv-compact .mv-action-row{display:flex;gap:9px;flex-wrap:wrap}
+body.mv-site-refresh.mv-compact .mv-action{min-height:47px;padding:11px 15px;font-size:13px}
+body.mv-site-refresh.mv-compact .mv-route-fineprint{font-size:12px;line-height:1.6}
+body.mv-site-refresh.mv-compact .right{display:none!important}
+@media(max-width:580px){
+ body.mv-site-refresh.mv-compact .shell{padding:8px 10px 22px}
+ body.mv-site-refresh.mv-compact .mv-mobile-brand img{width:min(36vw,138px)}
+ body.mv-site-refresh.mv-compact .mv-mobile-download{padding:0 9px;font-size:13px}
+ body.mv-site-refresh.mv-compact .hero{height:510px;min-height:510px}
+ body.mv-site-refresh.mv-compact .hero-logo img{width:88%;max-height:144px}
+ body.mv-site-refresh.mv-compact .mv-hero-eyebrow{top:35%}
+ body.mv-site-refresh.mv-compact .mv-hero-tagline{top:43%}
+ body.mv-site-refresh.mv-compact .cards{grid-template-columns:1fr!important;gap:12px}
+ body.mv-site-refresh.mv-compact .cards .card img{aspect-ratio:1050/480}
+ body.mv-site-refresh.mv-compact .cards .card div{min-height:0;padding:13px 15px 20px}
+ body.mv-site-refresh.mv-compact .cards .card strong{font-size:17px}
+ body.mv-site-refresh.mv-compact .cards .card small{font-size:13px}
+ body.mv-site-refresh.mv-compact .mv-shot-grid{grid-template-columns:1fr!important}
+ body.mv-site-refresh.mv-compact .mv-shot .mv-photo{aspect-ratio:1050/480}
+ body.mv-site-refresh.mv-compact .mv-shot-body h3{font-size:17px}
+ body.mv-site-refresh.mv-compact .mv-shot-body p{font-size:14px}
+ body.mv-site-refresh.mv-compact .mv-feature-heading{align-items:flex-start;flex-direction:column;gap:11px}
+}
+@media(max-width:360px){
+ body.mv-site-refresh.mv-compact .hero-bottom .install{grid-template-columns:1fr!important}
+ body.mv-site-refresh.mv-compact .hero{min-height:560px;height:560px}
+ body.mv-site-refresh.mv-compact .mv-hero-eyebrow{top:31%}
+ body.mv-site-refresh.mv-compact .mv-hero-tagline{top:37%}
+}
+@media(prefers-reduced-motion:reduce){
+ body.mv-site-refresh.mv-compact .sidebar{transition:none}
+}
