@@ -215,3 +215,226 @@ body.force-mobile .backdrop:not([hidden]){display:block}
  .release-panel .release-actions{align-items:stretch;flex-direction:column;width:100%}
  .release-panel .release-actions .btn{width:100%}
 }
+
+/* MINEVORA 4.2 — mobile landing composition matching the approved reference.
+   Real controls and accessible text remain HTML rather than flattened screenshot art. */
+.hero-title-accent{color:#d98afb}
+.announcement{display:flex;align-items:center;justify-content:center;gap:8px}
+.announcement a span{display:inline}
+.mobile-actions .btn svg{flex:0 0 auto}
+.menu-toggle svg{display:block}
+
+/* Portrait phones: connected header and cover image, comfortable contrast,
+   main title below the large logo and play controls at the bottom. */
+@media (max-width:950px){
+  body:has(#start) .layout{padding-top:0}
+  body:has(#start) .workspace{gap:0}
+  body:has(#start) .mobilebar{
+    margin:10px 0 0;
+    height:72px;min-height:72px;
+    padding:0 13px;
+    border-radius:17px 17px 0 0;
+    border-color:#624579;
+    background:linear-gradient(110deg,#0b0f24f5,#160e32f8 58%,#111327f5);
+    box-shadow:0 5px 20px #09061c99;
+  }
+  body:has(#start) .mobilebar .mobile-brand img{
+    width:clamp(125px,32vw,170px);height:58px;
+    filter:drop-shadow(0 0 9px #9b3ad185);
+  }
+  body:has(#start) .mobilebar .menu-toggle{
+    display:grid;place-items:center;
+    height:45px;min-width:45px;width:45px;
+    color:#fff;background:#211431;border:1px solid #9660ac;
+    border-radius:12px;
+  }
+  body:has(#start) .mobilebar .btn{
+    min-height:43px;padding:9px 12px;gap:6px;
+    border-radius:11px;font-size:13px;
+    border-color:#cc89f9;
+  }
+  body:has(#start) .hero{
+    height:clamp(625px,calc(100svh - 155px),740px);
+    min-height:625px;
+    margin-top:-1px;
+    border-top-left-radius:0;border-top-right-radius:0;
+    border-bottom-left-radius:19px;border-bottom-right-radius:19px;
+    border:1px solid #76518f;
+    box-shadow:0 10px 29px #05051498;
+    background:#0e0922;
+  }
+  body:has(#start) .hero-img{
+    object-fit:cover;
+    object-position:50% 43%;
+    filter:none!important;
+  }
+  body:has(#start) .hero:before{
+    background:
+      linear-gradient(180deg,
+        #07051b65 0%,
+        #08051a29 14%,
+        #08031e4d 36%,
+        #09061c9e 56%,
+        #09061cd6 73%,
+        #09071aaf 100%),
+      radial-gradient(ellipse 75% 43% at 50% 58%,#08051e9e 0%,transparent 95%);
+  }
+  body:has(#start) .hero-main{
+    display:block;
+    position:relative;
+    width:100%;height:100%;
+    padding:0 16px;
+  }
+  body:has(#start) .hero-main>img{
+    position:absolute;
+    top:clamp(73px,13%,108px);
+    left:50%;transform:translateX(-50%);
+    width:min(88%,340px);
+    height:clamp(120px,21%,155px);
+    object-fit:contain;
+    filter:drop-shadow(0 8px 17px #08021599)
+           drop-shadow(0 0 12px #8e37d656)!important;
+  }
+  body:has(#start) .hero-main h1{
+    position:absolute;
+    top:45%;
+    left:16px;right:16px;
+    margin:0;
+    max-width:none;
+    font-size:clamp(21px,5.65vw,27px);
+    letter-spacing:-.25px;
+    line-height:1.18;
+    text-align:center;
+    text-wrap:balance;
+    font-weight:820;
+    text-shadow:0 3px 11px #050314ee;
+  }
+  body:has(#start) .hero-title-lead,
+  body:has(#start) .hero-title-main,
+  body:has(#start) .hero-title-accent{display:block}
+  body:has(#start) .hero-title-accent{
+    color:#db8cfa;
+    text-shadow:0 3px 12px #060315,0 0 18px #6e248e66;
+  }
+  body:has(#start) .hero-main p{
+    position:absolute;
+    top:62%;left:21px;right:21px;
+    max-width:440px;margin:0 auto;
+    color:#ddd4ea;
+    font-size:clamp(12px,3.5vw,15px);
+    line-height:1.48;
+    text-align:center;
+    text-shadow:0 2px 8px #040314f0;
+  }
+  body:has(#start) .hero-controls{
+    position:absolute;
+    left:13px;right:13px;bottom:13px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  body:has(#start) .selector-group{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  body:has(#start) .select-tile{
+    min-height:78px;
+    padding:11px 12px;
+    gap:7px;
+    border:1px solid #9959d3;
+    border-radius:13px;
+    background:linear-gradient(145deg,#0c102aed,#100e2deb);
+    box-shadow:0 7px 18px #05031270;
+    backdrop-filter:blur(10px);
+  }
+  body:has(#start) .select-tile span{
+    font-size:12px;color:#d1bede;
+    font-weight:680;
+  }
+  body:has(#start) .select-tile select{
+    font-size:clamp(15px,4.5vw,19px);
+    line-height:1.2;
+    color:#fff;
+    font-weight:770;
+    border:0;
+    padding:2px 18px 2px 0;
+    outline:none;
+  }
+  body:has(#start) .hero-play{
+    min-height:76px;
+    gap:13px;
+    padding:8px 13px;
+    background:linear-gradient(120deg,#bd3cf6 0%,#9131e5 45%,#731bd4 100%);
+    border:2px solid #e0a9ff;
+    border-radius:16px;
+    box-shadow:0 0 20px #9c33dd80,0 8px 17px #13053670,inset 0 1px #ffe8ff4d;
+    font-size:clamp(28px,7vw,36px);
+    line-height:1.03;
+    letter-spacing:.4px;
+    text-shadow:0 2px 8px #4e0c9166;
+  }
+  body:has(#start) .hero-play small{
+    font-size:12px;line-height:1.15;
+    letter-spacing:0;
+    font-weight:530;
+    margin-top:7px;
+    text-shadow:none;
+  }
+  body:has(#start) .content{gap:22px}
+  body:has(#start) #funkcje{padding-top:8px}
+  .announcement{
+    white-space:nowrap;
+    min-height:33px;
+    font-size:10px;
+    padding:6px 9px;
+    gap:6px;
+    overflow:hidden;
+  }
+  .announcement a{white-space:nowrap}
+}
+@media(max-width:370px){
+  body:has(#start) .hero{height:655px;min-height:655px}
+  body:has(#start) .selector-group{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body:has(#start) .select-tile{padding:9px 8px;min-height:75px}
+  body:has(#start) .select-tile span{font-size:11px}
+  body:has(#start) .select-tile select{font-size:15px}
+  body:has(#start) .hero-main h1{font-size:20px;top:44%}
+  body:has(#start) .hero-main p{top:60%;font-size:12px}
+}
+/* Android browser "Desktop site" mode: retain the intended composition
+   even when the reported CSS viewport becomes wider than the physical phone. */
+body.force-mobile:has(#start) .layout{padding-top:0;max-width:670px}
+body.force-mobile:has(#start) .workspace{gap:0}
+body.force-mobile:has(#start) .mobilebar{
+  margin:10px 0 0;height:76px;min-height:76px;
+  border-radius:17px 17px 0 0;border-color:#624579;
+  background:#10112bec;
+}
+body.force-mobile:has(#start) .hero{
+  margin-top:-1px;height:735px;min-height:735px;
+  border-radius:0 0 19px 19px;
+  border-color:#76518f;
+}
+body.force-mobile:has(#start) .hero:before{
+  background:linear-gradient(180deg,#07051b7a 0%,#08031e4d 35%,#08051c9c 58%,#070719d8 85%);
+}
+body.force-mobile:has(#start) .hero-main{display:block;position:relative;height:100%;padding:0 20px}
+body.force-mobile:has(#start) .hero-main>img{
+  position:absolute;top:12%;left:50%;transform:translateX(-50%);
+  width:70%;height:170px;object-fit:contain;
+}
+body.force-mobile:has(#start) .hero-main h1{
+  position:absolute;top:45%;left:20px;right:20px;margin:0;
+  text-align:center;font-size:31px;line-height:1.18;
+}
+body.force-mobile:has(#start) .hero-title-lead,
+body.force-mobile:has(#start) .hero-title-main,
+body.force-mobile:has(#start) .hero-title-accent{display:block}
+body.force-mobile:has(#start) .hero-main p{
+  position:absolute;top:62%;left:20px;right:20px;max-width:490px;
+  margin:0 auto;text-align:center;font-size:17px;line-height:1.5;
+}
+body.force-mobile:has(#start) .hero-controls{
+  position:absolute;left:17px;right:17px;bottom:17px;
+  display:flex;flex-direction:column;gap:12px
+}
+body.force-mobile:has(#start) .selector-group{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+body.force-mobile:has(#start) .select-tile{border-color:#9959d3;min-height:88px;background:#0d102ae8}
+body.force-mobile:has(#start) .hero-play{min-height:91px;background:linear-gradient(120deg,#bd3cf6,#731bd4);border-color:#e0a9ff}
