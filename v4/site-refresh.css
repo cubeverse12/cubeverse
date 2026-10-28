@@ -1,0 +1,146 @@
+/* MINEVORA WEB — odświeżenie publicznej strony, październik 2026.
+   Zmienia wyłącznie /v4/; launcher Qt pozostaje nienaruszony. */
+[hidden]{display:none!important}
+body.mv-site-refresh{
+  --mv-bg:#070a19;--mv-surface:#10152d;--mv-line:#453866;
+  font-family:"Segoe UI Variable","Segoe UI",Inter,system-ui,-apple-system,Arial,sans-serif;
+  background:radial-gradient(ellipse at 75% -30%,#26144b 0%,transparent 50%),var(--mv-bg);
+  color:#f9f5ff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+body.mv-site-refresh .design-note{font-size:12px;line-height:1.6;border-bottom-color:#403057}
+body.mv-site-refresh .shell{
+  max-width:1800px;margin:0 auto;min-height:calc(100vh - 46px);
+  padding:14px;gap:13px;display:grid;
+  grid-template-columns:clamp(205px,17vw,250px) minmax(0,1fr);
+  grid-template-rows:62px minmax(0,1fr);
+  background:transparent;
+}
+body.mv-site-refresh .sidebar{
+  grid-row:1 / 3;grid-column:1;background:#0c1025;
+  border:1px solid #40335f;border-radius:15px;padding:16px 12px;
+}
+body.mv-site-refresh .brand{height:114px}
+body.mv-site-refresh .brand img{max-height:96px;image-rendering:auto}
+body.mv-site-refresh .menu a{font-size:14px;line-height:1.35;font-weight:650;min-height:46px}
+body.mv-site-refresh .plusmini,
+body.mv-site-refresh .right,
+body.mv-site-refresh .cards,
+body.mv-site-refresh .hero-bottom .install,
+body.mv-site-refresh .hero-bottom .options,
+body.mv-site-refresh > #pobierz,
+body.mv-site-refresh > #poradnik{display:none!important}
+body.mv-site-refresh .topbar{
+  grid-column:2;grid-row:1;border:1px solid #373052;
+  border-radius:12px;background:#0b1025;padding:0 12px;min-width:0
+}
+body.mv-site-refresh .tabs a{font-size:13px;line-height:1.25;font-weight:680;padding:19px 13px}
+body.mv-site-refresh .middle{grid-column:2;grid-row:2;min-width:0;gap:0}
+body.mv-site-refresh .hero{
+  height:clamp(510px,76vh,810px);min-height:510px;
+  background-image:url("../assets/website-photos-20261027/home-hero.webp")!important;
+  background-color:#151331;background-position:center 48%;background-size:cover;
+  border-radius:18px;border:1px solid #63518d;box-shadow:0 20px 70px #02020b77;
+}
+body.mv-site-refresh .hero:before{
+  background:linear-gradient(180deg,#060a1c44 0%,#090d270e 32%,#07091c7a 72%,#080b1fe8 100%)
+}
+body.mv-site-refresh .hero-logo{top:clamp(35px,8vh,100px)}
+body.mv-site-refresh .hero-logo img{
+  width:min(78%,680px);max-height:250px;image-rendering:auto;
+  filter:drop-shadow(0 6px 26px #160429bc)
+}
+body.mv-site-refresh .hero-logo small{
+  font-size:clamp(12px,1.2vw,17px);letter-spacing:clamp(2px,.45vw,5px);
+  color:#fbf7ff;text-shadow:0 3px 13px #000
+}
+body.mv-site-refresh .hero-bottom{display:flex;justify-content:center;align-items:center;bottom:clamp(34px,7vh,80px)}
+body.mv-site-refresh .play{
+  min-height:74px;min-width:min(360px,90%);padding:13px 34px;
+  border-radius:15px;box-shadow:0 0 30px #9d30f377,0 15px 35px #05020d88;
+}
+body.mv-site-refresh .play strong{font-size:clamp(25px,3vw,35px);font-weight:850;letter-spacing:.5px}
+body.mv-site-refresh .play small{font-size:12px;font-weight:620;color:#fff4ff}
+body.mv-site-refresh .play .tri{font-size:31px}
+body.mv-site-refresh .mv-route-view{
+  width:100%;padding:clamp(18px,3vw,38px);min-height:560px;
+  border:1px solid #43335f;border-radius:18px;
+  background:linear-gradient(160deg,#11162d,#0a0e21 72%);
+  box-shadow:0 19px 60px #0005;
+}
+.mv-route-kicker{font-size:11px;letter-spacing:2px;font-weight:850;color:#d3a4ff;text-transform:uppercase}
+.mv-route-view h1{font-weight:850;font-size:clamp(29px,4.2vw,50px);line-height:1.12;letter-spacing:-.7px;margin:11px 0}
+.mv-route-intro{color:#cbc5df;font-size:clamp(14px,1.22vw,17px);line-height:1.7;max-width:780px;margin:0 0 24px}
+.mv-route-hero{
+  display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);align-items:center;
+  gap:clamp(15px,3vw,32px);padding:16px;border:1px solid #443365;
+  background:radial-gradient(ellipse at 65% 30%,#38216279,transparent 75%),#0b1025;
+  border-radius:16px;margin:0 0 23px;
+}
+.mv-route-hero .mv-photo{min-height:200px;max-height:400px}
+.mv-photo{
+  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse at center,#332553 0%,#11142b 75%);border:1px solid #51417d;
+  border-radius:13px;min-height:180px;line-height:0
+}
+.mv-photo img{
+  display:block;width:100%;height:100%;max-height:400px;object-fit:contain;
+  object-position:center;image-rendering:auto;filter:none;transition:transform .2s ease
+}
+.mv-photo:hover img{transform:scale(1.02)}
+.mv-photo.is-missing img{display:none}
+.mv-photo.is-missing:after{content:"Podgląd niedostępny";font-size:14px;line-height:1.4;color:#d5c7eb;padding:28px}
+.mv-route-hero h2{font-size:clamp(21px,2.4vw,30px);line-height:1.25;margin:0 0 12px}
+.mv-route-hero p{font-size:14px;line-height:1.75;color:#cdc5e1;margin:0 0 17px}
+.mv-tag{display:inline-flex;align-items:center;gap:7px;border:1px solid #70549b;background:#271a49;
+  color:#e5caff;font-size:11px;font-weight:780;letter-spacing:.3px;padding:8px 11px;border-radius:100px;margin:0 0 13px}
+.mv-gallery-title{font-size:21px;line-height:1.3;margin:15px 0;color:#f4eaff}
+.mv-shot-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.mv-shot{min-width:0;display:flex;flex-direction:column;overflow:hidden;background:#111630;border:1px solid #4d3e70;border-radius:14px}
+.mv-shot .mv-photo{height:190px;min-height:0;border:0;border-bottom:1px solid #483762;border-radius:12px 12px 0 0}
+.mv-shot .mv-photo img{max-height:none;object-fit:contain}
+.mv-shot-body{padding:16px 16px 18px;flex:1}
+.mv-shot-body h3{font-size:16px;line-height:1.4;margin:0 0 6px;color:#fbf6ff}
+.mv-shot-body p{font-size:13px;line-height:1.55;color:#c9c3da;margin:0}
+.mv-action-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:23px}
+.mv-action{
+ display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;
+ font-size:14px;font-weight:790;line-height:1.4;text-align:center;
+ background:linear-gradient(115deg,#a530ed,#6521ca);color:white;border:1px solid #c783f7;border-radius:10px
+}
+.mv-action.secondary{background:#171831;border-color:#6c538f;color:#e7d6fc}
+.mv-action:hover,.mv-action:focus-visible{filter:brightness(1.14)}
+.mv-route-fineprint{font-size:12px;line-height:1.65;color:#aaa3c4;margin:18px 0 0}
+@media(max-width:1050px){
+ body.mv-site-refresh .shell{grid-template-columns:190px minmax(0,1fr)}
+ body.mv-site-refresh .tabs a{font-size:12px;padding:18px 9px}
+ .mv-shot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .mv-route-hero{grid-template-columns:1fr}
+ .mv-route-hero .mv-photo{max-height:360px}
+}
+@media(max-width:720px){
+ body.mv-site-refresh .shell{display:block;padding:8px}
+ body.mv-site-refresh .sidebar{display:none}
+ body.mv-site-refresh .topbar{display:flex;margin-bottom:10px;width:100%;height:56px}
+ body.mv-site-refresh .tabs{overflow-x:auto;scrollbar-width:thin;max-width:100%;width:100%}
+ body.mv-site-refresh .tabs a{padding:16px 12px;font-size:13px;flex:0 0 auto}
+ body.mv-site-refresh .middle{display:block}
+ body.mv-site-refresh .hero{height:min(74vh,620px);min-height:460px;background-position:55% 50%}
+ body.mv-site-refresh .hero-logo{top:40px}
+ body.mv-site-refresh .hero-logo img{width:90%;max-height:190px}
+ body.mv-site-refresh .hero-bottom{bottom:30px;left:12px;right:12px}
+ body.mv-site-refresh .play{min-width:min(340px,100%);min-height:66px}
+ body.mv-site-refresh .mv-route-view{padding:19px 13px;border-radius:14px;min-height:400px}
+ .mv-route-hero{padding:10px;gap:16px}
+ .mv-shot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .mv-shot .mv-photo{height:145px}
+ .mv-shot-body{padding:12px}
+ .mv-shot-body h3{font-size:14px}
+ .mv-shot-body p{font-size:12px}
+}
+@media(max-width:450px){
+ .mv-shot-grid{grid-template-columns:1fr}
+ .mv-shot .mv-photo{height:200px}
+ body.mv-site-refresh .hero{min-height:460px}
+ body.mv-site-refresh .hero-logo small{white-space:normal;text-align:center;padding:0 12px}
+}
+@media(prefers-reduced-motion:reduce){.mv-photo img{transition:none!important}.mv-photo:hover img{transform:none}}
