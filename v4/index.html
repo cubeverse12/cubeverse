@@ -1,230 +1,64 @@
 <!doctype html>
-<html lang="pl">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080e18">
-  <meta name="robots" content="index,follow">
-  <title>MINEVORA — Launcher Minecraft Java na Windows</title>
-  <meta name="description" content="MINEVORA — launcher Minecraft Java. Poznaj profile, mody, PvP HUD, Skin Studio i rankingi. Pobierz publiczne wydanie Windows 18.3.7 z GitHub.">
-  <link rel="canonical" href="https://minevora.pl/v4/">
-  <link rel="icon" type="image/webp" sizes="96x96" href="./assets/minevora-icon-20261028.webp">
-  <link rel="apple-touch-icon" href="./assets/minevora-icon-20261028.webp">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://minevora.pl/v4/">
-  <meta property="og:title" content="MINEVORA — Twój Minecraft, Twoje zasady">
-  <meta property="og:description" content="Launcher Minecraft Java na Windows. Mody, PvP HUD, Skin Studio i więcej.">
-  <meta property="og:image" content="https://minevora.pl/assets/launcher-18-3-7/start.svg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="MINEVORA — Launcher Minecraft Java">
-  <meta name="twitter:description" content="Odkryj nowy wygląd MINEVORA i pobierz wydanie Windows.">
-  <meta name="twitter:image" content="https://minevora.pl/assets/site-hd/website-photos-20261027-home-hero-1280.webp">
-  <link rel="preload" as="image" href="../assets/launcher-18-3-7/start.svg" fetchpriority="high">
-  <style id="minevora-brand-20261028">
-    .navbar .logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
-    .navbar .logo img.brand-icon{width:48px;height:48px;max-width:48px;object-fit:cover;border-radius:13px;flex-shrink:0;filter:drop-shadow(0 0 11px #7b47ff88)}
-    .brand-wordmark{font-family:inherit;font-size:clamp(17px,1.6vw,22px);font-weight:900;letter-spacing:.045em;line-height:1;color:#e3faff;text-shadow:0 0 18px #00d8ff55}
-    .footer-brand .brand-identity{display:flex;align-items:center;gap:12px}
-    .footer-brand img.brand-icon{width:54px;height:54px;object-fit:cover;border-radius:14px;filter:drop-shadow(0 0 11px #7b47ff88)}
-    @media(max-width:600px){.navbar .logo img.brand-icon{width:36px;height:36px;max-width:36px;border-radius:10px}.navbar .logo .brand-wordmark{font-size:14px;letter-spacing:.01em}}
-  </style>
-  <link rel="stylesheet" href="./modern.css">
-  <script src="./modern.js" defer></script>
-</head>
-<body>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d1b">
+<meta name="description" content="MINEVORA 19.0.3: launcher Minecraft Java na Windows. Nowy interfejs w neonowym stylu, profile, mody, PvP i funkcje dodatkowe.">
+<meta property="og:type" content="website"><meta property="og:title" content="MINEVORA — Twój Minecraft. Twoje zasady.">
+<meta property="og:description" content="Nowy projekt MINEVORA 19.0.3 z prawdziwymi kontrolkami Qt, profilami Minecraft i modami.">
+<meta property="og:image" content="https://minevora.pl/v4/assets/minevora-icon-20261028.webp">
+<link rel="canonical" href="https://minevora.pl/v4/">
+<link rel="icon" href="./assets/minevora-icon-20261028.webp" type="image/webp"><link rel="apple-touch-icon" href="./assets/minevora-icon-20261028.webp">
+<link rel="stylesheet" href="./unified-19-0-3.css">
+<script defer src="./unified-19-0-3.js"></script>
+<title>MINEVORA 19.0.3 — Launcher Minecraft Java</title>
+</head><body>
 <a href="#main" class="skip">Przejdź do treści</a>
-<div class="promo">
-  MINEVORA 18.3.7 · Nowy ekran startowy i jednolity interfejs.
-  <a href="#pobierz">Zobacz wydanie Windows →</a>
-</div>
-<header class="nav-wrap">
-  <div class="wrapper navbar">
-    <a class="logo" href="#start" aria-label="MINEVORA — Strona główna">
-      <img class="brand-icon" src="./assets/minevora-icon-20261028.webp" width="48" height="48" alt="" decoding="async"><span class="brand-wordmark">MINEVORA</span>
-    </a>
-    <nav class="links" id="siteNav" aria-label="Nawigacja główna">
-      <a href="#launcher">Launcher</a>
-      <a href="#funkcje">Funkcje</a>
-      <a href="#mody">Mody</a>
-      <a href="#pvp">PvP</a>
-      <a href="#studio">Skin Studio</a>
-      <a href="./poradnik/">Poradnik</a>
-    </nav>
-    <div class="nav-actions">
-      <a class="btn" href="#pobierz">Pobierz <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v13m-5-5 5 5 5-5M5 20h14"/></svg></a>
-      <button id="navToggle" class="nav-toggle" type="button" aria-label="Otwórz menu" aria-controls="siteNav" aria-expanded="false">
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.3"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-  </div>
-</header>
+<div class="ambient ambient-a" aria-hidden="true"></div><div class="ambient ambient-b" aria-hidden="true"></div>
+<header class="header"><div class="nav-shell container">
+ <a href="#start" class="brand" aria-label="MINEVORA — strona główna"><img src="./assets/minevora-icon-20261028.webp" width="46" height="46" alt=""><strong>MINEVORA</strong></a>
+ <button class="menu-button" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav">☰ <span>Menu</span></button>
+ <nav id="mainNav" class="main-nav" aria-label="Menu główne"><a href="#start" class="active" aria-current="location">Start</a><a href="#graj" >Graj</a><a href="#mody" >Mody</a><a href="#pvp" >PvP</a><a href="#spolecznosc" >Społeczność</a><a href="#wiecej" >Więcej</a></nav>
+ <a class="button button-small download-header" href="https://github.com/cubeverse12/minevora-launcher/releases" target="_blank" rel="noopener noreferrer">Wydania GitHub <span aria-hidden="true">↗</span></a>
+</div></header>
 <main id="main">
-  <section class="hero" id="start" aria-labelledby="heroTitle">
-    <div class="wrapper hero-layout">
-      <div class="hero-copy">
-        <span class="eyebrow">Nowa odsłona MINEVORA / Windows</span>
-        <h1 id="heroTitle">Twój Minecraft.<em>Twoje zasady.</em></h1>
-        <p class="hero-lede">Profile Minecraft Java, mody i własny styl gry w jednym launcherze. Poznaj MINEVORA — aplikację rozwijaną z myślą o wygodnym starcie w świat Minecrafta.</p>
-        <div class="hero-buttons">
-          <a href="#pobierz" class="btn">
-            Pobierz launcher
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v13m-5-5 5 5 5-5M5 20h14"/></svg>
-          </a>
-          <a href="#funkcje" class="btn btn-outline">Poznaj funkcje</a>
-        </div>
-        <div class="hero-trust">
-          <span>Minecraft Java</span>
-          <span>Wydanie Windows</span>
-          <span>Wersja 18.3.7</span>
-        </div>
-      </div>
-      <div class="preview-area">
-        <div class="preview-shell">
-          <div class="preview-chrome">
-            <i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i>
-            <span>MINEVORA / LAUNCHER</span>
-          </div>
-          <img src="../assets/launcher-18-3-7/start.svg" width="1600" height="900" alt="Spójna wizualizacja ekranu startowego MINEVORA Launcher 18.3.7 — menu i najważniejsze funkcje" fetchpriority="high">
-          <div class="preview-label"><span>Podgląd projektu interfejsu</span><strong>18.3.7</strong></div>
-        </div>
-        <div class="mini-floating">✦ Twój własny styl gry</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-dark" id="launcher" aria-labelledby="launcherHeading">
-    <div class="wrapper">
-      <header class="section-head">
-        <span class="eyebrow">01 / Launcher</span>
-        <h2 id="launcherHeading">Jedno miejsce.<br>Wiele możliwości.</h2>
-        <p>Nowy interfejs MINEVORA porządkuje to, z czego naprawdę korzystasz — profile Minecrafta, dodatki i szybki dostęp do gry. Pozostałe funkcje są dostępne w aplikacji Windows.</p>
-      </header>
-      <div class="bento">
-        <article class="bento-card">
-          <div class="bento-image">
-            <img src="../assets/launcher-18-3-7/versions.svg" width="1600" height="900" loading="lazy" alt="Wizualizacja panelu wersji i profili MINEVORA 18.3.7">
-          </div>
-          <div class="bento-body">
-            <span class="bento-label">Profile i wersje</span>
-            <h3>Wybieraj swój sposób gry.</h3>
-            <p>Obsługuj zainstalowane profile Minecraft Java i przełączaj się między przygotowanymi konfiguracjami. Zależność loadera od wersji gry nadal ma znaczenie.</p>
-          </div>
-        </article>
-        <article class="bento-card">
-          <div class="bento-image">
-            <img src="../assets/launcher-18-3-7/help.svg" width="1600" height="900" loading="lazy" alt="Wizualizacja poradnika uruchamiania MINEVORA 18.3.7">
-          </div>
-          <div class="bento-body">
-            <span class="bento-label">Prosty start</span>
-            <h3>Mniej szukania. Więcej grania.</h3>
-            <p>Pobieranie, konfiguracja profilu i uruchomienie gry w przejrzystym układzie. Instrukcja instalacji jest dostępna w osobnym poradniku.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-alt" id="funkcje" aria-labelledby="featuresHeading">
-    <div class="wrapper">
-      <header class="section-head">
-        <span class="eyebrow">02 / Funkcje</span>
-        <h2 id="featuresHeading">Dopasuj MINEVORA<br>do siebie.</h2>
-        <p>Najważniejsze obszary projektu bez zbędnych zakładek. Wybierz kartę, aby obejrzeć ilustrację funkcji w tym samym stylu interfejsu.</p>
-      </header>
-      <div class="feature-tabs" role="tablist" aria-label="Funkcje MINEVORA">
-        <button class="feature-tab active" id="mody" type="button" role="tab" aria-controls="featurePanel" aria-selected="true" tabindex="0" data-feature="mody">
-          <span class="tab-index">01 / DODATKI</span><b>Mody i dodatki</b><small>Twoja biblioteka</small>
-        </button>
-        <button class="feature-tab" id="pvp" type="button" role="tab" aria-controls="featurePanel" aria-selected="false" tabindex="-1" data-feature="pvp">
-          <span class="tab-index">02 / HUD</span><b>PvP Mode</b><small>Interfejs walki</small>
-        </button>
-        <button class="feature-tab" id="studio" type="button" role="tab" aria-controls="featurePanel" aria-selected="false" tabindex="-1" data-feature="studio">
-          <span class="tab-index">03 / POSTAĆ</span><b>Skin Studio</b><small>Wygląd postaci</small>
-        </button>
-        <button class="feature-tab" id="ranking" type="button" role="tab" aria-controls="featurePanel" aria-selected="false" tabindex="-1" data-feature="ranking">
-          <span class="tab-index">04 / POSTĘP</span><b>Rankingi</b><small>Rangi i statystyki</small>
-        </button>
-      </div>
-      <div class="feature-stage" id="featurePanel" role="tabpanel" aria-labelledby="mody" tabindex="0">
-        <div class="stage-copy">
-          <span class="tag" id="featureTag">01 / MODY</span>
-          <h3 id="featureName">Mody, które pasują do Twojej gry.</h3>
-          <p id="featureDescription">Przeglądaj koncepcję katalogu dodatków i zarządzania modyfikacjami. Przy instalacji sprawdzaj zgodność moda z wersją Minecrafta oraz wybranym loaderem.</p>
-          <a class="btn btn-outline" href="#pobierz">Otwórz w launcherze →</a>
-        </div>
-        <div class="stage-visual">
-          <img id="featureImage" src="../assets/launcher-18-3-7/mods.svg" width="1600" height="900" alt="Wizualizacja katalogu modów MINEVORA 18.3.7" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-dark" aria-labelledby="stepsHeading">
-    <div class="wrapper">
-      <header class="section-head">
-        <span class="eyebrow">03 / Pierwsze kroki</span>
-        <h2 id="stepsHeading">Od pobrania do gry.</h2>
-        <p>Trzy etapy rozpoczęcia korzystania z MINEVORA. W razie błędu skorzystaj z poradnika zamiast wyłączać zabezpieczenia systemu.</p>
-      </header>
-      <div class="steps">
-        <article class="step"><span class="step-num">01 / POBIERZ</span><h3>Wybierz wydanie.</h3><p>Otwórz publiczne wydanie MINEVORA na GitHub i pobierz archiwum ZIP przygotowane dla Windows.</p></article>
-        <article class="step"><span class="step-num">02 / SKONFIGURUJ</span><h3>Przygotuj profil.</h3><p>Po sprawdzeniu plików skonfiguruj wersję Minecrafta i zgodny loader wewnątrz launchera.</p></article>
-        <article class="step"><span class="step-num">03 / GRAJ</span><h3>Uruchom Minecrafta.</h3><p>Gra uruchamia się w aplikacji Windows. Do pełnej wersji Java Edition wymagane jest uprawnienie do gry na koncie Microsoft.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="download-section" id="pobierz" aria-labelledby="downloadHeading">
-    <div class="wrapper">
-      <div class="download-card">
-        <div>
-          <span class="eyebrow">04 / Pobierz MINEVORA</span>
-          <h2 id="downloadHeading">Gotowy na swój<br>następny świat?</h2>
-          <p>Publiczne wydanie <strong>MINEVORA Launcher 18.3.7</strong> dla Windows. Pobierzesz je z repozytorium GitHub jako archiwum ZIP. Nie przedstawiamy go jako instalatora EXE ani wydania na inne systemy.</p>
-          <div class="download-actions">
-            <a class="btn" href="https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.7" target="_blank" rel="noopener noreferrer">Pobierz na Windows <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v13m-5-5 5 5 5-5M5 20h14"/></svg></a>
-            <a class="btn btn-outline" href="./poradnik/">Instrukcja instalacji</a>
-          </div>
-          <p class="download-note">Archiwum ZIP · Wersja 18.3.7 · <a href="https://github.com/cubeverse12/minevora-launcher/releases/download/v18.3.7/MINEVORA_LAUNCHER_18_3_7_NEON_DESKTOP.zip.sha256" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;text-underline-offset:3px;color:#b0f0e0">Sprawdź SHA-256</a></p>
-          <p class="download-note">MINEVORA jest niezależnym launcherem. Nie wyłączaj Windows Defendera ani Smart App Control podczas instalacji niezweryfikowanych plików.</p>
-        </div>
-        <aside class="os-card" aria-label="Platforma i wersja">
-          <svg viewBox="0 0 48 48" aria-hidden="true" fill="currentColor"><path d="M4 10 21 7v16H4zm20-3L44 4v19H24zM4 26h17v16L4 39zm20 0h20v19l-20-3z"/></svg>
-          <strong>Windows</strong>
-          <span>Wersja 18.3.7<br>Plik ZIP<br>Minecraft Java Edition</span>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <aside class="wrapper guide-band">
-    <div>
-      <h2>Potrzebujesz pomocy z instalacją?</h2>
-      <p>Poradnik i FAQ: Java, Exit Code 1, problemy z uruchomieniem, RAM i bezpieczeństwo.</p>
-    </div>
-    <a class="btn btn-outline" href="./poradnik/">Otwórz poradnik →</a>
-  </aside>
-</main>
-<footer class="site-footer">
-  <div class="wrapper">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="brand-identity"><img class="brand-icon" src="./assets/minevora-icon-20261028.webp" alt="" width="54" height="54" loading="lazy"><span class="brand-wordmark">MINEVORA</span></div>
-        <p>Niezależny projekt launchera Minecraft Java.<br>Nie jest zatwierdzony przez Mojang Studios ani Microsoft. Minecraft jest znakiem towarowym Mojang AB.</p>
-      </div>
-      <nav class="footer-links" aria-label="Linki stopki">
-        <a href="#start">Start</a>
-        <a href="#funkcje">Funkcje</a>
-        <a href="#pobierz">Pobierz</a>
-        <a href="./poradnik/">Poradnik</a>
-        <a href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer">Discord</a>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <span>© MINEVORA 2026 · Projekt strony 5.0</span>
-      <span>Wizualizacje funkcji mają charakter poglądowy, nie są zdjęciami działającego programu.</span>
-    </div>
+<section class="hero container" id="start" aria-labelledby="heroTitle">
+  <div class="hero-copy"><p class="eyebrow"><span class="pulse-dot"></span> MINEVORA / NOWA ODSŁONA 19.0.3</p>
+  <h1 id="heroTitle">Twój Minecraft.<br><span class="gradient-text">Twoje zasady.</span></h1>
+  <p class="hero-description">Proste sterowanie. Pełna kontrola. Profile Minecraft Java, instalacje wersji i mody w jednym launcherze — teraz z odświeżonymi ikonami i czytelnym menu.</p>
+  <div class="actions"><a class="button button-main" href="#graj">Poznaj launcher <span aria-hidden="true">→</span></a><a class="button button-alt" href="https://github.com/cubeverse12/minevora-launcher/releases" target="_blank" rel="noopener noreferrer">Sprawdź publiczne wydania <span aria-hidden="true">↗</span></a></div>
+  <div class="tags" aria-label="Informacje"><span>Windows 11</span><span>Minecraft Java</span><span>Projekt 19.0.3</span></div>
   </div>
-</footer>
-</body>
-</html>
+  <div class="visual" aria-label="Interaktywny, poglądowy widok launchera 19.0.3">
+  <div class="orbit" aria-hidden="true"><div class="orbit-a"></div><div class="orbit-b"></div><div class="orbit-center">◆</div></div>
+  <div class="app-frame"><div class="app-bar"><span class="dots"><i></i><i></i><i></i></span><span>MINEVORA / LAUNCHER</span><span>19.0.3</span></div>
+   <div class="app-content"><aside class="app-side"><div class="app-brand"><img src="./assets/minevora-icon-20261028.webp" width="30" height="30" alt=""><b>MINEVORA</b></div><span class="app-menu-label">MENU</span><div class="pv-navs"><button class="pv-nav sel" type="button" data-tab="Start" aria-pressed="true"><span aria-hidden="true">⌂</span>Start</button><button class="pv-nav " type="button" data-tab="Graj" aria-pressed="false"><span aria-hidden="true">▶</span>Graj</button><button class="pv-nav " type="button" data-tab="Mody" aria-pressed="false"><span aria-hidden="true">⬡</span>Mody</button><button class="pv-nav " type="button" data-tab="PvP" aria-pressed="false"><span aria-hidden="true">⚔</span>PvP</button><button class="pv-nav " type="button" data-tab="Społeczność" aria-pressed="false"><span aria-hidden="true">◎</span>Społeczność</button><button class="pv-nav " type="button" data-tab="Więcej" aria-pressed="false"><span aria-hidden="true">☷</span>Więcej</button></div></aside>
+   <div class="app-main" id="appMain" aria-live="polite">
+    <p class="app-kicker">✦ MINEVORA / NOWY WYGLĄD</p><h2>Twój Minecraft.<span>Twoje zasady.</span></h2><p>Proste sterowanie. Pełna kontrola.</p>
+    <div class="app-glow" aria-hidden="true"><div class="diamond"></div></div>
+    <span class="fake-play">▶ GRAJ</span>
+    <div class="app-mini"><span>⬡ <b>Mody i dodatki</b></span><span>⚔ <b>PvP Mode</b></span></div>
+   </div></div><div class="app-bottom"><span>◉ PODGLĄD INTERFEJSU</span><span>PROJEKT 19.0.3</span></div>
+  </div></div>
+</section>
+<section class="section container" id="graj">
+ <div class="section-heading"><p class="eyebrow">01 / LAUNCHER</p><h2>Jedno miejsce. <span class="gradient-text">Wiele możliwości.</span></h2><p>GRAJ otwiera w aplikacji wybór wersji, profil i instalację. Status konta Microsoft, Javy i gry jest odczytywany lokalnie — strona internetowa nie udaje takiego połączenia.</p></div>
+ <div class="feature-grid"><a class="feature" href="#mody"><span class="feature-icon" aria-hidden="true">⬡</span><span class="meta">01 / DODATKI</span><h3>Mody i dodatki</h3><p>Import lokalnych plików JAR i zarządzanie profilami.</p><span class="go">Zobacz szczegóły <b aria-hidden="true">↗</b></span></a><a class="feature" href="#pvp"><span class="feature-icon" aria-hidden="true">⚔</span><span class="meta">02 / PVP</span><h3>PvP Mode</h3><p>Ustawienia HUD; integracja z grą w przygotowaniu.</p><span class="go">Zobacz szczegóły <b aria-hidden="true">↗</b></span></a><a class="feature" href="#wiecej"><span class="feature-icon" aria-hidden="true">◈</span><span class="meta">03 / SKIN STUDIO</span><h3>Edytor skina 2D</h3><p>Odczyt i edycja lokalnych skinów PNG 64×64.</p><span class="go">Zobacz szczegóły <b aria-hidden="true">↗</b></span></a><a class="feature" href="#graj"><span class="feature-icon" aria-hidden="true">▦</span><span class="meta">04 / PROFILE</span><h3>Profile Minecraft</h3><p>Zapisane konfiguracje, wersje i loadery.</p><span class="go">Zobacz szczegóły <b aria-hidden="true">↗</b></span></a></div>
+</section>
+<section class="section container" id="mody"><div class="split-panel">
+  <div><p class="eyebrow">02 / MODY</p><h2>Twoja gra.<br><span class="gradient-text">Twoje dodatki.</span></h2><p>Oddzielne profile Vanilla, Fabric, Forge, NeoForge i Quilt. Podstawowy import modów JAR i kontrola zgodności w aplikacji Windows.</p><div class="pills"><span>Vanilla</span><span>Fabric</span><span>Forge</span><span>NeoForge</span><span>Quilt</span></div><small class="ready">Podstawowy import JAR dostępny</small></div>
+  <div class="schematic"><div class="schematic-head"><span>⬡ MOD MANAGER</span><span>LOCAL</span></div><h3>Mody i dodatki</h3><div class="schematic-search">Szukaj lub importuj mod JAR...</div><div class="schematic-item"><span>◇</span><div><b>Profil Minecraft</b><small>Wersja i loader</small></div><em>GOTOWE</em></div><div class="schematic-item"><span>▣</span><div><b>Import JAR</b><small>Sprawdź zgodność</small></div><em>IMPORT</em></div><div class="schematic-item"><span>◈</span><div><b>Zależności</b><small>Pełna weryfikacja modów</small></div><em>WKRÓTCE</em></div></div>
+ </div></section>
+<section class="section container" id="pvp"><div class="split-panel">
+ <div><p class="eyebrow">03 / PVP</p><h2>Ustawienia <span class="gradient-text">PvP Mode.</span></h2><p>Zapisuj lokalne ustawienia HUD. Automatyczne wyświetlanie HUD podczas gry i obsługa wszystkich wersji Minecrafta pozostają w przygotowaniu.</p><small class="soon">Integracja HUD z grą: w przygotowaniu</small></div>
+ <div class="hud"><span class="hud-label">PVP HUD / PODGLĄD</span><div class="wasd"><span>W</span><div><span>A</span><span>S</span><span>D</span></div></div><div class="hud-stats"><span>FPS —</span><span>CPS —</span><span>PING —</span></div><small>Podgląd — nie pokazuje danych z gry</small></div>
+</div></section>
+<section class="section container" id="spolecznosc"><div class="community"><div><p class="eyebrow">04 / SPOŁECZNOŚĆ</p><h2>Twórz MINEVORA <span class="gradient-text">razem z graczami.</span></h2><p>Aktualności, sugestie, ogłoszenia i kontakt ze społecznością na Discordzie.</p><a class="button button-main" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer">Otwórz Discord ↗</a></div><div class="community-mark" aria-hidden="true">◎<span>✦</span></div></div></section>
+<section class="section container" id="wiecej"><div class="section-heading"><p class="eyebrow">05 / WIĘCEJ</p><h2>Starsze funkcje. <span class="gradient-text">Odświeżony wygląd.</span></h2><p>Funkcje usunięte z głównego menu znajdują się w aplikacji w „Więcej”. Funkcje online nie są oznaczone jako działające, dopóki nie mają integracji.</p></div>
+ <div class="extras-grid"><article class="extra-card"><span class="extra-symbol" aria-hidden="true">▤</span><div><h3>Moje statystyki</h3><p>Licznik uruchomień i dane lokalne.</p><small class="ready">Lokalnie</small></div></article><article class="extra-card"><span class="extra-symbol" aria-hidden="true">◈</span><div><h3>Skin Studio</h3><p>Edytor skinów PNG 64×64, bez 3D.</p><small class="ready">Dostępne 2D</small></div></article><article class="extra-card"><span class="extra-symbol" aria-hidden="true">▣</span><div><h3>Minigry</h3><p>Katalog planowanych trybów serwera.</p><small class="soon">W przygotowaniu</small></div></article><article class="extra-card"><span class="extra-symbol" aria-hidden="true">☷</span><div><h3>Together</h3><p>Integracja gry ze znajomymi.</p><small class="soon">W przygotowaniu</small></div></article><article class="extra-card"><span class="extra-symbol" aria-hidden="true">◇</span><div><h3>Marketplace</h3><p>Sklep i płatności.</p><small class="soon">W przygotowaniu</small></div></article><article class="extra-card"><span class="extra-symbol" aria-hidden="true">⚙</span><div><h3>Diagnostyka</h3><p>Stan Pythona, Javy i plików.</p><small class="ready">Dostępne</small></div></article></div>
+ <div class="steps"><div><b>01</b><h3>Pobierz kod</h3><p>Sprawdź dostępne wydania na GitHub albo pobierz aktualną paczkę źródłową z rozmowy projektu.</p></div><div><b>02</b><h3>Uruchom Windows</h3><p>Rozpakuj ZIP i uruchom <code>START_MINEVORA.bat</code>.</p></div><div><b>03</b><h3>Wybierz profil</h3><p>Skonfiguruj Java, wersję gry i oficjalne konto Microsoft.</p></div></div>
+ <div class="actions middle"><a class="button button-main" href="./poradnik/">Poradnik instalacji →</a><a class="button button-alt" href="https://github.com/cubeverse12/minevora-launcher/releases" target="_blank" rel="noopener noreferrer">Publiczne wydania ↗</a></div>
+ <p class="download-note">Uwaga: publiczna strona GitHub Releases może zawierać starsze wydanie niż projekt 19.0.3. Ta strona opisuje najnowszy projekt źródłowy; nie jest instalatorem Minecrafta.</p>
+</section>
+</main>
+<footer class="footer"><div class="container footer-inner"><a href="#start" class="brand"><img src="./assets/minevora-icon-20261028.webp" width="42" height="42" alt=""><strong>MINEVORA</strong></a><span>Projekt 19.0.3 · Kod źródłowy Windows</span><a href="./poradnik/">Poradnik ↗</a></div><div class="container fineprint">Niezależny projekt — nie jest zatwierdzony przez Mojang Studios ani Microsoft. Podglądy funkcji nie są połączeniem z grą.</div></footer>
+</body></html>
