@@ -92,7 +92,7 @@ try:
             assert page.locator("#funkcje .feature-card").count() == 4
             assert page.locator("#pobierz #release-title").is_visible()
             assert "6,4 MB" in page.locator("#pobierz").inner_text()
-            assert page.locator("a[href='https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.4']").count() >= 1
+            assert page.locator("a[href='https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.5']").count() >= 1
             assert page.locator("#playButton").inner_text().startswith("▶\nGRAJ")
             page.locator("#minecraftVersion").select_option("1.21.1")
             page.locator("#minecraftLoader").select_option("Fabric")
