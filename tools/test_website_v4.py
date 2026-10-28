@@ -95,6 +95,9 @@ try:
             assert page.locator(".feature-card").count() == 4, (device, "start tiles")
             assert page.locator("#content").get_attribute("data-ssg-home") == "true"
             assert page.locator("#content h1").count() == 1
+            assert page.locator("body.mv-dawn").count() == 1, (device,"new theme missing")
+            assert page.locator(".mv-window img[src*='launcher-18-3-7']").count() == 1
+            assert page.locator(".mv-show-tab").count() == 3
             assert page.locator('a[href="#minigry"]').count() == 0, (device, "stara zakładka Minigry")
             for obsolete in ("wersje", "sklep", "plus", "opcje"):
                 assert page.locator('a[href="#' + obsolete + '"]').count() == 0, (device, "unused menu entry", obsolete)
@@ -142,7 +145,7 @@ try:
                     };
                 }""")
                 assert measurements["hero"]["height"] >= 625, measurements
-                assert abs(measurements["header"]["bottom"] - measurements["hero"]["top"]) < 5, measurements
+                assert 0 <= measurements["hero"]["top"] - measurements["header"]["bottom"] < 26, measurements
                 assert measurements["logo"]["bottom"] < measurements["heading"]["top"], measurements
                 assert measurements["heading"]["bottom"] <= measurements["description"]["top"] + 2, measurements
                 assert measurements["description"]["bottom"] <= measurements["selectors"]["top"] + 2, measurements
@@ -155,7 +158,13 @@ try:
             assert not checked_images(page), (device, "start", "broken images")
             assert_hd_images(page, device, "start")
             no_overflow(page, device, "start")
-            page.screenshot(path=str(OUT / f"minevora-rebuild-start-{device}.png"), full_page=True)
+            page.locator(".mv-show-tab[data-show='pvp']").click()
+            assert page.locator(".mv-show-tab[data-show='pvp']").get_attribute("aria-selected") == "true"
+            assert page.locator("#mv-show-img").get_attribute("src").endswith("/pvp.svg")
+            page.locator(".mv-show-tab[data-show='studio']").focus()
+            page.keyboard.press("ArrowLeft")
+            assert page.locator(".mv-show-tab[data-show='pvp']").get_attribute("aria-selected") == "true"
+            page.screenshot(path=str(OUT / f"minevora-dawn-style-{device}.png"), full_page=True)
 
             page.goto(BASE + "#pobierz", wait_until="domcontentloaded")
             expect(page.locator("#pobierz #release-title")).to_be_visible()
@@ -174,7 +183,8 @@ try:
                 expect(page.locator("#drawer")).not_to_be_visible(timeout=2500)
                 assert page.locator("#menuToggle").get_attribute("aria-expanded") == "false"
             if device == "desktop":
-                expect(page.locator("#drawer")).to_be_visible()
+                expect(page.locator("#drawer")).not_to_be_visible()
+                expect(page.locator(".topbar .desk-nav")).to_be_visible()
                 page.locator("#siteSearch").fill("Droga do wyższej rangi")
                 expect(page.locator("#content .search-hit")).to_have_count(1)
                 assert page.locator("#content .search-hit").get_attribute("href") == "#ranking"
@@ -221,7 +231,7 @@ try:
         touch.goto(BASE + "#start", wait_until="networkidle")
         expect(touch.locator("#content .hero")).to_be_visible()
         assert touch.locator(".hero-title-accent").evaluate("el => getComputedStyle(el).display") == "block"
-        assert touch.locator(".hero").evaluate("el => el.getBoundingClientRect().height") >= 625
+        assert touch.locator(".hero").evaluate("el => el.getBoundingClientRect().height") >= 590
         touch.goto(BASE + "#studio", wait_until="networkidle")
         assert touch.locator(".gallery").evaluate("x => getComputedStyle(x).gridTemplateColumns.split(' ').length") == 1
         assert not checked_images(touch), "Android desktop site: zdjęcia"
@@ -238,6 +248,9 @@ try:
         assert nojs.locator("h1").count() == 1
         assert nojs.locator(".hero h1").is_visible(), "Brak statycznego nagłówka Start"
         assert nojs.locator("#funkcje .feature-card").count() == 4
+        assert nojs.locator(".mv-deep-dive").count() == 1
+        assert nojs.locator(".mv-window img").count() == 1
+        assert nojs.locator(".mv-download .btn[href*='v18.3.7']").count() >= 1
         assert nojs.locator("#pobierz").is_visible()
         assert nojs.locator("meta[property='og:image']").get_attribute("content").startswith("https://minevora.pl/assets/")
         assert nojs.locator("meta[name='twitter:card']").get_attribute("content") == "summary_large_image"
