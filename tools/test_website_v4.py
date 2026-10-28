@@ -61,6 +61,7 @@ try:
                 assert page.locator(".sidebar").is_visible(), ("Mobilny panel nie otwiera się", state)
                 assert page.locator(".mv-menu-toggle").get_attribute("aria-expanded") == "true"
                 page.locator(".mv-nav-close").click()
+                page.wait_for_timeout(350)
                 assert not page.locator(".sidebar").is_visible(), "Panel nie zamyka się"
                 assert page.locator(".mv-menu-toggle").get_attribute("aria-expanded") == "false"
             assert page.locator(".mv-site-refresh").count() == 1, (name, "brak nowego stylu")
