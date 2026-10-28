@@ -96,7 +96,7 @@ function image(thing,cls="",eager=false){
   "site-refresh/guide-install.svg";
  const responsive=HD_IMAGES.has(file);
  const hd=hdFile(file);
- const base=hd.replace(/\\.webp$/,"");
+ const base=hd.endsWith('.webp')?hd.slice(0,-5):hd;
  const imageSet=responsive
     ? ' srcset="'+[640,960,1280].map(w=>esc(path(base+"-"+w+".webp"))+" "+w+"w").concat(esc(path(hd))+" "+(file.includes("home-hero")?1920:1600)+"w").join(", ")+'"'
     : "";
