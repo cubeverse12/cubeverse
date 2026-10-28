@@ -104,6 +104,25 @@ try:
             assert "7,0 MB" in page.locator("#pobierz").inner_text()
             assert page.locator("a[href='https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.7']").count() >= 1
             assert page.locator("#playButton").inner_text().startswith("▶\nGRAJ")
+            if device == "desktop":
+                # Widescreen must keep the same visual hierarchy as the mobile design.
+                d = page.evaluate("""() => {
+                    const b=s=>{
+                        const r=document.querySelector(s).getBoundingClientRect();
+                        return {top:r.top,bottom:r.bottom,width:r.width,height:r.height};
+                    };
+                    return {hero:b('.hero'),logo:b('.hero-main>img'),
+                        heading:b('.hero-main h1'),description:b('.hero-main p'),
+                        selectors:b('.selector-group'),play:b('#playButton'),
+                        accent:getComputedStyle(document.querySelector('.hero-title-accent')).display};
+                }""")
+                assert d["hero"]["height"]>=615,d
+                assert d["logo"]["bottom"]<=d["heading"]["top"]+3,d
+                assert d["heading"]["bottom"]<=d["description"]["top"]+4,d
+                assert d["description"]["bottom"]<=d["selectors"]["top"]+3,d
+                assert d["selectors"]["bottom"]<d["play"]["top"],d
+                assert d["play"]["bottom"]<=d["hero"]["bottom"]+2,d
+                assert d["accent"]=="block",d
             if device == "phone":
                 # Check the real mobile layout against the approved composition.
                 measurements = page.evaluate("""() => {
