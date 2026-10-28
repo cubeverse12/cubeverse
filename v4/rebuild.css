@@ -170,3 +170,11 @@ body.force-mobile .surface{padding:clamp(16px,3vw,26px)}
 body.force-mobile .page-heading h1{font-size:clamp(29px,5vw,37px)}
 body.force-mobile .page-heading p{font-size:15px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+/* Overlay exists only while menu is open. */
+@media(max-width:950px){.backdrop:not([hidden]){display:block}}
+body.force-mobile .backdrop:not([hidden]){display:block}
+.search-mobile{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;margin-bottom:22px}
+.search-mobile input{width:100%;min-width:0;background:#16182f;border:1px solid #68517e;border-radius:11px;color:#fff;padding:12px 14px;min-height:46px;font-size:15px}
+.search-mobile input::placeholder{color:#aaa0c1}
+@media(max-width:450px){.search-mobile{grid-template-columns:1fr}.search-mobile .btn{width:100%}}
