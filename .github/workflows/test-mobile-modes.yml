@@ -1,0 +1,33 @@
+name: MINEVORA Mobile and Desktop Site Modes
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'v4/modern.css'
+      - 'v4/modern.js'
+      - 'v4/index.html'
+      - 'tools/test_minevora_mobile_modes.py'
+      - '.github/workflows/test-mobile-modes.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  chrome-layout-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: python -m pip install playwright
+      - name: Test normal phone, tablet, desktop-site Android and Windows desktop
+        run: python tools/test_minevora_mobile_modes.py
+      - name: Save screenshots and measurements
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: minevora-responsive-phone-and-desktop
+          path: website-v4-mobile-modes/
+          if-no-files-found: warn
