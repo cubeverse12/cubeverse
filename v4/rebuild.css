@@ -199,3 +199,19 @@ body.force-mobile .backdrop:not([hidden]){display:block}
 .hero:before{
   background:linear-gradient(180deg,#05051a80 0%,#09091d1f 26%,#10091e61 55%,#070a21ed 100%);
 }
+
+/* SEO-friendly static home and verified release section. */
+#start,#funkcje,#pobierz{scroll-margin-top:110px}
+.release-panel{display:flex;flex-direction:column;align-items:flex-start;gap:13px}
+.release-panel h2{font-size:clamp(24px,2.6vw,35px);line-height:1.22;margin:0;letter-spacing:-.5px}
+.release-panel p{max-width:900px;color:#d3cce0;font-size:15px;line-height:1.75;margin:0}
+.release-panel .release-actions{display:flex;align-items:center;flex-wrap:wrap;gap:11px;margin:8px 0 3px}
+.release-panel .note{font-size:13px;color:#c2bcd0;line-height:1.65}
+.release-panel .note strong{color:#f5e7ff}
+.hero-main h1{max-width:940px;text-wrap:balance}
+@media(max-width:620px){
+ #start,#funkcje,#pobierz{scroll-margin-top:80px}
+ .hero-main h1{font-size:clamp(23px,5.6vw,29px);max-width:470px;text-wrap:balance}
+ .release-panel .release-actions{align-items:stretch;flex-direction:column;width:100%}
+ .release-panel .release-actions .btn{width:100%}
+}
