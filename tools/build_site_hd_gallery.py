@@ -80,7 +80,8 @@ def main() -> None:
             if width >= size[0]:
                 continue
             target = (width, width * 9 // 16)
-            small = upscale(original, target, mode)
+            with Image.open(src) as small_source:
+                small = upscale(small_source, target, mode)
             mobile_path = OUT / (dest.stem + f"-{width}.webp")
             small.save(mobile_path, format="WEBP", quality=quality, method=6)
             with Image.open(mobile_path) as verified:
