@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 480" width="1050" height="480" role="img" aria-label="Grafika poglądowa MINEVORA"><defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#161d37"/><stop offset=".58" stop-color="#151a30"/><stop offset="1" stop-color="#101629"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#27314c"/><stop offset="1" stop-color="#172039"/></linearGradient>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#64718d" stroke-opacity=".095"/></pattern>
+<filter id="soft"><feGaussianBlur stdDeviation="22"/></filter>
+</defs><rect width="1050" height="480" fill="url(#bg)"/><rect width="1050" height="480" fill="url(#grid)"/>
+<ellipse cx="710" cy="220" rx="300" ry="170" fill="#7a8cb2" opacity=".09" filter="url(#soft)"/>
+
+<text x="50" y="65" font-family="Segoe UI,Arial,sans-serif" font-size="34" font-weight="800" fill="#f2f0ff">MODY I DODATKI</text>
+<text x="51" y="102" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#bfbed6">Wybieraj i organizuj rozszerzenia Minecraft Java</text>
+<rect x="46" y="136" width="945" height="297" rx="20" fill="#121a31" stroke="#556180"/>
+<text x="75" y="177" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="800" fill="#b2bad9">BIBLIOTEKA MODÓW</text>
+<rect x="747" y="149" width="218" height="32" rx="11" fill="#222844" stroke="#9c9bd4" stroke-opacity=".45"/><text x="761" y="171" font-family="Segoe UI,Arial,sans-serif" font-size="13" font-weight="650" fill="#e4d9fa">Fabric · Forge · Quilt</text>
+<rect x="74" y="199" width="275" height="186" rx="15" fill="#222b43" stroke="#576681"/>
+<rect x="92" y="216" width="97" height="96" rx="11" fill="#161d33"/>
+<rect x="107" y="241" width="57" height="50" fill="#638b80"/><polygon points="164,241 177,231 177,282 164,291" fill="#455c83"/><polygon points="107,241 122,231 177,231 164,241" fill="#d7d8dc" opacity=".22"/>
+<rect x="206" y="228" width="106" height="12" rx="6" fill="#c4d0e3" opacity=".8"/>
+<rect x="206" y="255" width="82" height="9" rx="4.5" fill="#8798b4" opacity=".65"/>
+<rect x="206" y="275" width="95" height="9" rx="4.5" fill="#8798b4" opacity=".5"/>
+<rect x="105" y="337" width="176" height="32" rx="11" fill="#222844" stroke="#7f98bf" stroke-opacity=".45"/><text x="119" y="359" font-family="Segoe UI,Arial,sans-serif" font-size="13" font-weight="650" fill="#e4d9fa">Światy i biomy</text>
+<rect x="380" y="199" width="275" height="186" rx="15" fill="#222b43" stroke="#576681"/>
+<rect x="398" y="216" width="97" height="96" rx="11" fill="#161d33"/>
+<rect x="413" y="241" width="57" height="50" fill="#7e8eae"/><polygon points="470,241 483,231 483,282 470,291" fill="#4b6681"/><polygon points="413,241 428,231 483,231 470,241" fill="#d7d8dc" opacity=".22"/>
+<rect x="512" y="228" width="106" height="12" rx="6" fill="#c4d0e3" opacity=".8"/>
+<rect x="512" y="255" width="82" height="9" rx="4.5" fill="#8798b4" opacity=".65"/>
+<rect x="512" y="275" width="95" height="9" rx="4.5" fill="#8798b4" opacity=".5"/>
+<rect x="411" y="337" width="176" height="32" rx="11" fill="#222844" stroke="#7f98bf" stroke-opacity=".45"/><text x="425" y="359" font-family="Segoe UI,Arial,sans-serif" font-size="13" font-weight="650" fill="#e4d9fa">Interfejs i HUD</text>
+<rect x="686" y="199" width="275" height="186" rx="15" fill="#222b43" stroke="#576681"/>
+<rect x="704" y="216" width="97" height="96" rx="11" fill="#161d33"/>
+<rect x="719" y="241" width="57" height="50" fill="#a2916a"/><polygon points="776,241 789,231 789,282 776,291" fill="#556c80"/><polygon points="719,241 734,231 789,231 776,241" fill="#d7d8dc" opacity=".22"/>
+<rect x="818" y="228" width="106" height="12" rx="6" fill="#c4d0e3" opacity=".8"/>
+<rect x="818" y="255" width="82" height="9" rx="4.5" fill="#8798b4" opacity=".65"/>
+<rect x="818" y="275" width="95" height="9" rx="4.5" fill="#8798b4" opacity=".5"/>
+<rect x="717" y="337" width="176" height="32" rx="11" fill="#222844" stroke="#7f98bf" stroke-opacity=".45"/><text x="731" y="359" font-family="Segoe UI,Arial,sans-serif" font-size="13" font-weight="650" fill="#e4d9fa">Nowe elementy</text>
+
+
+<rect x="1" y="1" width="1048" height="478" rx="22" stroke="#665e8a" stroke-opacity=".56" fill="none" stroke-width="2"/>
+</svg>
