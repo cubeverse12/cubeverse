@@ -57,7 +57,7 @@
       intro:'W jednym miejscu: dodatki, profile i narzędzia do personalizacji gry.',
       subtitle:'Przeglądaj możliwości launchera',
       description:'Zdjęcia funkcji w podwyższonej czytelności. Dostępność i automatyczna instalacja modów zależą od zgodności z wybraną wersją gry.',
-      photos:[pic('Biblioteka modów','launcher-316/mods.webp','Katalog modów i dodatków'),pic('Mody i zawartość','en_mods_highres.jpg','Podgląd elementów interfejsu'),pic('Poradnik instalacji','launcher-18-3-16/feature-guide.webp','Wskazówki dla nowych graczy')]
+      photos:[pic('Biblioteka modów','launcher-316/mods.webp','Katalog modów i dodatków'),pic('Mody i zawartość','site-refresh/mod-catalog.svg','Podgląd elementów interfejsu'),pic('Poradnik instalacji','launcher-18-3-16/feature-guide.webp','Wskazówki dla nowych graczy')]
     },
     minigry:{
       title:'Minigry',
@@ -85,21 +85,21 @@
       intro:'Planowany katalog map, dodatków, projektów i personalizacji MINEVORA.',
       subtitle:'Twórz, odkrywaj, personalizuj',
       description:'Marketplace jest w przygotowaniu. Zdjęcia mają charakter poglądowy i nie oznaczają dostępności zakupów.',
-      photos:[pic('Marketplace','en_marketplace.jpg','Przegląd planowanych kategorii'),pic('Dodatki','en_mods_highres.jpg','Przykładowe projekty i mody'),pic('Skórki','en_skins_highres.jpg','Opcje personalizacji')]
+      photos:[pic('Marketplace','site-refresh/marketplace.svg','Przegląd planowanych kategorii'),pic('Dodatki','site-refresh/mod-catalog.svg','Przykładowe projekty i mody'),pic('Skórki','site-refresh/skin-gallery.svg','Opcje personalizacji')]
     },
     studio:{
       title:'Skin Studio',
       intro:'Podgląd edytora skinów Minecraft, w tym postaci 3D i eksportu PNG.',
       subtitle:'Własny wygląd postaci',
       description:'Zdjęcia pokazują projekt Skin Studio PLUS w launcherze. Sam edytor działa w aplikacji, nie w przeglądarce.',
-      photos:[pic('Skin Studio PLUS','guide/skin-studio-plus-2-8.jpg','Ekran edytora skinów'),pic('Podgląd postaci','launcher-18-3-16/feature-studio.webp','Widok funkcji skórek'),pic('Wybór skinów','en_skins_highres.jpg','Biblioteka i wygląd postaci')]
+      photos:[pic('Skin Studio PLUS','guide/skin-studio-plus-2-8.jpg','Ekran edytora skinów'),pic('Podgląd postaci','site-refresh/skin-editor.svg','Widok funkcji skórek'),pic('Wybór skinów','site-refresh/skin-gallery.svg','Biblioteka i wygląd postaci')]
     },
     plus:{
       title:'MINEVORA PLUS',
       intro:'Dodatkowe motywy i opcje personalizacji — prezentacja demonstracyjna.',
       subtitle:'Motywy interfejsu',
       description:'Funkcje PLUS są prezentowane jako demo; strona nie prowadzi sprzedaży subskrypcji.',
-      photos:[pic('MINEVORA PLUS','guide/minevora-plus-demo-2-8.jpg','Podgląd dodatkowych motywów'),pic('Panel PLUS','launcher-18-3-16/feature-plus.webp','Przykładowe funkcje'),pic('Świat MINEVORA','website-photos-20261027/home-hero.webp','Grafika promocyjna projektu')]
+      photos:[pic('MINEVORA PLUS','site-refresh/plus.svg','Podgląd dodatkowych motywów'),pic('Panel PLUS','site-refresh/plus.svg','Przykładowe funkcje'),pic('Świat MINEVORA','website-photos-20261027/home-hero.webp','Grafika promocyjna projektu')]
     },
     opcje:{
       title:'Ustawienia',
@@ -157,7 +157,20 @@
       '<div class="mv-action-row"><a href="#start" class="mv-action secondary">Wróć do Start</a><a class="mv-action secondary" href="#poradnik">Poradnik</a></div>'+
       '<p class="mv-route-fineprint">Zdjęcia poglądowe z projektu MINEVORA. Kliknij zdjęcie, aby wyświetlić je w oryginalnym rozmiarze. Tryby serwera są w przygotowaniu.</p>';
     view.querySelectorAll('img').forEach(function(img){
-      img.addEventListener('error',function(){img.closest('.mv-photo').classList.add('is-missing');});
+      img.addEventListener('error',function(){
+        var container = img.closest('.mv-photo');
+        if (!img.dataset.fallbackTried) {
+          img.dataset.fallbackTried = 'true';
+          /* Lokalny wektor zamiast pustego pola lub niepasującej panoramy. */
+          img.src = '../assets/site-refresh/' +
+            (key === 'studio' ? 'skin-gallery.svg' :
+             key === 'plus' ? 'plus.svg' :
+             key === 'sklep' ? 'marketplace.svg' :
+             'mod-catalog.svg');
+          return;
+        }
+        if (container) container.classList.add('is-missing');
+      });
     });
   }
   function show() {
