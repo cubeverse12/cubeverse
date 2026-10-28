@@ -71,7 +71,7 @@ assert len(new_illustrations) == 9, ("versioned illustrations missing", len(new_
 for file in new_illustrations:
     root = ET.parse(file).getroot()
     assert root.attrib.get("viewBox") == "0 0 1600 900", (file.name,"incorrect dimensions")
-    assert "18.3.6" in file.read_text(encoding="utf-8"), (file.name,"missing version")
+    assert "18.3.7" in file.read_text(encoding="utf-8"), (file.name,"missing version")
 
 try:
     for _ in range(50):
@@ -99,10 +99,10 @@ try:
             for obsolete in ("wersje", "sklep", "plus", "opcje"):
                 assert page.locator('a[href="#' + obsolete + '"]').count() == 0, (device, "unused menu entry", obsolete)
             assert page.locator("#funkcje .feature-card").count() == 4
-            assert page.locator("#funkcje img[src*='/launcher-18-3-6/']").count() == 4, (device, "mixed home image versions")
+            assert page.locator("#funkcje img[src*='/launcher-18-3-7/']").count() == 4, (device, "mixed home image versions")
             assert page.locator("#pobierz #release-title").is_visible()
-            assert "6,4 MB" in page.locator("#pobierz").inner_text()
-            assert page.locator("a[href='https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.6']").count() >= 1
+            assert "7,0 MB" in page.locator("#pobierz").inner_text()
+            assert page.locator("a[href='https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.7']").count() >= 1
             assert page.locator("#playButton").inner_text().startswith("▶\nGRAJ")
             if device == "phone":
                 # Check the real mobile layout against the approved composition.
@@ -167,8 +167,8 @@ try:
                 expect(view).to_be_visible()
                 expect(page.locator("#content .page-heading h1")).to_be_visible()
                 assert view.locator(".gallery-card").count() == count, (device, route, "gallery", count)
-                assert view.locator(".panel-media img[src*='/launcher-18-3-6/']").count() == 1, (device, route, "wrong preview version")
-                assert view.locator(".gallery-card img[src*='/launcher-18-3-6/']").count() == count, (device, route, "gallery contains older launcher screenshots")
+                assert view.locator(".panel-media img[src*='/launcher-18-3-7/']").count() == 1, (device, route, "wrong preview version")
+                assert view.locator(".gallery-card img[src*='/launcher-18-3-7/']").count() == count, (device, route, "gallery contains older launcher screenshots")
                 assert not view.locator("img[src*='launcher-18-3-16'],img[src*='guide/'],img[src*='site-refresh/']").count()
                 if route == "pvp":
                     assert view.locator(".gallery-card h3").all_text_contents() == ["PvP HUD"]
@@ -236,7 +236,7 @@ try:
         assert nojs.locator("a[href='#instalacja']").count() >= 1
         assert nojs.locator("a[href='#logowanie']").count() >= 1
         assert nojs.locator("a[href='#faq']").count() >= 1
-        assert nojs.locator("main img[src*='/launcher-18-3-6/']").count() == 4
+        assert nojs.locator("main img[src*='/launcher-18-3-7/']").count() == 4
         assert nojs.locator("main img[src*='/launcher-18-3-16/'],main img[src*='site-refresh/']").count() == 0
         assert nojs.locator("script[src='./guide.js']").count() == 1
         assert nojs.locator("meta[name=description]").get_attribute("content")
