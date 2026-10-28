@@ -1,0 +1,117 @@
+{
+  "v": 1,
+  "images": {
+    "website-photos-20261027/home-hero.webp": {
+      "file": "site-hd/website-photos-20261027-home-hero.webp",
+      "width": 1920,
+      "height": 1080,
+      "mode": "cover",
+      "bytes": 1328470
+    },
+    "launcher-316/minigry.webp": {
+      "file": "site-hd/launcher-316-minigry.webp",
+      "width": 1600,
+      "height": 900,
+      "mode": "cover",
+      "bytes": 361444
+    },
+    "launcher-316/bedwars.webp": {
+      "file": "site-hd/launcher-316-bedwars.webp",
+      "width": 1600,
+      "height": 900,
+      "mode": "cover",
+      "bytes": 365224
+    },
+    "launcher-316/skywars.webp": {
+      "file": "site-hd/launcher-316-skywars.webp",
+      "width": 1600,
+      "height": 900,
+      "mode": "cover",
+      "bytes": 377078
+    },
+    "launcher-316/tnt-run.webp": {
+      "file": "site-hd/launcher-316-tnt-run.webp",
+      "width": 1600,
+      "height": 900,
+      "mode": "cover",
+      "bytes": 393832
+    },
+    "launcher-316/parkour.webp": {
+      "file": "site-hd/launcher-316-parkour.webp",
+      "width": 1600,
+      "height": 900,
+      "mode": "cover",
+      "bytes": 354256
+    },
+    "launcher-316/build-battle.webp": {
+      "file": "site-hd/launcher-316-build-battle.webp",
+      "width": 1600,
+      "height": 900,
+      "mode": "cover",
+      "bytes": 490998
+    },
+    "launcher-316/spleef.webp": {
+      "file": "site-hd/launcher-316-spleef.webp",
+      "width": 1600,
+      "height": 900,
+      "mode": "cover",
+      "bytes": 443578
+    },
+    "launcher-316/duels.webp": {
+      "file": "site-hd/launcher-316-duels.webp",
+      "width": 1600,
+      "height": 900,
+      "mode": "cover",
+      "bytes": 379790
+    },
+    "launcher-316/crystal-pvp.webp": {
+      "file": "site-hd/launcher-316-crystal-pvp.webp",
+      "width": 1600,
+      "height": 900,
+      "mode": "cover",
+      "bytes": 304946
+    },
+    "launcher-316/rankingi.webp": {
+      "file": "site-hd/launcher-316-rankingi.webp",
+      "width": 1600,
+      "height": 900,
+      "mode": "cover",
+      "bytes": 405526
+    },
+    "launcher-18-3-16/feature-pvp.webp": {
+      "file": "site-hd/launcher-18-3-16-feature-pvp.webp",
+      "width": 1600,
+      "height": 900,
+      "mode": "contain",
+      "bytes": 229046
+    },
+    "launcher-18-3-16/launcher-preview.webp": {
+      "file": "site-hd/launcher-18-3-16-launcher-preview.webp",
+      "width": 1600,
+      "height": 900,
+      "mode": "contain",
+      "bytes": 443266
+    },
+    "guide/rankingi.webp": {
+      "file": "site-hd/guide-rankingi.webp",
+      "width": 1600,
+      "height": 900,
+      "mode": "contain",
+      "bytes": 144136
+    },
+    "guide/awans.webp": {
+      "file": "site-hd/guide-awans.webp",
+      "width": 1600,
+      "height": 900,
+      "mode": "contain",
+      "bytes": 42142
+    },
+    "guide/skin-studio-plus-2-8.jpg": {
+      "file": "site-hd/guide-skin-studio-plus-2-8.webp",
+      "width": 1600,
+      "height": 900,
+      "mode": "contain",
+      "bytes": 126194
+    }
+  }
+}
