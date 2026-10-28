@@ -15,8 +15,8 @@ BASE = "http://127.0.0.1:8766/v4/"
 ROUTES = {
     "wersje": 3,
     "mody": 3,
-    "pvp": 3,
-    "ranking": 3,
+    "pvp": 1,
+    "ranking": 2,
     "sklep": 3,
     "studio": 3,
     "plus": 2,
@@ -133,6 +133,13 @@ try:
                 expect(view).to_be_visible()
                 expect(page.locator("#content .page-heading h1")).to_be_visible()
                 assert view.locator(".gallery-card").count() == count, (device, route, "gallery", count)
+                if route == "pvp":
+                    assert view.locator(".gallery-card h3").all_text_contents() == ["PvP HUD"]
+                    assert not view.get_by_text("Crystal PvP", exact=True).count()
+                    assert not view.get_by_text("Duels", exact=True).count()
+                if route == "ranking":
+                    assert view.locator(".gallery-card h3").all_text_contents() == ["Ranga gracza", "Animacja awansu"]
+                    assert not view.get_by_text("Arena rankingowa", exact=True).count()
                 assert not checked_images(page), (device, route, "broken image")
                 assert_hd_images(page, device, route)
                 no_overflow(page, device, route)
