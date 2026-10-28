@@ -2,7 +2,7 @@
    Does not require any of the older site-refresh scripts. */
 (()=>{"use strict";
 const A="../assets/";
-const releases="https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.6";
+const releases="https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.7";
 const discord="https://discord.gg/M2fZVJBCqh";
 const $=(s,root=document)=>root.querySelector(s);
 const $$=(s,root=document)=>[...root.querySelectorAll(s)];
@@ -10,42 +10,42 @@ const path=(s)=>A+s;
 const fallback="site-refresh/guide-install.svg";
 const entry=(title,image,desc,alt)=>({title,image,desc,alt:alt||title});
 const data={
- mody:{label:"Mody i dodatki",intro:"Katalog dodatków i personalizacji gry Minecraft Java.",heading:"Organizuj swoje mody",description:"Podgląd biblioteki modów, dodatków i profili. Instalacja konkretnych modów jest możliwa wyłącznie wtedy, gdy są zgodne z daną wersją gry i typem loadera.",state:"Zależne od zgodności",hero:entry("Katalog modów","launcher-18-3-6/mods.svg","Interfejs biblioteki modów"),gallery:[
- entry("Biblioteka dodatków","launcher-18-3-6/mods.svg","Kategorie dodatków, rozszerzeń i HUD."),
- entry("Wybór profilu","launcher-18-3-6/versions.svg","Zainstalowane wersje i typy Minecrafta."),
- entry("Poradnik instalacji","launcher-18-3-6/help.svg","Kroki przygotowania gry.")
+ mody:{label:"Mody i dodatki",intro:"Katalog dodatków i personalizacji gry Minecraft Java.",heading:"Organizuj swoje mody",description:"Podgląd biblioteki modów, dodatków i profili. Instalacja konkretnych modów jest możliwa wyłącznie wtedy, gdy są zgodne z daną wersją gry i typem loadera.",state:"Zależne od zgodności",hero:entry("Katalog modów","launcher-18-3-7/mods.svg","Interfejs biblioteki modów"),gallery:[
+ entry("Biblioteka dodatków","launcher-18-3-7/mods.svg","Kategorie dodatków, rozszerzeń i HUD."),
+ entry("Wybór profilu","launcher-18-3-7/versions.svg","Zainstalowane wersje i typy Minecrafta."),
+ entry("Poradnik instalacji","launcher-18-3-7/help.svg","Kroki przygotowania gry.")
  ]},
- pvp:{label:"PvP Mode",intro:"Ustawienia PvP HUD i konfiguracja walki w MINEVORA.",heading:"Walka, która pasuje do Ciebie",description:"Przegląd PvP Mode. Działanie HUD wymaga zgodnej wersji moda i gry. Karty przedstawiają projektowane możliwości; nie są aktywnymi ustawieniami na stronie WWW.",state:"Mod wymaga zgodności",hero:entry("Podgląd PvP Mode","launcher-18-3-6/pvp.svg","Wizualizacja interfejsu PvP HUD 18.3.6"),gallery:[
- entry("PvP HUD","launcher-18-3-6/pvp.svg","Poglądowa konfiguracja interfejsu walki.")
+ pvp:{label:"PvP Mode",intro:"Ustawienia PvP HUD i konfiguracja walki w MINEVORA.",heading:"Walka, która pasuje do Ciebie",description:"Przegląd PvP Mode. Działanie HUD wymaga zgodnej wersji moda i gry. Karty przedstawiają projektowane możliwości; nie są aktywnymi ustawieniami na stronie WWW.",state:"Mod wymaga zgodności",hero:entry("Podgląd PvP Mode","launcher-18-3-7/pvp.svg","Wizualizacja interfejsu PvP HUD 18.3.7"),gallery:[
+ entry("PvP HUD","launcher-18-3-7/pvp.svg","Poglądowa konfiguracja interfejsu walki.")
  ]},
- ranking:{label:"Rankingi",intro:"Rangi, postęp, punkty i wizualizacje awansu graczy.",heading:"Droga do wyższej rangi",description:"Podgląd systemu rang i statystyk. Prezentowane ekrany i wartości są demonstracyjne, ponieważ strona nie pobiera na żywo wyników z serwera.",state:"Podgląd demonstracyjny",hero:entry("Ranking graczy","launcher-18-3-6/ranking.svg","Interfejs rankingów"),gallery:[
- entry("Ranga gracza","launcher-18-3-6/ranking.svg","Podgląd profilu i postępu."),
- entry("Animacja awansu","launcher-18-3-6/rank-advance.svg","Wizualizacja nowej rangi.")
+ ranking:{label:"Rankingi",intro:"Rangi, postęp, punkty i wizualizacje awansu graczy.",heading:"Droga do wyższej rangi",description:"Podgląd systemu rang i statystyk. Prezentowane ekrany i wartości są demonstracyjne, ponieważ strona nie pobiera na żywo wyników z serwera.",state:"Podgląd demonstracyjny",hero:entry("Ranking graczy","launcher-18-3-7/ranking.svg","Interfejs rankingów"),gallery:[
+ entry("Ranga gracza","launcher-18-3-7/ranking.svg","Podgląd profilu i postępu."),
+ entry("Animacja awansu","launcher-18-3-7/rank-advance.svg","Wizualizacja nowej rangi.")
  ]},
- studio:{label:"Skin Studio",intro:"Podgląd projektu edytora skinów Minecraft 3D w launcherze Windows.",heading:"Stwórz własną postać",description:"W projekcie Skin Studio: model 3D, warstwy, kolory oraz import i eksport PNG. Strona pokazuje wygląd funkcji, ale nie udostępnia edytora w przeglądarce.",state:"Funkcja launchera",hero:entry("Edytor skinów","launcher-18-3-6/skins.svg","Ekran projektu Skin Studio"),gallery:[
- entry("Model postaci 3D","launcher-18-3-6/skins.svg","Podgląd narzędzi i kolorów."),
- entry("Biblioteka skinów","launcher-18-3-6/skin-library.svg","Przykłady postaci Minecraft."),
- entry("Skin Studio 3D","launcher-18-3-6/skins.svg","Wizualizacja tego samego interfejsu.")
+ studio:{label:"Skin Studio",intro:"Podgląd projektu edytora skinów Minecraft 3D w launcherze Windows.",heading:"Stwórz własną postać",description:"W projekcie Skin Studio: model 3D, warstwy, kolory oraz import i eksport PNG. Strona pokazuje wygląd funkcji, ale nie udostępnia edytora w przeglądarce.",state:"Funkcja launchera",hero:entry("Edytor skinów","launcher-18-3-7/skins.svg","Ekran projektu Skin Studio"),gallery:[
+ entry("Model postaci 3D","launcher-18-3-7/skins.svg","Podgląd narzędzi i kolorów."),
+ entry("Biblioteka skinów","launcher-18-3-7/skin-library.svg","Przykłady postaci Minecraft."),
+ entry("Skin Studio 3D","launcher-18-3-7/skins.svg","Wizualizacja tego samego interfejsu.")
  ]},
- poradnik:{label:"Poradnik",intro:"Pierwsze kroki z MINEVORA — od pobrania do uruchomienia gry.",heading:"Zacznij od instalacji",description:"Otwórz publiczne wydanie, sprawdź wymagania, następnie skonfiguruj profil w aplikacji. Nie wyłączaj zabezpieczeń systemu w celu instalacji niezweryfikowanego oprogramowania.",state:"Instrukcja",hero:entry("Poradnik instalacji","launcher-18-3-6/help.svg","Trzy kroki instalacji"),gallery:[
- entry("Instalacja krok po kroku","launcher-18-3-6/help.svg","Pobieranie, profil, uruchomienie."),
- entry("Wybór profilu","launcher-18-3-6/versions.svg","Konfiguracja profilu Minecrafta."),
- entry("PvP HUD","launcher-18-3-6/pvp.svg","Podgląd konfiguracji interfejsu.")
+ poradnik:{label:"Poradnik",intro:"Pierwsze kroki z MINEVORA — od pobrania do uruchomienia gry.",heading:"Zacznij od instalacji",description:"Otwórz publiczne wydanie, sprawdź wymagania, następnie skonfiguruj profil w aplikacji. Nie wyłączaj zabezpieczeń systemu w celu instalacji niezweryfikowanego oprogramowania.",state:"Instrukcja",hero:entry("Poradnik instalacji","launcher-18-3-7/help.svg","Trzy kroki instalacji"),gallery:[
+ entry("Instalacja krok po kroku","launcher-18-3-7/help.svg","Pobieranie, profil, uruchomienie."),
+ entry("Wybór profilu","launcher-18-3-7/versions.svg","Konfiguracja profilu Minecrafta."),
+ entry("PvP HUD","launcher-18-3-7/pvp.svg","Podgląd konfiguracji interfejsu.")
  ]},
- pobierz:{label:"Pobierz launcher",intro:"Publiczne pliki MINEVORA Launcher dla Windows.",heading:"MINEVORA na komputerze",description:"Pobierz publiczne wydanie 18.3.6 (ZIP). Wszystkie wizualizacje na stronie pokazują spójny styl tej wersji, ale nie są zrzutami z aplikacji.",state:"Publiczne wydanie 18.3.6",hero:entry("Launcher Windows","launcher-18-3-6/start.svg","Spójna wizualizacja interfejsu 18.3.6"),action:{label:"Otwórz wydanie 18.3.6",url:releases,external:true},gallery:[
- entry("Instalacja","launcher-18-3-6/help.svg","Kroki instalacji launchera."),
- entry("Profile","launcher-18-3-6/versions.svg","Przygotowanie Minecraft Java."),
- entry("Skin Studio","launcher-18-3-6/skins.svg","Podgląd edytora skórek.")
+ pobierz:{label:"Pobierz launcher",intro:"Publiczne pliki MINEVORA Launcher dla Windows.",heading:"MINEVORA na komputerze",description:"Pobierz publiczne wydanie 18.3.7 Neon Desktop (ZIP). Strona i launcher mają wspólną panoramę. Grafiki funkcji to wizualizacje, nie zrzuty z aplikacji.",state:"Publiczne wydanie 18.3.7",hero:entry("Launcher Windows","launcher-18-3-7/start.svg","Spójna wizualizacja interfejsu 18.3.7"),action:{label:"Otwórz wydanie 18.3.7",url:releases,external:true},gallery:[
+ entry("Instalacja","launcher-18-3-7/help.svg","Kroki instalacji launchera."),
+ entry("Profile","launcher-18-3-7/versions.svg","Przygotowanie Minecraft Java."),
+ entry("Skin Studio","launcher-18-3-7/skins.svg","Podgląd edytora skórek.")
  ]}
 };
 const routes=["start","mody","pvp","ranking","studio","poradnik","pobierz"];
 const names={start:"Start",...Object.fromEntries(Object.entries(data).map(([k,v])=>[k,v.label]))};
 const iconLookup={start:"home",mody:"default",pvp:"pvp",ranking:"ranking",studio:"skins",poradnik:"poradnik",pobierz:"download"};
 const homeTiles=[
- ["pvp","PvP Mode","Pojedynki i interfejs HUD","launcher-18-3-6/pvp.svg"],
- ["ranking","Rankingi","Rangi i prezentacja awansu","launcher-18-3-6/ranking.svg"],
- ["mody","Mody i dodatki","Katalog modyfikacji Minecrafta","launcher-18-3-6/mods.svg"],
- ["studio","Skin Studio","Podgląd edytora skina 3D","launcher-18-3-6/skins.svg"],
+ ["pvp","PvP Mode","Pojedynki i interfejs HUD","launcher-18-3-7/pvp.svg"],
+ ["ranking","Rankingi","Rangi i prezentacja awansu","launcher-18-3-7/ranking.svg"],
+ ["mody","Mody i dodatki","Katalog modyfikacji Minecrafta","launcher-18-3-7/mods.svg"],
+ ["studio","Skin Studio","Podgląd edytora skina 3D","launcher-18-3-7/skins.svg"],
 ];
 const content=$("#content"),drawer=$("#drawer"),backdrop=$("#backdrop"),menuButton=$("#menuToggle"),closeButton=$("#drawerClose"),searchInput=$("#siteSearch");
 const HD_IMAGES=new Set(); // Active gallery uses versioned SVG assets exclusively.
@@ -111,7 +111,7 @@ function page(key){
  '<div class="panel-details"><span class="state-tag">'+esc(p.state)+'</span><h2>'+esc(p.heading)+'</h2><p>'+esc(p.description)+'</p>'+routeAction(p)+'</div></div>'+
  extra+'<h2 class="gallery-title">Galeria funkcji</h2><div class="gallery">'+gallery+'</div>'+
  '<div class="footer-actions"><a class="btn secondary" href="#start">Wróć na Start</a><a class="btn subtle" href="./poradnik/">Poradnik</a></div>'+
- '<p class="note">Spójne wizualizacje interfejsu MINEVORA 18.3.6 — nie są zrzutami z uruchomionej aplikacji. Kliknij grafikę, aby ją powiększyć.</p></section>';
+ '<p class="note">Spójne wizualizacje interfejsu MINEVORA 18.3.7 — nie są zrzutami z uruchomionej aplikacji. Kliknij grafikę, aby ją powiększyć.</p></section>';
 }
 function home(){
  return '<section class="hero" aria-label="MINEVORA — strona główna">'+
