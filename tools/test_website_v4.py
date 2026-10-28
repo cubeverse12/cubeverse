@@ -51,7 +51,14 @@ try:
                 assert page.locator(".mv-menu-toggle").is_visible(), "Brak mobilnego przycisku menu"
                 assert not page.locator(".sidebar").is_visible(), "Boczne menu przykrywa stronę na telefonie"
                 page.locator(".mv-menu-toggle").click()
-                assert page.locator(".sidebar").is_visible(), "Mobilny panel nie otwiera się"
+                page.wait_for_timeout(350)
+                state = page.evaluate("""() => ({
+                    bodyClass: document.body.className,
+                    sidebarDisplay: getComputedStyle(document.querySelector('.sidebar')).display,
+                    sidebarVisibility: getComputedStyle(document.querySelector('.sidebar')).visibility,
+                    expanded: document.querySelector('.mv-menu-toggle').getAttribute('aria-expanded')
+                })""")
+                assert page.locator(".sidebar").is_visible(), ("Mobilny panel nie otwiera się", state)
                 assert page.locator(".mv-menu-toggle").get_attribute("aria-expanded") == "true"
                 page.locator(".mv-nav-close").click()
                 assert not page.locator(".sidebar").is_visible(), "Panel nie zamyka się"
