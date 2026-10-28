@@ -20,16 +20,6 @@ const data={
  entry("Wybór profilu","site-refresh/settings-profiles.svg","Zainstalowane wersje i typy Minecrafta."),
  entry("Poradnik instalacji","site-refresh/guide-install.svg","Kroki przygotowania gry.")
  ]},
- minigry:{label:"Minigry",intro:"Poznaj zaplanowane rozgrywki serwera MINEVORA.",heading:"Odkrywaj światy i areny",description:"BedWars, SkyWars, TNT Run, Parkour, Build Battle, Spleef, Duels i Crystal PvP. Są to wizualizacje planowanych trybów. Dostępność na serwerze będzie ogłaszana osobno.",state:"Serwer w przygotowaniu",hero:entry("Świat minigier","launcher-316/minigry.webp","Wizualizacja wysp"),action:{label:"Społeczność Discord",url:discord,external:true},gallery:[
- entry("BedWars","launcher-316/bedwars.webp","Zespołowa obrona łóżka."),
- entry("SkyWars","launcher-316/skywars.webp","Pojedynki na latających wyspach."),
- entry("TNT Run","launcher-316/tnt-run.webp","Bieg po znikających blokach."),
- entry("Parkour","launcher-316/parkour.webp","Tory przeszkód i skoków."),
- entry("Build Battle","launcher-316/build-battle.webp","Budowanie na zadany temat."),
- entry("Spleef","launcher-316/spleef.webp","Utrzymaj się na arenie."),
- entry("Duels","launcher-316/duels.webp","Pojedynki jeden na jednego."),
- entry("Crystal PvP","launcher-316/crystal-pvp.webp","Arena walki w stylu Crystal PvP.")
- ]},
  pvp:{label:"PvP Mode",intro:"Pojedynki, ustawienia HUD i prezentacja aren PvP MINEVORA.",heading:"Walka, która pasuje do Ciebie",description:"Przegląd PvP Mode. Działanie HUD wymaga zgodnej wersji moda i gry. Karty przedstawiają projektowane możliwości; nie są aktywnymi ustawieniami na stronie WWW.",state:"Mod wymaga zgodności",hero:entry("Podgląd PvP Mode","launcher-18-3-16/feature-pvp.webp","Ekran trybów PvP w launcherze"),gallery:[
  entry("PvP HUD","site-refresh/guide-pvp-hud.svg","Poglądowa konfiguracja interfejsu walki."),
  entry("Crystal PvP","launcher-316/crystal-pvp.webp","Arena Crystal PvP."),
@@ -69,11 +59,10 @@ const data={
  entry("Skin Studio","guide/skin-studio-plus-2-8.jpg","Podgląd edytora skórek.")
  ]}
 };
-const routes=["start","wersje","mody","minigry","pvp","ranking","sklep","studio","plus","opcje","poradnik","pobierz"];
+const routes=["start","wersje","mody","pvp","ranking","sklep","studio","plus","opcje","poradnik","pobierz"];
 const names={start:"Start",...Object.fromEntries(Object.entries(data).map(([k,v])=>[k,v.label]))};
-const iconLookup={start:"home",wersje:"versions",mody:"default",minigry:"minigames",pvp:"pvp",ranking:"ranking",sklep:"marketplace",studio:"skins",plus:"plus",opcje:"settings",poradnik:"poradnik",pobierz:"download"};
+const iconLookup={start:"home",wersje:"versions",mody:"default",pvp:"pvp",ranking:"ranking",sklep:"marketplace",studio:"skins",plus:"plus",opcje:"settings",poradnik:"poradnik",pobierz:"download"};
 const homeTiles=[
- ["minigry","Minigry","BedWars, SkyWars i więcej","launcher-316/minigry.webp"],
  ["pvp","PvP Mode","Pojedynki i interfejs HUD","launcher-18-3-16/feature-pvp.webp"],
  ["ranking","Rankingi","Rangi i prezentacja awansu","guide/rankingi.webp"],
  ["mody","Mody i dodatki","Katalog modyfikacji Minecrafta","site-refresh/mod-catalog.svg"],
@@ -158,7 +147,7 @@ function home(){
  ['Vanilla','Fabric','Forge','NeoForge','Quilt'].map(x=>'<option>'+x+'</option>').join("")+'</select></label></div>'+
  '<a id="playButton" class="hero-play" href="#pobierz" aria-label="GRAJ — informacje o pobraniu launchera"><span aria-hidden="true">▶</span><span>GRAJ<small>Otwórz launcher Windows</small></span></a></div></section>'+
  '<section aria-labelledby="features-title"><div class="home-intro"><div><span class="section-hint">ODKRYWAJ MINEVORA</span><h2 class="section-title" id="features-title">Wybierz swoją przygodę</h2></div>'+
- '<a class="btn secondary" href="#minigry">Zobacz minigry</a></div></section>'+
+ '<a class="btn secondary" href="#pvp">Zobacz PvP</a></div></section>'+
  '<div class="feature-grid">'+homeTiles.map(tile).join("")+'</div>'+
  '<p class="note">Wybór wersji na stronie jest poglądowy. Konfigurację gry i jej uruchamianie wykonasz po pobraniu launchera Windows.</p>';
 }
@@ -171,13 +160,14 @@ function searchPage(query){
  return '<section class="surface"><div class="page-heading"><span class="section-hint">SZUKAJ</span><h1>Wyniki wyszukiwania</h1><p>Fraza: <strong>'+esc(query)+'</strong></p></div>'+
  (results.length?'<div class="search-results">'+results.map(([key,p])=>
  '<a class="search-hit" href="'+(key==="poradnik"?"./poradnik/":"#"+key)+'"><span><strong>'+esc(p.label)+'</strong><span>'+esc(p.intro)+'</span></span><b aria-hidden="true">→</b></a>').join("")+'</div>':
- '<div class="empty">Nie znaleziono funkcji. Spróbuj słowa „PvP”, „Skin”, „Mody” lub „Minigry”.</div>')+
+ '<div class="empty">Nie znaleziono funkcji. Spróbuj słowa „PvP”, „Skin”, „Mody” lub „Ranking”.</div>')+
  '<div class="footer-actions"><a href="#start" class="btn secondary">Wróć na Start</a></div></section>';
 }
 function normalize(hash){
  let key=(hash||"").replace(/^#/,"").trim().toLocaleLowerCase("pl");
- const aliases={home:"start",rankings:"ranking",minigames:"minigry",download:"pobierz",settings:"opcje",skins:"studio",marketplace:"sklep"};
+ const aliases={home:"start",rankings:"ranking",minigames:"start",download:"pobierz",settings:"opcje",skins:"studio",marketplace:"sklep"};
  key=aliases[key]||key;
+ if(key==="minigry")key="start"; // dawne odnośniki nie tworzą pustej zakładki
  return routes.includes(key)||key==="szukaj"?key:"start";
 }
 function updateLinks(route){
