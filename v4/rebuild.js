@@ -82,6 +82,8 @@ const homeTiles=[
  ["plus","MINEVORA PLUS","Motywy i personalizacja","site-refresh/plus.svg"]
 ];
 const content=$("#content"),drawer=$("#drawer"),backdrop=$("#backdrop"),menuButton=$("#menuToggle"),closeButton=$("#drawerClose"),searchInput=$("#siteSearch");
+const HD_IMAGES=new Set(["website-photos-20261027/home-hero.webp","launcher-316/minigry.webp","launcher-316/bedwars.webp","launcher-316/skywars.webp","launcher-316/tnt-run.webp","launcher-316/parkour.webp","launcher-316/build-battle.webp","launcher-316/spleef.webp","launcher-316/duels.webp","launcher-316/crystal-pvp.webp","launcher-316/rankingi.webp","launcher-18-3-16/feature-pvp.webp","launcher-18-3-16/launcher-preview.webp","guide/rankingi.webp","guide/awans.webp","guide/skin-studio-plus-2-8.jpg"]);
+const hdFile=(file)=>HD_IMAGES.has(file)?"site-hd/"+file.replaceAll("/","-").replace(/\.[^./]+$/, ".webp"):file;
 let current="start",searchQuery="",lastFocus=null;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const linkAttrs=(u,external=false)=>'href="'+esc(u)+'"'+(external?' target="_blank" rel="noopener noreferrer"':"");
@@ -91,17 +93,24 @@ function image(thing,cls="",eager=false){
   thing.title.toLowerCase().includes("pvp")?"site-refresh/guide-pvp-hud.svg":
   thing.title.toLowerCase().includes("skin")?"site-refresh/skin-gallery.svg":
   "site-refresh/guide-install.svg";
- return '<img src="'+esc(path(file))+'" data-fallback="'+esc(path(fallbackImage))+'" alt="'+esc(thing.alt||thing.title)+'"'+
- ' width="1050" height="480" loading="'+(eager?"eager":"lazy")+'" decoding="async"'+
+ return '<img src="'+esc(path(hdFile(file)))+'" data-original="'+esc(path(file))+'" data-fallback="'+esc(path(fallbackImage))+'" alt="'+esc(thing.alt||thing.title)+'"'+
+ ' width="1600" height="900" loading="'+(eager?"eager":"lazy")+'" decoding="async"'+
  (file.endsWith(".svg")?' class="graphic"':cls?' class="'+esc(cls)+'"':"")+'>';
 }
 function wireImages(root=content){
  $$("img[data-fallback]",root).forEach(img=>{
   img.addEventListener("error",()=>{
+   if(!img.dataset.triedOriginal && img.dataset.original && img.getAttribute("src")!==img.dataset.original){
+    img.dataset.triedOriginal="1";
+    img.src=img.dataset.original;
+    return;
+   }
    if(img.dataset.usedFallback)return;
    img.dataset.usedFallback="1";
-   img.src=img.dataset.fallback;
-   img.classList.add("graphic");
+   if(img.dataset.fallback && img.getAttribute("src")!==img.dataset.fallback){
+    img.src=img.dataset.fallback;
+    img.classList.add("graphic");
+   }
   });
  });
 }
@@ -111,7 +120,7 @@ function tile(t){
  image(entry(title,pic,desc))+'</span><span class="feature-card-body"><h3>'+esc(title)+'</h3><p>'+esc(desc)+'</p><span class="go">Odkryj funkcję →</span></span></a>';
 }
 function galleryCard(e){
- return '<article class="gallery-card"><a class="thumb" '+linkAttrs(path(e.image),true)+' aria-label="Powiększ: '+esc(e.title)+'">'+image(e)+'</a>'+
+ return '<article class="gallery-card"><a class="thumb" '+linkAttrs(path(hdFile(e.image)),true)+' aria-label="Powiększ: '+esc(e.title)+'">'+image(e)+'</a>'+
  '<div class="gallery-desc"><h3>'+esc(e.title)+'</h3><p>'+esc(e.desc)+'</p></div></article>';
 }
 function routeAction(item){
@@ -123,7 +132,7 @@ function page(key){
  const gallery=p.gallery.map(galleryCard).join("");
  const extra=key==="pobierz"?'<div class="download-notice"><strong>Ważne:</strong> strona WWW jest prezentacją projektu. Uruchamianie Minecrafta, wybór instalacji i logowanie Microsoft działają w aplikacji Windows. Pobieraj tylko pliki z zaufanych źródeł.</div>':"";
  return '<section class="surface" aria-labelledby="page-title"><div class="page-heading"><span class="section-hint">MINEVORA / FUNKCJE</span><h1 id="page-title">'+esc(p.label)+'</h1><p>'+esc(p.intro)+'</p></div>'+
- '<div class="feature-panel"><a class="panel-media" '+linkAttrs(path(p.hero.image),true)+' aria-label="Otwórz obraz: '+esc(p.hero.title)+'">'+image(p.hero,"",true)+'</a>'+
+ '<div class="feature-panel"><a class="panel-media" '+linkAttrs(path(hdFile(p.hero.image)),true)+' aria-label="Otwórz obraz: '+esc(p.hero.title)+'">'+image(p.hero,"",true)+'</a>'+
  '<div class="panel-details"><span class="state-tag">'+esc(p.state)+'</span><h2>'+esc(p.heading)+'</h2><p>'+esc(p.description)+'</p>'+routeAction(p)+'</div></div>'+
  extra+'<h2 class="gallery-title">Galeria funkcji</h2><div class="gallery">'+gallery+'</div>'+
  '<div class="footer-actions"><a class="btn secondary" href="#start">Wróć na Start</a><a class="btn subtle" href="#poradnik">Poradnik</a></div>'+
@@ -131,7 +140,7 @@ function page(key){
 }
 function home(){
  return '<section class="hero" aria-label="MINEVORA — strona główna">'+
- '<img class="hero-img" src="'+path("website-photos-20261027/home-hero.webp")+'" alt="Fantastyczny świat Minecraft z wyspami MINEVORA" width="1920" height="1020" fetchpriority="high">'+
+ '<img class="hero-img" src="'+path(hdFile("website-photos-20261027/home-hero.webp"))+'" data-original="'+path("website-photos-20261027/home-hero.webp")+'" data-fallback="'+path("website-photos-20261027/home-hero.webp")+'" alt="Fantastyczny świat Minecraft z wyspami MINEVORA" width="1920" height="1080" fetchpriority="high">'+
  '<div class="hero-main"><img src="'+path("minevora_crystal_logo.svg")+'" alt="MINEVORA" width="600" height="200">'+
  '<h1>TWÓJ ŚWIAT. TWOJE ZASADY.</h1><p>Odkrywaj możliwości launchera MINEVORA i przygotuj swój Minecraft Java.</p></div>'+
  '<div class="hero-controls"><div class="selector-group"><label class="select-tile"><span>Wersja Minecraft</span><select id="minecraftVersion" aria-label="Wersja Minecraft">'+
