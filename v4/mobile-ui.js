@@ -80,6 +80,14 @@
   function update(){
     var shouldCompact=compact();
     body.classList.toggle('mv-compact',shouldCompact);
+    /* Chrome Android w trybie "wersja na komputer" raportuje szeroki viewport.
+       Zastosuj wciąż czytelne karty telefonu na małym ekranie dotykowym. */
+    var w=window.innerWidth||1000;
+    var minScreen=Math.min((window.screen&&window.screen.width)||2000,(window.screen&&window.screen.height)||2000);
+    var coarse=Boolean(window.matchMedia&&window.matchMedia('(pointer:coarse)').matches);
+    var mobileUA=/Android.*Mobile|iPhone|iPod/i.test(navigator.userAgent||'');
+    var phone=shouldCompact && (w<=580 || (mobileUA&&minScreen<=1100) || (coarse&&minScreen<=1024&&w<=1200));
+    body.classList.toggle('mv-phone',phone);
     if(!shouldCompact && body.classList.contains('mv-menu-open'))showMenu(false,false);
     sidebar.inert=shouldCompact && !body.classList.contains('mv-menu-open');
   }
