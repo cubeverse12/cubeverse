@@ -84,6 +84,7 @@ const homeTiles=[
 const content=$("#content"),drawer=$("#drawer"),backdrop=$("#backdrop"),menuButton=$("#menuToggle"),closeButton=$("#drawerClose"),searchInput=$("#siteSearch");
 const HD_IMAGES=new Set(["website-photos-20261027/home-hero.webp","launcher-316/minigry.webp","launcher-316/bedwars.webp","launcher-316/skywars.webp","launcher-316/tnt-run.webp","launcher-316/parkour.webp","launcher-316/build-battle.webp","launcher-316/spleef.webp","launcher-316/duels.webp","launcher-316/crystal-pvp.webp","launcher-316/rankingi.webp","launcher-18-3-16/feature-pvp.webp","launcher-18-3-16/launcher-preview.webp","guide/rankingi.webp","guide/awans.webp","guide/skin-studio-plus-2-8.jpg"]);
 const hdFile=(file)=>HD_IMAGES.has(file)?"site-hd/"+file.replaceAll("/","-").replace(/\.[^./]+$/, ".webp"):file;
+const prerenderedHome=content.innerHTML; // HTML delivered to search engines without JS.
 let current="start",searchQuery="",lastFocus=null;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const linkAttrs=(u,external=false)=>'href="'+esc(u)+'"'+(external?' target="_blank" rel="noopener noreferrer"':"");
@@ -181,21 +182,37 @@ function updateLinks(route){
  document.title="MINEVORA — "+(names[route]||"Wyszukiwanie");
 }
 function render(){
- // Zachowaj dotychczasowe linki do #poradnik — jedna kanoniczna ścieżka.
+ // Linki #poradnik przekierowują na odrębny, indeksowalny dokument.
  if(location.hash.toLocaleLowerCase("pl")==="#poradnik"){
    location.replace("./poradnik/");
    return;
  }
- current=normalize(location.hash);
- content.innerHTML=current==="start"?home():current==="szukaj"?searchPage(searchQuery):page(current);
+ const hash=location.hash.replace(/^#/,"").toLocaleLowerCase("pl");
+ const inHome=["","start","funkcje","pobierz"].includes(hash);
+ if(inHome){
+   current=hash==="pobierz"?"pobierz":"start";
+   // Preserve the exact HTML sent to crawler. No LCP-killing rewrite on startup.
+   if(content.dataset.ssgHome!=="true"){
+     content.innerHTML=prerenderedHome;
+     content.dataset.ssgHome="true";
+   }
+ }else{
+   current=normalize(location.hash);
+   delete content.dataset.ssgHome;
+   content.innerHTML=current==="szukaj"?searchPage(searchQuery):page(current);
+ }
  updateLinks(current);wireImages();
- if(current==="start"){
-  const v=$("#minecraftVersion"),l=$("#minecraftLoader"),b=$("#playButton");
-  [v,l].forEach(el=>el.addEventListener("change",()=>{b.title="Minecraft "+v.value+" / "+l.value+" — wybór poglądowy. Ustaw te opcje w launcherze Windows."}));
-  v.dispatchEvent(new Event("change"));
+ if(inHome){
+   const v=$("#minecraftVersion"),l=$("#minecraftLoader"),b=$("#playButton");
+   if(v&&l&&b){
+     [v,l].forEach(el=>el.onchange=()=>{b.title="Minecraft "+v.value+" / "+l.value+" — wybór poglądowy. Ustaw te opcje w launcherze Windows.";});
+     v.onchange();
+   }
  }
  closeMenu(false);
- window.scrollTo({top:0,behavior:"instant"});
+ if(hash==="pobierz"||hash==="funkcje"){
+   requestAnimationFrame(()=>document.getElementById(hash)?.scrollIntoView({block:"start"}));
+ }else window.scrollTo({top:0,behavior:"instant"});
 }
 function mobile(){
  const vw=window.innerWidth||1000;
