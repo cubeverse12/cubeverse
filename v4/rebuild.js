@@ -94,7 +94,14 @@ function image(thing,cls="",eager=false){
   thing.title.toLowerCase().includes("pvp")?"site-refresh/guide-pvp-hud.svg":
   thing.title.toLowerCase().includes("skin")?"site-refresh/skin-gallery.svg":
   "site-refresh/guide-install.svg";
- return '<img src="'+esc(path(hdFile(file)))+'" data-original="'+esc(path(file))+'" data-fallback="'+esc(path(fallbackImage))+'" alt="'+esc(thing.alt||thing.title)+'"'+
+ const responsive=HD_IMAGES.has(file);
+ const hd=hdFile(file);
+ const base=hd.replace(/\\.webp$/,"");
+ const imageSet=responsive
+    ? ' srcset="'+[640,960,1280].map(w=>esc(path(base+"-"+w+".webp"))+" "+w+"w").concat(esc(path(hd))+" "+(file.includes("home-hero")?1920:1600)+"w").join(", ")+'"'
+    : "";
+ const imageSizes=responsive?' sizes="(max-width:620px) 94vw, (max-width:950px) 80vw, (max-width:1280px) 48vw, 55vw"':"";
+ return '<img src="'+esc(path(hd))+'"'+imageSet+imageSizes+' data-original="'+esc(path(file))+'" data-fallback="'+esc(path(fallbackImage))+'" alt="'+esc(thing.alt||thing.title)+'"'+
  ' width="1600" height="900" loading="'+(eager?"eager":"lazy")+'" decoding="async"'+
  (file.endsWith(".svg")?' class="graphic"':cls?' class="'+esc(cls)+'"':"")+'>';
 }
@@ -103,6 +110,7 @@ function wireImages(root=content){
   img.addEventListener("error",()=>{
    if(!img.dataset.triedOriginal && img.dataset.original && img.getAttribute("src")!==img.dataset.original){
     img.dataset.triedOriginal="1";
+    img.removeAttribute("srcset"); img.removeAttribute("sizes");
     img.src=img.dataset.original;
     return;
    }
