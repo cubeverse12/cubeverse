@@ -234,3 +234,63 @@ body.mv-site-refresh .mv-install-feedback{
 @media(prefers-reduced-motion:reduce){
  body.mv-site-refresh .cards .card{transition:none!important}
 }
+
+/* MINEVORA — korekta zdjęć (naturalniejsze barwy, ostrzejsza prezentacja, pełne pola). */
+body.mv-site-refresh .mv-photo{
+  isolation:isolate;background-color:#151b31;
+  background-image:linear-gradient(145deg,#222c45,#11182c);
+  border-color:#454c6b;
+}
+body.mv-site-refresh .mv-photo img{
+  display:block;width:100%;height:100%;max-height:none;
+  object-position:center center;image-rendering:auto;
+  transform:none!important;transition:none!important;
+  backface-visibility:visible;
+}
+body.mv-site-refresh .mv-shot .mv-photo{
+  width:100%;height:auto;min-height:0;aspect-ratio:1050 / 480;
+}
+body.mv-site-refresh .mv-shot .mv-photo img{object-fit:cover}
+body.mv-site-refresh .mv-route-hero .mv-photo{
+  width:100%;min-height:0;max-height:none;
+  aspect-ratio:1050 / 480;
+}
+body.mv-site-refresh .mv-route-hero .mv-photo img{object-fit:cover}
+body.mv-site-refresh .mv-shot .mv-photo:has(img[src$=".svg"]) img,
+body.mv-site-refresh .mv-route-hero .mv-photo:has(img[src$=".svg"]) img{
+  object-fit:contain;filter:none!important;
+}
+body.mv-site-refresh .mv-shot .mv-photo img[src*="/launcher-316/"],
+body.mv-site-refresh .mv-route-hero .mv-photo img[src*="/launcher-316/"],
+body.mv-site-refresh .cards .card img[src*="/launcher-316/"]{
+  filter:brightness(.90) saturate(.72) contrast(.98);
+}
+body.mv-site-refresh .mv-shot .mv-photo img[src*="/launcher-18-3-16/"],
+body.mv-site-refresh .mv-route-hero .mv-photo img[src*="/launcher-18-3-16/"]{
+  filter:brightness(.95) saturate(.83) contrast(.99);
+}
+body.mv-site-refresh .cards .card img[src$=".svg"]{
+  filter:none!important;
+  object-fit:contain;background:#151b31;
+}
+body.mv-site-refresh .cards .card img{
+  transition:none!important;
+}
+body.mv-site-refresh .mv-shot,
+body.mv-site-refresh .cards .card{
+  box-shadow:0 10px 26px #01020b52;
+}
+@media(max-width:720px){
+  body.mv-site-refresh .mv-shot .mv-photo{
+    height:auto;aspect-ratio:1050 / 480;
+  }
+  body.mv-site-refresh .mv-route-hero .mv-photo{
+    min-height:0;height:auto;aspect-ratio:1050 / 480;
+  }
+  body.mv-site-refresh .mv-shot-grid{gap:15px}
+}
+@media(max-width:450px){
+  body.mv-site-refresh .mv-shot .mv-photo{
+    height:auto;aspect-ratio:1050 / 480;
+  }
+}
