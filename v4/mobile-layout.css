@@ -212,3 +212,14 @@ body.mv-site-refresh.mv-compact .right{display:none!important}
 @media(prefers-reduced-motion:reduce){
  body.mv-site-refresh.mv-compact .sidebar{transition:none}
 }
+
+/* Hide new Start captions outside Start and prevent overlap with the desktop logo. */
+body.mv-site-refresh .mv-hero-eyebrow{top:58%}
+body.mv-site-refresh .mv-hero-tagline{top:68%}
+body.mv-site-refresh[data-mv-view]:not([data-mv-view="start"]) .mv-feature-heading{display:none!important}
+body.mv-site-refresh.mv-compact .mv-hero-eyebrow{top:35%}
+body.mv-site-refresh.mv-compact .mv-hero-tagline{top:43%}
+@media(max-width:360px){
+ body.mv-site-refresh.mv-compact .mv-hero-eyebrow{top:31%}
+ body.mv-site-refresh.mv-compact .mv-hero-tagline{top:37%}
+}
