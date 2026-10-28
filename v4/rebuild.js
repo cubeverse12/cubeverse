@@ -10,11 +10,6 @@ const path=(s)=>A+s;
 const fallback="site-refresh/guide-install.svg";
 const entry=(title,image,desc,alt)=>({title,image,desc,alt:alt||title});
 const data={
- wersje:{label:"Wersje i profile",intro:"Wybieraj profile gry Minecraft Java i poznaj obsługiwane typy instalacji.",heading:"Wersje Minecrafta w jednym miejscu",description:"Podgląd konfiguracji: Minecraft Java, Vanilla, Fabric, Forge, NeoForge i Quilt. Rzeczywistą instalację oraz wybór zgodnego loadera wykonuje się w launcherze Windows.",state:"Funkcja aplikacji Windows",hero:entry("Panel wersji","site-refresh/settings-profiles.svg","Profile Minecrafta"),gallery:[
- entry("Profile Minecrafta","site-refresh/settings-profiles.svg","Poglądowa lista wersji i konfiguracji."),
- entry("Uruchomienie aplikacji","launcher-18-3-16/launcher-preview.webp","Wygląd launchera MINEVORA na Windows."),
- entry("Instrukcja instalacji","site-refresh/guide-install.svg","Jak przygotować launcher do gry.")
- ]},
  mody:{label:"Mody i dodatki",intro:"Katalog dodatków i personalizacji gry Minecraft Java.",heading:"Organizuj swoje mody",description:"Podgląd biblioteki modów, dodatków i profili. Instalacja konkretnych modów jest możliwa wyłącznie wtedy, gdy są zgodne z daną wersją gry i typem loadera.",state:"Zależne od zgodności",hero:entry("Katalog modów","site-refresh/mod-catalog.svg","Interfejs biblioteki modów"),gallery:[
  entry("Biblioteka dodatków","site-refresh/mod-catalog.svg","Kategorie dodatków, rozszerzeń i HUD."),
  entry("Wybór profilu","site-refresh/settings-profiles.svg","Zainstalowane wersje i typy Minecrafta."),
@@ -27,23 +22,10 @@ const data={
  entry("Ranga gracza","guide/rankingi.webp","Podgląd profilu i postępu."),
  entry("Animacja awansu","guide/awans.webp","Wizualizacja nowej rangi.")
  ]},
- sklep:{label:"Sklep i marketplace",intro:"Przestrzeń dla map, budowli, dodatków i twórców MINEVORA.",heading:"Mapy, dodatki, projekty",description:"Marketplace jest koncepcją w przygotowaniu. Elementy są ilustracjami poglądowymi — na tej stronie nie można obecnie kupować ani sprzedawać produktów.",state:"W przygotowaniu",hero:entry("Marketplace","site-refresh/marketplace.svg","Kategorie marketplace"),gallery:[
- entry("Mapy i budowle","site-refresh/marketplace.svg","Projekty do odkrywania."),
- entry("Mody i dodatki","site-refresh/mod-catalog.svg","Rozszerzenia do Minecrafta."),
- entry("Skórki graczy","site-refresh/skin-gallery.svg","Pomysły na wygląd postaci.")
- ]},
  studio:{label:"Skin Studio",intro:"Podgląd projektu edytora skinów Minecraft 3D w launcherze Windows.",heading:"Stwórz własną postać",description:"W projekcie Skin Studio: model 3D, warstwy, kolory oraz import i eksport PNG. Strona pokazuje wygląd funkcji, ale nie udostępnia edytora w przeglądarce.",state:"Funkcja launchera",hero:entry("Edytor skinów","guide/skin-studio-plus-2-8.jpg","Ekran projektu Skin Studio"),gallery:[
  entry("Model postaci 3D","site-refresh/skin-editor.svg","Podgląd narzędzi i kolorów."),
  entry("Biblioteka skinów","site-refresh/skin-gallery.svg","Przykłady postaci Minecraft."),
  entry("Skin Studio PLUS","guide/skin-studio-plus-2-8.jpg","Podgląd projektu edytora.")
- ]},
- plus:{label:"MINEVORA PLUS",intro:"Dodatkowe motywy i personalizacja wyglądu launchera.",heading:"Własny styl MINEVORA",description:"PLUS to demonstracja planowanych możliwości, bez aktywnej sprzedaży subskrypcji na tej stronie. Dostępność funkcji zależy od wersji aplikacji.",state:"Wersja demonstracyjna",hero:entry("Motywy PLUS","site-refresh/plus.svg","Podgląd motywów PLUS"),gallery:[
- entry("Motywy kolorystyczne","site-refresh/plus.svg","Nebula, Ocean i Ember — koncepcje."),
- entry("Personalizacja skinów","site-refresh/skin-gallery.svg","Przykładowe warianty postaci.")
- ]},
- opcje:{label:"Ustawienia",intro:"Konfiguracja launchera, profilów, wydajności i motywów.",heading:"Dostosuj MINEVORA",description:"Poniższe grafiki są ilustracjami panelu ustawień aplikacji Windows. Zmiany RAM, wersji i wyglądu zapisuje się w launcherze — nie na tej stronie.",state:"Ustawienia w aplikacji",hero:entry("Panel ustawień","site-refresh/settings-panel.svg","Podgląd ustawień aplikacji"),gallery:[
- entry("Ustawienia aplikacji","site-refresh/settings-panel.svg","Motyw, język i wydajność."),
- entry("Wersje i profile","site-refresh/settings-profiles.svg","Poglądowa konfiguracja instalacji.")
  ]},
  poradnik:{label:"Poradnik",intro:"Pierwsze kroki z MINEVORA — od pobrania do uruchomienia gry.",heading:"Zacznij od instalacji",description:"Otwórz publiczne wydanie, sprawdź wymagania, następnie skonfiguruj profil w aplikacji. Nie wyłączaj zabezpieczeń systemu w celu instalacji niezweryfikowanego oprogramowania.",state:"Instrukcja",hero:entry("Poradnik instalacji","site-refresh/guide-install.svg","Trzy kroki instalacji"),gallery:[
  entry("Instalacja krok po kroku","site-refresh/guide-install.svg","Pobieranie, profil, uruchomienie."),
@@ -56,16 +38,14 @@ const data={
  entry("Skin Studio","guide/skin-studio-plus-2-8.jpg","Podgląd edytora skórek.")
  ]}
 };
-const routes=["start","wersje","mody","pvp","ranking","sklep","studio","plus","opcje","poradnik","pobierz"];
+const routes=["start","mody","pvp","ranking","studio","poradnik","pobierz"];
 const names={start:"Start",...Object.fromEntries(Object.entries(data).map(([k,v])=>[k,v.label]))};
-const iconLookup={start:"home",wersje:"versions",mody:"default",pvp:"pvp",ranking:"ranking",sklep:"marketplace",studio:"skins",plus:"plus",opcje:"settings",poradnik:"poradnik",pobierz:"download"};
+const iconLookup={start:"home",mody:"default",pvp:"pvp",ranking:"ranking",studio:"skins",poradnik:"poradnik",pobierz:"download"};
 const homeTiles=[
  ["pvp","PvP Mode","Pojedynki i interfejs HUD","launcher-18-3-16/feature-pvp.webp"],
  ["ranking","Rankingi","Rangi i prezentacja awansu","guide/rankingi.webp"],
  ["mody","Mody i dodatki","Katalog modyfikacji Minecrafta","site-refresh/mod-catalog.svg"],
  ["studio","Skin Studio","Podgląd edytora skina 3D","site-refresh/skin-editor.svg"],
- ["sklep","Marketplace","Mapy i dodatki twórców","site-refresh/marketplace.svg"],
- ["plus","MINEVORA PLUS","Motywy i personalizacja","site-refresh/plus.svg"]
 ];
 const content=$("#content"),drawer=$("#drawer"),backdrop=$("#backdrop"),menuButton=$("#menuToggle"),closeButton=$("#drawerClose"),searchInput=$("#siteSearch");
 const HD_IMAGES=new Set(["website-photos-20261027/home-hero.webp","launcher-316/minigry.webp","launcher-316/bedwars.webp","launcher-316/skywars.webp","launcher-316/tnt-run.webp","launcher-316/parkour.webp","launcher-316/build-battle.webp","launcher-316/spleef.webp","launcher-316/duels.webp","launcher-316/crystal-pvp.webp","launcher-316/rankingi.webp","launcher-18-3-16/feature-pvp.webp","launcher-18-3-16/launcher-preview.webp","guide/rankingi.webp","guide/awans.webp","guide/skin-studio-plus-2-8.jpg"]);
@@ -180,6 +160,12 @@ function render(){
  // Linki #poradnik przekierowują na odrębny, indeksowalny dokument.
  if(location.hash.toLocaleLowerCase("pl")==="#poradnik"){
    location.replace("./poradnik/");
+   return;
+ }
+ const staleHash=location.hash.toLocaleLowerCase("pl");
+ const oldRoutes={"#wersje":"#pobierz","#sklep":"#mody","#plus":"#studio","#opcje":"./poradnik/"};
+ if(Object.hasOwn(oldRoutes,staleHash)){
+   location.replace(oldRoutes[staleHash]);
    return;
  }
  const hash=location.hash.replace(/^#/,"").toLocaleLowerCase("pl");
