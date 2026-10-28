@@ -22,7 +22,6 @@ ROUTES = {
     "studio": 3,
     "plus": 2,
     "opcje": 2,
-    "pobierz": 3,
 }
 server = subprocess.Popen(
     [sys.executable, "-m", "http.server", "8766", "--bind", "127.0.0.1"],
@@ -79,6 +78,12 @@ try:
             page.goto(BASE + "#start", wait_until="networkidle")
             expect(page.locator("#content .hero")).to_be_visible()
             assert page.locator(".feature-card").count() == 7, (device, "start tiles")
+            assert page.locator("#content").get_attribute("data-ssg-home") == "true"
+            assert page.locator("#content h1").count() == 1
+            assert page.locator("#funkcje .feature-card").count() == 7
+            assert page.locator("#pobierz #release-title").is_visible()
+            assert "6,4 MB" in page.locator("#pobierz").inner_text()
+            assert page.locator("a[href='https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.4']").count() >= 1
             assert page.locator("#playButton").inner_text().startswith("▶\nGRAJ")
             page.locator("#minecraftVersion").select_option("1.21.1")
             page.locator("#minecraftLoader").select_option("Fabric")
@@ -88,6 +93,13 @@ try:
             no_overflow(page, device, "start")
             page.screenshot(path=str(OUT / f"minevora-rebuild-start-{device}.png"), full_page=True)
 
+            page.goto(BASE + "#pobierz", wait_until="domcontentloaded")
+            expect(page.locator("#pobierz #release-title")).to_be_visible()
+            assert page.locator("#content .feature-card").count() == 7, (device, "download should not be a JS-only screen")
+            no_overflow(page, device, "download anchor")
+            page.goto(BASE + "#funkcje", wait_until="domcontentloaded")
+            expect(page.locator("#funkcje .feature-card")).to_have_count(7)
+            page.goto(BASE + "#start", wait_until="domcontentloaded")
             if device == "phone":
                 expect(page.locator("#menuToggle")).to_be_visible()
                 expect(page.locator("#drawer")).not_to_be_visible()
@@ -118,8 +130,6 @@ try:
                     assert len(grid.split()) == 1, (device, route, "not one gallery column", grid)
                 if route in ("opcje", "studio", "minigry"):
                     page.screenshot(path=str(OUT / f"minevora-rebuild-{route}-{device}.png"), full_page=True)
-                if route == "pobierz":
-                    assert page.locator("a[href='https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.4']").count() >= 1
             assert not errors, (device, "JavaScript errors", errors)
             output.append({"device": device, "routes": len(ROUTES) + 1, "broken_images": 0, "js_errors": 0})
             page.close()
@@ -143,6 +153,18 @@ try:
         # New standalone guide must be delivered as readable HTML even without JS.
         static = browser.new_context(java_script_enabled=False, viewport={"width": 393, "height": 852})
         nojs = static.new_page()
+        landing = nojs.goto(BASE + "?v=20261028-readable&utm_source=chatgpt.com", wait_until="load")
+        assert landing.status == 200
+        assert nojs.locator("link[rel='canonical']").get_attribute("href") == "https://minevora.pl/v4/"
+        assert nojs.locator("h1").count() == 1
+        assert nojs.locator(".hero h1").is_visible(), "Brak statycznego nagłówka Start"
+        assert nojs.locator("#funkcje .feature-card").count() == 7
+        assert nojs.locator("#pobierz").is_visible()
+        assert nojs.locator("meta[property='og:image']").get_attribute("content").startswith("https://minevora.pl/assets/")
+        assert nojs.locator("meta[name='twitter:card']").get_attribute("content") == "summary_large_image"
+        assert not nojs.locator("#content").inner_text().count("Przygotowywanie strony")
+        no_overflow(nojs, "no-js", "homepage")
+        nojs.screenshot(path=str(OUT / "minevora-home-static-nojs-phone.png"), full_page=True)
         response = nojs.goto(BASE + "poradnik/?v=20261028-readable&utm_source=chatgpt.com", wait_until="load")
         assert response.status == 200
         assert nojs.locator("link[rel=canonical]").get_attribute("href") == "https://minevora.pl/v4/poradnik/"
