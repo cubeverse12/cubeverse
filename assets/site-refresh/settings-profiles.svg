@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="480" viewBox="0 0 1050 480" role="img" aria-label="WERSJE I PROFILE">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#171d38"/><stop offset="1" stop-color="#0c1127"/></linearGradient>
+<pattern id="grid" width="35" height="35" patternUnits="userSpaceOnUse"><path d="M35 0H0V35" fill="none" stroke="#a2a1cb" stroke-opacity=".055"/></pattern>
+</defs><rect width="1050" height="480" fill="url(#bg)"/><rect width="1050" height="480" fill="url(#grid)"/>
+<text x="36" y="52" font-family="Segoe UI,Arial,sans-serif" font-weight="800" font-size="24" fill="#f7edff">WERSJE I PROFILE</text><text x="38" y="80" font-family="Segoe UI,Arial,sans-serif" font-weight="500" font-size="14" fill="#c3bed9">Instalacje • Minecraft Java • Fabric • Forge</text>
+<rect x="34" y="105" width="985" height="332" rx="16" fill="#141b33" stroke="#586184"/>
+<text x="64" y="149" font-family="Segoe UI,Arial,sans-serif" font-weight="760" font-size="16" fill="#d5c8ed">WYBIERZ PROFIL</text>
+<rect x="61" y="167" width="433" height="230" rx="12" fill="#202942" stroke="#53617c"/>
+<rect x="81" y="189" width="188" height="32" rx="9" fill="#2e244b" stroke="#7656a0"/><text x="94" y="211" font-family="Segoe UI,Arial,sans-serif" font-weight="720" font-size="13" fill="#e9dcff">Minecraft 1.21.4</text>
+<rect x="81" y="236" width="188" height="32" rx="9" fill="#2e244b" stroke="#7656a0"/><text x="94" y="258" font-family="Segoe UI,Arial,sans-serif" font-weight="720" font-size="13" fill="#e9dcff">Fabric 1.21.4</text>
+<rect x="81" y="283" width="188" height="32" rx="9" fill="#2e244b" stroke="#7656a0"/><text x="94" y="305" font-family="Segoe UI,Arial,sans-serif" font-weight="720" font-size="13" fill="#e9dcff">Forge 1.20.1</text>
+<rect x="81" y="330" width="188" height="32" rx="9" fill="#2e244b" stroke="#7656a0"/><text x="94" y="352" font-family="Segoe UI,Arial,sans-serif" font-weight="720" font-size="13" fill="#e9dcff">Vanilla 1.21.1</text>
+<text x="314" y="205" font-family="Segoe UI,Arial,sans-serif" font-weight="750" font-size="15" fill="#dbb4ff">Aktywny</text>
+<circle cx="327" cy="249" r="8" fill="#7dc5a2"/>
+<text x="347" y="255" font-family="Segoe UI,Arial,sans-serif" font-weight="560" font-size="13" fill="#c9d5db">Gotowy do gry</text>
+<rect x="517" y="167" width="462" height="230" rx="12" fill="#192139" stroke="#596386"/>
+<text x="545" y="206" font-family="Segoe UI,Arial,sans-serif" font-weight="740" font-size="18" fill="#f4efff">Konfiguracja instalacji</text>
+<text x="546" y="241" font-family="Segoe UI,Arial,sans-serif" font-weight="500" font-size="14" fill="#c4c6d9">Loader:</text><rect x="645" y="215" width="142" height="32" rx="9" fill="#2e244b" stroke="#7656a0"/><text x="658" y="237" font-family="Segoe UI,Arial,sans-serif" font-weight="720" font-size="13" fill="#e9dcff">Fabric</text>
+<text x="546" y="299" font-family="Segoe UI,Arial,sans-serif" font-weight="500" font-size="14" fill="#c4c6d9">Wersja:</text><rect x="645" y="275" width="142" height="32" rx="9" fill="#2e244b" stroke="#7656a0"/><text x="658" y="297" font-family="Segoe UI,Arial,sans-serif" font-weight="720" font-size="13" fill="#e9dcff">1.21.4</text>
+<rect x="549" y="339" width="397" height="37" rx="9" fill="#6f3ec0" stroke="#ac83e6"/><text x="652" y="363" font-family="Segoe UI,Arial,sans-serif" font-weight="750" font-size="15" fill="#f8f1ff">Zapisz profil</text>
+
+<rect x="1" y="1" width="1048" height="478" rx="19" fill="none" stroke="#645584" stroke-opacity=".75" stroke-width="2"/>
+</svg>
