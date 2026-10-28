@@ -1,0 +1,73 @@
+name: MINEVORA Lighthouse Performance Audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lighthouse-audit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout the site
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Lighthouse
+        run: npm install --no-save --ignore-scripts lighthouse@12.8.2
+      - name: Check public status
+        run: |
+          curl --location --fail --retry 3 --max-time 30 --silent --show-error --output /dev/null --write-out 'Home HTTP %{http_code} (%{size_download} bytes)\n' https://minevora.pl/v4/
+          curl --location --fail --retry 3 --max-time 30 --silent --show-error --output /dev/null --write-out 'Guide HTTP %{http_code} (%{size_download} bytes)\n' https://minevora.pl/v4/poradnik/
+      - name: Lighthouse mobile — home
+        run: |
+          mkdir -p lighthouse-reports
+          npx lighthouse https://minevora.pl/v4/ --quiet --no-enable-error-reporting --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=lighthouse-reports/home-mobile.json
+      - name: Lighthouse desktop — home
+        run: |
+          npx lighthouse https://minevora.pl/v4/ --quiet --no-enable-error-reporting --preset=desktop --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=lighthouse-reports/home-desktop.json
+      - name: Lighthouse mobile — guide
+        run: |
+          npx lighthouse https://minevora.pl/v4/poradnik/ --quiet --no-enable-error-reporting --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --output=json --output-path=lighthouse-reports/guide-mobile.json
+      - name: Summarize performance
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          data = []
+          for file in sorted(Path('lighthouse-reports').glob('*.json')):
+              report=json.loads(file.read_text())
+              cats=report.get('categories', {})
+              audits=report.get('audits', {})
+              item={
+                  'test':file.stem,
+                  'url':report.get('finalDisplayedUrl') or report.get('finalUrl'),
+                  'scores':{k:round(v.get('score',0)*100) if isinstance(v.get('score'),(int,float)) else None for k,v in cats.items()},
+                  'metrics':{k:audits.get(k,{}).get('displayValue') for k in ['first-contentful-paint','largest-contentful-paint','speed-index','total-blocking-time','cumulative-layout-shift']},
+                  'opportunities':[
+                      {'id':key,'title':value.get('title'),'savings':value.get('displayValue')}
+                      for key,value in audits.items()
+                      if value.get('details',{}).get('type')=='opportunity' and value.get('score') is not None and value.get('score')<.90
+                  ][:12]
+              }
+              data.append(item)
+              print(json.dumps(item,ensure_ascii=False,indent=2))
+          Path('lighthouse-reports/summary.json').write_text(json.dumps(data,ensure_ascii=False,indent=2))
+          if not data:
+              raise SystemExit('No Lighthouse results')
+          PY
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: minevora-lighthouse-2026
+          path: lighthouse-reports/
+          retention-days: 14
