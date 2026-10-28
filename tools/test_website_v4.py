@@ -83,6 +83,10 @@ try:
             page.goto(BASE + "#minigry", wait_until="networkidle", timeout=30000)
             assert page.locator(".mv-route-view").is_visible(), (name, "brak widoku minigier")
             assert page.locator(".mv-route-view .mv-photo img").count() >= 8, (name, "brak zdjęć minigier")
+            if name == "phone":
+                assert page.locator("body").evaluate("el => el.classList.contains('mv-phone')"), "Nie włączono układu telefonu"
+                grid = page.locator(".mv-shot-grid").evaluate("el => getComputedStyle(el).gridTemplateColumns")
+                assert len(grid.split()) == 1, ("Galeria nie ma jednej kolumny na telefonie", grid)
             assert not check_images(page), (name, "niezaładowane zdjęcia minigier")
             assert not page.locator(".hero").is_visible(), (name, "Start widoczny w minigrach")
             page.screenshot(path=str(OUT / f"minevora-minigry-{name}.png"), full_page=True)
@@ -117,6 +121,9 @@ try:
         touch.goto(BASE + "#studio", wait_until="networkidle", timeout=30000)
         assert touch.locator("body").evaluate("el => el.classList.contains('mv-compact')"), "Układ kompaktowy nie włącza się dla telefonu"
         assert touch.locator(".mv-menu-toggle").is_visible(), "Menu w trybie desktopowym telefonu jest niedostępne"
+        assert touch.locator("body").evaluate("el => el.classList.contains('mv-phone')"), "Tryb telefonu nie włącza się w desktopowym Chrome Android"
+        grid = touch.locator(".mv-shot-grid").evaluate("el => getComputedStyle(el).gridTemplateColumns")
+        assert len(grid.split()) == 1, ("Karty na Androidzie są zbyt małe", grid)
         assert not touch.locator(".sidebar").is_visible(), "Menu zasłania stronę w trybie desktopowym telefonu"
         assert touch.locator(".mv-route-view").is_visible()
         assert touch.locator(".mv-route-view h1").evaluate("el => parseFloat(getComputedStyle(el).fontSize)") >= 25, "Za mała czcionka mobilna"
