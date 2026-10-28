@@ -1,22 +1,35 @@
 'use strict';
-const menuToggle = document.querySelector('#menu-toggle');
-const siteNav = document.querySelector('#site-nav');
-function closeMenu() {siteNav?.classList.remove('open');menuToggle?.setAttribute('aria-expanded','false');}
-menuToggle?.addEventListener('click', () => {const opened = siteNav.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(opened));});
-siteNav?.querySelectorAll('a').forEach(a => a.addEventListener('click',closeMenu));
-document.addEventListener('keydown', e => {if(e.key==='Escape')closeMenu();});
-const navLinks = [...(siteNav?.querySelectorAll('a')||[])];
-if('IntersectionObserver' in window){const activeObserver=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting){navLinks.forEach(a=>{const match=a.getAttribute('href')==='#'+e.target.id;a.classList.toggle('active',match);if(match)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}}},{rootMargin:'-18% 0px -63% 0px'});document.querySelectorAll('main section[id]').forEach(el=>activeObserver.observe(el));}
-const featureInfo={
-  mods:{eyebrow:'01 / MODY',title:'Mody, które pasują <span class="text-gradient">do Twojej gry.</span>',description:'Importuj pliki JAR i zarządzaj modami. Launcher sprawdza podstawowe metadane loadera. Pełna kontrola zależności pozostaje w przygotowaniu.',state:'Dostępne: import plików JAR',img:'assets/mods.jpg',alt:'Ilustracja modułu modów MINEVORA',link:'#mody',linkText:'Zobacz szczegóły ↗',ready:true},
-  pvp:{eyebrow:'02 / HUD',title:'PvP Mode. <span class="text-gradient">Twój styl walki.</span>',description:'Planowany moduł ustawień HUD i interfejsu walki. W wydaniu 19.0.0 funkcja nie jest jeszcze gotowa.',state:'W przygotowaniu',img:'assets/pvp.jpg',alt:'Wizualizacja areny PvP MINEVORA',link:'#pvp',linkText:'Poznaj PvP ↗',ready:false},
-  skin:{eyebrow:'03 / SKIN STUDIO',title:'Twój skin. <span class="text-gradient">Twoje kolory.</span>',description:'Obecna aplikacja potrafi odczytać plik skina PNG 64 × 64. Zaawansowany edytor postaci 3D jest jeszcze w przygotowaniu.',state:'Dostępne: podgląd PNG',img:'assets/skin.jpg',alt:'Wizualizacja narzędzi do skina',link:'#skorki',linkText:'Zobacz Skin Studio ↗',ready:true},
-  ranks:{eyebrow:'04 / RANKINGI',title:'Poznaj swój <span class="text-gradient">postęp.</span>',description:'Rankingi i statystyki online będą częścią przyszłego ekosystemu serwera MINEVORA. Nie pokazujemy fikcyjnych wyników graczy.',state:'W przygotowaniu',img:'assets/ranking.jpg',alt:'Koncepcja świata rankingów MINEVORA',link:'#minigry',linkText:'Poznaj plany ↗',ready:false}
+const toggle=document.querySelector('#menu-toggle');
+const nav=document.querySelector('#site-nav');
+function closeMenu(){nav?.classList.remove('open');toggle?.setAttribute('aria-expanded','false');}
+toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
+nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+const links=[...(nav?.querySelectorAll('a')||[])];
+if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){links.forEach(a=>{const active=a.getAttribute('href')==='#'+entry.target.id;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}}},{rootMargin:'-18% 0px -72% 0px'});document.querySelectorAll('main section[id]').forEach(s=>observer.observe(s));}
+const views={
+  Graj:{title:'Uruchom Minecraft Java',subtitle:'Wybierz wersję, loader i profil.',tags:['Vanilla','Fabric','Forge','NeoForge','Quilt'],status:'Oficjalne logowanie Microsoft wymagane'},
+  Mody:{title:'Mody i dodatki',subtitle:'Dodawaj lokalne pliki JAR.',tags:['Import JAR','Loader','Wersja gry'],status:'Podstawowa kontrola zgodności'},
+  PvP:{title:'PvP Mode',subtitle:'Interfejs walki i statystyki.',tags:['HUD','Klawiatura','Efekty'],status:'W przygotowaniu'},
+  'Społeczność':{title:'Społeczność',subtitle:'Discord i ogłoszenia MINEVORA.',tags:['Discord','Nowości'],status:'Zaproszenie dostępne na stronie'},
+  'Więcej':{title:'Więcej możliwości',subtitle:'Diagnostyka, profil i ustawienia.',tags:['Java','Microsoft','Diagnostyka'],status:'Wybrane funkcje dostępne'}
 };
-const tabControls=[...document.querySelectorAll('[data-feature]')];const featurePanel=document.getElementById('feature-panel');
-function selectFeature(id, focus=false){const item=featureInfo[id];if(!item)return;for(const control of tabControls){const selected=control.dataset.feature===id;control.classList.toggle('active',selected);control.setAttribute('aria-selected',String(selected));control.tabIndex=selected?0:-1;if(selected&&focus)control.focus();}featurePanel.setAttribute('aria-labelledby','feature-tab-'+id);document.getElementById('feature-eyebrow').textContent=item.eyebrow;document.getElementById('feature-title').innerHTML=item.title;document.getElementById('feature-description').textContent=item.description;const state=document.getElementById('feature-state');state.textContent=item.state;state.classList.toggle('state-warn',!item.ready);const picture=document.getElementById('feature-image');picture.src=item.img;picture.alt=item.alt;const link=document.getElementById('feature-link');link.href=item.link;link.textContent=item.linkText;}
-tabControls.forEach((tab,index)=>{tab.addEventListener('click',()=>selectFeature(tab.dataset.feature));tab.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();let i=index;if(e.key==='Home')i=0;else if(e.key==='End')i=tabControls.length-1;else i=(index+(e.key==='ArrowRight'?1:-1)+tabControls.length)%tabControls.length;selectFeature(tabControls[i].dataset.feature,true);});});
-const previewScreens={Graj:{title:'Graj w Minecraft',caption:'Wybierz profil, wersję gry i loader.',image:'assets/hero.jpg',tags:['Vanilla','Fabric','Forge','NeoForge','Quilt'],state:'Instalacja i uruchamianie w aplikacji'},Mody:{title:'Mody i dodatki',caption:'Zarządzaj plikami JAR i zgodnością loadera.',image:'assets/mods.jpg',tags:['Import JAR','Weryfikacja'],state:'Podstawowy import działa'},Minigry:{title:'Minigry',caption:'Planowane tryby serwera MINEVORA.',image:'assets/minigry.jpg',tags:['BedWars','SkyWars','Parkour'],state:'W przygotowaniu'},PvP:{title:'PvP Mode',caption:'Personalizowany HUD walki.',image:'assets/pvp.jpg',tags:['HUD','Efekty','Statystyki'],state:'W przygotowaniu'},Skórki:{title:'Skin Studio',caption:'Podgląd PNG 64 × 64. Edytor 3D później.',image:'assets/skin.jpg',tags:['PNG 64×64','Podgląd'],state:'Edytor 3D w przygotowaniu'},Społeczność:{title:'Społeczność',caption:'Discord i wiadomości o MINEVORA.',image:'assets/world.jpg',tags:['Discord','Nowości'],state:'Zaproszenie dostępne'},Więcej:{title:'Więcej',caption:'Ustawienia, Microsoft OAuth i diagnostyka.',image:'assets/ranking.jpg',tags:['Diagnostyka','Ustawienia'],state:'Wybrane funkcje dostępne'}};
-const homeMarkup=document.querySelector('#app-display')?.innerHTML;
-document.querySelectorAll('.app-tab').forEach(btn=>btn.addEventListener('click',()=>{for(const tab of document.querySelectorAll('.app-tab')){const active=tab===btn;tab.classList.toggle('selected',active);tab.setAttribute('aria-pressed',String(active));}const display=document.querySelector('#app-display');const view=btn.dataset.preview;if(view==='Start'){display.innerHTML=homeMarkup;return;}const data=previewScreens[view];if(!data)return;display.innerHTML=`<div class="preview-detail"><div class="detail-header">MINEVORA / ${view.toUpperCase()}</div><h3>${data.title}</h3><p class="detail-note">${data.caption}</p><div class="detail-banner"><img src="${data.image}" alt="" loading="lazy"></div><div class="detail-fields">${data.tags.map(tag=>`<span>${tag}</span>`).join('')}</div><div class="detail-state">${data.state}</div></div>`;}));
-const slider=document.querySelector('#minigame-list');document.querySelector('#scroll-left')?.addEventListener('click',()=>slider.scrollBy({left:-440,behavior:'smooth'}));document.querySelector('#scroll-right')?.addEventListener('click',()=>slider.scrollBy({left:440,behavior:'smooth'}));
+const display=document.querySelector('#preview-screen');
+const original=display?.innerHTML;
+for(const tab of document.querySelectorAll('[data-preview]')){
+  tab.addEventListener('click',()=>{
+    const page=tab.dataset.preview;
+    for(const t of document.querySelectorAll('[data-preview]')){const active=t===tab;t.classList.toggle('current',active);t.setAttribute('aria-pressed',String(active));}
+    if(page==='Start'){display.innerHTML=original;return;}
+    const view=views[page];if(!view)return;
+    display.replaceChildren();
+    const eyebrow=document.createElement('div');eyebrow.className='preview-kicker';eyebrow.textContent='MINEVORA / '+page.toUpperCase();
+    const box=document.createElement('div');box.className='preview-content-card';
+    const title=document.createElement('h3');title.textContent=view.title;
+    const para=document.createElement('p');para.textContent=view.subtitle;
+    const status=document.createElement('p');status.className='preview-copy';status.textContent='● '+view.status;
+    const tags=document.createElement('div');tags.className='preview-content-tags';
+    for(const name of view.tags){const chip=document.createElement('span');chip.textContent=name;tags.append(chip);}
+    box.append(title,para,tags,status);display.append(eyebrow,box);
+  });
+}
