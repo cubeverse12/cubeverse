@@ -200,3 +200,103 @@ a[aria-disabled="true"]{pointer-events:none}
  html{scroll-behavior:auto}
  .btn,.feature-tab{transition:none}
 }
+
+/* MINEVORA 5.1 — normal mobile view only.
+   Android Chrome "Desktop site" reports a wide CSS viewport and therefore
+   keeps the unchanged two-column desktop design above 800px. */
+@media screen and (max-width:800px){
+  body{overflow-x:clip}
+  .wrapper{width:calc(100% - 36px);max-width:720px}
+  .promo{padding:9px 14px;font-size:11px;line-height:1.5}
+  .promo a{display:inline-block;white-space:nowrap}
+  .navbar{min-height:72px;gap:12px}
+  .logo img{height:50px;width:145px}
+  .nav-actions .btn{min-height:46px}
+  .nav-toggle{min-width:46px;min-height:46px}
+  .hero{padding:52px 0 64px}
+  .hero-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
+  .hero-copy{text-align:left;max-width:650px}
+  .hero .eyebrow{font-size:11px;letter-spacing:1.1px}
+  .hero h1{
+    font-size:clamp(46px,8vw,67px);
+    line-height:1.08;
+    letter-spacing:-.058em;
+    margin:21px 0 18px;
+    max-width:650px;
+  }
+  .hero-lede{font-size:16px;line-height:1.65;max-width:600px;margin:0 0 26px}
+  .hero-buttons{justify-content:flex-start;gap:11px}
+  .hero-buttons .btn{min-height:52px;font-size:15px}
+  .hero-trust{justify-content:flex-start;margin-top:19px;font-size:12px}
+  .preview-area{max-width:700px;width:100%;margin:0;min-width:0;padding:4px 0 24px}
+  .preview-shell{width:100%;max-width:100%;transform:none;border-radius:16px}
+  .preview-shell img{height:auto;max-width:100%;aspect-ratio:16/9;object-fit:contain}
+  .mini-floating{right:7px;bottom:0}
+  .section{padding:65px 0}
+  .section-head{margin-bottom:30px}
+  .section-head h2{font-size:clamp(34px,5.5vw,46px)}
+  .bento{grid-template-columns:minmax(0,1fr);gap:15px}
+  .bento-card{min-width:0}
+  .bento-body{padding:22px}
+  .feature-stage{grid-template-columns:minmax(0,1fr);gap:18px}
+  .stage-visual{min-width:0}
+  .stage-visual img{max-width:100%}
+  .feature-tab{min-height:106px}
+  .steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .download-card{grid-template-columns:minmax(0,1fr)}
+  .download-actions .btn{min-height:52px}
+  .guide-band{align-items:flex-start}
+}
+@media screen and (max-width:540px){
+  .wrapper{width:calc(100% - 30px)}
+  .navbar{min-height:70px;gap:8px}
+  .logo img{width:130px;height:48px}
+  .nav-actions{gap:7px}
+  .nav-actions .btn{min-height:46px;font-size:13px;padding:10px 13px}
+  .nav-actions .btn svg{display:none}
+  .nav-toggle{width:46px;min-width:46px;flex-basis:46px;height:46px}
+  .hero{padding:48px 0 53px}
+  .hero-layout{gap:27px}
+  .hero h1{font-size:clamp(42px,11.4vw,58px);margin:19px 0 17px;line-height:1.08}
+  .hero-lede{font-size:15.5px;line-height:1.62;margin-bottom:24px}
+  .hero-buttons{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+  .hero-buttons .btn{width:100%;min-height:52px;font-size:15px}
+  .hero-trust{font-size:11px;gap:9px 14px;margin-top:21px}
+  .preview-area{padding:1px 0 18px}
+  .preview-chrome{min-height:35px;padding:9px 10px}
+  .preview-label{padding:10px 12px;font-size:11px}
+  .preview-label strong{font-size:12px}
+  .mini-floating{position:relative;bottom:auto;right:auto;display:table;margin:-9px 9px 0 auto;font-size:11px;padding:8px 11px}
+  .section{padding:60px 0}
+  .section-head{margin-bottom:25px}
+  .section-head h2{font-size:clamp(32px,8.5vw,42px)}
+  .section-head p{font-size:14.5px;line-height:1.68}
+  .bento-card .bento-image{padding:13px 13px 0}
+  .bento-body{padding:22px 19px}
+  .feature-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .feature-tab{min-height:105px;padding:14px 11px}
+  .feature-tab b{font-size:15px;line-height:1.25}
+  .feature-tab small{font-size:12px}
+  .feature-stage{padding:16px}
+  .stage-copy{padding:3px}
+  .stage-copy h3{font-size:29px}
+  .stage-copy p{font-size:14px;line-height:1.7}
+  .steps{grid-template-columns:minmax(0,1fr);gap:22px}
+  .step{padding:17px 0 0}
+  .download-section{padding:60px 0}
+  .download-card{padding:26px 20px}
+  .download-card h2{font-size:35px}
+  .download-actions{display:flex;flex-direction:column}
+  .download-actions .btn{width:100%}
+  .os-card{padding:20px;min-height:155px}
+  .guide-band{gap:15px}
+  .footer-inner{gap:20px}
+  .footer-links{gap:18px}
+}
+@media screen and (max-width:360px){
+  .logo img{width:115px}
+  .nav-actions .btn{padding:10px 9px;font-size:12px}
+  .navbar{gap:5px}
+  .hero h1{font-size:41px}
+  .promo{font-size:10px}
+}
