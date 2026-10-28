@@ -22,7 +22,6 @@ ROUTES = {
     "studio": 3,
     "plus": 2,
     "opcje": 2,
-    "poradnik": 3,
     "pobierz": 3,
 }
 server = subprocess.Popen(
@@ -117,7 +116,7 @@ try:
                 if device == "phone":
                     grid = page.locator("#content .gallery").evaluate("el => getComputedStyle(el).gridTemplateColumns")
                     assert len(grid.split()) == 1, (device, route, "not one gallery column", grid)
-                if route in ("poradnik", "opcje", "studio", "minigry"):
+                if route in ("opcje", "studio", "minigry"):
                     page.screenshot(path=str(OUT / f"minevora-rebuild-{route}-{device}.png"), full_page=True)
                 if route == "pobierz":
                     assert page.locator("a[href='https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.4']").count() >= 1
@@ -132,7 +131,7 @@ try:
             user_agent="Mozilla/5.0 (Linux; Android 16; Mobile) AppleWebKit/537.36 Chrome/154.0 Mobile Safari/537.36",
         )
         touch = phone_site.new_page()
-        touch.goto(BASE + "#poradnik", wait_until="networkidle")
+        touch.goto(BASE + "#opcje", wait_until="networkidle")
         assert touch.locator("body").evaluate("x => x.classList.contains('force-mobile')"), "Android desktop site: brak układu mobilnego"
         expect(touch.locator("#menuToggle")).to_be_visible()
         assert touch.locator(".gallery").evaluate("x => getComputedStyle(x).gridTemplateColumns.split(' ').length") == 1
@@ -140,6 +139,54 @@ try:
         no_overflow(touch, "Android desktop site", "poradnik")
         touch.screenshot(path=str(OUT / "minevora-rebuild-android-desktop-mode.png"), full_page=True)
         phone_site.close()
+
+        # New standalone guide must be delivered as readable HTML even without JS.
+        static = browser.new_context(java_script_enabled=False, viewport={"width": 393, "height": 852})
+        nojs = static.new_page()
+        response = nojs.goto(BASE + "poradnik/?v=20261028-readable&utm_source=chatgpt.com", wait_until="load")
+        assert response.status == 200
+        assert nojs.locator("link[rel=canonical]").get_attribute("href") == "https://minevora.pl/v4/poradnik/"
+        assert nojs.title().startswith("Jak zainstalować launcher Minecraft")
+        assert nojs.locator("h1").count() == 1
+        assert nojs.locator("main .guide-section").count() >= 7
+        assert nojs.locator(".guide-faq details").count() >= 9
+        assert "Exit Code 1" in nojs.locator("#faq").text_content()
+        assert nojs.locator("a[href='#instalacja']").count() >= 1
+        assert nojs.locator("a[href='#logowanie']").count() >= 1
+        assert nojs.locator("a[href='#faq']").count() >= 1
+        assert nojs.locator("img[src*='guide-install.svg']").count() >= 1
+        assert nojs.locator("script[src='./guide.js']").count() == 1
+        assert nojs.locator("meta[name=description]").get_attribute("content")
+        no_overflow(nojs, "no-js", "guide")
+        nojs.screenshot(path=str(OUT / "minevora-guide-nojs-phone.png"), full_page=True)
+        static.close()
+
+        interactive = browser.new_page(viewport={"width": 393, "height": 852})
+        interactive.goto(BASE + "poradnik/", wait_until="networkidle")
+        interactive.keyboard.press("Control+k")
+        expect(interactive.locator("#guideSearch")).to_be_focused()
+        interactive.locator("#guideSearch").fill("Exit Code 1")
+        expect(interactive.locator(".guide-faq details:not([hidden])")).to_have_count(1)
+        assert "Exit Code 1" in interactive.locator(".guide-faq details:not([hidden]) summary").inner_text()
+        assert interactive.locator(".guide-faq details:not([hidden])").get_attribute("open") is not None
+        interactive.locator("#guideSearch").fill("")
+        expect(interactive.locator(".guide-faq details:not([hidden])")).to_have_count(10)
+        no_overflow(interactive, "phone", "guide")
+        interactive.screenshot(path=str(OUT / "minevora-guide-interactive-phone.png"), full_page=True)
+        interactive.close()
+
+        legacyGuide = browser.new_page()
+        legacyGuide.goto(BASE + "#poradnik", wait_until="domcontentloaded")
+        legacyGuide.wait_for_url("**/v4/poradnik/", timeout=15000)
+        expect(legacyGuide.locator("h1")).to_be_visible()
+        legacyGuide.close()
+
+        homeSeo = browser.new_page()
+        homeSeo.goto(BASE + "?v=some-old-version&utm_source=chatgpt.com#start", wait_until="domcontentloaded")
+        assert homeSeo.locator("link[rel='canonical']").get_attribute("href") == "https://minevora.pl/v4/"
+        assert homeSeo.locator("a[href='./poradnik/']").count() >= 1
+        assert homeSeo.locator("a[href='#poradnik']").count() == 0
+        homeSeo.close()
 
         redirect = browser.new_page()
         redirect.goto("http://127.0.0.1:8766/?rebuilt=1#start", wait_until="domcontentloaded")
