@@ -91,13 +91,30 @@ try:
             assert not page.locator(".hero").is_visible(), (name, "Start widoczny w minigrach")
             page.screenshot(path=str(OUT / f"minevora-minigry-{name}.png"), full_page=True)
 
-            for route in ["pvp", "ranking", "studio", "mody", "poradnik", "pobierz"]:
+            for route in ["pvp", "ranking", "studio", "mody", "poradnik", "opcje", "pobierz"]:
                 page.goto(BASE + "#" + route, wait_until="networkidle", timeout=30000)
                 view = page.locator(".mv-route-view")
                 assert view.is_visible(), (name, route, "zakładka niewidoczna")
                 assert page.locator("#" + route).is_visible(), (name, route, "błędny link")
                 assert view.locator(".mv-photo img").count() >= 2, (name, route, "brak zdjęć funkcji")
                 assert not check_images(page), (name, route, "niezaładowane zdjęcia")
+                if route in ("poradnik", "opcje"):
+                    expected = (
+                        ["guide-install.svg", "guide-modes.svg", "guide-pvp-hud.svg"]
+                        if route == "poradnik" else
+                        ["settings-panel.svg", "settings-profiles.svg"]
+                    )
+                    images = view.locator(".mv-photo img").all()
+                    sources = [img.get_attribute("src") for img in images]
+                    assert len(images) == len(expected), (route, "zła liczba grafik", sources)
+                    for image, source, filename in zip(images, sources, expected):
+                        assert source.endswith("/site-refresh/" + filename), (route, filename, source)
+                        image.evaluate("img => img.decode()")
+                        assert image.evaluate("img => img.complete && img.naturalWidth >= 1050"), (route, "puste lub uszkodzone zdjęcie", source)
+                    if name == "phone":
+                        columns = view.locator(".mv-shot-grid").evaluate("el => getComputedStyle(el).gridTemplateColumns")
+                        assert len(columns.split()) == 1, (route, "galeria nie ma jednej kolumny", columns)
+                        page.screenshot(path=str(OUT / ("minevora-" + route + "-phone.png")), full_page=True)
             dimensions = page.evaluate("""() => ({
                 width: document.documentElement.scrollWidth,
                 viewport: window.innerWidth,
