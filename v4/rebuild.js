@@ -146,7 +146,8 @@ function home(){
 }
 function searchPage(query){
  const q=query.trim().toLocaleLowerCase("pl");
- if(!q)return '<section class="surface"><h1>Wyszukaj funkcję</h1><p class="note">Wpisz nazwę funkcji lub trybu, np. „Skin Studio”, „BedWars” albo „Forge”.</p></section>';
+ const mobileForm='<form class="search-mobile" id="mobileSearchForm"><input id="mobileSearch" type="search" name="q" aria-label="Szukaj funkcji MINEVORA" value="'+esc(query)+'" placeholder="Np. BedWars, PvP, Skin Studio…" required><button class="btn" type="submit">Szukaj</button></form>';
+ if(!q)return '<section class="surface"><div class="page-heading"><span class="section-hint">WYSZUKIWARKA</span><h1>Wyszukaj funkcję</h1><p>Wyszukaj tryby lub elementy launchera.</p></div>'+mobileForm+'</section>';
  const results=Object.entries(data).filter(([key,p])=>
    [p.label,p.intro,p.description,p.heading,...p.gallery.flatMap(x=>[x.title,x.desc])].join(" ").toLocaleLowerCase("pl").includes(q));
  return '<section class="surface"><div class="page-heading"><span class="section-hint">SZUKAJ</span><h1>Wyniki wyszukiwania</h1><p>Fraza: <strong>'+esc(query)+'</strong></p></div>'+
@@ -216,15 +217,22 @@ document.addEventListener("keydown",e=>{
   if(e.shiftKey&&document.activeElement===focus[0]){e.preventDefault();focus.at(-1).focus();}
   else if(!e.shiftKey&&document.activeElement===focus.at(-1)){e.preventDefault();focus[0].focus();}
  }
- if((e.ctrlKey||e.metaKey)&&e.key.toLocaleLowerCase()==="k"){e.preventDefault();if(window.innerWidth<=950||document.body.classList.contains("force-mobile")){location.hash="szukaj";$("#mobileSearch").focus()}else searchInput.focus();}
+ if((e.ctrlKey||e.metaKey)&&e.key.toLocaleLowerCase()==="k"){e.preventDefault();if(window.innerWidth<=950||document.body.classList.contains("force-mobile")){location.hash="szukaj";}else searchInput.focus();}
 });
 if(searchInput){
  searchInput.addEventListener("input",e=>{searchQuery=e.target.value;if(searchQuery.trim()){if(location.hash!=="#szukaj")location.hash="szukaj";else renderSearchOnly();}else if(current==="szukaj")renderSearchOnly();});
  searchInput.addEventListener("keydown",e=>{if(e.key==="Enter"&&searchQuery.trim()){location.hash="szukaj";renderSearchOnly();}});
 }
 function renderSearchOnly(){if(normalize(location.hash)!=="szukaj")return;content.innerHTML=searchPage(searchQuery);updateLinks("szukaj");}
-const mobileSearch=$("#mobileSearch");
-if(mobileSearch){mobileSearch.addEventListener("input",e=>{searchQuery=e.target.value;searchInput.value=searchQuery;if(location.hash!=="#szukaj")location.hash="szukaj";else renderSearchOnly();});}
+content.addEventListener("submit",e=>{
+ if(e.target.id!=="mobileSearchForm")return;
+ e.preventDefault();
+ const input=$("#mobileSearch",content);
+ searchQuery=input?input.value:"";
+ if(searchInput)searchInput.value=searchQuery;
+ if(location.hash!=="#szukaj")location.hash="szukaj";
+ else renderSearchOnly();
+});
 let pending=false;
 window.addEventListener("resize",()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;mobile()})},{passive:true});
 window.addEventListener("hashchange",render);
