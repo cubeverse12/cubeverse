@@ -1,0 +1,26 @@
+MINEVORA 19.0.0 — STRONA DOPASOWANA DO LAUNCHERA
+==============================================
+
+CO ZAWIERA PACZKA
+- index.html — strona główna w kolorystyce aplikacji PySide6.
+- style.css — dokładne kolory z minevora/theme.py (wersja 19.0.0).
+- script.js — menu mobilne, interaktywny podgląd okna, karty funkcji i minigry.
+- poradnik/index.html — podstrona poradnika.
+- assets/ — te same obrazy i logo, które występują w launcherze.
+- downloads/MINEVORA_LAUNCHER_19_0_0.zip — oryginalna paczka kodu źródłowego launchera 19.0.0.
+
+JAK OPUBLIKOWAĆ NA GITHUB PAGES
+1. Otwórz repozytorium GitHub obsługujące domenę minevora.pl.
+2. Otwórz katalog v4/ na gałęzi publikowanej przez GitHub Pages.
+3. Wgraj DO TEGO KATALOGU zawartość ZIP, a nie sam plik ZIP.
+   index.html ma leżeć w v4/index.html, poradnik w v4/poradnik/index.html.
+4. Nie usuwaj istniejącego CNAME ani ustawień domeny w repozytorium.
+5. Poczekaj na zakończenie wdrożenia GitHub Pages i odśwież /v4/.
+
+WAŻNE
+- Podgląd launchera na stronie jest interaktywną WIZUALIZACJĄ UI, a nie aplikacją Minecraft w przeglądarce.
+- Konta Microsoft i instalacje gry działają tylko w aplikacji Windows po konfiguracji.
+- Pobierany ZIP to KOD ŹRÓDŁOWY, a nie instalator EXE.
+- Marketplace, PvP HUD, rankingi online, skin editor 3D i minigry są oznaczone jako w przygotowaniu.
+- Wersja strony i launchera: 19.0.0. Nie edytuj numeru w jednym pliku bez pozostałych.
+- Ta paczka nie aktualizuje automatycznie publicznej witryny minevora.pl.
