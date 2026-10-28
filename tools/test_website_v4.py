@@ -38,16 +38,25 @@ def checked_images(page):
         .map(img => img.currentSrc || img.src)""")
 
 def assert_hd_images(page, device, route):
-    """Raster photos on the rebuilt site should resolve to HD files, never 920px sources."""
+    """Pictures must load real responsive WebP files and never blurry low-res originals."""
     items = page.locator("#content img").all()
     for item in items:
         src = item.get_attribute("src") or ""
         if ".svg" in src:
             continue
         assert "site-hd/" in src, (device, route, "legacy low-resolution raster", src)
-        dimensions = item.evaluate("img => [img.naturalWidth,img.naturalHeight]")
-        assert dimensions[0] >= 1600 and dimensions[1] >= 900, (
-            device, route, "image is not HD", src, dimensions
+        metadata = item.evaluate("""img => ({
+            width: img.naturalWidth,
+            height: img.naturalHeight,
+            current: img.currentSrc,
+            srcset: img.getAttribute('srcset') || ''
+        })""")
+        assert metadata["width"] >= 640 and metadata["height"] >= 360, (
+            device, route, "image too small", src, metadata
+        )
+        assert "site-hd/" in metadata["current"], (device, route, "bad image fallback", metadata)
+        assert "-640.webp" in metadata["srcset"] and "-960.webp" in metadata["srcset"], (
+            device, route, "missing responsive srcset", metadata
         )
 
 
