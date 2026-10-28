@@ -50,14 +50,14 @@
       intro:'Własne profile Minecraft Java i obsługa loaderów. Instalacja i uruchamianie odbywają się w aplikacji Windows.',
       subtitle:'Wybieraj swoją konfigurację',
       description:'Vanilla, Fabric, Forge, NeoForge i Quilt. Zdjęcia przedstawiają ekrany MINEVORA; lista obsługiwanych wydań zależy od wersji aplikacji.',
-      photos:[pic('Launcher i profile','launcher-18-3-16/launcher-preview.webp','Ekran aplikacji Minecraft Java'),pic('Instalacje i mody','launcher-316/mods.webp','Podgląd menedżera instalacji'),pic('Pierwsze uruchomienie','guide/launcher-windows.webp','Informacje o uruchamianiu launchera')]
+      photos:[pic('Launcher i profile','launcher-18-3-16/launcher-preview.webp','Ekran aplikacji Minecraft Java'),pic('Instalacje i mody','site-refresh/mod-catalog.svg','Podgląd menedżera instalacji'),pic('Pierwsze uruchomienie','guide/launcher-windows.webp','Informacje o uruchamianiu launchera')]
     },
     mody:{
       title:'Mody i dodatki',
       intro:'W jednym miejscu: dodatki, profile i narzędzia do personalizacji gry.',
       subtitle:'Przeglądaj możliwości launchera',
       description:'Zdjęcia funkcji w podwyższonej czytelności. Dostępność i automatyczna instalacja modów zależą od zgodności z wybraną wersją gry.',
-      photos:[pic('Biblioteka modów','launcher-316/mods.webp','Katalog modów i dodatków'),pic('Mody i zawartość','site-refresh/mod-catalog.svg','Podgląd elementów interfejsu'),pic('Poradnik instalacji','launcher-18-3-16/feature-guide.webp','Wskazówki dla nowych graczy')]
+      photos:[pic('Biblioteka modów','site-refresh/mod-catalog.svg','Katalog modów i dodatków'),pic('Mody i zawartość','site-refresh/mod-catalog.svg','Podgląd elementów interfejsu'),pic('Poradnik instalacji','launcher-18-3-16/feature-guide.webp','Wskazówki dla nowych graczy')]
     },
     minigry:{
       title:'Minigry',
@@ -71,14 +71,14 @@
       intro:'Tryby pojedynków, areny i ustawienia HUD — przedstawione na podglądach MINEVORA.',
       subtitle:'Przygotuj się do pojedynku',
       description:'Karty przedstawiają tryby PvP. Dostępność w grze zależy od zgodnego moda i uruchomionego serwera.',
-      photos:[pic('PvP Mode','launcher-316/pvp.webp','Przegląd dostępnych stylów walki'),pic('Crystal PvP','launcher-316/crystal-pvp.webp','Wizualizacja trybu Crystal PvP'),pic('Ustawienia PvP','launcher-18-3-16/feature-pvp.webp','Ekran konfiguracji i aren')]
+      photos:[pic('PvP Mode','launcher-18-3-16/feature-pvp.webp','Przegląd dostępnych stylów walki'),pic('Crystal PvP','launcher-316/crystal-pvp.webp','Wizualizacja trybu Crystal PvP'),pic('Ustawienia PvP','guide/pvp-mode.webp','Ekran konfiguracji i aren')]
     },
     ranking:{
       title:'Rankingi',
       intro:'Podium, postęp rang i wizualizacja awansu.',
       subtitle:'Rozwijaj swoją rangę',
       description:'Wyniki i punkty w tej prezentacji są demonstracyjne — nie są odczytywane z aktywnego serwera.',
-      photos:[pic('Tabela rankingowa','launcher-316/rankingi.webp','Podgląd tabeli i statystyk'),pic('Rangi i postęp','guide/rankingi.webp','Przykładowa rozgrywka rankingowa'),pic('Animacja awansu','guide/awans.webp','Wizualizacja nagrody za awans')]
+      photos:[pic('Tabela rankingowa','guide/rankingi.webp','Podgląd tabeli i statystyk'),pic('Arena rankingowa','launcher-316/rankingi.webp','Przykładowa rozgrywka rankingowa'),pic('Animacja awansu','guide/awans.webp','Wizualizacja nagrody za awans')]
     },
     sklep:{
       title:'Sklep i marketplace',
@@ -106,7 +106,7 @@
       intro:'Ustawienia profili, dodatków i wyglądu aplikacji Windows.',
       subtitle:'Dostosuj MINEVORA',
       description:'Parametry gry i launchera ustawisz po otwarciu aplikacji Windows. Ta strona służy do zapoznania się z funkcjami.',
-      photos:[pic('Launcher','launcher-18-3-16/launcher-preview.webp','Ekran główny'),pic('Instalacje','launcher-316/mods.webp','Wybór dodatków i profili')]
+      photos:[pic('Launcher','launcher-18-3-16/launcher-preview.webp','Ekran główny'),pic('Instalacje','site-refresh/mod-catalog.svg','Wybór dodatków i profili')]
     },
     poradnik:{
       title:'Poradnik MINEVORA',
@@ -120,7 +120,7 @@
       intro:'MINEVORA dla Minecraft Java na Windows. Publiczna wersja na GitHub może różnić się od aktualnych projektów interfejsu.',
       subtitle:'Wydanie publiczne na GitHub',
       description:'Publicznie udostępnione wydanie: 18.3.4 (testowe). Wersja 18.5.0 prezentowana na stronie nie jest tym samym instalatorem. Weryfikuj pliki i zachowaj włączone zabezpieczenia Windows.',
-      photos:[pic('Ekran launchera','launcher-18-3-16/launcher-preview.webp','Podgląd interfejsu'),pic('MINEVORA Java','launcher-316/hero.webp','Grafika promocyjna'),pic('Mody','launcher-316/mods.webp','Obsługa instalacji')]
+      photos:[pic('Ekran launchera','launcher-18-3-16/launcher-preview.webp','Podgląd interfejsu'),pic('MINEVORA Java','launcher-316/hero.webp','Grafika promocyjna'),pic('Mody','site-refresh/mod-catalog.svg','Obsługa instalacji')]
     }
   };
   function htmlEscape(value) {
