@@ -70,20 +70,40 @@ def main() -> None:
         size = (1920, 1080) if rel.endswith("home-hero.webp") else (1600, 900)
         with Image.open(src) as original:
             generated = upscale(original, size, mode)
-        generated.save(dest, format="WEBP", quality=95, method=6)
+        generated.save(dest, format="WEBP", quality=91, method=6)
         with Image.open(dest) as check:
             check.verify()
+        variants = {}
+        # Real responsive images, not a 1600px file sent to a 350px mobile card.
+        # Source artwork remains unchanged; variants are generated from the source.
+        for width, quality in ((640, 79), (960, 81), (1280, 83)):
+            if width >= size[0]:
+                continue
+            target = (width, width * 9 // 16)
+            small = upscale(original, target, mode)
+            mobile_path = OUT / (dest.stem + f"-{width}.webp")
+            small.save(mobile_path, format="WEBP", quality=quality, method=6)
+            with Image.open(mobile_path) as verified:
+                assert verified.size == target
+                verified.verify()
+            variants[str(width)] = {
+                "file": "site-hd/" + mobile_path.name,
+                "width": width,
+                "height": target[1],
+                "bytes": mobile_path.stat().st_size,
+            }
         records[rel] = {
             "file": "site-hd/" + dest.name,
             "width": size[0],
             "height": size[1],
             "mode": mode,
             "bytes": dest.stat().st_size,
+            "variants": variants,
         }
         print(f"{rel} -> {dest.name} ({size[0]}x{size[1]}, {dest.stat().st_size:,} B)")
     assert len(records) == len(IMAGES)
     (OUT / "manifest.json").write_text(
-        json.dumps({"v": 1, "images": records}, ensure_ascii=False, indent=2) + "\n",
+        json.dumps({"v": 2, "images": records}, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
     print(f"Generated {len(records)} HD images, originals unchanged.")
