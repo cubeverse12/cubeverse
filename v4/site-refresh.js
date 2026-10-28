@@ -11,7 +11,7 @@
     var legacy = document.getElementById(id);
     if (legacy) {
       legacy.id = 'mv-legacy-' + id;
-      legacy.hidden = true;
+      if (id === 'pobierz' || id === 'poradnik') legacy.hidden = true;
     }
   });
   var play = hero.querySelector('.play');
@@ -19,11 +19,27 @@
     var label = play.querySelector('strong');
     var subtitle = play.querySelector('small');
     var symbol = play.querySelector('.tri');
-    if (label) label.textContent = 'POBIERZ';
-    if (subtitle) subtitle.textContent = 'Launcher MINEVORA na Windows';
-    if (symbol) symbol.textContent = '↓';
-    play.setAttribute('aria-label', 'Informacje o pobraniu launchera MINEVORA');
+    if (label) label.textContent = 'GRAJ';
+    if (subtitle) subtitle.textContent = 'Otwórz launcher Windows';
+    if (symbol) symbol.textContent = '▶';
+    play.setAttribute('aria-label', 'GRAJ — otwórz informacje o launcherze Windows. Przeglądarka nie uruchamia Minecrafta.');
   }
+  /* Pola wyboru pozostają na ekranie Start; wersję w grze ustawia się w aplikacji Windows. */
+  var versionSelect = hero.querySelector('select[aria-label="Wersja Minecraft"]');
+  var loaderSelect = hero.querySelector('select[aria-label="Typ instalacji"]');
+  function updateSelection() {
+    if (!play || !versionSelect || !loaderSelect) return;
+    var selected = 'Minecraft ' + versionSelect.value + ' / ' + loaderSelect.value;
+    play.title = selected + ' — wybór poglądowy na stronie, ustawienia zastosuj w launcherze';
+    play.dataset.selectedVersion = versionSelect.value;
+    play.dataset.selectedLoader = loaderSelect.value;
+  }
+  if (versionSelect && loaderSelect) {
+    versionSelect.addEventListener('change',updateSelection);
+    loaderSelect.addEventListener('change',updateSelection);
+    updateSelection();
+  }
+  var cards = main.querySelector('.cards');
   var dir = '../assets/';
   function pic(name, photo, note) {
     return {name:name, photo:dir+photo, note:note};
@@ -152,6 +168,7 @@
     view.id = key === 'start' ? 'mv-view-inactive' : key;
     var home=key==='start';
     hero.hidden=!home;
+    if (cards) cards.hidden=!home;
     view.hidden=home;
     if (!home) renderPage(key);
     document.title='MINEVORA — '+labels[key];
