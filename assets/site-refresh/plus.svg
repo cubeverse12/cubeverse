@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 480" width="1050" height="480" role="img" aria-label="Grafika poglądowa MINEVORA"><defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#161d37"/><stop offset=".58" stop-color="#151a30"/><stop offset="1" stop-color="#101629"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#27314c"/><stop offset="1" stop-color="#172039"/></linearGradient>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#64718d" stroke-opacity=".095"/></pattern>
+<filter id="soft"><feGaussianBlur stdDeviation="22"/></filter>
+</defs><rect width="1050" height="480" fill="url(#bg)"/><rect width="1050" height="480" fill="url(#grid)"/>
+<ellipse cx="710" cy="220" rx="300" ry="170" fill="#8e7bb7" opacity=".09" filter="url(#soft)"/>
+
+<text x="52" y="71" font-family="Segoe UI,Arial,sans-serif" font-size="35" font-weight="800" fill="#f2efff">MINEVORA PLUS</text>
+<text x="53" y="108" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="420" fill="#c7bcd8">Motywy i personalizacja — demonstracja</text>
+<rect x="48" y="140" width="943" height="291" rx="22" fill="#141b33" stroke="#6b6387"/>
+<rect x="90" y="176" width="265" height="212" rx="19" fill="#22283f" stroke="#626482"/>
+<rect x="106" y="193" width="233" height="119" rx="12" fill="#4d486f"/>
+<circle cx="223" cy="246" r="42" fill="#6e689d" opacity=".8"/><polygon points="223,212 253,246 223,280 193,246" fill="#c5d1de" opacity=".55"/>
+<text x="163" y="348" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="770" fill="#f0eafb">NEBULA</text>
+<rect x="395" y="176" width="265" height="212" rx="19" fill="#22283f" stroke="#626482"/>
+<rect x="411" y="193" width="233" height="119" rx="12" fill="#365d7d"/>
+<circle cx="528" cy="246" r="42" fill="#488597" opacity=".8"/><polygon points="528,212 558,246 528,280 498,246" fill="#c5d1de" opacity=".55"/>
+<text x="468" y="348" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="770" fill="#f0eafb">OCEAN</text>
+<rect x="700" y="176" width="265" height="212" rx="19" fill="#22283f" stroke="#626482"/>
+<rect x="716" y="193" width="233" height="119" rx="12" fill="#775a76"/>
+<circle cx="833" cy="246" r="42" fill="#a4786d" opacity=".8"/><polygon points="833,212 863,246 833,280 803,246" fill="#c5d1de" opacity=".55"/>
+<text x="773" y="348" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="770" fill="#f0eafb">EMBER</text>
+
+
+<rect x="1" y="1" width="1048" height="478" rx="22" stroke="#665e8a" stroke-opacity=".56" fill="none" stroke-width="2"/>
+</svg>
