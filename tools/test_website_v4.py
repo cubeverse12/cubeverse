@@ -13,14 +13,10 @@ OUT = ROOT / "website-v4-test-screenshots"
 OUT.mkdir(exist_ok=True)
 BASE = "http://127.0.0.1:8766/v4/"
 ROUTES = {
-    "wersje": 3,
     "mody": 3,
     "pvp": 1,
     "ranking": 2,
-    "sklep": 3,
     "studio": 3,
-    "plus": 2,
-    "opcje": 2,
 }
 server = subprocess.Popen(
     [sys.executable, "-m", "http.server", "8766", "--bind", "127.0.0.1"],
@@ -87,11 +83,13 @@ try:
             page.on("pageerror", lambda err: errors.append(str(err)))
             page.goto(BASE + "#start", wait_until="networkidle")
             expect(page.locator("#content .hero")).to_be_visible()
-            assert page.locator(".feature-card").count() == 6, (device, "start tiles")
+            assert page.locator(".feature-card").count() == 4, (device, "start tiles")
             assert page.locator("#content").get_attribute("data-ssg-home") == "true"
             assert page.locator("#content h1").count() == 1
             assert page.locator('a[href="#minigry"]').count() == 0, (device, "stara zakładka Minigry")
-            assert page.locator("#funkcje .feature-card").count() == 6
+            for obsolete in ("wersje", "sklep", "plus", "opcje"):
+                assert page.locator('a[href="#' + obsolete + '"]').count() == 0, (device, "unused menu entry", obsolete)
+            assert page.locator("#funkcje .feature-card").count() == 4
             assert page.locator("#pobierz #release-title").is_visible()
             assert "6,4 MB" in page.locator("#pobierz").inner_text()
             assert page.locator("a[href='https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.4']").count() >= 1
@@ -106,10 +104,10 @@ try:
 
             page.goto(BASE + "#pobierz", wait_until="domcontentloaded")
             expect(page.locator("#pobierz #release-title")).to_be_visible()
-            assert page.locator("#content .feature-card").count() == 6, (device, "download should not be a JS-only screen")
+            assert page.locator("#content .feature-card").count() == 4, (device, "download should not be a JS-only screen")
             no_overflow(page, device, "download anchor")
             page.goto(BASE + "#funkcje", wait_until="domcontentloaded")
-            expect(page.locator("#funkcje .feature-card")).to_have_count(6)
+            expect(page.locator("#funkcje .feature-card")).to_have_count(4)
             page.goto(BASE + "#start", wait_until="domcontentloaded")
             if device == "phone":
                 expect(page.locator("#menuToggle")).to_be_visible()
@@ -122,9 +120,9 @@ try:
                 assert page.locator("#menuToggle").get_attribute("aria-expanded") == "false"
             if device == "desktop":
                 expect(page.locator("#drawer")).to_be_visible()
-                page.locator("#siteSearch").fill("Dostosuj MINEVORA")
+                page.locator("#siteSearch").fill("Droga do wyższej rangi")
                 expect(page.locator("#content .search-hit")).to_have_count(1)
-                assert page.locator("#content .search-hit").get_attribute("href") == "#opcje"
+                assert page.locator("#content .search-hit").get_attribute("href") == "#ranking"
 
             for route, count in ROUTES.items():
                 # On each viewport verify every public page plus all the feature images.
@@ -146,7 +144,7 @@ try:
                 if device == "phone":
                     grid = page.locator("#content .gallery").evaluate("el => getComputedStyle(el).gridTemplateColumns")
                     assert len(grid.split()) == 1, (device, route, "not one gallery column", grid)
-                if route in ("opcje", "studio"):
+                if route in ("studio",):
                     page.screenshot(path=str(OUT / f"minevora-rebuild-{route}-{device}.png"), full_page=True)
             assert not errors, (device, "JavaScript errors", errors)
             output.append({"device": device, "routes": len(ROUTES) + 1, "broken_images": 0, "js_errors": 0})
@@ -159,7 +157,7 @@ try:
             user_agent="Mozilla/5.0 (Linux; Android 16; Mobile) AppleWebKit/537.36 Chrome/154.0 Mobile Safari/537.36",
         )
         touch = phone_site.new_page()
-        touch.goto(BASE + "#opcje", wait_until="networkidle")
+        touch.goto(BASE + "#studio", wait_until="networkidle")
         assert touch.locator("body").evaluate("x => x.classList.contains('force-mobile')"), "Android desktop site: brak układu mobilnego"
         expect(touch.locator("#menuToggle")).to_be_visible()
         assert touch.locator(".gallery").evaluate("x => getComputedStyle(x).gridTemplateColumns.split(' ').length") == 1
@@ -176,7 +174,7 @@ try:
         assert nojs.locator("link[rel='canonical']").get_attribute("href") == "https://minevora.pl/v4/"
         assert nojs.locator("h1").count() == 1
         assert nojs.locator(".hero h1").is_visible(), "Brak statycznego nagłówka Start"
-        assert nojs.locator("#funkcje .feature-card").count() == 6
+        assert nojs.locator("#funkcje .feature-card").count() == 4
         assert nojs.locator("#pobierz").is_visible()
         assert nojs.locator("meta[property='og:image']").get_attribute("content").startswith("https://minevora.pl/assets/")
         assert nojs.locator("meta[name='twitter:card']").get_attribute("content") == "summary_large_image"
@@ -214,6 +212,21 @@ try:
         no_overflow(interactive, "phone", "guide")
         interactive.screenshot(path=str(OUT / "minevora-guide-interactive-phone.png"), full_page=True)
         interactive.close()
+
+        # Existing shared old hash links should go somewhere meaningful.
+        for outdated, expected in [
+            ("wersje", "#pobierz"),
+            ("sklep", "#mody"),
+            ("plus", "#studio"),
+            ("opcje", "/v4/poradnik/"),
+        ]:
+            legacy = browser.new_page()
+            legacy.goto(BASE + "#" + outdated, wait_until="domcontentloaded")
+            if expected.startswith("/v4/"):
+                legacy.wait_for_url("**" + expected, timeout=15000)
+            else:
+                legacy.wait_for_url("**/v4/" + expected, timeout=15000)
+            legacy.close()
 
         legacyGuide = browser.new_page()
         legacyGuide.goto(BASE + "#poradnik", wait_until="domcontentloaded")
