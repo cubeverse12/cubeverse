@@ -4,22 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#080b19">
-  <meta name="description" content="MINEVORA — launcher Minecraft Java, minigry, PvP Mode, Skin Studio, mody i dodatki. Odkryj projekt i pobierz publiczne wydanie na Windows.">
-  <meta property="og:title" content="MINEVORA — Więcej niż Minecraft">
-  <meta property="og:description" content="Launcher Minecraft Java i zapowiedzi świata MINEVORA.">
+  <meta name="description" content="MINEVORA — projekt launchera Minecraft Java: mody, PvP Mode, Skin Studio i minigry. Sprawdź publiczne wydanie ZIP dla Windows oraz poradnik instalacji.">
+  <meta property="og:title" content="MINEVORA — Launcher Minecraft Java, mody i minigry">
+  <meta property="og:description" content="Poznaj projekt launchera Minecraft Java, Skin Studio, PvP i minigry. Pobierz publiczne wydanie Windows ZIP.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://minevora.pl/assets/website-photos-20261027/home-hero.webp">
+  <meta property="og:image" content="https://minevora.pl/assets/site-hd/website-photos-20261027-home-hero.webp">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:image:alt" content="Świat MINEVORA — podgląd minigier">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MINEVORA — Launcher Minecraft Java">
+  <meta name="twitter:description" content="Mody, PvP, Skin Studio i minigry. Publiczne wydanie launchera Windows.">
+  <meta name="twitter:image" content="https://minevora.pl/assets/site-hd/website-photos-20261027-home-hero.webp">
   <link rel="canonical" href="https://minevora.pl/v4/">
   <meta name="robots" content="index,follow">
   <meta property="og:url" content="https://minevora.pl/v4/">
-  <title>MINEVORA — Launcher Minecraft Java</title>
+  <title>MINEVORA — Launcher Minecraft Java, mody i minigry</title>
   <link rel="icon" type="image/svg+xml" href="../assets/minevora_crystal_emblem.svg">
   <link rel="stylesheet" href="./rebuild.css">
   <script src="./rebuild.js" defer></script>
 </head>
 <body>
   <div class="announcement">MINEVORA — projekt launchera Minecraft Java i serwera minigier.
-    <a href="#pobierz">Sprawdź dostępne wydanie</a>
+    <a href="#pobierz">Pobierz launcher dla Windows — ZIP 18.3.4</a>
   </div>
   <div class="layout" id="layout">
     <aside class="sidebar" id="drawer" aria-label="Menu MINEVORA">
@@ -69,13 +76,75 @@
           <a class="btn" href="#pobierz">Pobierz</a>
         </div>
       </header>
-      <main id="content" class="content" tabindex="-1">
-        <section class="surface"><h1>MINEVORA</h1><p>Przygotowywanie strony…</p></section>
+      <main id="content" class="content" data-ssg-home="true" tabindex="-1">
+        <section id="start" class="hero" aria-label="MINEVORA — strona główna">
+  <img class="hero-img" src="../assets/site-hd/website-photos-20261027-home-hero.webp" width="1920" height="1080" alt="Wizualizacja świata MINEVORA inspirowanego Minecraft" fetchpriority="high" decoding="async">
+  <div class="hero-main">
+    <img src="../assets/minevora_crystal_logo.svg" width="600" height="200" alt="MINEVORA">
+    <h1>Launcher Minecraft Java MINEVORA — Twój świat, Twoje zasady</h1>
+    <p>Odkrywaj mody, Skin Studio, PvP i minigry w projekcie MINEVORA. Serwer i część funkcji są w przygotowaniu.</p>
+  </div>
+  <div class="hero-controls">
+    <div class="selector-group">
+      <label class="select-tile"><span>Wersja Minecraft</span><select id="minecraftVersion" aria-label="Wersja Minecraft"><option>1.21.4</option><option>1.21.1</option><option>1.20.1</option></select></label>
+      <label class="select-tile"><span>Typ instalacji</span><select id="minecraftLoader" aria-label="Typ instalacji"><option>Vanilla</option><option>Fabric</option><option>Forge</option><option>NeoForge</option><option>Quilt</option></select></label>
+    </div>
+    <a id="playButton" class="hero-play" href="#pobierz" aria-label="GRAJ — pobieranie launchera Windows"><span aria-hidden="true">▶</span><span>GRAJ<small>Launcher Windows</small></span></a>
+  </div>
+</section>
+<section id="funkcje" aria-labelledby="features-title">
+  <div class="home-intro">
+    <div><span class="section-hint">ODKRYWAJ MINEVORA</span><h2 class="section-title" id="features-title">Wybierz swoją przygodę</h2></div>
+    <a class="btn secondary" href="#minigry">Zobacz minigry</a>
+  </div>
+  <div class="feature-grid"><a class="feature-card" href="#minigry">
+  <span class="thumb"><img src="../assets/site-hd/launcher-316-minigry.webp" width="1600" height="900" loading="lazy" decoding="async"  alt="Minigry — MINEVORA"></span>
+  <span class="feature-card-body"><h3>Minigry</h3><p>BedWars, SkyWars i planowane tryby serwera</p><span class="go">Zobacz funkcję →</span></span>
+</a>
+<a class="feature-card" href="#pvp">
+  <span class="thumb"><img src="../assets/site-hd/launcher-18-3-16-feature-pvp.webp" width="1600" height="900" loading="lazy" decoding="async"  alt="PvP Mode — MINEVORA"></span>
+  <span class="feature-card-body"><h3>PvP Mode</h3><p>Pojedynki, areny i koncepcje HUD</p><span class="go">Zobacz funkcję →</span></span>
+</a>
+<a class="feature-card" href="#ranking">
+  <span class="thumb"><img src="../assets/site-hd/guide-rankingi.webp" width="1600" height="900" loading="lazy" decoding="async"  alt="Rankingi — MINEVORA"></span>
+  <span class="feature-card-body"><h3>Rankingi</h3><p>Rangi, awanse i podglądy statystyk</p><span class="go">Zobacz funkcję →</span></span>
+</a>
+<a class="feature-card" href="#mody">
+  <span class="thumb"><img src="../assets/site-refresh/mod-catalog.svg" width="1600" height="900" loading="lazy" decoding="async" class="graphic" alt="Mody i dodatki — MINEVORA"></span>
+  <span class="feature-card-body"><h3>Mody i dodatki</h3><p>Katalog rozszerzeń Minecraft Java</p><span class="go">Zobacz funkcję →</span></span>
+</a>
+<a class="feature-card" href="#studio">
+  <span class="thumb"><img src="../assets/site-refresh/skin-editor.svg" width="1600" height="900" loading="lazy" decoding="async" class="graphic" alt="Skin Studio — MINEVORA"></span>
+  <span class="feature-card-body"><h3>Skin Studio</h3><p>Projekt edytora skinów Minecraft 3D</p><span class="go">Zobacz funkcję →</span></span>
+</a>
+<a class="feature-card" href="#sklep">
+  <span class="thumb"><img src="../assets/site-refresh/marketplace.svg" width="1600" height="900" loading="lazy" decoding="async" class="graphic" alt="Marketplace — MINEVORA"></span>
+  <span class="feature-card-body"><h3>Marketplace</h3><p>Zapowiedź map i dodatków twórców</p><span class="go">Zobacz funkcję →</span></span>
+</a>
+<a class="feature-card" href="#plus">
+  <span class="thumb"><img src="../assets/site-refresh/plus.svg" width="1600" height="900" loading="lazy" decoding="async" class="graphic" alt="MINEVORA PLUS — MINEVORA"></span>
+  <span class="feature-card-body"><h3>MINEVORA PLUS</h3><p>Koncepcje motywów i personalizacji</p><span class="go">Zobacz funkcję →</span></span>
+</a></div>
+</section>
+<section class="surface release-panel" id="pobierz" aria-labelledby="release-title">
+  <span class="section-hint">POBIERANIE / WINDOWS</span>
+  <h2 id="release-title" class="section-title">Pobierz MINEVORA Launcher 18.3.4 (ZIP)</h2>
+  <p>Publiczne wydanie testowe z 26 października 2026 r. Archiwum ZIP ma około <strong>6,4 MB</strong>. Nie jest to potwierdzony instalator EXE; nowsze podglądy interfejsu mogą różnić się od publicznej paczki.</p>
+  <div class="release-actions">
+    <a class="btn" href="https://github.com/cubeverse12/minevora-launcher/releases/tag/v18.3.4" target="_blank" rel="noopener noreferrer">Pobierz ZIP dla Windows — GitHub</a>
+    <a class="btn secondary" href="./poradnik/">Instrukcja instalacji</a>
+    <a class="btn subtle" href="https://github.com/cubeverse12/minevora-launcher/releases/download/v18.3.4/MINEVORA_LAUNCHER_18_3_4_SHARP.zip.sha256" target="_blank" rel="noopener noreferrer">Suma SHA-256</a>
+  </div>
+  <p class="note"><strong>Licencja Minecraft:</strong> do pełnej gry Minecraft Java Edition potrzebujesz odpowiedniego uprawnienia do gry na swoim koncie Microsoft. Samo pobranie launchera nie zapewnia licencji.</p>
+  <p class="note"><strong>Bezpieczeństwo:</strong> nie wyłączaj Windows Defendera ani Smart App Control w celu uruchomienia niezweryfikowanych plików. Sprawdź źródło wydania i podpis, jeśli jest dostępny. Nie publikujemy niepotwierdzonych wyników VirusTotal.</p>
+  <p class="note">MINEVORA jest niezależnym projektem. Nie jest oficjalnym produktem Minecraft i nie jest zatwierdzona przez Mojang Studios ani Microsoft.</p>
+</section>
+<p class="note">Wybór wersji na stronie jest poglądowy. Uruchomienie gry i ustawienia instancji odbywają się w launcherze Windows.</p>
       </main>
     </div>
   </div>
   <footer class="site-footer">
-    <span>© MINEVORA · Strona 4.1 · 28.10.2026 · Niezależny projekt Minecraft Java. Nie jest oficjalnym produktem Mojang ani Microsoft.</span>
+    <span>© MINEVORA · Strona 4.1 · 28.10.2026 · Niezależny projekt Minecraft Java. Nie jest oficjalnym produktem Minecraft, nie jest zatwierdzony ani powiązany z Mojang Studios lub Microsoft. Minecraft jest znakiem towarowym Mojang AB.</span>
     <nav aria-label="Linki stopki">
       <a href="#start">Start</a>
       <a href="./poradnik/">Poradnik</a>
