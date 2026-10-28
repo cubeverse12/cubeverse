@@ -135,7 +135,7 @@ function page(key){
  '<div class="feature-panel"><a class="panel-media" '+linkAttrs(path(hdFile(p.hero.image)),true)+' aria-label="Otwórz obraz: '+esc(p.hero.title)+'">'+image(p.hero,"",true)+'</a>'+
  '<div class="panel-details"><span class="state-tag">'+esc(p.state)+'</span><h2>'+esc(p.heading)+'</h2><p>'+esc(p.description)+'</p>'+routeAction(p)+'</div></div>'+
  extra+'<h2 class="gallery-title">Galeria funkcji</h2><div class="gallery">'+gallery+'</div>'+
- '<div class="footer-actions"><a class="btn secondary" href="#start">Wróć na Start</a><a class="btn subtle" href="#poradnik">Poradnik</a></div>'+
+ '<div class="footer-actions"><a class="btn secondary" href="#start">Wróć na Start</a><a class="btn subtle" href="./poradnik/">Poradnik</a></div>'+
  '<p class="note">Obrazy przedstawiają projekt MINEVORA. Kliknij ilustrację, aby ją powiększyć. Tryby serwera i niektóre funkcje są w przygotowaniu.</p></section>';
 }
 function home(){
@@ -161,7 +161,7 @@ function searchPage(query){
    [p.label,p.intro,p.description,p.heading,...p.gallery.flatMap(x=>[x.title,x.desc])].join(" ").toLocaleLowerCase("pl").includes(q));
  return '<section class="surface"><div class="page-heading"><span class="section-hint">SZUKAJ</span><h1>Wyniki wyszukiwania</h1><p>Fraza: <strong>'+esc(query)+'</strong></p></div>'+
  (results.length?'<div class="search-results">'+results.map(([key,p])=>
- '<a class="search-hit" href="#'+key+'"><span><strong>'+esc(p.label)+'</strong><span>'+esc(p.intro)+'</span></span><b aria-hidden="true">→</b></a>').join("")+'</div>':
+ '<a class="search-hit" href="'+(key==="poradnik"?"./poradnik/":"#"+key)+'"><span><strong>'+esc(p.label)+'</strong><span>'+esc(p.intro)+'</span></span><b aria-hidden="true">→</b></a>').join("")+'</div>':
  '<div class="empty">Nie znaleziono funkcji. Spróbuj słowa „PvP”, „Skin”, „Mody” lub „Minigry”.</div>')+
  '<div class="footer-actions"><a href="#start" class="btn secondary">Wróć na Start</a></div></section>';
 }
@@ -181,6 +181,11 @@ function updateLinks(route){
  document.title="MINEVORA — "+(names[route]||"Wyszukiwanie");
 }
 function render(){
+ // Zachowaj dotychczasowe linki do #poradnik — jedna kanoniczna ścieżka.
+ if(location.hash.toLocaleLowerCase("pl")==="#poradnik"){
+   location.replace("./poradnik/");
+   return;
+ }
  current=normalize(location.hash);
  content.innerHTML=current==="start"?home():current==="szukaj"?searchPage(searchQuery):page(current);
  updateLinks(current);wireImages();
