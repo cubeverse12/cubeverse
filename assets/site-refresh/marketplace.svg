@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 480" width="1050" height="480" role="img" aria-label="Grafika poglądowa MINEVORA"><defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#161d37"/><stop offset=".58" stop-color="#151a30"/><stop offset="1" stop-color="#101629"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#27314c"/><stop offset="1" stop-color="#172039"/></linearGradient>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#64718d" stroke-opacity=".095"/></pattern>
+<filter id="soft"><feGaussianBlur stdDeviation="22"/></filter>
+</defs><rect width="1050" height="480" fill="url(#bg)"/><rect width="1050" height="480" fill="url(#grid)"/>
+<ellipse cx="710" cy="220" rx="300" ry="170" fill="#8c8dbb" opacity=".09" filter="url(#soft)"/>
+
+<text x="51" y="66" font-family="Segoe UI,Arial,sans-serif" font-size="34" font-weight="800" fill="#eff2fb">MARKETPLACE</text>
+<text x="52" y="102" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="450" fill="#bfc6d9">Mapy, projekty i dodatki społeczności</text>
+<rect x="48" y="140" width="945" height="292" rx="20" fill="#151d35" stroke="#53607e"/>
+<text x="76" y="181" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="800" fill="#bec6de">ODKRYWAJ</text>
+<rect x="80" y="199" width="263" height="197" rx="13" fill="#222b42" stroke="#5a6a83"/>
+<rect x="97" y="214" width="229" height="121" rx="10" fill="#151f37"/>
+<polygon points="134,304 200,275 280,301 213,324" fill="#658e87"/>
+<polygon points="134,304 134,254 200,225 200,275" fill="#658e87" opacity=".85"/>
+<polygon points="200,225 280,254 280,301 200,275" fill="#658e87" opacity=".6"/>
+<text x="99" y="367" font-family="Segoe UI,Arial,sans-serif" font-size="20" font-weight="750" fill="#e6e8f2">MAPY</text><rect x="385" y="199" width="263" height="197" rx="13" fill="#222b42" stroke="#5a6a83"/>
+<rect x="402" y="214" width="229" height="121" rx="10" fill="#151f37"/>
+<polygon points="439,304 505,275 585,301 518,324" fill="#8c7b97"/>
+<polygon points="439,304 439,254 505,225 505,275" fill="#8c7b97" opacity=".85"/>
+<polygon points="505,225 585,254 585,301 505,275" fill="#8c7b97" opacity=".6"/>
+<text x="404" y="367" font-family="Segoe UI,Arial,sans-serif" font-size="20" font-weight="750" fill="#e6e8f2">BUDOWLE</text><rect x="690" y="199" width="263" height="197" rx="13" fill="#222b42" stroke="#5a6a83"/>
+<rect x="707" y="214" width="229" height="121" rx="10" fill="#151f37"/>
+<polygon points="744,304 810,275 890,301 823,324" fill="#698ba6"/>
+<polygon points="744,304 744,254 810,225 810,275" fill="#698ba6" opacity=".85"/>
+<polygon points="810,225 890,254 890,301 810,275" fill="#698ba6" opacity=".6"/>
+<text x="709" y="367" font-family="Segoe UI,Arial,sans-serif" font-size="20" font-weight="750" fill="#e6e8f2">DODATKI</text>
+
+<rect x="1" y="1" width="1048" height="478" rx="22" stroke="#665e8a" stroke-opacity=".56" fill="none" stroke-width="2"/>
+</svg>
