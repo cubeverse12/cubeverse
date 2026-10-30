@@ -134,3 +134,12 @@ html{scroll-padding-top:88px}
 body{padding-bottom:65px}
 @media(max-width:700px){.discord-float{right:12px;bottom:max(12px,env(safe-area-inset-bottom));min-height:54px;padding:10px;border-radius:17px}.discord-float span{display:none}.discord-float img{width:32px;height:32px}.discord-community-mark{width:76px;height:76px}.discord-community-mark img{width:64px;height:64px}}
 @media(prefers-reduced-motion:reduce){.discord-float{transition:none}.discord-float:hover{transform:none}}
+
+/* MINEVORA 3.0.25 — website language control, desktop and mobile. */
+.site-language-switch{order:8;display:inline-flex;align-items:center;justify-content:center;gap:5px;flex:0 0 auto;height:36px;padding:0 8px;border:1px solid #8765d8;border-radius:10px;background:#271746;color:#f5eaff;box-shadow:0 0 14px #7044d329}
+.site-language-switch span{font-size:16px;line-height:1}
+.site-language-switch select{display:block;width:47px;min-width:47px;padding:4px 1px;color:#fff;background:#24173f;border:0;outline:0;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;appearance:auto}
+.site-language-switch select option{color:#f6eaff;background:#211638}
+.site-language-switch:focus-within{outline:2px solid #e0c1ff;outline-offset:2px}
+@media(max-width:1080px){.site-language-switch{margin-left:auto;order:5}}
+@media(max-width:580px){.site-language-switch{height:35px;padding:0 5px;gap:3px}.site-language-switch select{min-width:40px;width:40px;font-size:12px}}
