@@ -1,35 +1,46 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Poradnik MINEVORA 19.0.3 — instalacja launchera Minecraft</title>
-<meta name="theme-color" content="#080d1b">
-<meta name="description" content="Instrukcja MINEVORA 19.0.3 — pobranie źródeł, uruchomienie Python i PySide6, profile Minecraft i najczęstsze błędy.">
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0922">
+<meta name="description" content="Poradnik MINEVORA: pobieranie launchera Minecraft Java na Windows, instalacja, Microsoft, Fabric/Forge, Modrinth, CurseForge, Skin Studio oraz rozwiązywanie błędów.">
 <link rel="canonical" href="https://minevora.pl/v4/poradnik/">
-<link rel="icon" type="image/webp" href="../assets/minevora-icon-20261028.webp">
-<link rel="stylesheet" href="../unified-19-0-3.css"></head><body class="guide-body">
+<link rel="icon" href="../assets/minevora-icon-20261028.webp" type="image/webp">
+<link rel="stylesheet" href="../website-3-0-8.css">
+<title>Jak zainstalować MINEVORA? — Poradnik Windows</title>
+<style>
+.guide-hero{padding:70px 0 45px;max-width:800px}.guide-hero h1{font-size:clamp(36px,5vw,63px)}.guide-hero p{color:#d0bfdf;font-size:16px}.guide-content{display:grid;grid-template-columns:235px minmax(0,1fr);gap:24px;align-items:start}.guide-toc{position:sticky;top:93px;display:grid;gap:8px;border:1px solid #523776;background:#17112f;padding:18px;border-radius:17px}.guide-toc strong{font-size:14px;margin-bottom:5px}.guide-toc a{font-size:13px;padding:7px 9px;border-radius:9px;color:#d4c4e4}.guide-toc a:hover{background:#381a5b}.guide-main{min-width:0}.guide-section{padding:28px;margin-bottom:20px;border:1px solid #493067;border-radius:20px;background:linear-gradient(145deg,#1d1237,#0f0c26)}.guide-section h2{font-size:27px}.guide-section p,.guide-section li{font-size:14px;color:#cfbddf;line-height:1.75}.guide-section .steps{margin-top:20px}.guide-section .step{padding:18px}.guide-section .step p{margin-bottom:0}.guide-faq details{padding:17px 0;border-top:1px solid #4e3370}.guide-faq details:first-of-type{border-top:0}.guide-faq summary{cursor:pointer;font-weight:750;color:#f3e8ff}.guide-faq details[open] summary{color:#d8a5ff}.guide-faq details p{margin:10px 0 0}.guide-notice{background:#24123d;border:1px solid #8852b2;border-radius:12px;padding:15px;color:#e0d0e8;margin-top:14px;font-size:13px}.guide-section code{padding:2px 5px;background:#3d245b;border-radius:5px;color:#f3d8ff;overflow-wrap:anywhere}
+@media(max-width:790px){.guide-content{grid-template-columns:1fr}.guide-toc{position:static;display:flex;flex-wrap:wrap}.guide-section{padding:20px}.guide-section .steps{grid-template-columns:1fr}.guide-hero{padding:42px 0 22px}}
+</style>
+</head>
+<body>
 <a class="skip" href="#main">Przejdź do treści</a>
-<div class="ambient ambient-a" aria-hidden="true"></div>
-<header class="header"><div class="container nav-shell">
-<a class="brand" href="../"><img src="../assets/minevora-icon-20261028.webp" width="46" height="46" alt=""><strong>MINEVORA</strong></a>
-<nav class="guide-nav" aria-label="Menu poradnika"><a href="../">Start</a><a href="#faq">FAQ</a><a class="button button-small" href="https://github.com/cubeverse12/minevora-launcher/releases" target="_blank" rel="noopener noreferrer">Publiczne wydania ↗</a></nav>
+<header class="topbar"><div class="wrap topbar-inner"><a href="../" class="brand"><img src="../assets/minevora-icon-20261028.webp" width="39" height="39" alt=""><span>MINEVORA</span></a>
+<nav class="desktop-nav" aria-label="Nawigacja"><a href="../">Strona główna</a><a href="#instalacja">Instalacja</a><a href="#logowanie">Microsoft</a><a href="#faq">FAQ</a><a class="nav-cta" href="../#pobierz">Pobierz</a></nav>
+<details class="mobile-nav"><summary>☰ Menu</summary><nav class="mobile-items" aria-label="Menu mobilne"><a href="../">Strona główna</a><a href="#instalacja">Instalacja</a><a href="#logowanie">Microsoft</a><a href="#faq">FAQ</a><a href="../#pobierz">Pobierz</a></nav></details>
 </div></header>
-<main id="main" class="container guide-main">
-<p class="eyebrow">MINEVORA / PORADNIK WINDOWS</p>
-<h1>Jak zainstalować launcher <span class="gradient-text">MINEVORA?</span></h1>
-<p class="guide-intro">Instrukcja dla projektu 19.0.3 — kod źródłowy Windows, Python, Java i konfiguracja gry.</p>
-<div class="tags"><span>Windows 11</span><span>Minecraft Java</span><span>Projekt 19.0.3</span><span>FAQ</span></div>
-<div class="guide-layout">
-<aside class="guide-sidebar"><h2>Spis treści</h2><a href="#instalacja">Instalacja w 3 krokach</a><a href="#wymagania">Wymagania</a><a href="#logowanie">Logowanie Microsoft</a><a href="#faq">Rozwiązywanie problemów</a><a href="#bezpieczenstwo">Bezpieczeństwo</a></aside>
-<div class="guide-articles">
-<section id="instalacja" class="guide-card"><p class="eyebrow">01 / INSTALACJA</p><h2>Instalacja w trzech krokach</h2><div class="guide-step"><b>1</b><div><h3>Pobierz projekt</h3><p>Pobierz aktualny ZIP 19.0.3 z rozmowy projektu i rozpakuj go. <a href="https://github.com/cubeverse12/minevora-launcher/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a> może nadal zawierać starsze publiczne wydanie.</p></div></div><div class="guide-step"><b>2</b><div><h3>Uruchom skrypt</h3><p>W rozpakowanym folderze uruchom <code>START_MINEVORA.bat</code>. Skrypt przygotuje środowisko Python i wymagane biblioteki PySide6.</p></div></div><div class="guide-step"><b>3</b><div><h3>Wybierz profil i wersję</h3><p>Przejdź do zakładki Graj, wybierz wersję Minecrafta i loader, sprawdź Javę i połącz konto Microsoft z uprawnieniem do Minecraft Java Edition.</p></div></div></section>
-<section id="wymagania" class="guide-card"><p class="eyebrow">02 / PRZED STARTEM</p><h2>Co jest potrzebne?</h2><p>Windows 11, Python zgodny z wymaganiami, internet do pobrania bibliotek, odpowiednia Java i konto Microsoft z licencją Minecraft Java. Przy pierwszym uruchomieniu PySide6 może pobierać duże pakiety.</p><p>Diagnostykę uruchomisz z <code>DIAGNOSTYKA.bat</code>. Nie wyłączaj zabezpieczeń Windows, aby uruchomić nieznany plik.</p></section>
-<section id="logowanie" class="guide-card"><p class="eyebrow">03 / KONTO MICROSOFT</p><h2>Bezpieczne logowanie</h2><p>Logowanie powinno używać oficjalnej autoryzacji Microsoft. Dla tego projektu wymagane jest poprawne skonfigurowanie OAuth Client ID i Redirect URI. Nie wprowadzaj hasła Microsoft w nieznane formularze i nikomu nie udostępniaj tokenów.</p></section>
-<section id="faq" class="guide-card"><p class="eyebrow">04 / FAQ</p><h2>Najczęstsze pytania</h2>
-<details><summary>Program nie otwiera okna. Co zrobić?</summary><p>Uruchom <code>DIAGNOSTYKA.bat</code>. Jeśli wystąpi <code>Traceback</code>, skopiuj komunikat błędu. Nie wysyłaj tokenów ani kodów logowania.</p></details>
-<details><summary>Dlaczego PySide6 pobiera tak dużo plików?</summary><p>PySide6 i moduły Qt WebEngine zawierają duże biblioteki. Pobieranie może być długie, szczególnie podczas pierwszej instalacji.</p></details>
-<details><summary>Czy ZIP jest gotowym plikiem EXE?</summary><p>Nie. Wersja 19.0.3 jest projektem źródłowym uruchamianym przez skrypt BAT.</p></details>
-<details><summary>Czy minigry, Marketplace i PvP HUD działają w grze?</summary><p>Moduły online i integracja PvP HUD z Minecraftem są nadal w przygotowaniu. Podglądy na stronie nie uruchamiają gry.</p></details>
-<details><summary>Dlaczego GitHub pokazuje starszą wersję?</summary><p>Nowa paczka źródłowa 19.0.3 została przygotowana oddzielnie. Lista publicznych wydań może jeszcze pokazywać starszy numer, dopóki nie zostanie opublikowane nowe wydanie.</p></details>
-</section>
-<section id="bezpieczenstwo" class="guide-card"><p class="eyebrow">05 / BEZPIECZEŃSTWO</p><h2>Sprawdzaj źródło plików</h2><p>Pobieraj pliki tylko z zaufanego źródła. Nie wyłączaj Microsoft Defender ani Windows Smart App Control. Weryfikuj adresy logowania i nie udostępniaj kodów jednorazowych.</p></section>
-</div></div>
-</main><footer class="footer"><div class="container footer-inner"><a class="brand" href="../"><img src="../assets/minevora-icon-20261028.webp" width="42" height="42" alt=""><strong>MINEVORA</strong></a><span>Poradnik projektu 19.0.3</span><a href="../">Strona główna ↗</a></div></footer></body></html>
+<main id="main" class="wrap">
+ <div class="guide-hero"><span class="eyebrow">MINEVORA / POMOC WINDOWS</span><h1>Instalacja launchera <span class="grad">krok po kroku.</span></h1><p>Jak zacząć z Minecraft Java, własnymi profilami, modami i Skin Studio. Poradnik uwzględnia projekt MINEVORA 3.0.8 oraz różnice między nim a publicznymi wydaniami GitHub.</p><div class="actions"><a class="btn btn-primary" href="../#pobierz">Przejdź do pobierania ↗</a><a class="btn btn-secondary" href="#faq">Rozwiązywanie problemów ↓</a></div></div>
+ <div class="guide-content">
+ <aside class="guide-toc" aria-label="Spis treści"><strong>Na tej stronie</strong><a href="#instalacja">Instalacja w 3 krokach</a><a href="#wymagania">Wymagania</a><a href="#logowanie">Konto Microsoft</a><a href="#dodatki">Mody i dodatki</a><a href="#faq">Najczęstsze pytania</a><a href="#bezpieczenstwo">Bezpieczeństwo</a></aside>
+ <div class="guide-main">
+ <section class="guide-section" id="instalacja"><span class="eyebrow">01 / START</span><h2>Instalacja w 3 krokach</h2><div class="steps">
+ <div class="step"><span class="step-n">01</span><h3>Pobierz ZIP</h3><p>Otwórz publiczne wydania GitHub i wybierz właściwy plik. Sprawdź numer wersji.</p></div>
+ <div class="step"><span class="step-n">02</span><h3>Rozpakuj</h3><p>Wybierz nowy folder. Zapoznaj się z dołączonym README i wymaganiami.</p></div>
+ <div class="step"><span class="step-n">03</span><h3>Uruchom</h3><p>Otwórz skrypt startowy wskazany w README (w projekcie 3.x: <code>START_WINDOWS.bat</code>), wybierz profil i zaloguj konto.</p></div>
+ </div><div class="guide-notice"><strong>Uwaga o wersjach:</strong> projekt 3.0.8 nie jest jeszcze publicznym wydaniem w GitHub Releases. W chwili aktualizacji strony najnowsze znalezione tam wydanie to 18.3.7. Instrukcja i nazwa skryptu w starszych wydaniach mogą się różnić.</div></section>
+ <section class="guide-section" id="wymagania"><span class="eyebrow">02 / SYSTEM</span><h2>Wymagania</h2><p>Wersja desktopowa jest przygotowana dla Windows i Minecraft Java Edition. Pakiety zawierające kod Pythona mogą wymagać zainstalowanego Pythona oraz bibliotek opisanych w README. Do uruchamiania samej gry potrzebne są odpowiednia wersja Java i legalne konto Minecraft.</p><p>Jeśli instalator bibliotek nie zadziała, uruchom skrypt z katalogu projektu i przeczytaj pełny komunikat. Nie zmieniaj zabezpieczeń Windows w celu obejścia blokady niezweryfikowanego programu.</p></section>
+ <section class="guide-section" id="logowanie"><span class="eyebrow">03 / KONTO</span><h2>Logowanie Microsoft</h2><p>Otwórz w launcherze zakładkę Konto i wybierz logowanie Microsoft. Przejdź do przeglądarki, zaloguj się na właściwe konto i wróć do programu po zakończeniu autoryzacji.</p><p>W wersjach korzystających z własnej rejestracji aplikacji Microsoft Entra ustaw Client ID i dokładny adres przekierowania zgodny z konfiguracją aplikacji, np. <code>http://localhost:8765/callback</code>. Nie jest to adres do otwierania ręcznie przed rozpoczęciem logowania.</p><div class="guide-notice"><strong>Chroń konto:</strong> nie podawaj nikomu hasła, kodów z przeglądarki, tokenów ani pełnych adresów z parametrem <code>code</code>. Nie wklejaj ich na Discord ani do zgłoszeń.</div></section>
+ <section class="guide-section" id="dodatki"><span class="eyebrow">04 / BIBLIOTEKA</span><h2>Modrinth, CurseForge i modpacki</h2><p>Wybierz instancję Minecraft, następnie kategorię: Mody, Modpacki, Shadery, Resource Packi albo Datapacki. Filtruj wyniki według wersji gry i loadera, zanim zainstalujesz dodatek.</p><p>Nie wszystkie mody działają na każdej wersji Minecraft; Fabric i Forge mają różne wymagania. Datapack należy przypisać do konkretnego świata. Pełna integracja CurseForge może wymagać klucza API zapisanego lokalnie w launcherze.</p></section>
+ <section class="guide-section guide-faq" id="faq"><span class="eyebrow">05 / POMOC</span><h2>Najczęstsze pytania</h2>
+ <details><summary>Dlaczego strona oferuje starszy ZIP niż 3.0.8?</summary><p>Witryna przedstawia projekt 3.0.8, ale najnowsza paczka nie została jeszcze dodana do GitHub Releases. Link pobierania prowadzi do prawdziwych publicznych wydań, a nie do nieistniejącego instalatora.</p></details>
+ <details><summary>Launcher nie uruchamia się. Co sprawdzić?</summary><p>Sprawdź, czy uruchamiasz skrypt z rozpakowanego folderu, czy Python i biblioteki są dostępne oraz czy w oknie konsoli pojawił się konkretny komunikat błędu. W razie potrzeby prześlij sam tekst błędu, bez danych logowania.</p></details>
+ <details><summary>Po logowaniu Microsoft pojawia się błąd localhost.</summary><p>Sprawdź, czy wersja launchera uruchamia lokalny odbiornik, czy port nie jest zajęty, a adres URI przekierowania w Entra dokładnie odpowiada konfiguracji aplikacji, łącznie z <code>/callback</code>. Nie udostępniaj URL zawierającego kod jednorazowy.</p></details>
+ <details><summary>Dlaczego mod nie instaluje się na mojej wersji?</summary><p>Sprawdź wersję Minecraft, loader, zależności i rodzaj pliku. Nie każda modyfikacja jest zgodna ze wszystkimi wersjami lub loaderami.</p></details>
+ <details><summary>Czy Skin Studio zmienia skina na koncie automatycznie?</summary><p>Skin Studio edytuje i zapisuje skiny lokalnie. Funkcje konta Minecraft mogą wymagać osobnego kroku; nie należy zakładać, że sam eksport PNG ustawia skina na koncie.</p></details>
+ </section>
+ <section class="guide-section" id="bezpieczenstwo"><span class="eyebrow">06 / BEZPIECZEŃSTWO</span><h2>Pobieraj ze sprawdzonych źródeł</h2><p>Nie wyłączaj Microsoft Defender ani Smart App Control. Sprawdzaj źródło plików, licencje modów i adresy stron autoryzacji. Jeśli potrzebujesz pomocy, napisz na <a style="color:#dca4ff;text-decoration:underline" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer">Discordzie MINEVORA</a>, ale nigdy nie publikuj tokenów ani poufnych danych.</p></section>
+ </div></div>
+</main>
+<footer class="footer"><div class="wrap foot-inner"><a class="brand" href="../"><img src="../assets/minevora-icon-20261028.webp" alt="" width="39" height="39"><span>MINEVORA</span></a><p>Poradnik projektu MINEVORA 3.0.8 — Windows</p><nav class="footer-nav" aria-label="Stopka"><a href="../">Strona główna</a><a href="../#pobierz">Pobierz</a></nav></div></footer>
+</body></html>
