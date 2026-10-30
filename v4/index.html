@@ -4,18 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0b0922">
-<meta name="description" content="MINEVORA 3.0.8 — fioletowy launcher Minecraft Java na Windows. Profile, Skin Studio 3D, biblioteki Modrinth i CurseForge, mody, modpacki, shadery i PvP HUD.">
+<meta name="description" content="MINEVORA 3.0.11 — fioletowy launcher Minecraft Java na Windows. Profile, Skin Studio 3D, biblioteki Modrinth i CurseForge, mody, modpacki, shadery i PvP HUD.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:title" content="MINEVORA — Launcher Minecraft Java">
-<meta property="og:description" content="Poznaj MINEVORA 3.0.8: profile Minecraft, Skin Studio 3D, mody, shadery, modpacki i fioletowy interfejs.">
+<meta property="og:description" content="Poznaj MINEVORA 3.0.11: profile Minecraft, Skin Studio 3D, mody, shadery, modpacki i fioletowy interfejs.">
 <meta property="og:url" content="https://minevora.pl/v4/">
 <meta property="og:image" content="https://minevora.pl/assets/enchanted_hero.jpg">
 <link rel="canonical" href="https://minevora.pl/v4/">
 <link rel="icon" type="image/webp" href="./assets/minevora-icon-20261028.webp">
 <link rel="apple-touch-icon" href="./assets/minevora-icon-20261028.webp">
-<link rel="stylesheet" href="./website-3-0-8.css">
-<title>MINEVORA 3.0.8 — Launcher Minecraft Java na Windows</title>
+<link rel="stylesheet" href="./website-3-0-11.css">
+<script defer src="./website-3-0-11.js"></script>
+<title>MINEVORA 3.0.11 — Launcher Minecraft Java na Windows</title>
 </head>
 <body>
 <a class="skip" href="#main">Przejdź do treści</a>
@@ -38,14 +39,22 @@
 <section class="hero" id="start">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow"><span class="dot" aria-hidden="true"></span> MINEVORA REBORN / EDYCJA 3.0.8</span>
+      <span class="eyebrow"><span class="dot" aria-hidden="true"></span> MINEVORA REBORN / EDYCJA 3.0.11</span>
       <h1>Twój Minecraft.<br><span class="grad">Twój świat.</span><br>Twoje zasady.</h1>
-      <p class="lead">Jeden launcher, wiele możliwości. Wersje Minecraft Java, oddzielne profile gry, biblioteka modów i modpacków, Skin Studio 3D oraz ustawienia PvP w jednym fioletowym interfejsie.</p>
-      <div class="hero-pills"><span>Windows 11</span><span>Fabric / Forge / NeoForge / Quilt</span><span>Modrinth + CurseForge</span></div>
+      <p class="lead">Jeden launcher, wiele możliwości. MINEVORA 3.0.11 Violet Premium łączy profile Minecraft Java, mody, Skin Studio 3D i PvP HUD z dwoma motywami, dopracowanym układem oraz opcją ograniczenia animacji.</p>
+      <div class="hero-pills"><span>Windows 11</span><span>Violet Neon + Soft</span><span>Tryb kompaktowy</span><span>Modrinth + CurseForge</span></div>
       <div class="actions"><a class="btn btn-primary" href="#pobierz">Zobacz dostępne pobrania <span aria-hidden="true">↓</span></a><a class="btn btn-secondary" href="#funkcje">Poznaj funkcje <span aria-hidden="true">↗</span></a></div>
-      <p class="caption">Wersja projektu desktopowego: 3.0.8. Pobrania publiczne w GitHub Releases mogą mieć inny numer wydania.</p>
+      <p class="caption">Wersja projektu desktopowego: 3.0.11. Pobrania publiczne w GitHub Releases mogą mieć inny numer wydania.</p>
     </div>
-    <div class="app-shell" role="img" aria-label="Makieta fioletowego interfejsu launchera MINEVORA z menu bocznym, biblioteką instancji, przyciskiem GRAJ i panelem konta">
+    <div class="preview-stage">
+      <div class="preview-tools" role="group" aria-label="Podgląd motywów interfejsu MINEVORA na tej stronie">
+        <span class="preview-caption">Podgląd motywu strony:</span>
+        <button type="button" data-preview-theme="neon" aria-pressed="true">Violet Neon</button>
+        <button type="button" data-preview-theme="soft" aria-pressed="false">Violet Soft</button>
+        <button type="button" data-preview-compact aria-pressed="false">Kompaktowy</button>
+        <button type="button" data-preview-motion aria-pressed="true">Animacje: włączone</button>
+      </div>
+    <div class="app-shell is-animated" role="img" aria-label="Makieta fioletowego interfejsu launchera MINEVORA z menu bocznym, biblioteką instancji, przyciskiem GRAJ i panelem konta">
       <div class="app-top"><img src="./assets/minevora-icon-20261028.webp" alt=""><strong>MINEVORA</strong><span class="app-breadcrumb">‹　›　⌂　 Start</span><span class="app-dots" aria-hidden="true">– □ ×</span></div>
       <div class="app-body">
         <div class="app-rail" aria-hidden="true"><span class="selected">▶</span><span>◉</span><span>♧</span><span>▣</span><span>▤</span><span>＋</span><span>⚙</span></div>
@@ -59,10 +68,11 @@
         <aside class="app-side" aria-hidden="true">
           <div class="app-panel"><b>Pierwsze kroki</b><span>✓ Utwórz instancję</span><span>◯ Zaloguj się</span></div>
           <div class="app-panel"><b>Konto</b><span>♧ Microsoft</span><span>Połącz w launcherze</span></div>
-          <div class="app-panel"><b>Aktualności</b><img src="../assets/enchanted_hero.jpg" alt=""><span>MINEVORA 3.0.8</span></div>
+          <div class="app-panel"><b>Aktualności</b><img src="../assets/enchanted_hero.jpg" alt=""><span>MINEVORA 3.0.11</span></div>
         </aside>
       </div>
-      <div class="app-footnote">Makieta interfejsu — przycisk GRAJ działa w aplikacji Windows, nie na stronie internetowej.</div>
+      <div class="app-footnote">Interaktywny podgląd stylu — ustawienia i przycisk GRAJ działają w aplikacji Windows, nie w tej makiecie.</div>
+    </div>
     </div>
   </div>
 </section>
@@ -70,7 +80,7 @@
   <div class="wrap">
     <div class="section-heading"><span class="eyebrow">01 / MOŻLIWOŚCI</span><h2>Wszystko w <span class="grad">jednym miejscu.</span></h2><p>Każda funkcja ma własny ekran w aplikacji. Biblioteka dodatków, instalacje, edycja skina i zarządzanie profilami nie muszą być osobnymi programami.</p></div>
     <div class="feature-grid">
-      <article class="feature"><span class="feature-icon" aria-hidden="true">▶</span><span class="num">01</span><h3>Start i profile</h3><p>Oddzielne instancje, wybór wersji Minecraft Java, kopie zapasowe, ulubione i szybki start.</p></article>
+      <article class="feature"><span class="feature-icon" aria-hidden="true">▶</span><span class="num">01</span><h3>Start i profile</h3><p>Oddzielne instancje, wybór wersji Minecraft Java, kopie zapasowe, ulubione, przejrzystsze karty i kompaktowy układ.</p></article>
       <article class="feature"><span class="feature-icon" aria-hidden="true">⬡</span><span class="num">02</span><h3>Mody i modpacki</h3><p>Przeglądanie katalogów Modrinth i CurseForge, filtrowanie i instalowanie kompatybilnych dodatków.</p></article>
       <article class="feature"><span class="feature-icon" aria-hidden="true">✧</span><span class="num">03</span><h3>Shadery i paczki</h3><p>Shadery, resource packi i datapacki w osobnych kategoriach, przypisane do właściwych profili i światów.</p></article>
       <article class="feature"><span class="feature-icon" aria-hidden="true">▣</span><span class="num">04</span><h3>Skin Studio 3D</h3><p>Obracany podgląd postaci, biblioteka skinów, edycja tekstur 64×64 i eksport PNG.</p></article>
@@ -79,10 +89,21 @@
     </div>
   </div>
 </section>
+<section class="section" id="wyglad">
+  <div class="wrap">
+    <div class="section-heading"><span class="eyebrow">02 / VIOLET PREMIUM</span><h2>Dobierz wygląd <span class="grad">po swojemu.</span></h2><p>W MINEVORA 3.0.11 dodano dwa motywy, kompaktowe karty oraz możliwość ograniczenia efektów animacji. Zmiany zapisujesz w ustawieniach aplikacji Windows.</p></div>
+    <div class="visual-choice-grid">
+      <article class="visual-choice"><div class="visual-swatch" aria-hidden="true"><span></span><span></span><span></span></div><h3>Violet Neon</h3><p>Intensywne fiolety, świetlne obramowania i bardziej wyraziste przyciski.</p></article>
+      <article class="visual-choice"><div class="visual-swatch soft" aria-hidden="true"><span></span><span></span><span></span></div><h3>Violet Soft</h3><p>Stonowane odcienie i spokojniejszy kontrast na co dzień.</p></article>
+      <article class="visual-choice"><div class="visual-swatch compact" aria-hidden="true"><span></span><span></span><span></span><span></span></div><h3>Układ kompaktowy</h3><p>Mniejsze karty profili, wygodniejsze korzystanie z launchera na węższych ekranach i opcja wyłączenia animacji.</p></article>
+    </div>
+    <p class="caption">Przyciski nad makietą u góry zmieniają jedynie podgląd na stronie. Aby zmienić wygląd prawdziwego launchera, użyj w Windows: Ustawienia → Wygląd i płynność.</p>
+  </div>
+</section>
 <section class="section" id="skin-studio">
   <div class="wrap split">
     <div class="visual-card"><img src="../assets/site-hd/guide-skin-studio-plus-2-8-960.webp" width="960" height="480" loading="lazy" alt="Wizualizacja wcześniejszego projektu Skin Studio MINEVORA"><div class="visual-note">Grafika koncepcyjna wcześniejszego Skin Studio. Rzeczywisty wygląd i opcje najnowszego programu mogą się różnić.</div></div>
-    <div><span class="eyebrow">02 / SKIN STUDIO</span><h2>Twoja postać.<br><span class="grad">Twój styl.</span></h2><p style="color:#cfc1e2">Twórz własne skórki Minecraft i zapisuj je lokalnie. Wybieraj z biblioteki, obracaj postać w podglądzie 3D i edytuj teksturę piksel po pikselu.</p>
+    <div><span class="eyebrow">03 / SKIN STUDIO</span><h2>Twoja postać.<br><span class="grad">Twój styl.</span></h2><p style="color:#cfc1e2">Twórz własne skórki Minecraft i zapisuj je lokalnie. Wybieraj z biblioteki, obracaj postać w podglądzie 3D i edytuj teksturę piksel po pikselu.</p>
       <ul class="feature-points"><li>Obracany podgląd modelu 3D</li><li>Import i eksport plików PNG 64×64</li><li>Wybór szerokich lub wąskich ramion</li><li>Biblioteka gotowych i zapisanych skórek</li></ul>
       <a href="#pobierz" class="btn btn-secondary">Sprawdź wersję Windows ↗</a>
     </div>
@@ -90,12 +111,12 @@
 </section>
 <section class="section" id="pobierz">
  <div class="wrap">
-  <span class="eyebrow">03 / WINDOWS</span>
+  <span class="eyebrow">04 / WINDOWS</span>
   <div class="download-card">
-    <div><span class="version-pill">Projekt desktopowy: MINEVORA 3.0.8</span><h2>Gotowy na <span class="grad">swój świat?</span></h2><p>Na stronie publicznych wydań GitHub znajdziesz dostępny plik ZIP dla Windows. Najnowszy projekt 3.0.8 nie został jeszcze udostępniony w GitHub Releases; ostatnim znalezionym tam wydaniem jest 18.3.7.</p></div>
+    <div><span class="version-pill">Projekt desktopowy: MINEVORA 3.0.11</span><h2>Gotowy na <span class="grad">swój świat?</span></h2><p>Na stronie publicznych wydań GitHub znajdziesz dostępny plik ZIP dla Windows. Najnowszy projekt 3.0.11 nie został jeszcze udostępniony w GitHub Releases; ostatnim znalezionym tam wydaniem jest 18.3.7.</p></div>
     <div><a class="btn btn-primary" href="https://github.com/cubeverse12/minevora-launcher/releases" target="_blank" rel="noopener noreferrer">Publiczne wydania GitHub ↗</a></div>
   </div>
-  <div class="notice"><strong>Informacja o wersjach:</strong> witryna opisuje rozwijany launcher MINEVORA 3.0.8, ale przycisk prowadzi do publicznych wydań GitHub, które obecnie mogą zawierać starszą paczkę. Nie jest to bezpośrednie pobranie 3.0.8. Pobieraj wyłącznie z zaufanych źródeł. Nie wyłączaj ochrony systemu Windows, aby uruchomić aplikację.</div>
+  <div class="notice"><strong>Informacja o wersjach:</strong> witryna opisuje rozwijany launcher MINEVORA 3.0.11, ale przycisk prowadzi do publicznych wydań GitHub, które obecnie mogą zawierać starszą paczkę. Nie jest to bezpośrednie pobranie 3.0.11. Pobieraj wyłącznie z zaufanych źródeł. Nie wyłączaj ochrony systemu Windows, aby uruchomić aplikację.</div>
   <div class="steps" aria-label="Jak zacząć">
     <article class="step"><span class="step-n">KROK 01</span><h3>Pobierz</h3><p>Wybierz dostępne wydanie ZIP z GitHub Releases i zapoznaj się z opisem wersji.</p></article>
     <article class="step"><span class="step-n">KROK 02</span><h3>Rozpakuj</h3><p>Rozpakuj archiwum do nowego folderu i przeczytaj README dołączone do wydania.</p></article>
@@ -105,7 +126,7 @@
  </div>
 </section>
 <section class="section" id="spolecznosc">
- <div class="wrap community"><span class="eyebrow">04 / SPOŁECZNOŚĆ</span><h2>Dołącz do <span class="grad">MINEVORA.</span></h2><p>Porozmawiaj o launcherze, podziel się pomysłami i śledź rozwój projektu na Discordzie. Minigry, sklep i funkcje PLUS mogą być prezentowane jako demonstracje, zanim pojawi się gotowa usługa.</p><a class="btn btn-primary" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer">Dołącz na Discord ↗</a></div>
+ <div class="wrap community"><span class="eyebrow">05 / SPOŁECZNOŚĆ</span><h2>Dołącz do <span class="grad">MINEVORA.</span></h2><p>Porozmawiaj o launcherze, podziel się pomysłami i śledź rozwój projektu na Discordzie. Minigry, sklep i funkcje PLUS mogą być prezentowane jako demonstracje, zanim pojawi się gotowa usługa.</p><a class="btn btn-primary" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer">Dołącz na Discord ↗</a></div>
 </section>
 </main>
 <footer class="footer"><div class="wrap foot-inner"><a class="brand" href="#start"><img src="./assets/minevora-icon-20261028.webp" alt="" width="39" height="39"><span>MINEVORA</span></a><p>© 2026 MINEVORA. Projekt niezależny, niepowiązany z Mojang Studios ani Microsoft.</p><nav class="footer-nav" aria-label="Stopka"><a href="./poradnik/">Poradnik</a><a href="#pobierz">Pobierz</a><a href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer">Discord</a></nav></div></footer>
