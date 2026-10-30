@@ -103,3 +103,11 @@ html{scroll-padding-top:88px}
 @media(max-width:1000px){.pvp-showcase{grid-template-columns:1fr}.pvp-scene{aspect-ratio:1.75;max-width:750px;margin-inline:auto;width:100%}.pvp-hud-item{font-size:12px}}
 @media(max-width:600px){.pvp-scene{aspect-ratio:1.18}.pvp-hud-item{font-size:10px;padding:6px 7px}.pvp-hud-item.keystrokes{bottom:45px}.pvp-hud-item.vitals{bottom:45px}.pvp-benefits>div{font-size:12px}.hero-pills{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){.pvp-section:before{filter:none;opacity:.15}}
+
+/* Demo only: allow hiding visible PvP readouts without affecting Minecraft */
+.pvp-scene[data-hud="off"] .pvp-hud-item{opacity:0;visibility:hidden}
+.pvp-scene .pvp-hud-item{transition:opacity .16s ease,visibility .16s ease}
+.pvp-scene[data-hud="off"] .pvp-shift-tag{background:#241734;border-color:#705181;color:#c2a9de}
+.pvp-section [data-demo-hud-toggle]{cursor:pointer}
+.pvp-section [data-demo-hud-toggle][aria-pressed="false"]{background:#25173e;border-color:#6e518d;color:#dec9ef}
+@media(prefers-reduced-motion:reduce){.pvp-scene .pvp-hud-item{transition:none}}
