@@ -121,3 +121,16 @@ html{scroll-padding-top:88px}
 .footer-nav .discord-link{display:inline-flex;align-items:center;gap:8px}
 .mobile-items .discord-link{display:flex;align-items:center}
 @media(max-width:1150px){.desktop-nav{gap:11px}.desktop-nav a{font-size:12px}.desktop-nav .discord-link img{width:20px;height:20px}}
+
+/* MINEVORA 3.0.22 — prominent Discord entry on desktop and mobile */
+.discord-community{position:relative;isolation:isolate;padding-bottom:22px}
+.discord-community-mark{display:grid;place-items:center;width:95px;height:95px;margin:0 auto 14px;border:1px solid #7660c7;border-radius:25px;background:linear-gradient(145deg,#2d1d5c,#11102f);box-shadow:0 0 35px #7976fd29}
+.discord-community-mark img{width:82px;height:82px;filter:drop-shadow(0 0 16px #9691ff72)}
+.discord-invite-caption{font-size:12px;color:#bda9d6;margin-top:15px;overflow-wrap:anywhere}
+.discord-float{position:fixed;z-index:45;right:23px;bottom:21px;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:9px 17px 9px 10px;border:1px solid #afa0ff;border-radius:18px;background:linear-gradient(120deg,#4734bd,#31246e);box-shadow:0 10px 35px #09051bc2,0 0 24px #8973f45c;color:#fff;font-size:14px;font-weight:800;line-height:1.2;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+.discord-float:hover{transform:translateY(-3px);box-shadow:0 12px 35px #09051bea,0 0 26px #a088ff}
+.discord-float img{width:33px;height:33px;object-fit:contain}
+.discord-float:focus-visible{outline:3px solid #fff;outline-offset:4px}
+body{padding-bottom:65px}
+@media(max-width:700px){.discord-float{right:12px;bottom:max(12px,env(safe-area-inset-bottom));min-height:54px;padding:10px;border-radius:17px}.discord-float span{display:none}.discord-float img{width:32px;height:32px}.discord-community-mark{width:76px;height:76px}.discord-community-mark img{width:64px;height:64px}}
+@media(prefers-reduced-motion:reduce){.discord-float{transition:none}.discord-float:hover{transform:none}}
