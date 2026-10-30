@@ -1,35 +1,29 @@
-/* MINEVORA 3.0.11 — interactive mockup settings; DOES NOT access Windows launcher */
-(()=>{"use strict";
-const root=document.documentElement;
-const keys={theme:["neon","soft"],density:["normal","compact"],motion:["on","off"]};
-const storageKey="minevora-website-preview-v311";
-const mediaReduced=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const initial={theme:"neon",density:"normal",motion:mediaReduced?"off":"on"};
-let saved={};
-try{saved=JSON.parse(localStorage.getItem(storageKey)||"{}")||{}}catch(e){saved={}}
-for(const key of Object.keys(keys)){
- const candidate=saved[key];
- if(keys[key].includes(candidate))initial[key]=candidate;
-}
-function render(){
- root.dataset.demoTheme=initial.theme;
- root.dataset.demoDensity=initial.density;
- root.dataset.demoMotion=initial.motion;
- document.querySelectorAll("[data-demo-set]").forEach(btn=>{
-   const [key,value]=btn.dataset.demoSet.split(":");
-   btn.setAttribute("aria-pressed",String(initial[key]===value));
- });
- const label=document.getElementById("previewMode");
- if(label)label.textContent=(initial.theme==="soft"?"Violet Soft":"Violet Neon")+" · "+(initial.density==="compact"?"Kompaktowy":"Standardowy")+" · "+(initial.motion==="off"?"Bez animacji":"Efekty aktywne");
-}
-document.querySelectorAll("[data-demo-set]").forEach(btn=>{
- btn.addEventListener("click",()=>{
-  const [key,value]=btn.dataset.demoSet.split(":");
-  if(!Object.hasOwn(keys,key)||!keys[key].includes(value))return;
-  initial[key]=value;
-  try{localStorage.setItem(storageKey,JSON.stringify(initial))}catch(e){}
-  render();
- });
-});
-render();
+/* MINEVORA 3.0.11: interactive website-only appearance preview.
+   No Minecraft launcher settings, accounts or files are changed here. */
+(()=>{
+  "use strict";
+  const shell=document.querySelector(".app-shell");
+  const themeButtons=[...document.querySelectorAll("[data-preview-theme]")];
+  const compact=document.querySelector("[data-preview-compact]");
+  const motion=document.querySelector("[data-preview-motion]");
+  if(!shell||themeButtons.length!==2||!compact||!motion)return;
+  const reduced=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const state={theme:"neon",compact:false,motion:!reduced};
+  const update=()=>{
+    shell.classList.toggle("is-soft",state.theme==="soft");
+    shell.classList.toggle("is-compact",state.compact);
+    shell.classList.toggle("is-animated",state.motion&&!reduced);
+    themeButtons.forEach(btn=>btn.setAttribute("aria-pressed",String(btn.dataset.previewTheme===state.theme)));
+    compact.setAttribute("aria-pressed",String(state.compact));
+    motion.setAttribute("aria-pressed",String(state.motion&&!reduced));
+    motion.textContent=state.motion&&!reduced?"Animacje: włączone":"Animacje: wyłączone";
+  };
+  themeButtons.forEach(btn=>btn.addEventListener("click",()=>{
+    state.theme=btn.dataset.previewTheme==="soft"?"soft":"neon";
+    update();
+  }));
+  compact.addEventListener("click",()=>{state.compact=!state.compact;update();});
+  motion.addEventListener("click",()=>{if(reduced)return;state.motion=!state.motion;update();});
+  if(reduced){motion.disabled=true;motion.title="Animacje są ograniczone przez ustawienia dostępności systemu.";}
+  update();
 })();
