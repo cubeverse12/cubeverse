@@ -59,6 +59,19 @@ try:
             assert page.locator("a[href='https://discord.gg/M2fZVJBCqh']").count()>=2
             assert page.locator("[data-minevora-language]").count()==1
             no_overflow(page,label+" Polish home")
+            assert page.locator("[data-demo-hud-tile]").count()==5
+            assert page.locator(".pvp-overhead-hearts").count()==1
+            assert page.locator('a[href*="v2.0.15-fabric-1.21.1/"]').count()==1
+            assert "Prawy Shift" in page.locator("#pvp-hud").inner_text()
+            tile=page.locator('[data-demo-hud-tile="fps"]')
+            before=tile.evaluate("(el) => el.style.left")
+            tile.focus()
+            tile.press("ArrowRight")
+            after=tile.evaluate("(el) => el.style.left")
+            assert before!=after,(label,"HUD tile did not move",before,after)
+            page.locator("[data-demo-hud-reset]").click()
+            reset_position=tile.evaluate("(el) => el.style.left")
+            assert reset_position==before,(label,"HUD tile reset failed")
 
             hud=page.locator("[data-demo-hud-toggle]")
             hud.click()
@@ -70,11 +83,15 @@ try:
             page.locator("[data-minevora-language]").select_option("en")
             expect(page.locator("html")).to_have_attribute("lang","en")
             expect(page.locator("h1")).to_contain_text("Your Minecraft")
+            expect(page.locator("#pvp-hud")).to_contain_text("Hearts above players")
+            expect(page.locator("[data-demo-hud-reset]")).to_have_text("Reset layout")
             assert page.evaluate("localStorage.getItem('minevora_site_language')")=="en"
             no_overflow(page,label+" English home")
             page.goto(BASE+"poradnik/",wait_until="networkidle")
             expect(page.locator("h1")).to_contain_text("Launcher installation")
             assert "3.0.25" in page.locator("main").inner_text()
+            expect(page.locator("#pvp-hud")).to_contain_text("Right Shift")
+            expect(page.locator("#pvp-hud")).to_contain_text("2.0.15")
             assert "How to install MINEVORA" in page.title()
             assert page.locator("link[rel='canonical']").get_attribute("href")=="https://minevora.pl/v4/poradnik/"
             assert image_loaded(page,"header .brand img")
@@ -84,6 +101,7 @@ try:
             page.locator("[data-minevora-language]").select_option("pl")
             expect(page.locator("html")).to_have_attribute("lang","pl")
             expect(page.locator("h1")).to_contain_text("Instalacja launchera")
+            expect(page.locator("#pvp-hud")).to_contain_text("prawy Shift")
             assert not errors,(label,"JS exceptions",errors)
             no_overflow(page,label+" Polish guide")
             page.screenshot(path=str(OUT/(label+"-guide.png")),full_page=True,animations="disabled")

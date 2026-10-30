@@ -201,6 +201,55 @@ dictionary['Menu mobilne']='Mobile navigation';
 dictionary['Nawigacja']='Navigation';
 dictionary['Stopka']='Footer';
 dictionary['MINEVORA — strona główna']='MINEVORA — homepage';
+/* PvP HUD 2.0.15 site and guide translations. */
+Object.assign(dictionary, {
+  "MINEVORA 3.0.25 łączy Minecraft Java, modpacki, Skin Studio i PvP Studio. Nowy mod PvP HUD 2.0.15 dla Fabric 1.21.1 dodaje serduszka nad graczami i przesuwane kafelki. Prawy Shift otwiera menu moda, a H ukrywa lub pokazuje HUD.": "MINEVORA 3.0.25 combines Minecraft Java, modpacks, Skin Studio and PvP Studio. The new PvP HUD 2.0.15 mod for Fabric 1.21.1 adds overhead player hearts and draggable tiles. Right Shift opens the mod menu, while H hides or shows the HUD.",
+  "PvP Studio i HUD 2.0.15": "PvP Studio and HUD 2.0.15",
+  "Serduszka nad graczami, niezależne pozycje kafelków FPS, CPS, Combo, mikstur i pancerza. Mod Fabric 1.21.1 jest dostępny jako osobne wydanie.": "Overhead player hearts and independent positions for FPS, CPS, Combo, potion and armor tiles. The Fabric 1.21.1 mod is available as a separate release.",
+  "02 / PVP STUDIO · MOD 2.0.15": "02 / PVP STUDIO · MOD 2.0.15",
+  "ustawiony po Twojemu.": "arranged your way.",
+  "Nowe MINEVORA PvP HUD 2.0.15 dla Minecraft Fabric 1.21.1 wyświetla serca nad postaciami i pozwala rozmieszczać kafelki tak, aby nie zasłaniały gry. Mod jest udostępniany osobno od launchera 3.0.25.": "MINEVORA PvP HUD 2.0.15 for Minecraft Fabric 1.21.1 displays hearts above players and lets you place tiles wherever they won't obstruct gameplay. The mod is released separately from launcher 3.0.25.",
+  "Serduszka nad graczami": "Hearts above players",
+  "— widoczne nad innymi postaciami w pobliżu. Dokładność HP zależy od danych przekazywanych przez serwer.": "— shown above nearby players. Health accuracy depends on data provided by the server.",
+  "Przesuwane kafelki": "Draggable tiles",
+  "— osobno ustaw Armor HUD, FPS, CPS, Combo i efekty mikstur. Pozycje zapisują się w konfiguracji moda.": "— move Armor HUD, FPS, CPS, Combo and potion effects individually. Positions are saved in the mod configuration.",
+  "Prawy Shift / P": "Right Shift / P",
+  "— otwiera menu ustawień.": "— opens the settings menu.",
+  "— ukrywa lub pokazuje HUD. Edytor pozycji znajdziesz w zakładce HUD.": "— hides or shows the HUD. Find the positioning editor under HUD.",
+  "Pobierz PvP HUD 2.0.15 ↗": "Download PvP HUD 2.0.15 ↗",
+  "Instrukcja instalacji ↗": "Installation guide ↗",
+  "To osobny plik JAR moda Fabric 1.21.1, a nie instalator launchera. Przed instalacją sprawdź zgodność profilu i zainstaluj Fabric API.": "This is a standalone Fabric 1.21.1 mod JAR, not a launcher installer. Check your profile compatibility and install Fabric API first.",
+  "Gracz · HP przykładowe": "Player · sample health",
+  "◆ Pancerz": "◆ Armor",
+  "Pancerz": "Armor",
+  "Resetuj układ": "Reset layout",
+  "Podgląd interaktywny: przeciągnij kafelki myszką lub palcem, aby zmienić ich pozycję; strzałki przesuwają zaznaczony kafelek. To wyłącznie demonstracja na stronie. W grze edytor otworzysz prawym Shiftem → HUD → PRZESUŃ KAFELKI.": "Interactive preview: drag tiles with a mouse or finger to reposition them; arrow keys move the selected tile. This is a website-only demo. In-game, open the editor with Right Shift → HUD → MOVE TILES.",
+  "Interaktywny podgląd serduszek nad graczem i przesuwanych kafelków HUD. To demonstracja strony, nie gra.": "Interactive preview of hearts above a player and draggable HUD tiles. This is a website demonstration, not gameplay.",
+  "Przeciągnij kafelek FPS": "Drag FPS tile",
+  "Przeciągnij kafelek CPS": "Drag CPS tile",
+  "Przeciągnij kafelek Combo": "Drag Combo tile",
+  "Przeciągnij kafelek pancerza": "Drag armor tile",
+  "Przeciągnij kafelek mikstur": "Drag potion tile",
+  "Przeciągnij kafelek lub użyj strzałek": "Drag a tile or use arrow keys",
+  "PvP HUD 2.0.15": "PvP HUD 2.0.15",
+  "Nowe wydanie": "New release",
+  "jest dostępne osobno dla": "is available separately for",
+  ". Dodaje serduszka nad graczami oraz przesuwane kafelki CPS, FPS, Combo, mikstur i pancerza. Nie jest jeszcze potwierdzone, że launcher 3.0.25 automatycznie pobiera tę aktualizację.": ". It adds hearts above players and draggable CPS, FPS, Combo, potion and armor tiles. Automatic updates through launcher 3.0.25 have not yet been confirmed.",
+  "Wybierz profil Minecraft Java 1.21.1 z Fabric Loader i Fabric API. Potrzebujesz Java 21. Nie instaluj tego pliku w Vanilla, Forge, NeoForge ani w innych wersjach Minecraft.": "Select a Minecraft Java 1.21.1 profile with Fabric Loader and Fabric API. You need Java 21. Do not install this file for Vanilla, Forge, NeoForge or other Minecraft versions.",
+  "Pobierz oficjalny plik JAR z GitHub Releases, zamknij grę i umieść plik w folderze": "Download the official JAR from GitHub Releases, close the game and place it in the",
+  "używanym przez wybraną instancję. Jeśli znajduje się tam starszy MINEVORA PvP HUD, usuń starszą wersję przed uruchomieniem gry.": "folder used by your selected instance. If an older MINEVORA PvP HUD is present, remove the old version before starting Minecraft.",
+  "Otwórz menu i ustaw HUD": "Open menu and arrange HUD",
+  "Wejdź do świata Minecraft i naciśnij": "Enter a Minecraft world and press",
+  "prawy Shift": "Right Shift",
+  "lub": "or",
+  ", aby otworzyć menu moda. Wybierz": "to open the mod menu. Choose",
+  ", przeciągnij moduły i kliknij Gotowe. Klawisz": ", drag the tiles and click Done. The",
+  "ukrywa lub pokazuje HUD.": "key hides or shows the HUD.",
+  "Serduszka nad graczami:": "Hearts above players:",
+  "działają w pobliżu innych widocznych postaci, ale ich dokładność zależy od informacji o HP, które udostępnia serwer. Ułożenie kafelków zapisuje się w konfiguracji moda. Pokaz na stronie jest tylko interaktywną makietą, nie steruje ustawieniami Minecraft.": "they appear above nearby visible players, but their accuracy depends on health data from the server. Tile positions are saved in the mod config. The website preview is interactive only and does not change Minecraft settings.",
+  "Pobierz i sprawdź wydanie PvP HUD 2.0.15 na GitHub": "Get and inspect PvP HUD 2.0.15 on GitHub",
+  "Nie. PvP HUD 2.0.15 działa z Fabric 1.21.1. Inne wersje Minecraft i inne loadery wymagają osobnych zgodnych kompilacji.": "No. PvP HUD 2.0.15 works with Fabric 1.21.1. Other Minecraft versions and loaders need separate compatible builds."
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const languageKey='minevora_site_language';

@@ -6,6 +6,12 @@ on:
       - 'v4/**'
       - 'tools/test_website_v4.py'
       - '.github/workflows/test-website-v4.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'v4/**'
+      - 'tools/test_website_v4.py'
+      - '.github/workflows/test-website-v4.yml'
   workflow_dispatch:
 permissions:
   contents: read

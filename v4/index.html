@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0b0922">
-<meta name="description" content="MINEVORA 3.0.25 — launcher Minecraft na Windows z PvP HUD Shift dla Fabric 1.21.1, Skin Studio, modami Modrinth i CurseForge, profilami i diagnostyką.">
+<meta name="description" content="MINEVORA 3.0.25 — launcher Minecraft dla Windows. Poznaj PvP HUD 2.0.15 dla Fabric 1.21.1 z sercami nad graczami, przesuwanymi kafelkami, Skin Studio i modami.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:title" content="MINEVORA — Launcher Minecraft Java">
-<meta property="og:description" content="MINEVORA 3.0.25: Shift PvP HUD, naprawa Minecraft, Skin Studio i fioletowy launcher Java.">
+<meta property="og:description" content="MINEVORA: PvP HUD 2.0.15 z serduszkami nad graczami i edytorem kafelków, Skin Studio oraz launcher Minecraft Java.">
 <meta property="og:url" content="https://minevora.pl/v4/">
 <meta property="og:image" content="https://minevora.pl/assets/enchanted_hero.jpg">
 <link rel="canonical" href="https://minevora.pl/v4/">
@@ -16,6 +16,8 @@
 <link rel="apple-touch-icon" href="./assets/minevora-icon-20261028.webp">
 <link rel="stylesheet" href="./website-3-0-20.css">
 <script defer src="./website-3-0-20.js"></script>
+<link rel="stylesheet" href="./pvp-hud-2-0-15.css">
+<script defer src="./pvp-hud-2-0-15.js"></script>
 <title>MINEVORA 3.0.25 — Launcher Minecraft Java na Windows</title>
 <script defer src="./minevora-i18n.js"></script>
 </head>
@@ -41,8 +43,8 @@
     <div class="hero-copy">
       <span class="eyebrow"><span class="dot" aria-hidden="true"></span> MINEVORA REBORN / EDYCJA 3.0.25</span>
       <h1>Twój Minecraft.<br><span class="grad">Twój świat.</span><br>Twoje zasady.</h1>
-      <p class="lead">MINEVORA 3.0.25 łączy Minecraft Java, modpacki, Skin Studio i PvP Studio w jednym fioletowym launcherze. Gotowy PvP HUD dla Fabric 1.21.1 przełączysz w grze lewym Shiftem, a diagnostyka pomoże wykryć problemy z instalacją.</p>
-      <div class="hero-pills"><span>Windows 11</span><span>PvP Shift HUD</span><span>Fabric 1.21.1</span><span>Modrinth + CurseForge</span></div>
+      <p class="lead">MINEVORA 3.0.25 łączy Minecraft Java, modpacki, Skin Studio i PvP Studio. Nowy mod PvP HUD 2.0.15 dla Fabric 1.21.1 dodaje serduszka nad graczami i przesuwane kafelki. Prawy Shift otwiera menu moda, a H ukrywa lub pokazuje HUD.</p>
+      <div class="hero-pills"><span>Windows 11</span><span>PvP HUD 2.0.15</span><span>Fabric 1.21.1</span><span>Modrinth + CurseForge</span></div>
       <div class="actions"><a class="btn btn-primary" href="#pobierz">Zobacz dostępne pobrania <span aria-hidden="true">↓</span></a><a class="btn btn-secondary" href="#funkcje">Poznaj funkcje <span aria-hidden="true">↗</span></a></div>
       <p class="caption">Najnowszy projekt desktopowy: 3.0.25. Publiczne wydania GitHub nadal obejmują starszą linię 18.3.7 — sprawdź numer pobieranej paczki.</p>
     </div>
@@ -85,7 +87,7 @@
       <article class="feature"><span class="feature-icon" aria-hidden="true">✧</span><span class="num">03</span><h3>Shadery i paczki</h3><p>Shadery, resource packi i datapacki w osobnych kategoriach, przypisane do właściwych profili i światów.</p></article>
       <article class="feature"><span class="feature-icon" aria-hidden="true">▣</span><span class="num">04</span><h3>Skin Studio 3D</h3><p>Obracany podgląd postaci, biblioteka skinów, edycja tekstur 64×64 i eksport PNG.</p></article>
       <article class="feature"><span class="feature-icon" aria-hidden="true">♧</span><span class="num">05</span><h3>Konto Microsoft</h3><p>Logowanie w launcherze i powiązanie konta Minecraft. Autoryzacja odbywa się w aplikacji Windows.</p></article>
-      <article class="feature"><span class="feature-icon" aria-hidden="true">⚔</span><span class="num">06</span><h3>PvP Studio i Shift HUD</h3><p>Edytor wskaźników HUD oraz skompilowany mod Fabric 1.21.1 przełączany lewym Shiftem.</p></article>
+      <article class="feature"><span class="feature-icon" aria-hidden="true">⚔</span><span class="num">06</span><h3>PvP Studio i HUD 2.0.15</h3><p>Serduszka nad graczami, niezależne pozycje kafelków FPS, CPS, Combo, mikstur i pancerza. Mod Fabric 1.21.1 jest dostępny jako osobne wydanie.</p></article>
       <article class="feature"><span class="feature-icon" aria-hidden="true">✓</span><span class="num">07</span><h3>Diagnostyka i naprawa</h3><p>Kontrola plików Minecraft, raporty błędów i pomoc w przywracaniu sprawności instancji.</p></article>
       <article class="feature"><span class="feature-icon" aria-hidden="true">↺</span><span class="num">08</span><h3>Przywracanie profili</h3><p>Odzyskiwanie usuniętych instancji ze światami i modami, bezpieczniejsze zarządzanie profilami.</p></article>
     </div>
@@ -93,29 +95,33 @@
 </section>
 <section class="section pvp-section" id="pvp-hud">
  <div class="wrap">
-  <div class="section-heading"><span class="eyebrow">02 / PVP STUDIO</span><h2>PvP HUD <span class="grad">na ekranie gry.</span></h2><p>W MINEVORA 3.0.25 możesz zainstalować zgodny mod Fabric i przełączać HUD podczas rozgrywki. Edytor pozwala przygotować ustawienia HUD osobno dla każdej instancji.</p></div>
+  <div class="section-heading"><span class="eyebrow">02 / PVP STUDIO · MOD 2.0.15</span><h2>PvP HUD <span class="grad">ustawiony po Twojemu.</span></h2><p>Nowe MINEVORA PvP HUD 2.0.15 dla Minecraft Fabric 1.21.1 wyświetla serca nad postaciami i pozwala rozmieszczać kafelki tak, aby nie zasłaniały gry. Mod jest udostępniany osobno od launchera 3.0.25.</p></div>
   <div class="pvp-showcase">
    <div class="pvp-copy">
     <div class="pvp-benefits">
-     <div><i aria-hidden="true">⇧</i><span><b>Lewy Shift</b> — pokazuje lub ukrywa HUD. Klawisz nadal służy do skradania, ale skrót można zmienić w ustawieniach sterowania Minecraft.</span></div>
-     <div><i aria-hidden="true">◉</i><span><b>FPS, CPS, Combo i pancerz</b> — wskaźniki do PvP. Kolory, pozycje i presety konfigurujesz w PvP Studio.</span></div>
-     <div><i aria-hidden="true">✓</i><span><b>Instalacja i zabezpieczenia</b> — launcher sprawdza wersję Fabric oraz integralność pliku moda przed skopiowaniem do profilu.</span></div>
+     <div><i aria-hidden="true">♥</i><span><b>Serduszka nad graczami</b> — widoczne nad innymi postaciami w pobliżu. Dokładność HP zależy od danych przekazywanych przez serwer.</span></div>
+     <div><i aria-hidden="true">✥</i><span><b>Przesuwane kafelki</b> — osobno ustaw Armor HUD, FPS, CPS, Combo i efekty mikstur. Pozycje zapisują się w konfiguracji moda.</span></div>
+     <div><i aria-hidden="true">⇧</i><span><b>Prawy Shift / P</b> — otwiera menu ustawień. <b>H</b> — ukrywa lub pokazuje HUD. Edytor pozycji znajdziesz w zakładce HUD.</span></div>
     </div>
     <div class="pvp-requirements"><span>Minecraft Java 1.21.1</span><span>Fabric Loader</span><span>Fabric API</span><span>Java 21</span></div>
-    <div class="actions" style="margin-top:22px"><a class="btn btn-primary" href="./poradnik/#pvp-hud">Włącz PvP HUD ↗</a><a class="btn btn-secondary" href="https://github.com/cubeverse12/minevora-pvp-hud./tree/codex/pvp-shift-hud-20261030" target="_blank" rel="noopener noreferrer">Kod moda ↗</a></div>
+    <div class="actions" style="margin-top:22px"><a class="btn btn-primary" href="https://github.com/cubeverse12/minevora-pvp-hud./releases/download/v2.0.15-fabric-1.21.1/MINEVORA-PVP-HUD-2.0.15-FABRIC-1.21.1.jar" target="_blank" rel="noopener noreferrer" download>Pobierz PvP HUD 2.0.15 ↗</a><a class="btn btn-secondary" href="./poradnik/#pvp-hud">Instrukcja instalacji ↗</a></div>
+    <p class="pvp-install-note">To osobny plik JAR moda Fabric 1.21.1, a nie instalator launchera. Przed instalacją sprawdź zgodność profilu i zainstaluj Fabric API.</p>
    </div>
    <div>
-    <div class="pvp-scene" data-demo-hud-preview data-hud="on" role="img" aria-label="Demonstracyjna scena Minecraft z nakładką FPS, CPS, Combo, pancerza i przycisków WASD. Makieta nie jest zrzutem z gry.">
+    <div class="pvp-scene pvp-demo-v215" data-demo-hud-preview data-hud="on" role="group" aria-label="Interaktywny podgląd serduszek nad graczem i przesuwanych kafelków HUD. To demonstracja strony, nie gra.">
       <div class="pvp-sky"></div><div class="pvp-block"></div><div class="pvp-block b2"></div><div class="pvp-block b3"></div><div class="pvp-reticle"></div>
-      <div class="pvp-top-label">MINEVORA · PvP HUD</div>
-      <div class="pvp-hud-item fps">FPS <b>144</b> · CPS <b>8</b></div>
-      <div class="pvp-hud-item combo">COMBO <b>3</b> · PING <b>28 ms</b></div>
-      <div class="pvp-hud-item vitals"><span class="hearts">♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥</span><div>Pancerz · podgląd</div></div>
-      <div class="pvp-hud-item keystrokes">W<br>A S D</div>
-      <div class="pvp-shift-tag">⇧ LEFT SHIFT · HUD</div>
+      <div class="pvp-top-label">MINEVORA · PvP HUD 2.0.15</div>
+      <div class="pvp-overhead-hearts"><span class="pvp-hearts-icons" aria-hidden="true">♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♡ ♡</span><small>Gracz · HP przykładowe</small></div>
+      <div class="pvp-demo-player" aria-hidden="true"><span class="pvp-player-head"></span><span class="pvp-player-body"></span><span class="pvp-player-legs"></span></div>
+      <button type="button" class="pvp-hud-item fps" data-demo-hud-tile="fps" style="left:3%;top:18%" aria-label="Przeciągnij kafelek FPS">FPS <b>144</b></button>
+      <button type="button" class="pvp-hud-item cps" data-demo-hud-tile="cps" style="left:3%;top:35%" aria-label="Przeciągnij kafelek CPS">CPS <b>8 / 5</b></button>
+      <button type="button" class="pvp-hud-item combo" data-demo-hud-tile="combo" style="left:74%;top:18%" aria-label="Przeciągnij kafelek Combo">COMBO <b>3</b></button>
+      <button type="button" class="pvp-hud-item armor" data-demo-hud-tile="armor" style="left:3%;top:76%" aria-label="Przeciągnij kafelek pancerza">◆ Pancerz <b>94%</b></button>
+      <button type="button" class="pvp-hud-item potions" data-demo-hud-tile="potions" style="left:68%;top:76%" aria-label="Przeciągnij kafelek mikstur">✦ Speed II <b>0:45</b></button>
+      <div class="pvp-shift-tag">RIGHT SHIFT · MENU &nbsp; | &nbsp; H · HUD</div>
     </div>
-    <div class="actions" style="margin-top:12px"><button type="button" class="btn btn-secondary" data-demo-hud-toggle aria-pressed="true">Ukryj HUD (podgląd)</button></div>
-    <p class="pvp-caption">Przykładowa wizualizacja, nie zrzut z działającej gry. Liczby są poglądowe, a niektóre widoczne elementy mogą nie być dostępne w modzie. Przyciski sterują wyłącznie podglądem witryny.</p>
+    <div class="pvp-demo-controls"><button type="button" class="btn btn-secondary" data-demo-hud-toggle aria-pressed="true">Ukryj HUD (podgląd)</button><button type="button" class="btn btn-secondary" data-demo-hud-reset>Resetuj układ</button></div>
+    <p class="pvp-caption">Podgląd interaktywny: przeciągnij kafelki myszką lub palcem, aby zmienić ich pozycję; strzałki przesuwają zaznaczony kafelek. To wyłącznie demonstracja na stronie. W grze edytor otworzysz prawym Shiftem → HUD → PRZESUŃ KAFELKI.</p>
    </div>
   </div>
  </div>
