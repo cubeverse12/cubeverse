@@ -192,7 +192,17 @@ const dictionary = {
   ", ale nigdy nie publikuj tokenów ani poufnych danych.": "but never publish tokens or confidential information.",
   "Poradnik projektu MINEVORA 3.0.25 — Windows": "MINEVORA 3.0.25 project guide — Windows"
 };
+dictionary['Animacje: wyłączone']='Animations: off';
+dictionary['Pokaż HUD (podgląd)']='Show HUD (preview)';
+dictionary['Animacje są ograniczone przez ustawienia dostępności systemu.']='Animations are reduced by your system accessibility settings.';
+dictionary['Otwórz menu']='Open menu';
+dictionary['Nawigacja główna']='Main navigation';
+dictionary['Menu mobilne']='Mobile navigation';
+dictionary['Nawigacja']='Navigation';
+dictionary['Stopka']='Footer';
+dictionary['MINEVORA — strona główna']='MINEVORA — homepage';
 const originals = new WeakMap();
+const attributeOriginals = new WeakMap();
 const languageKey='minevora_site_language';
 const readLanguage=()=>{try{return localStorage.getItem(languageKey)==='en'?'en':'pl'}catch{return 'pl'}};
 const saveLanguage=(lang)=>{try{localStorage.setItem(languageKey,lang)}catch{}};
@@ -212,11 +222,21 @@ function changeLanguage(lang){
  for(const sel of document.querySelectorAll('[data-minevora-language]'))sel.value=lang;
  const titleOrigin=document.title.startsWith('MINEVORA 3.0.25')?'MINEVORA 3.0.25 — Launcher Minecraft Java na Windows': 'Jak zainstalować MINEVORA? — Poradnik Windows';
  document.title=translateText(titleOrigin,lang);
+ for(const el of document.querySelectorAll('[aria-label],[title],[placeholder]')) {
+  let sources=attributeOriginals.get(el);
+  if(!sources){sources={};attributeOriginals.set(el,sources);}
+  for(const attr of ['aria-label','title','placeholder']) {
+   if(!el.hasAttribute(attr))continue;
+   if(!(attr in sources))sources[attr]=el.getAttribute(attr);
+   const translated=translateText(sources[attr],lang);
+   if(el.getAttribute(attr)!==translated)el.setAttribute(attr,translated);
+  }
+ }
  for(const el of document.querySelectorAll('[data-minevora-language]'))el.setAttribute('aria-label',lang==='en'?'Website language':'Język strony');
 }
 document.addEventListener('DOMContentLoaded',()=>{
  const lang=readLanguage();changeLanguage(lang);
  document.querySelectorAll('[data-minevora-language]').forEach(el=>el.addEventListener('change',()=>changeLanguage(el.value)));
- document.addEventListener('click',event=>{if(event.target.closest('[data-demo-hud-toggle], [data-theme], [data-compact]')){queueMicrotask(()=>changeLanguage(readLanguage()))}});
+ document.addEventListener('click',event=>{if(event.target.closest('[data-demo-hud-toggle], [data-preview-theme], [data-preview-compact], [data-preview-motion]')){queueMicrotask(()=>changeLanguage(readLanguage()))}});
 });
 })();
