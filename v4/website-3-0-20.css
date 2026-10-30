@@ -111,3 +111,13 @@ html{scroll-padding-top:88px}
 .pvp-section [data-demo-hud-toggle]{cursor:pointer}
 .pvp-section [data-demo-hud-toggle][aria-pressed="false"]{background:#25173e;border-color:#6e518d;color:#dec9ef}
 @media(prefers-reduced-motion:reduce){.pvp-scene .pvp-hud-item{transition:none}}
+
+/* Discord icon identical to the MINEVORA 3.0.22 desktop launcher. */
+.discord-link{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.discord-link img{width:23px;height:23px;object-fit:contain;filter:drop-shadow(0 0 6px #8177ff55)}
+.discord-link:hover img{filter:drop-shadow(0 0 9px #8779ffcc)}
+.discord-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px}
+.discord-cta img{width:26px;height:26px;object-fit:contain}
+.footer-nav .discord-link{display:inline-flex;align-items:center;gap:8px}
+.mobile-items .discord-link{display:flex;align-items:center}
+@media(max-width:1150px){.desktop-nav{gap:11px}.desktop-nav a{font-size:12px}.desktop-nav .discord-link img{width:20px;height:20px}}
