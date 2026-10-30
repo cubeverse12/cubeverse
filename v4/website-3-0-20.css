@@ -14,7 +14,7 @@ body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;bac
 @media(max-width:540px){.wrap{width:min(100% - 30px,1200px)}.topbar-inner{min-height:65px}.brand{font-size:19px}.feature-grid,.steps{grid-template-columns:1fr}.hero{padding-top:45px}h1{font-size:42px}.hero-copy .lead{font-size:15px}.app-body{grid-template-columns:32px minmax(0,1fr)}.app-side{display:none}.app-rail{gap:14px}.app-top{font-size:10px}.quick{max-width:none}.quick b{font-size:10px}.app-main{min-width:0}.download-card{padding:23px}.community{padding:25px}.actions .btn{width:100%}.foot-inner{align-items:flex-start}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.feature{transition:none}}
 
-/* 3.0.11 Violet Premium: accessible theme controls for the on-page launcher concept */
+/* 3.0.20 Violet Premium: accessible theme controls for the on-page launcher concept */
 .preview-stage{min-width:0;display:grid;gap:13px}
 .preview-tools{display:flex;flex-wrap:wrap;align-items:center;gap:7px;padding:10px 12px;border:1px solid #503472;border-radius:14px;background:linear-gradient(120deg,#1b1234,#120c26)}
 .preview-caption{color:#c6b1e1;font-size:11px;font-weight:800;margin-right:auto;letter-spacing:.02em}
