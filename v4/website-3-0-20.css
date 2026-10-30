@@ -143,3 +143,15 @@ body{padding-bottom:65px}
 .site-language-switch:focus-within{outline:2px solid #e0c1ff;outline-offset:2px}
 @media(max-width:1080px){.site-language-switch{margin-left:auto;order:5}}
 @media(max-width:580px){.site-language-switch{height:35px;padding:0 5px;gap:3px}.site-language-switch select{min-width:40px;width:40px;font-size:12px}}
+
+/* 3.0.25 mobile header repair: the PL/EN selector must fit even at 320px. */
+@media(max-width:540px){
+  .topbar-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 8px;min-height:0;padding-top:8px;padding-bottom:8px}
+  .topbar-inner>.brand{grid-row:1;grid-column:1;min-width:0;font-size:17px;gap:7px}
+  .topbar-inner>.brand img{width:33px;height:33px}
+  .topbar-inner>.site-language-switch{grid-row:1;grid-column:2;margin:0;justify-self:end;min-width:0}
+  .topbar-inner>.mobile-nav{grid-row:2;grid-column:1 / -1;margin:0;justify-self:end;min-width:0}
+  .topbar-inner>.desktop-nav{display:none}
+  .topbar-inner>.mobile-nav summary{padding:7px 10px}
+  .topbar-inner>.mobile-nav .mobile-items{right:0;max-width:calc(100vw - 30px)}
+}
