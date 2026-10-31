@@ -43,3 +43,13 @@ Kody JavaScript przeszły kontrolę składni. Logika wyboru konkretnej wersji zo
 - [ ] Potwierdzenie uruchomienia paczki na Windows 11, integracja przycisku GRAJ z nową sesją Microsoft i pełny instalator Minecraft + loaderów pozostają niewykonane.
 
 **Eksperymentalny artefakt GitHub Actions:** https://github.com/cubeverse12/minevora-launcher/actions/runs/41243357172 (sekcja Artifacts, MINEVORA-18.3.8-SERVICES-EXPERIMENTAL). Nie jest to stabilny release.
+
+
+### Weryfikacja instalatora po poprawkach — 31.10.2026
+
+- [x] Zaostrzono weryfikację zależności Modrinth: `project_id` i `version_id` muszą odpowiadać zapisanym dodatkom. Dodano testy regresyjne.
+- [x] Już istniejące pliki `.jar` i `.zip` są sprawdzane strumieniowo, bez wczytywania całego pliku do RAM.
+- [x] Eksperymentalna paczka 18.3.8 ponownie zbudowana pomyślnie: https://github.com/cubeverse12/minevora-launcher/actions/runs/41243717425.
+- [x] Dodatkowe testy regresyjne zakończone sukcesem: https://github.com/cubeverse12/minevora-launcher/actions/runs/41243650801.
+
+**Ograniczenia:** nadal bez testu logowania prawdziwym kontem Microsoft i startu Minecrafta na Windows. 18.3.8 pozostaje wersją eksperymentalną.
