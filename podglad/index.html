@@ -147,7 +147,16 @@ body.light .mp-dialog{background:#f4ecff;color:#282037}body.light .mp-field-titl
   </div>
   <p id="mpStatus" class="muted mp-status" role="status" aria-live="polite">Profile są zapisywane tylko w tej przeglądarce.</p>
   <div class="note"><strong>Tryb testowy:</strong> loader Forge można wybrać przy tworzeniu profilu, ale żadna instalacja Forge, Fabric ani modów nie jest wykonywana. Zapis jest lokalny, a eksport tworzy plan JSON — nie instalowalny modpack.</div>
-  <dialog id="mpDialog" class="mp-dialog" aria-labelledby="mpDialogTitle">
+  
+</section>
+<section class="page" id="skins"><div class="head"><div class="kicker">SKIN STUDIO</div><h1>Skórki Minecraft <span class="demoBadge">DEMO</span></h1><p>Podgląd biblioteki skinów, bez zmiany prawdziwego konta.</p></div><div class="panel stage"><div class="skin" aria-hidden="true">♟</div><div><h3>Twoja postać</h3><p class="muted">Wgraj PNG 64×64, aby zobaczyć nazwę wybranego pliku.</p><input type="file" accept="image/png" id="skinFile"><p id="skinMessage" class="muted">Brak wybranego skina.</p><div class="note">Zmiana skina podczas gry wymaga osobnego moda i obsługi aktualizacji wyglądu.</div></div></div></section>
+ <section class="page" id="pvp"><div class="head"><div class="kicker">PVP STUDIO</div><h1>Podgląd HUD <span class="demoBadge">DEMO</span></h1><p>Przykładowa prezentacja serc nad graczem i panelu ekwipunku. Nie jest to działający HUD w Minecraft.</p></div><div class="hud"><div class="hearts">❤ ❤ ❤ ❤ ❤<br><small>Player</small></div><div class="armor">🛡️ 🪖 👕 👖 👢</div></div></section>
+ <section class="page" id="servers"><div class="head"><div class="kicker">KATALOG MINECRAFT</div><h1>Lista serwerów <span class="demoBadge">DEMO</span></h1><p>Docelowo lista publiczna i lokalna, opcjonalne banery PNG, JPG, GIF, WebM oraz filtry wersji i trybów.</p></div><div class="panel"><label class="field">Wyszukaj serwer<input id="serverSearch" placeholder="Wpisz nazwę albo tryb..."></label><div id="serverRows"><div class="server" data-text="przykladowy survival"><div class="banner">🌳</div><div><h3>Przykładowy Survival</h3><p>Survival · 1.21.1 · wizualizacja</p></div><div class="tag">PRZYKŁAD</div></div><div class="server" data-text="przykladowy bedwars pvp"><div class="banner second">⚔️</div><div><h3>Przykładowy PvP</h3><p>BedWars · 1.20.1 · wizualizacja</p></div><div class="tag">PRZYKŁAD</div></div></div></div></section>
+ <section class="page" id="settings"><div class="head"><div class="kicker">PERSONALIZACJA</div><h1>Ustawienia</h1><p>Możesz porównać wariant ciemny i jasny, a następnie powiedzieć, co poprawić.</p></div><div class="panel"><h3>Motyw interfejsu</h3><div class="buttons"><button class="btn" id="darkMode">🌙 Ciemny</button><button class="btn secondary" id="lightMode">☀️ Jasny</button></div><p class="muted">Wybrany motyw zostaje zapamiętany w tej przeglądarce.</p></div></section>
+ <footer class="foot">MINEVORA 4.1 GLOW — podgląd koncepcyjny · bez funkcji instalowania Minecrafta · <a class="highlight" href="https://minevora.pl/v4/">Strona główna MINEVORA</a></footer>
+</main></div>
+<!-- Dialog poza ukrywanymi zakładkami: przycisk + działa z każdego ekranu. -->
+<dialog id="mpDialog" class="mp-dialog" aria-labelledby="mpDialogTitle">
     <form id="mpForm">
       <div class="mp-dialog-heading">
         <div><div class="kicker">MODPACK STUDIO</div><h2 id="mpDialogTitle">Nowy profil</h2></div>
@@ -186,13 +195,6 @@ body.light .mp-dialog{background:#f4ecff;color:#282037}body.light .mp-field-titl
       </div>
     </form>
   </dialog>
-</section>
-<section class="page" id="skins"><div class="head"><div class="kicker">SKIN STUDIO</div><h1>Skórki Minecraft <span class="demoBadge">DEMO</span></h1><p>Podgląd biblioteki skinów, bez zmiany prawdziwego konta.</p></div><div class="panel stage"><div class="skin" aria-hidden="true">♟</div><div><h3>Twoja postać</h3><p class="muted">Wgraj PNG 64×64, aby zobaczyć nazwę wybranego pliku.</p><input type="file" accept="image/png" id="skinFile"><p id="skinMessage" class="muted">Brak wybranego skina.</p><div class="note">Zmiana skina podczas gry wymaga osobnego moda i obsługi aktualizacji wyglądu.</div></div></div></section>
- <section class="page" id="pvp"><div class="head"><div class="kicker">PVP STUDIO</div><h1>Podgląd HUD <span class="demoBadge">DEMO</span></h1><p>Przykładowa prezentacja serc nad graczem i panelu ekwipunku. Nie jest to działający HUD w Minecraft.</p></div><div class="hud"><div class="hearts">❤ ❤ ❤ ❤ ❤<br><small>Player</small></div><div class="armor">🛡️ 🪖 👕 👖 👢</div></div></section>
- <section class="page" id="servers"><div class="head"><div class="kicker">KATALOG MINECRAFT</div><h1>Lista serwerów <span class="demoBadge">DEMO</span></h1><p>Docelowo lista publiczna i lokalna, opcjonalne banery PNG, JPG, GIF, WebM oraz filtry wersji i trybów.</p></div><div class="panel"><label class="field">Wyszukaj serwer<input id="serverSearch" placeholder="Wpisz nazwę albo tryb..."></label><div id="serverRows"><div class="server" data-text="przykladowy survival"><div class="banner">🌳</div><div><h3>Przykładowy Survival</h3><p>Survival · 1.21.1 · wizualizacja</p></div><div class="tag">PRZYKŁAD</div></div><div class="server" data-text="przykladowy bedwars pvp"><div class="banner second">⚔️</div><div><h3>Przykładowy PvP</h3><p>BedWars · 1.20.1 · wizualizacja</p></div><div class="tag">PRZYKŁAD</div></div></div></div></section>
- <section class="page" id="settings"><div class="head"><div class="kicker">PERSONALIZACJA</div><h1>Ustawienia</h1><p>Możesz porównać wariant ciemny i jasny, a następnie powiedzieć, co poprawić.</p></div><div class="panel"><h3>Motyw interfejsu</h3><div class="buttons"><button class="btn" id="darkMode">🌙 Ciemny</button><button class="btn secondary" id="lightMode">☀️ Jasny</button></div><p class="muted">Wybrany motyw zostaje zapamiętany w tej przeglądarce.</p></div></section>
- <footer class="foot">MINEVORA 4.1 GLOW — podgląd koncepcyjny · bez funkcji instalowania Minecrafta · <a class="highlight" href="https://minevora.pl/v4/">Strona główna MINEVORA</a></footer>
-</main></div>
 <script>
 (function(){
  var titles={start:"Start",instances:"Instancje",mods:"Mody i modpacki",skins:"Skin Studio",pvp:"PvP Studio",servers:"Serwery Minecraft",settings:"Ustawienia"};
