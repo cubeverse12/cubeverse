@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#101021">
+<title>MINEVORA 4.1 GLOW — podgląd interfejsu</title>
+<style>
+:root{--bg:#0b0b16;--shell:#131324;--panel:#1a1a30;--card:#22213c;--line:#39304c;--txt:#f5f2ff;--muted:#aaa7c5;--purple:#a45cff;--purple2:#713af3;--shadow:rgba(100,37,210,.17);font-family:Segoe UI,Inter,Arial,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 70% 0,rgba(106,47,208,.18),transparent 45%),var(--bg);color:var(--txt)}
+button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}
+a{color:inherit;text-decoration:none}.layout{display:grid;grid-template-columns:252px minmax(0,1fr);min-height:100vh}
+.sidebar{background:#11101f;border-right:1px solid var(--line);padding:22px 14px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+.logo{display:flex;align-items:center;gap:11px;padding:5px 9px 23px}.logo img{width:44px;height:44px;object-fit:cover;border-radius:13px;background:linear-gradient(140deg,#342051,#7535a6)}.logo strong{font-size:19px;letter-spacing:2px}.logo small{display:block;color:var(--muted);font-size:10px;letter-spacing:1px;margin-top:3px}
+.navtitle{padding:7px 11px;color:#777294;font-size:10px;letter-spacing:2px}.nav{display:flex;flex-direction:column;gap:5px}.nav button{background:transparent;border:1px solid transparent;border-radius:11px;color:#b9b4d0;padding:12px 13px;text-align:left;display:flex;gap:13px;align-items:center;width:100%;font-size:14px}.nav button:hover{background:#252039;color:#fff}.nav button.active{background:linear-gradient(100deg,#503080,#282040);border-color:#67469d;color:#fff;box-shadow:0 0 20px var(--shadow)}
+.nav button .ico{width:24px;text-align:center;font-size:17px}.sidebar-bottom{margin-top:auto;font-size:12px;color:var(--muted);padding:14px 10px}.sidebar-bottom a{color:#cdb0ff}
+.main{min-width:0;padding:20px 30px 34px}.top{display:flex;justify-content:space-between;gap:18px;align-items:center;padding-bottom:23px;border-bottom:1px solid var(--line)}.top .breadcrumb{color:#a7a0c3;font-size:13px}.top .breadcrumb b{color:var(--txt)}.top .right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.flag{border:1px solid #8056b5;background:#39234f;border-radius:30px;color:#e5ceff;padding:7px 11px;font-size:11px;font-weight:700;letter-spacing:.5px}.version{color:var(--muted);font-size:12px}
+.page{display:none;animation:fade .18s ease-out}.page.active{display:block}@keyframes fade{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:none}}
+.head{margin:28px 0 20px}.kicker{text-transform:uppercase;color:#ac7aff;letter-spacing:2px;font-size:11px;font-weight:800}.head h1{font-size:clamp(27px,4vw,43px);margin:6px 0 9px}.head p{color:var(--muted);margin:0;font-size:14px;line-height:1.6}
+.hero{background:radial-gradient(ellipse at 86% 20%,#5e3199 0,transparent 37%),linear-gradient(135deg,#2a204c,#181829 68%);border:1px solid #63478a;min-height:254px;border-radius:21px;padding:36px;box-shadow:0 15px 45px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden}
+.hero h2{font-size:clamp(27px,4vw,42px);line-height:1.13;margin:12px 0}.hero h2 span{color:#c799ff}.hero p{max-width:510px;color:#c8bcdb;font-size:14px;line-height:1.6}.wolf{font-size:128px;opacity:.3;filter:drop-shadow(0 0 25px #ba77ff)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.btn{background:linear-gradient(100deg,#9750ed,#6332ce);border:1px solid #a66bf8;color:white;font-weight:700;padding:12px 18px;border-radius:11px;box-shadow:0 5px 18px rgba(123,55,220,.23)}
+.btn.secondary{background:#29203d;border:1px solid #564469;box-shadow:none}.btn.tiny{padding:8px 12px;font-size:12px}.btn:hover:not(:disabled){filter:brightness(1.14)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}.card{border:1px solid var(--line);background:linear-gradient(150deg,#201c35,#171726);border-radius:17px;padding:22px;min-width:0}.card h3{margin:10px 0;font-size:17px}.card p{color:var(--muted);line-height:1.55;font-size:13px}.card .emoji{font-size:26px}.card select,.card input{width:100%}
+.panel{border-radius:16px;border:1px solid var(--line);background:var(--panel);padding:22px;margin:14px 0}.panel h3{margin:0 0 14px}.panel small{color:var(--muted)}
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;max-width:840px}.field{display:flex;flex-direction:column;gap:8px;color:#d3cde3;font-size:13px}
+input,select{background:#111323;color:#fff;border:1px solid #514566;border-radius:9px;padding:11px 12px;min-width:0}
+select option{color:#fff}.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.note{padding:14px;border-radius:12px;border:1px solid #5b4a69;color:#d5c9e7;background:#26203a;font-size:13px;line-height:1.6;margin:14px 0}.note strong{color:#fff}
+.demoBadge{font-size:11px;border:1px solid #7b5282;color:#deb6ff;padding:4px 9px;border-radius:30px;vertical-align:middle;margin-left:6px}
+.cards{display:flex;gap:11px;flex-wrap:wrap}.mini{background:#211b34;border:1px solid #514267;padding:14px;border-radius:11px;min-width:145px}.mini h4{margin:2px 0 8px}.muted{color:var(--muted);font-size:12px}
+.server{display:flex;align-items:center;gap:16px;padding:14px;border:1px solid var(--line);border-radius:13px;margin:10px 0;background:#1a1a2d}.server .banner{width:120px;min-height:68px;border-radius:9px;background:linear-gradient(110deg,#254762,#6e39b5);display:flex;align-items:center;justify-content:center;font-size:25px}.server .banner.second{background:linear-gradient(100deg,#544237,#2d6c72)}.server h3{margin:0 0 5px}.server p{margin:0;color:#bbb1cb;font-size:12px}.server .tag{margin-left:auto;color:#cab4ff;border:1px solid #614882;border-radius:9px;padding:7px;font-size:11px}
+.hud{border:1px solid #674d87;min-height:225px;position:relative;border-radius:14px;background:linear-gradient(120deg,#143e2b,#214a32 43%,#2c5245 43%,#1a2b30);overflow:hidden}.hud:before{content:"";position:absolute;inset:20px;background:repeating-linear-gradient(0deg,transparent 0 28px,rgba(0,0,0,.08) 29px 30px);pointer-events:none}
+.hud .hearts{position:absolute;top:20%;left:35%;background:#151326c9;border-radius:10px;padding:10px 14px;font-size:15px;text-shadow:0 1px #09060d}.hud .armor{position:absolute;right:20px;bottom:20px;background:#151326dd;border:1px solid #714c9e;border-radius:10px;padding:9px 13px;font-size:14px}
+.stage{display:flex;align-items:center;gap:26px;flex-wrap:wrap}.skin{width:122px;height:198px;display:grid;place-items:center;font-size:92px;background:linear-gradient(#493878,#241e3a);border:1px solid #7957a5;border-radius:15px}.foot{margin-top:38px;padding:21px 0;color:#807a9c;font-size:12px;border-top:1px solid var(--line)}.highlight{color:#c893ff}
+body.light{--bg:#e8e4f5;--shell:#ece8f9;--panel:#f1eafa;--card:#fff;--line:#c5b3d7;--txt:#261e38;--muted:#605672;color-scheme:light}
+body.light .sidebar{background:#e3daf2}body.light .nav button{color:#423857}body.light .nav button.active{background:#ded0f8;color:#30134f}body.light .card{background:#fff}body.light .panel{background:#fff}body.light .note{background:#e8def4;color:#3c2c52}body.light input,body.light select{background:white;color:#261e38}body.light .hero{color:#fff}body.light .server{background:#fff}
+@media(max-width:1000px){.layout{grid-template-columns:76px minmax(0,1fr)}.sidebar{padding:16px 7px}.logo{justify-content:center;padding:0 0 26px}.logo span,.navtitle,.nav button .name,.sidebar-bottom{display:none}.nav button{justify-content:center;padding:12px 4px}.main{padding:16px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.layout{grid-template-columns:1fr}.sidebar{position:relative;height:auto;padding:9px 12px;display:block}.logo{display:none}.nav{flex-direction:row;overflow:auto}.nav button{min-width:48px;flex:0 0 48px}.main{padding:13px}.top{align-items:flex-start}.grid,.form{grid-template-columns:1fr}.hero{padding:23px;min-height:210px}.wolf{display:none}.server .banner{width:65px}.server .tag{display:none}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+ <a class="logo" href="./"><img src="/v4/assets/minevora-icon-20261028.webp" alt=""><span><strong>MINEVORA</strong><small>CYBERWOLF · 4.1 GLOW</small></span></a>
+ <div class="navtitle">MENU LAUNCHERA</div>
+ <nav class="nav" id="menu" aria-label="Widoki podglądu">
+  <button data-page="start" class="active" aria-label="Start"><span class="ico">▶</span><span class="name">Start</span></button>
+  <button data-page="instances" aria-label="Instancje"><span class="ico">▦</span><span class="name">Instancje</span></button>
+  <button data-page="mods" aria-label="Mody i modpacki"><span class="ico">⬡</span><span class="name">Mody i modpacki</span></button>
+  <button data-page="skins" aria-label="Skin Studio"><span class="ico">♙</span><span class="name">Skin Studio</span></button>
+  <button data-page="pvp" aria-label="PvP Studio"><span class="ico">⚔</span><span class="name">PvP Studio</span></button>
+  <button data-page="servers" aria-label="Serwery"><span class="ico">🌐</span><span class="name">Serwery Minecraft</span></button>
+  <button data-page="settings" aria-label="Ustawienia"><span class="ico">⚙</span><span class="name">Ustawienia</span></button>
+ </nav>
+ <div class="sidebar-bottom"><p>Podgląd wizualny, bez uruchamiania gry.</p><a href="https://github.com/cubeverse12/cubeverse/tree/main/podglad">Kod podglądu na GitHubie</a></div>
+</aside>
+<main class="main">
+ <header class="top"><div class="breadcrumb">MINEVORA / <b id="currentPage">Start</b></div><div class="right"><span class="flag">● PODGLĄD ONLINE</span><span class="version">4.1 GLOW · DEMO</span></div></header>
+ <div class="note"><strong>Wersja do wspólnego dopracowywania wyglądu.</strong> Zmiany opublikowane na GitHubie będą widoczne tutaj po odświeżeniu strony. Przyciski służą tylko do prezentacji interfejsu — nie instalują Minecrafta, modów ani nie logują do Microsoft.</div>
+ <section class="page active" id="start">
+  <div class="head"><div class="kicker">MINEVORA 4.1 · GLOW EDITION</div><h1>Centrum gry</h1><p>Prosty launcher z boczną nawigacją, fioletowo-grafitowym motywem i dużym przyciskiem GRAJ.</p></div>
+  <div class="hero"><div><div class="kicker">TWÓJ MINECRAFT. TWOJE ZASADY.</div><h2>Odkrywaj. <span>Twórz. Graj.</span></h2><p>Wybierz wersję Minecrafta i własną paczkę modów. To wizualny podgląd ekranu startowego MINEVORA.</p><div class="actions"><button class="btn" data-show="instances">▶ GRAJ / INSTANCJE</button><button class="btn secondary" data-show="mods">MODY I PACZKI</button></div></div><div class="wolf" aria-hidden="true">🐺</div></div>
+  <div class="grid"><article class="card"><div class="emoji">⬡</div><h3>Mody i modpacki</h3><p>Tworzenie paczek Fabric, wersje Minecrafta i dodatki do profilu.</p><button class="btn secondary tiny" data-show="mods">Zobacz moduł</button></article><article class="card"><div class="emoji">⚔</div><h3>PvP Studio</h3><p>Przykładowe serca i kafelki HUD, planowane dostosowanie w grze.</p><button class="btn secondary tiny" data-show="pvp">Zobacz podgląd</button></article><article class="card"><div class="emoji">♙</div><h3>Skin Studio</h3><p>Biblioteka skinów i osobny podgląd postaci.</p><button class="btn secondary tiny" data-show="skins">Zobacz studio</button></article></div>
+ </section>
+ <section class="page" id="instances"><div class="head"><div class="kicker">MINECRAFT JAVA</div><h1>Twoje instancje <span class="demoBadge">DEMO</span></h1><p>Podgląd wyboru wersji i loadera; instalowanie plików działa wyłącznie w aplikacji desktopowej po wdrożeniu.</p></div><div class="panel"><h3>Nowa instalacja</h3><div class="form"><label class="field">Nazwa paczki<input id="instanceName" value="Mój Minecraft"></label><label class="field">Wersja Minecraft<select id="gameVersion"><option>1.21.1</option><option>1.21.4</option><option>1.20.1</option><option>1.19.4</option><option>1.18.2</option></select></label><label class="field">Loader<select id="gameLoader"><option>Fabric</option><option>Vanilla</option><option>Forge — planowane</option><option>NeoForge — planowane</option></select></label></div><div class="buttons"><button class="btn" id="demoInstance">Pokaż przykładową instancję</button></div><p class="muted" id="instanceResult">Nie utworzono żadnej rzeczywistej instalacji.</p></div></section>
+ <section class="page" id="mods"><div class="head"><div class="kicker">MODPACK STUDIO</div><h1>Własne paczki <span class="demoBadge">DEMO</span></h1><p>Tak mógłby wyglądać kreator paczek Fabric z podziałem na mody, shadery i resource packi.</p></div><div class="panel"><h3>Przykładowa konfiguracja</h3><div class="form"><label class="field">Wersja<select id="packVersion"><option>1.21.1</option><option>1.20.1</option><option>1.21.4</option></select></label><label class="field">Loader<select id="packLoader"><option>Fabric</option><option>Forge (planowane)</option></select></label></div><div class="cards" style="margin-top:15px"><div class="mini"><h4>📦 Mody</h4><span class="muted">Modrinth · zależności</span></div><div class="mini"><h4>🌠 Shadery</h4><span class="muted">Opcjonalne dodatki</span></div><div class="mini"><h4>🎨 Resource packi</h4><span class="muted">Wygląd i tekstury</span></div></div><div class="buttons"><button class="btn" id="demoPack">Pokaż ustawienia paczki</button></div><p class="muted" id="packResult">Ten podgląd nie pobiera modów.</p></div></section>
+ <section class="page" id="skins"><div class="head"><div class="kicker">SKIN STUDIO</div><h1>Skórki Minecraft <span class="demoBadge">DEMO</span></h1><p>Podgląd biblioteki skinów, bez zmiany prawdziwego konta.</p></div><div class="panel stage"><div class="skin" aria-hidden="true">♟</div><div><h3>Twoja postać</h3><p class="muted">Wgraj PNG 64×64, aby zobaczyć nazwę wybranego pliku.</p><input type="file" accept="image/png" id="skinFile"><p id="skinMessage" class="muted">Brak wybranego skina.</p><div class="note">Zmiana skina podczas gry wymaga osobnego moda i obsługi aktualizacji wyglądu.</div></div></div></section>
+ <section class="page" id="pvp"><div class="head"><div class="kicker">PVP STUDIO</div><h1>Podgląd HUD <span class="demoBadge">DEMO</span></h1><p>Przykładowa prezentacja serc nad graczem i panelu ekwipunku. Nie jest to działający HUD w Minecraft.</p></div><div class="hud"><div class="hearts">❤ ❤ ❤ ❤ ❤<br><small>Player</small></div><div class="armor">🛡️ 🪖 👕 👖 👢</div></div></section>
+ <section class="page" id="servers"><div class="head"><div class="kicker">KATALOG MINECRAFT</div><h1>Lista serwerów <span class="demoBadge">DEMO</span></h1><p>Docelowo lista publiczna i lokalna, opcjonalne banery PNG, JPG, GIF, WebM oraz filtry wersji i trybów.</p></div><div class="panel"><label class="field">Wyszukaj serwer<input id="serverSearch" placeholder="Wpisz nazwę albo tryb..."></label><div id="serverRows"><div class="server" data-text="przykladowy survival"><div class="banner">🌳</div><div><h3>Przykładowy Survival</h3><p>Survival · 1.21.1 · wizualizacja</p></div><div class="tag">PRZYKŁAD</div></div><div class="server" data-text="przykladowy bedwars pvp"><div class="banner second">⚔️</div><div><h3>Przykładowy PvP</h3><p>BedWars · 1.20.1 · wizualizacja</p></div><div class="tag">PRZYKŁAD</div></div></div></div></section>
+ <section class="page" id="settings"><div class="head"><div class="kicker">PERSONALIZACJA</div><h1>Ustawienia</h1><p>Możesz porównać wariant ciemny i jasny, a następnie powiedzieć, co poprawić.</p></div><div class="panel"><h3>Motyw interfejsu</h3><div class="buttons"><button class="btn" id="darkMode">🌙 Ciemny</button><button class="btn secondary" id="lightMode">☀️ Jasny</button></div><p class="muted">Wybrany motyw zostaje zapamiętany w tej przeglądarce.</p></div></section>
+ <footer class="foot">MINEVORA 4.1 GLOW — podgląd koncepcyjny · bez funkcji instalowania Minecrafta · <a class="highlight" href="https://minevora.pl/v4/">Strona główna MINEVORA</a></footer>
+</main></div>
+<script>
+(function(){
+ var titles={start:"Start",instances:"Instancje",mods:"Mody i modpacki",skins:"Skin Studio",pvp:"PvP Studio",servers:"Serwery Minecraft",settings:"Ustawienia"};
+ function show(id){if(!titles[id])id="start";document.querySelectorAll(".page").forEach(function(e){e.classList.toggle("active",e.id===id)});document.querySelectorAll("#menu button").forEach(function(e){e.classList.toggle("active",e.dataset.page===id)});document.getElementById("currentPage").textContent=titles[id];location.hash=id;window.scrollTo(0,0)}
+ document.querySelectorAll("[data-page]").forEach(function(e){e.addEventListener("click",function(){show(e.dataset.page)})});document.querySelectorAll("[data-show]").forEach(function(e){e.addEventListener("click",function(){show(e.dataset.show)})});window.addEventListener("hashchange",function(){show(location.hash.slice(1))});
+ document.getElementById("demoInstance").addEventListener("click",function(){document.getElementById("instanceResult").textContent="Podgląd: "+document.getElementById("instanceName").value+" · "+document.getElementById("gameVersion").value+" · "+document.getElementById("gameLoader").value+" (nie zapisano instalacji)."});
+ document.getElementById("demoPack").addEventListener("click",function(){document.getElementById("packResult").textContent="Podgląd paczki: Minecraft "+document.getElementById("packVersion").value+" · "+document.getElementById("packLoader").value+" (bez pobierania plików)."});
+ document.getElementById("skinFile").addEventListener("change",function(e){var f=e.target.files&&e.target.files[0];document.getElementById("skinMessage").textContent=f&&f.type==="image/png"?"Wybrano: "+f.name+" (bez wysyłania pliku)":"Wybierz plik PNG."});
+ document.getElementById("serverSearch").addEventListener("input",function(e){var q=e.target.value.toLowerCase();document.querySelectorAll(".server").forEach(function(x){x.style.display=x.dataset.text.includes(q)?"flex":"none"})});
+ function theme(n){document.body.classList.toggle("light",n==="light");try{localStorage.setItem("minevora_preview_theme",n)}catch(e){}}
+ document.getElementById("darkMode").addEventListener("click",function(){theme("dark")});document.getElementById("lightMode").addEventListener("click",function(){theme("light")});
+ try{theme(localStorage.getItem("minevora_preview_theme")||"dark")}catch(e){}
+ show(location.hash.slice(1)||"start");
+})();
+</script>
+</body>
+</html>
