@@ -3,18 +3,19 @@
 Aktualizacja: 31.10.2026. Ten dokument rozdziela **podgląd WWW** od **aplikacji Windows**. Nie należy przedstawiać zachowania makiety jako funkcji działającego launchera.
 
 ## Etap 1 — podgląd WWW i profile
-- [x] Boczne menu, jeden mały plus pod „Serwery Minecraft”, okno tworzenia profilu poza ukrywanymi zakładkami.
+- [x] Boczne menu, jeden mały plus pod „Ustawienia” (po oddzielającym pasku), okno tworzenia profilu poza ukrywanymi zakładkami.
 - [x] Nazwa profilu, wersja Minecraft, wybór loadera, logo użytkownika i lokalny zapis profilu.
 - [x] Automatyczne zmniejszanie dużego obrazka profilu do 256 × 256 px.
-- [x] Katalog Modrinth: mody, modpacki, shadery, resource packi i datapacki, obrazy, opisy, autorzy i stronicowanie.
+- [x] Katalog Modrinth: mody, shadery, resource packi i datapacki, obrazy, opisy, autorzy i stronicowanie. Gotowe modpacki są poza listą dodatków profilu.
 - [x] Po kliknięciu „Do profilu”: pobranie metadanych konkretnego wydania przez API Modrinth i weryfikacja Minecraft/loadera (gdy dotyczy).
 - [x] Zachowanie numeru wersji dodatku i informacji o wymaganych zależnościach w lokalnym planie profilu.
 - [x] Kontrola składni i regresji dodana do GitHub Actions.
 - [ ] Test realnego zapytania Modrinth i renderowania całej listy w przeglądarce użytkownika — do potwierdzenia. Dostępność usługi, CORS i obrazy zależą od środowiska.
 
 ## Etap 2 — instalacje w aplikacji desktopowej (nieukończone)
-- [ ] Podłączenie obecnego katalogu i profili do rzeczywistego kodu Tauri/Rust launchera 4.1.
-- [ ] Pobieranie wybranych wersji plików Minecraft/modów tylko ze zweryfikowanych źródeł, kontrola sum SHA-512/SHA-1.
+- [ ] Podłączenie obecnego katalogu i profili do rzeczywistego launchera Windows (istniejący kod PySide6/Qt, nie Tauri/Rust).
+- [x] Osobny, niepodłączony do GUI moduł planu instalacji Modrinth w repozytorium `minevora-launcher`: weryfikacja metadanych, loaderów, SHA-512; uruchamianie jako dry-run, opcjonalnie pobieranie dodatków (nie Minecrafta ani brakujących zależności).
+- [ ] Podłączenie pobierania do GUI i pełna instalacja Minecrafta, loadera, zależności oraz wybranych modów.
 - [ ] Instalacja i uruchamianie zgodnych loaderów — najpierw Fabric; następnie Forge, NeoForge i Quilt.
 - [ ] Rozwiązywanie zależności modów, komunikaty o konfliktach wersji, naprawa instalacji i aktualizacje.
 - [ ] Import/eksport rzeczywistych modpacków .mrpack (a nie tylko planu JSON).
@@ -28,4 +29,6 @@ Aktualizacja: 31.10.2026. Ten dokument rozdziela **podgląd WWW** od **aplikacji
 - [ ] Spójny wygląd strony i aplikacji, tłumaczenia PL/EN, testy aktualizatora i instalatora Windows.
 
 ## Uwagi o testach
+Nowy moduł w repozytorium launchera: https://github.com/cubeverse12/minevora-launcher/blob/main/tools/modrinth_plan_installer.py. Testy offline zakończone sukcesem (GitHub Actions: https://github.com/cubeverse12/minevora-launcher/actions/runs/41242441149). Nie jest to potwierdzenie pracy launchera GUI ani instalacji Minecrafta.
+
 Kody JavaScript przeszły kontrolę składni. Logika wyboru konkretnej wersji została sprawdzona przy użyciu danych testowych (Fabric 1.21.1, zależność wymagana, odrzucenie Vanilla). GitHub Actions zostało skonfigurowane, ale nie zostało jeszcze potwierdzone zakończenie jego uruchomienia. Nie deklaruje się testu instalatora Windows ani realnego pobierania plików Minecrafta.
