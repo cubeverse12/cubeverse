@@ -24,9 +24,12 @@ assert(html.includes('window.addEventListener("minevora:new-profile"'),"Missing 
 for(const id of ["mpProfiles","mpCatalogSearch","mpCatalogResults","mpCatalogStatus","mpCatalogMore","mpItemGroups"]) {
  assert(html.includes('id="'+id+'"'),"Missing UI control: "+id);
 }
-for(const type of ["Mod","Shader","Resource pack","Datapack","Modpack"]) {
+for(const type of ["Mod","Shader","Resource pack","Datapack"]) {
  assert(catalog.includes('"'+type+'"'),"Missing catalog category: "+type);
 }
+assert(!html.includes('data-type="Modpack"'),"Ready-made modpack must not appear as an add-on category");
+assert(!catalog.includes('"Modpack":{facet:'),"Ready-made modpack must not be searched as a profile add-on");
+assert(html.includes('var storedTypes=types.concat(["Modpack"])'),"Do not erase previously saved modpack records");
 assert(catalog.includes('https://api.modrinth.com/v2/search'),"Missing search endpoint");
 assert(catalog.includes('https://api.modrinth.com/v2/project/'),"Missing release verification endpoint");
 assert(catalog.includes('versionNumber'),"Missing concrete version display");
