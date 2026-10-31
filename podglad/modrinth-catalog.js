@@ -43,7 +43,7 @@
       const image=el("img");image.alt="";
       image.loading="lazy";image.decoding="async";
       image.onerror=function(){image.remove();icon.textContent=type.icon};
-      image.onload=function(){icon.textContent=""};
+      image.onload=function(){if(image.parentNode===icon){icon.replaceChildren(image)}};
       image.src=src;icon.appendChild(image);
     }
     const body=el("div","mp-result-body");
@@ -96,7 +96,8 @@
     if(!context)return;
     if(controller)controller.abort();
     controller=new AbortController();
-    const thisId=++requestId, timeout=setTimeout(()=>controller.abort(),15000);
+    const activeController=controller;
+    const thisId=++requestId, timeout=setTimeout(()=>activeController.abort(),15000);
     const q=search.value.trim().slice(0,100);
     if(!append){offset=0;results.replaceChildren()}
     busy=true;more.hidden=true;
