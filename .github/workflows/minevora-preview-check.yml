@@ -1,0 +1,26 @@
+name: MINEVORA Preview Check
+on:
+  push:
+    paths:
+      - "podglad/**"
+      - ".github/workflows/minevora-preview-check.yml"
+  pull_request:
+    paths:
+      - "podglad/**"
+      - ".github/workflows/minevora-preview-check.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout preview
+        uses: actions/checkout@v4
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate preview scripts and key interactions
+        run: node podglad/tests/smoke.mjs
