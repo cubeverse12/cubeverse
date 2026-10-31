@@ -20,11 +20,11 @@ a{color:inherit;text-decoration:none}.layout{display:grid;grid-template-columns:
 .page{display:none;animation:fade .18s ease-out}.page.active{display:block}@keyframes fade{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:none}}
 .head{margin:28px 0 20px}.kicker{text-transform:uppercase;color:#ac7aff;letter-spacing:2px;font-size:11px;font-weight:800}.head h1{font-size:clamp(27px,4vw,43px);margin:6px 0 9px}.head p{color:var(--muted);margin:0;font-size:14px;line-height:1.6}
 .hero{background:radial-gradient(ellipse at 86% 20%,#5e3199 0,transparent 37%),linear-gradient(135deg,#2a204c,#181829 68%);border:1px solid #63478a;min-height:254px;border-radius:21px;padding:36px;box-shadow:0 15px 45px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden}
-.hero h2{font-size:clamp(27px,4vw,42px);line-height:1.13;margin:12px 0}.hero h2 span{color:#c799ff}.hero p{max-width:510px;color:#c8bcdb;font-size:14px;line-height:1.6}.wolf{font-size:128px;opacity:.3;filter:drop-shadow(0 0 25px #ba77ff)}
+.hero h2{font-size:clamp(27px,4vw,42px);line-height:1.13;margin:12px 0}.hero h2 span{color:#c799ff}.hero p{max-width:510px;color:#c8bcdb;font-size:14px;line-height:1.6}.wolf{font-size:92px;opacity:.3;filter:drop-shadow(0 0 25px #ba77ff)}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .btn{background:linear-gradient(100deg,#9750ed,#6332ce);border:1px solid #a66bf8;color:white;font-weight:700;padding:12px 18px;border-radius:11px;box-shadow:0 5px 18px rgba(123,55,220,.23)}
 .btn.secondary{background:#29203d;border:1px solid #564469;box-shadow:none}.btn.tiny{padding:8px 12px;font-size:12px}.btn:hover:not(:disabled){filter:brightness(1.14)}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}.card{border:1px solid var(--line);background:linear-gradient(150deg,#201c35,#171726);border-radius:17px;padding:22px;min-width:0}.card h3{margin:10px 0;font-size:17px}.card p{color:var(--muted);line-height:1.55;font-size:13px}.card .emoji{font-size:26px}.card select,.card input{width:100%}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}.card{border:1px solid var(--line);background:linear-gradient(150deg,#201c35,#171726);border-radius:17px;padding:22px;min-width:0}.card h3{margin:10px 0;font-size:17px}.card p{color:var(--muted);line-height:1.55;font-size:13px}.card .emoji{font-size:22px}.card select,.card input{width:100%}
 .panel{border-radius:16px;border:1px solid var(--line);background:var(--panel);padding:22px;margin:14px 0}.panel h3{margin:0 0 14px}.panel small{color:var(--muted)}
 .form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;max-width:840px}.field{display:flex;flex-direction:column;gap:8px;color:#d3cde3;font-size:13px}
 input,select{background:#111323;color:#fff;border:1px solid #514566;border-radius:9px;padding:11px 12px;min-width:0}
@@ -40,7 +40,49 @@ body.light{--bg:#e8e4f5;--shell:#ece8f9;--panel:#f1eafa;--card:#fff;--line:#c5b3
 body.light .sidebar{background:#e3daf2}body.light .nav button{color:#423857}body.light .nav button.active{background:#ded0f8;color:#30134f}body.light .card{background:#fff}body.light .panel{background:#fff}body.light .note{background:#e8def4;color:#3c2c52}body.light input,body.light select{background:white;color:#261e38}body.light .hero{color:#fff}body.light .server{background:#fff}
 @media(max-width:1000px){.layout{grid-template-columns:76px minmax(0,1fr)}.sidebar{padding:16px 7px}.logo{justify-content:center;padding:0 0 26px}.logo span,.navtitle,.nav button .name,.sidebar-bottom{display:none}.nav button{justify-content:center;padding:12px 4px}.main{padding:16px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.layout{grid-template-columns:1fr}.sidebar{position:relative;height:auto;padding:9px 12px;display:block}.logo{display:none}.nav{flex-direction:row;overflow:auto}.nav button{min-width:48px;flex:0 0 48px}.main{padding:13px}.top{align-items:flex-start}.grid,.form{grid-template-columns:1fr}.hero{padding:23px;min-height:210px}.wolf{display:none}.server .banner{width:65px}.server .tag{display:none}}
-.builder-row{border:1px solid var(--line);background:#151527;padding:11px;border-radius:10px;margin:7px 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.builder-row span{flex:1;min-width:190px;overflow-wrap:anywhere;font-size:13px}.builder-row .btn{box-shadow:none}body.light .builder-row{background:#f6f1ff}</style>
+.builder-row{border:1px solid var(--line);background:#151527;padding:11px;border-radius:10px;margin:7px 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.builder-row span{flex:1;min-width:190px;overflow-wrap:anywhere;font-size:13px}.builder-row .btn{box-shadow:none}body.light .builder-row{background:#f6f1ff}
+.mp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:20px 0}
+.mp-create,.mp-profile{border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#211b38,#171624);padding:18px;text-align:left;min-height:145px;display:flex;flex-direction:column;gap:7px;color:var(--txt);font:inherit}
+.mp-create{align-items:center;justify-content:center;border-style:dashed;border-color:#7e5eb1}
+.mp-create:hover,.mp-profile:hover{background:#302348;border-color:#a076e4}
+.mp-create strong,.mp-profile strong{font-size:15px}
+.mp-create small,.mp-profile small{color:var(--muted);font-size:11px;line-height:1.5}
+.mp-plus{display:grid;place-items:center;border-radius:12px;border:1px solid #7954a8;background:#482975;color:#e7d3ff;width:45px;height:45px;font-size:29px;font-weight:500;line-height:1}
+.mp-icon{display:inline-grid;place-items:center;vertical-align:middle;width:42px;height:42px;flex:none;background:linear-gradient(145deg,#45316e,#2b2248);border:1px solid #72539b;border-radius:11px;font-size:25px;overflow:hidden}
+.mp-icon img{width:100%;height:100%;object-fit:cover}
+.mp-profile.selected{border-color:#9d6bf0;box-shadow:0 0 0 1px #9d6bf0}
+.mp-editor-header,.mp-heading{display:flex;align-items:center;gap:13px}.mp-editor-header{justify-content:space-between;flex-wrap:wrap;margin-bottom:28px}
+.mp-heading h3{margin:0 0 4px}.mp-heading p{margin:0}
+.mp-add-buttons{display:flex;gap:9px;flex-wrap:wrap;margin:10px 0 17px}
+.mp-type.active{background:#6543a1;border-color:#b18cff}
+.mp-add-form{display:flex;align-items:end;gap:10px;max-width:580px}.mp-add-form .field{flex:1}.mp-add-form .btn{white-space:nowrap}
+.mp-items-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:21px}
+.mp-group{background:#151525;border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0}
+.mp-group h4{margin:0 0 12px;font-size:13px}
+.mp-item{display:flex;align-items:center;gap:7px;justify-content:space-between;padding:8px 0;border-top:1px solid var(--line);font-size:12px;overflow-wrap:anywhere}
+.mp-item span{min-width:0;flex:1}
+.mp-item button{background:transparent;border:1px solid #5d4977;border-radius:7px;color:#d5c3f1;padding:3px 7px;font-size:11px}
+.mp-bottom-actions{margin-top:20px}.mp-status{min-height:20px}
+.mp-dialog{width:min(430px,calc(100vw - 28px));max-height:calc(100vh - 28px);overflow:auto;padding:0;background:#1b192d;color:#f8f2ff;border:1px solid #7956a7;border-radius:17px;box-shadow:0 24px 100px #000b}
+.mp-dialog::backdrop{background:rgba(7,5,17,.8);backdrop-filter:blur(5px)}
+.mp-dialog form{padding:23px;display:flex;flex-direction:column;gap:16px}
+.mp-dialog-heading{display:flex;justify-content:space-between;align-items:start;gap:10px}.mp-dialog-heading h2{font-size:23px;margin:5px 0 0}
+.mp-x{background:transparent;border:0;color:#d6c5ea;font-size:29px;line-height:1;cursor:pointer}
+.mp-form-pair{display:grid;grid-template-columns:1fr 1fr;gap:11px}.mp-form-pair select{width:100%}
+.mp-field-title{color:#d3cde3;font-size:13px}
+.mp-icon-picker{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 12px}
+.mp-choice{width:38px;height:38px;display:grid;place-items:center;background:#2b233e;border:1px solid #57436c;border-radius:9px;color:#fff;font-size:22px;cursor:pointer}
+.mp-choice.selected{border-color:#c192ff;background:#533481;box-shadow:0 0 0 1px #b177ff}
+.mp-upload{display:flex;flex-direction:column;gap:8px;color:#bbb2ce;font-size:11px}
+.mp-upload input{width:100%;padding:7px;font-size:11px}
+.mp-icon-preview{display:flex;align-items:center;gap:9px;color:#bbb2ce;font-size:12px;margin-top:10px}
+.mp-icon-section{border:1px solid #4e3d65;border-radius:12px;padding:12px}
+.mp-dialog-actions{justify-content:flex-end;margin-top:0}
+body.light .mp-create,body.light .mp-profile,body.light .mp-group{background:#fff}
+body.light .mp-dialog{background:#f4ecff;color:#282037}body.light .mp-field-title{color:#504467}
+@media(max-width:800px){.mp-items-grid{grid-template-columns:1fr}.mp-add-form{flex-wrap:wrap}}
+@media(max-width:480px){.mp-form-pair{grid-template-columns:1fr}.mp-dialog form{padding:17px}.mp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mp-add-form .btn{width:100%}}
+</style>
 </head>
 <body>
 <div class="layout">
@@ -67,22 +109,83 @@ body.light .sidebar{background:#e3daf2}body.light .nav button{color:#423857}body
   <div class="grid"><article class="card"><div class="emoji">⬡</div><h3>Mody i modpacki</h3><p>Tworzenie paczek Fabric, wersje Minecrafta i dodatki do profilu.</p><button class="btn secondary tiny" data-show="mods">Zobacz moduł</button></article><article class="card"><div class="emoji">⚔</div><h3>PvP Studio</h3><p>Przykładowe serca i kafelki HUD, planowane dostosowanie w grze.</p><button class="btn secondary tiny" data-show="pvp">Zobacz podgląd</button></article><article class="card"><div class="emoji">♙</div><h3>Skin Studio</h3><p>Biblioteka skinów i osobny podgląd postaci.</p><button class="btn secondary tiny" data-show="skins">Zobacz studio</button></article></div>
  </section>
  <section class="page" id="instances"><div class="head"><div class="kicker">MINECRAFT JAVA</div><h1>Twoje instancje <span class="demoBadge">DEMO</span></h1><p>Podgląd wyboru wersji i loadera; instalowanie plików działa wyłącznie w aplikacji desktopowej po wdrożeniu.</p></div><div class="panel"><h3>Nowa instalacja</h3><div class="form"><label class="field">Nazwa paczki<input id="instanceName" value="Mój Minecraft"></label><label class="field">Wersja Minecraft<select id="gameVersion"><option>1.21.1</option><option>1.21.4</option><option>1.20.1</option><option>1.19.4</option><option>1.18.2</option></select></label><label class="field">Loader<select id="gameLoader"><option>Fabric</option><option>Vanilla</option><option>Forge — planowane</option><option>NeoForge — planowane</option></select></label></div><div class="buttons"><button class="btn" id="demoInstance">Pokaż przykładową instancję</button></div><p class="muted" id="instanceResult">Nie utworzono żadnej rzeczywistej instalacji.</p></div></section>
- <section class="page" id="mods"><div class="head"><div class="kicker">MODPACK STUDIO</div><h1>Własne paczki <span class="demoBadge">PODGLĄD</span></h1><p>Wybierz wersję Minecrafta i loader, dodaj mody, shadery lub resource packi, a potem zapisz swoją konfigurację.</p></div><div class="panel">
-<h3>Ustawienia paczki <span class="demoBadge">ZAPIS LOKALNY</span></h3>
-<p class="muted">Najpierw wybierz wersję Minecrafta i loader. Następnie wpisz dodatki, kliknij „Dodaj do paczki” i zapisz konfigurację. Ten podgląd nie pobiera ani nie instaluje plików.</p>
-<div class="form">
-<label class="field">Nazwa paczki<input id="builderName" value="Moja paczka" maxlength="60"></label>
-<label class="field">Wersja Minecraft<select id="builderVersion"><option>1.21.1</option><option>1.21.4</option><option>1.20.1</option><option>1.19.4</option><option>1.18.2</option></select></label>
-<label class="field">Loader<select id="builderLoader"><option>Fabric</option><option>Vanilla</option><option disabled>Forge — w przygotowaniu</option></select></label>
-<label class="field">Rodzaj dodatku<select id="builderType"><option value="Mod">Mod</option><option value="Shader">Shader</option><option value="Resource pack">Resource pack</option></select></label>
-<label class="field">Nazwa dodatku<input id="builderAddon" maxlength="80" placeholder="np. Sodium"></label>
-</div>
-<div class="buttons"><button class="btn secondary" type="button" id="builderAdd">+ Dodaj do paczki</button></div>
-<h3 style="margin-top:25px">Lista dodatków</h3><div id="builderItems"></div>
-<div class="buttons"><button class="btn" type="button" id="builderSave">Zapisz paczkę</button><button class="btn secondary" type="button" id="builderExport">Eksportuj JSON</button><button class="btn secondary" type="button" id="builderClear">Nowa paczka</button></div>
-<p class="muted" role="status" id="builderStatus" aria-live="polite">Konfiguracje pozostają w przeglądarce na tym urządzeniu.</p>
-<h3 style="margin-top:25px">Zapisane paczki</h3><div id="builderSaved"></div>
-</div>
+ <section class="page" id="mods">
+  <div class="head">
+    <div class="kicker">MINEVORA · MODPACK STUDIO</div>
+    <h1>Twoje profile Minecraft <span class="demoBadge">PODGLĄD</span></h1>
+    <p>Najpierw utwórz profil z własną ikoną, wersją gry i loaderem. Następnie dodawaj do niego mody, shadery i resource packi.</p>
+  </div>
+  <div class="mp-grid" id="mpProfiles">
+    <button id="mpCreate" class="mp-create" type="button"><span class="mp-plus" aria-hidden="true">+</span><strong>Nowy profil</strong><small>Utwórz swoją paczkę</small></button>
+  </div>
+  <div id="mpEditor" class="panel mp-editor" hidden>
+    <div class="mp-editor-header">
+      <div class="mp-heading">
+        <span id="mpSelectedIcon" class="mp-icon" aria-hidden="true">🌿</span>
+        <div><h3 id="mpSelectedName">Mój profil</h3><p class="muted" id="mpSelectedInfo"></p></div>
+      </div>
+      <button id="mpEdit" class="btn secondary tiny" type="button">Edytuj profil</button>
+    </div>
+    <h3>Dodaj do swojego profilu</h3>
+    <div class="mp-add-buttons" role="group" aria-label="Rodzaj dodatku">
+      <button class="btn secondary mp-type active" data-type="Mod" type="button">+ Mody</button>
+      <button class="btn secondary mp-type" data-type="Shader" type="button">+ Shadery</button>
+      <button class="btn secondary mp-type" data-type="Resource pack" type="button">+ Resource packi</button>
+    </div>
+    <div class="mp-add-form">
+      <label class="field" for="mpAddonName"><span id="mpAddonLabel">Nazwa moda</span>
+        <input id="mpAddonName" maxlength="80" placeholder="np. Sodium">
+      </label>
+      <button id="mpAddItem" class="btn" type="button">Dodaj</button>
+    </div>
+    <p class="muted">Wpisuj nazwy dodatków. Ten podgląd nie wyszukuje, nie pobiera ani nie sprawdza zgodności plików.</p>
+    <div class="mp-items-grid" id="mpItemGroups"></div>
+    <div class="buttons mp-bottom-actions">
+      <button class="btn secondary tiny" id="mpExport" type="button">Eksportuj plan JSON</button>
+      <button class="btn secondary tiny" id="mpDelete" type="button">Usuń profil</button>
+    </div>
+  </div>
+  <p id="mpStatus" class="muted mp-status" role="status" aria-live="polite">Profile są zapisywane tylko w tej przeglądarce.</p>
+  <div class="note"><strong>Tryb testowy:</strong> loader Forge można wybrać przy tworzeniu profilu, ale żadna instalacja Forge, Fabric ani modów nie jest wykonywana. Zapis jest lokalny, a eksport tworzy plan JSON — nie instalowalny modpack.</div>
+  <dialog id="mpDialog" class="mp-dialog" aria-labelledby="mpDialogTitle">
+    <form id="mpForm">
+      <div class="mp-dialog-heading">
+        <div><div class="kicker">MODPACK STUDIO</div><h2 id="mpDialogTitle">Nowy profil</h2></div>
+        <button class="mp-x" type="button" id="mpCancelX" aria-label="Zamknij okno">×</button>
+      </div>
+      <label class="field">Nazwa profilu
+        <input id="mpName" name="name" maxlength="60" placeholder="np. Mój Survival" required>
+      </label>
+      <div class="mp-form-pair">
+        <label class="field">Wersja Minecraft
+          <select id="mpVersion"><option>1.21.1</option><option>1.21.4</option><option>1.20.1</option><option>1.19.4</option><option>1.18.2</option><option>1.16.5</option><option>1.12.2</option></select>
+        </label>
+        <label class="field">Loader
+          <select id="mpLoader"><option>Fabric</option><option>Forge (plan)</option><option>NeoForge (plan)</option><option>Quilt (plan)</option><option>Vanilla</option></select>
+        </label>
+      </div>
+      <div class="mp-icon-section">
+        <span class="mp-field-title">Ikona profilu</span>
+        <div class="mp-icon-picker" id="mpIcons">
+          <button type="button" class="mp-choice selected" data-icon="🌿" aria-label="Liść" aria-pressed="true">🌿</button>
+          <button type="button" class="mp-choice" data-icon="⚔️" aria-label="Miecze" aria-pressed="false">⚔️</button>
+          <button type="button" class="mp-choice" data-icon="💎" aria-label="Diament" aria-pressed="false">💎</button>
+          <button type="button" class="mp-choice" data-icon="🌙" aria-label="Księżyc" aria-pressed="false">🌙</button>
+          <button type="button" class="mp-choice" data-icon="🔥" aria-label="Ogień" aria-pressed="false">🔥</button>
+          <button type="button" class="mp-choice" data-icon="🛡️" aria-label="Tarcza" aria-pressed="false">🛡️</button>
+        </div>
+        <label class="mp-upload">Lub wybierz własną ikonę PNG / JPG / WebP (maks. 120 KB)
+          <input type="file" id="mpIconFile" accept="image/png,image/jpeg,image/webp">
+        </label>
+        <div class="mp-icon-preview">Wybrana ikona: <span id="mpPreview" class="mp-icon" aria-hidden="true">🌿</span></div>
+      </div>
+      <p class="muted" id="mpFormError" role="status" aria-live="polite"></p>
+      <div class="buttons mp-dialog-actions">
+        <button class="btn secondary" id="mpCancel" type="button">Anuluj</button>
+        <button class="btn" id="mpSave" type="submit">Utwórz profil</button>
+      </div>
+    </form>
+  </dialog>
 </section>
 <section class="page" id="skins"><div class="head"><div class="kicker">SKIN STUDIO</div><h1>Skórki Minecraft <span class="demoBadge">DEMO</span></h1><p>Podgląd biblioteki skinów, bez zmiany prawdziwego konta.</p></div><div class="panel stage"><div class="skin" aria-hidden="true">♟</div><div><h3>Twoja postać</h3><p class="muted">Wgraj PNG 64×64, aby zobaczyć nazwę wybranego pliku.</p><input type="file" accept="image/png" id="skinFile"><p id="skinMessage" class="muted">Brak wybranego skina.</p><div class="note">Zmiana skina podczas gry wymaga osobnego moda i obsługi aktualizacji wyglądu.</div></div></div></section>
  <section class="page" id="pvp"><div class="head"><div class="kicker">PVP STUDIO</div><h1>Podgląd HUD <span class="demoBadge">DEMO</span></h1><p>Przykładowa prezentacja serc nad graczem i panelu ekwipunku. Nie jest to działający HUD w Minecraft.</p></div><div class="hud"><div class="hearts">❤ ❤ ❤ ❤ ❤<br><small>Player</small></div><div class="armor">🛡️ 🪖 👕 👖 👢</div></div></section>
@@ -107,24 +210,154 @@ body.light .sidebar{background:#e3daf2}body.light .nav button{color:#423857}body
 <script>
 (function(){
 "use strict";
-var key="minevora-modpack-preview-v1",items=[],saved=[],editing=null;
 var $=function(id){return document.getElementById(id)};
-function msg(t){$("builderStatus").textContent=t}
-function btn(label,cb){var b=document.createElement("button");b.type="button";b.className="btn secondary tiny";b.textContent=label;b.onclick=cb;return b}
-function addRow(parent,text,buttons){var d=document.createElement("div");d.className="builder-row";var s=document.createElement("span");s.textContent=text;d.appendChild(s);buttons.forEach(function(b){d.appendChild(b)});parent.appendChild(d)}
-function showItems(){$("builderItems").replaceChildren();if(!items.length){$("builderItems").textContent="Brak dodatków."}items.forEach(function(x,i){addRow($("builderItems"),x.type+": "+x.name,[btn("Usuń",function(){items.splice(i,1);showItems()})])})}
-function showSaved(){$("builderSaved").replaceChildren();if(!saved.length){$("builderSaved").textContent="Brak zapisanych paczek."}saved.forEach(function(p,i){
-addRow($("builderSaved"),p.name+" · "+p.version+" · "+p.loader+" · "+p.items.length+" dodatków",[
-btn("Edytuj",function(){editing=i;$("builderName").value=p.name;$("builderVersion").value=p.version;$("builderLoader").value=p.loader;items=p.items.map(function(a){return {type:a.type,name:a.name}});showItems();msg("Otworzono paczkę: "+p.name)}),
-btn("Usuń",function(){saved.splice(i,1);if(editing===i)editing=null;else if(editing!==null&&editing>i)editing--;persist();showSaved();msg("Usunięto zapis w tej przeglądarce.")})
-])})}
-function persist(){try{localStorage.setItem(key,JSON.stringify(saved));return true}catch(e){msg("Zapis w przeglądarce jest niedostępny.");return false}}
-try{var data=JSON.parse(localStorage.getItem(key)||"[]");if(Array.isArray(data))saved=data.filter(function(p){return p&&typeof p.name==="string"&&Array.isArray(p.items)}).slice(0,50)}catch(e){}
-$("builderAdd").onclick=function(){var name=$("builderAddon").value.trim(),type=$("builderType").value;if(!name){msg("Wpisz nazwę dodatku.");return}if(items.length>=100){msg("Osiągnięto limit 100 dodatków.");return}if(items.some(function(x){return x.name.toLowerCase()===name.toLowerCase()&&x.type===type})){msg("Ten dodatek jest już na liście.");return}items.push({type:type,name:name.slice(0,80)});$("builderAddon").value="";showItems();msg("Dodano do planu: "+name)};
-$("builderSave").onclick=function(){var name=$("builderName").value.trim();if(!name){msg("Wpisz nazwę paczki.");return}var p={name:name.slice(0,60),version:$("builderVersion").value,loader:$("builderLoader").value,items:items.map(function(x){return {type:x.type,name:x.name}})};if(editing===null){if(saved.length>=50){msg("Limit 50 paczek.");return}saved.push(p);editing=saved.length-1}else saved[editing]=p;if(persist()){showSaved();msg("Paczka zapisana lokalnie: "+name)}};
-$("builderClear").onclick=function(){editing=null;items=[];$("builderName").value="Nowa paczka";$("builderVersion").selectedIndex=0;$("builderLoader").selectedIndex=0;showItems();msg("Utworzono pusty plan. Poprzednie zapisy pozostały.")};
-$("builderExport").onclick=function(){var p={format:"minevora-demo-plan-v1",name:$("builderName").value.trim(),version:$("builderVersion").value,loader:$("builderLoader").value,items:items};var blob=new Blob([JSON.stringify(p,null,2)],{type:"application/json"});var url=URL.createObjectURL(blob);var a=document.createElement("a");a.href=url;a.download="minevora-plan.json";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},1000);msg("Wyeksportowano plan JSON, a nie instalowalną paczkę .mrpack.")};
-showItems();showSaved();
+var key="minevora-modpack-preview-v2", oldKey="minevora-modpack-preview-v1",profiles=[],selectedId=null,editId=null,icon="🌿",customIcon="",currentType="Mod",lastFocus=null;
+var allowedLoaders=["Fabric","Forge (plan)","NeoForge (plan)","Quilt (plan)","Vanilla"];
+var types=["Mod","Shader","Resource pack"];
+var labels={"Mod":"Mody","Shader":"Shadery","Resource pack":"Resource packi"};
+function status(t){$("mpStatus").textContent=t}
+function error(t){$("mpFormError").textContent=t}
+function safeIcon(p){return p&&typeof p.iconImage==="string"&&/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/.test(p.iconImage)&&p.iconImage.length<190000?p.iconImage:null}
+function emoji(p){return p&&typeof p.icon==="string"&&["🌿","⚔️","💎","🌙","🔥","🛡️"].includes(p.icon)?p.icon:"🌿"}
+function iconNode(p){
+ var span=document.createElement("span");span.className="mp-icon";span.setAttribute("aria-hidden","true");
+ if(safeIcon(p)){var im=document.createElement("img");im.alt="";im.src=p.iconImage;span.appendChild(im)}else{span.textContent=emoji(p)}
+ return span
+}
+function safePack(p){
+ if(!p||typeof p.name!=="string"||!Array.isArray(p.items))return null;
+ return {id:typeof p.id==="string"?p.id:makeId(),name:p.name.slice(0,60),version:typeof p.version==="string"?p.version:"1.21.1",loader:typeof p.loader==="string"?p.loader:"Fabric",icon:emoji(p),iconImage:safeIcon(p),items:p.items.filter(function(x){return x&&types.includes(x.type)&&typeof x.name==="string"}).slice(0,100).map(function(x){return {type:x.type,name:x.name.slice(0,80)}})};
+}
+function makeId(){return "p"+Date.now()+"-"+Math.random().toString(36).slice(2,8)}
+function load(){
+ try{
+  var txt=localStorage.getItem(key);
+  if(txt){var parsed=JSON.parse(txt);if(Array.isArray(parsed))profiles=parsed.map(safePack).filter(Boolean).slice(0,60)}
+  else{var legacy=JSON.parse(localStorage.getItem(oldKey)||"[]");if(Array.isArray(legacy)){profiles=legacy.map(safePack).filter(Boolean).slice(0,60);if(profiles.length)saveToStorage()}}
+ }catch(e){profiles=[];status("Nie udało się odczytać zapisanych profili.")}
+}
+function saveToStorage(){
+ try{localStorage.setItem(key,JSON.stringify(profiles));return true}
+ catch(e){status("Nie udało się zapisać. Sprawdź wolne miejsce lub uprawnienia przeglądarki.");return false}
+}
+function compactButton(label,action){var b=document.createElement("button");b.type="button";b.textContent=label;b.addEventListener("click",action);return b}
+function render(){
+ var container=$("mpProfiles");container.replaceChildren();
+ var create=document.createElement("button");create.id="mpCreate";create.type="button";create.className="mp-create";
+ var plus=document.createElement("span");plus.className="mp-plus";plus.setAttribute("aria-hidden","true");plus.textContent="+";
+ var heading=document.createElement("strong");heading.textContent="Nowy profil";
+ var sub=document.createElement("small");sub.textContent="Utwórz własną paczkę";
+ create.append(plus,heading,sub);create.addEventListener("click",function(){openDialog(null)});container.appendChild(create);
+ profiles.forEach(function(p){
+  var b=document.createElement("button");b.type="button";b.className="mp-profile"+(p.id===selectedId?" selected":"");b.setAttribute("aria-label","Otwórz profil "+p.name);
+  var title=document.createElement("strong");title.textContent=p.name;
+  var meta=document.createElement("small");meta.textContent="Minecraft "+p.version+" · "+p.loader;
+  var cnt=document.createElement("small");cnt.textContent=p.items.length+" dodatków";
+  b.append(iconNode(p),title,meta,cnt);b.addEventListener("click",function(){selectedId=p.id;currentType="Mod";render()});container.appendChild(b)
+ });
+ renderEditor()
+}
+function selected(){return profiles.find(function(p){return p.id===selectedId})}
+function renderEditor(){
+ var p=selected(),box=$("mpEditor");box.hidden=!p;if(!p)return;
+ $("mpSelectedIcon").replaceWith(iconNode(p));var newIcon=$("mpEditor").querySelector(".mp-heading .mp-icon");newIcon.id="mpSelectedIcon";
+ $("mpSelectedName").textContent=p.name;
+ $("mpSelectedInfo").textContent="Minecraft "+p.version+" · "+p.loader;
+ document.querySelectorAll("#mpEditor .mp-type").forEach(function(b){b.classList.toggle("active",b.dataset.type===currentType)});
+ $("mpAddonLabel").textContent=currentType==="Mod"?"Nazwa moda":currentType==="Shader"?"Nazwa shadera":"Nazwa resource packa";
+ $("mpAddonName").placeholder=currentType==="Mod"?"np. Sodium":currentType==="Shader"?"np. Complementary": "np. Faithful";
+ var root=$("mpItemGroups");root.replaceChildren();
+ types.forEach(function(t){
+  var group=document.createElement("div");group.className="mp-group";
+  var title=document.createElement("h4");title.textContent=labels[t]+" · "+p.items.filter(function(x){return x.type===t}).length;group.appendChild(title);
+  p.items.filter(function(x){return x.type===t}).forEach(function(x){
+   var row=document.createElement("div");row.className="mp-item";
+   var name=document.createElement("span");name.textContent=x.name;
+   var del=compactButton("Usuń",function(){
+    var index=p.items.indexOf(x);if(index<0)return;
+    var previous=p.items.slice();p.items.splice(index,1);
+    if(!saveToStorage()){p.items=previous;return}
+    render();status("Usunięto dodatek z profilu.")
+   });del.setAttribute("aria-label","Usuń "+x.name);
+   row.append(name,del);group.appendChild(row)
+  });
+  if(!p.items.some(function(x){return x.type===t})){var empty=document.createElement("p");empty.className="muted";empty.textContent="Brak dodatków";group.appendChild(empty)}
+  root.appendChild(group)
+ })
+}
+function updatePreview(){
+ var target=$("mpPreview");var incoming=iconNode({icon:icon,iconImage:customIcon});incoming.id="mpPreview";target.replaceWith(incoming);
+ document.querySelectorAll("#mpIcons .mp-choice").forEach(function(b){var yes=b.dataset.icon===icon&&!customIcon;b.classList.toggle("selected",yes);b.setAttribute("aria-pressed",String(yes))})
+}
+function openDialog(p){
+ editId=p?p.id:null;lastFocus=document.activeElement;
+ $("mpDialogTitle").textContent=p?"Edytuj profil":"Nowy profil";
+ $("mpSave").textContent=p?"Zapisz zmiany":"Utwórz profil";
+ $("mpName").value=p?p.name:"";
+ $("mpVersion").value=p?p.version:"1.21.1";if(!$("mpVersion").value)$("mpVersion").selectedIndex=0;
+ $("mpLoader").value=p?p.loader:"Fabric";if(!$("mpLoader").value)$("mpLoader").selectedIndex=0;
+ icon=emoji(p);customIcon=safeIcon(p)||"";
+ $("mpIconFile").value="";error("");updatePreview();
+ $("mpDialog").showModal();$("mpName").focus()
+}
+function closeDialog(){if($("mpDialog").open)$("mpDialog").close();if(lastFocus&&typeof lastFocus.focus==="function")lastFocus.focus()}
+document.querySelectorAll("#mpIcons .mp-choice").forEach(function(b){b.addEventListener("click",function(){icon=b.dataset.icon;customIcon="";$("mpIconFile").value="";error("");updatePreview()})});
+$("mpIconFile").addEventListener("change",function(event){
+ var f=event.target.files&&event.target.files[0];if(!f)return;
+ if(!["image/png","image/jpeg","image/webp"].includes(f.type)){error("Dozwolone są tylko PNG, JPG i WebP.");event.target.value="";return}
+ if(f.size>120*1024){error("Ikona może mieć maksymalnie 120 KB.");event.target.value="";return}
+ var reader=new FileReader();
+ reader.onload=function(){if(typeof reader.result==="string"){customIcon=reader.result;error("");updatePreview()}};
+ reader.onerror=function(){error("Nie udało się odczytać obrazka.")};reader.readAsDataURL(f)
+});
+$("mpForm").addEventListener("submit",function(event){
+ event.preventDefault();
+ var name=$("mpName").value.trim().slice(0,60);
+ if(!name){error("Podaj nazwę profilu.");$("mpName").focus();return}
+ var data={name:name,version:$("mpVersion").value,loader:$("mpLoader").value,icon:icon,iconImage:customIcon||null};
+ var idx=profiles.findIndex(function(p){return p.id===editId});
+ if(idx<0&&profiles.length>=60){error("Limit 60 profili.");return}
+ var old=profiles.slice();
+ var p;
+ if(idx>=0){p=Object.assign({},profiles[idx],data);profiles[idx]=p}else{p=Object.assign({id:makeId(),items:[]},data);profiles.push(p)}
+ if(!saveToStorage()){profiles=old;error("Nie udało się zapisać profilu.");return}
+ selectedId=p.id;closeDialog();render();status("Zapisano profil „"+name+"”. Teraz możesz dodać mody, shadery i resource packi.")
+});
+$("mpCancel").addEventListener("click",closeDialog);
+$("mpCancelX").addEventListener("click",closeDialog);
+$("mpDialog").addEventListener("click",function(event){if(event.target===$("mpDialog"))closeDialog()});
+$("mpEdit").addEventListener("click",function(){var p=selected();if(p)openDialog(p)});
+document.querySelectorAll("#mpEditor .mp-type").forEach(function(b){b.addEventListener("click",function(){
+ currentType=b.dataset.type;renderEditor();$("mpAddonName").focus()
+})});
+function addItem(){
+ var p=selected();if(!p)return;
+ var name=$("mpAddonName").value.trim().slice(0,80);if(!name){status("Wpisz nazwę dodatku.");$("mpAddonName").focus();return}
+ if(p.items.length>=100){status("Limit 100 dodatków na profil.");return}
+ if(p.items.some(function(x){return x.type===currentType&&x.name.toLowerCase()===name.toLowerCase()})){status("Ten dodatek jest już na liście.");return}
+ p.items.push({type:currentType,name:name});
+ if(!saveToStorage()){p.items.pop();return}
+ $("mpAddonName").value="";render();status("Dodano "+name+" do profilu "+p.name+".");
+ $("mpAddonName").focus()
+}
+$("mpAddItem").addEventListener("click",addItem);
+$("mpAddonName").addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();addItem()}});
+$("mpDelete").addEventListener("click",function(){
+ var p=selected();if(!p)return;
+ if(!confirm("Usunąć profil „"+p.name+"” i zapisane w nim dodatki?"))return;
+ var previous=profiles.slice();profiles=profiles.filter(function(x){return x.id!==p.id});
+ if(!saveToStorage()){profiles=previous;return}
+ selectedId=null;render();status("Usunięto profil "+p.name+".")
+});
+$("mpExport").addEventListener("click",function(){
+ var p=selected();if(!p)return;
+ var output={format:"minevora-demo-plan-v2",name:p.name,minecraftVersion:p.version,loader:p.loader,icon:p.icon,items:p.items};
+ var blob=new Blob([JSON.stringify(output,null,2)],{type:"application/json"}),u=URL.createObjectURL(blob);
+ var a=document.createElement("a");a.href=u;a.download="minevora-"+p.name.replace(/[^a-zA-Z0-9_-]/g,"-").slice(0,32)+"-plan.json";
+ document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},1000);
+ status("Wyeksportowano plan JSON (nie jest to instalowalny plik .mrpack).")
+});
+load();render();
 })();
 </script></body>
 </html>
