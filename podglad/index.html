@@ -309,7 +309,7 @@ function renderEditor(){
    var thumb=document.createElement("span");thumb.className="mp-saved-thumb";thumb.textContent=t==="Mod"?"🧩":t==="Shader"?"🌠":t==="Resource pack"?"🎨":t==="Datapack"?"📜":"📦";
    if(x.iconUrl && x.iconUrl.startsWith("https://cdn.modrinth.com/")){
      var image=document.createElement("img");image.alt="";image.loading="lazy";image.src=x.iconUrl;
-     image.onload=function(){thumb.textContent=""};image.onerror=function(){image.remove()};
+     image.onload=function(){if(image.parentNode===thumb){thumb.replaceChildren(image)}};image.onerror=function(){image.remove()};
      thumb.appendChild(image);
    }
    var name=document.createElement("span");name.textContent=x.name;
