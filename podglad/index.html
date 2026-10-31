@@ -108,6 +108,7 @@ body.light .mp-result-title{color:#261e38}
 body.light .mp-result-description{color:#554863}
 body.light .mp-result-meta{color:#543d74}
 @media(max-width:750px){.mp-result{grid-template-columns:46px 1fr}.mp-result-actions{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center}.mp-catalog-search{flex-wrap:wrap}}
+.mp-version-error{color:#ffbabf;font-size:11px;line-height:1.4;margin:4px 0;max-width:220px}.mp-result-actions .btn:disabled{opacity:.75}.mp-item small{line-height:1.4}
 </style>
 </head>
 <body>
@@ -262,7 +263,7 @@ function iconNode(p){
 }
 function safePack(p){
  if(!p||typeof p.name!=="string"||!Array.isArray(p.items))return null;
- return {id:typeof p.id==="string"?p.id:makeId(),name:p.name.slice(0,60),version:typeof p.version==="string"?p.version:"1.21.1",loader:typeof p.loader==="string"?p.loader:"Fabric",icon:emoji(p),iconImage:safeIcon(p),items:p.items.filter(function(x){return x&&types.includes(x.type)&&typeof x.name==="string"}).slice(0,100).map(function(x){return {type:x.type,name:x.name.slice(0,80),id:String(x.id||"").slice(0,64),iconUrl:(typeof x.iconUrl==="string"&&x.iconUrl.startsWith("https://cdn.modrinth.com/"))?x.iconUrl:"",description:String(x.description||"").slice(0,240),author:String(x.author||"").slice(0,80)}})};
+ return {id:typeof p.id==="string"?p.id:makeId(),name:p.name.slice(0,60),version:typeof p.version==="string"?p.version:"1.21.1",loader:typeof p.loader==="string"?p.loader:"Fabric",icon:emoji(p),iconImage:safeIcon(p),items:p.items.filter(function(x){return x&&types.includes(x.type)&&typeof x.name==="string"}).slice(0,100).map(function(x){return {type:x.type,name:x.name.slice(0,80),id:String(x.id||"").slice(0,64),iconUrl:(typeof x.iconUrl==="string"&&/^https:\/\/cdn(?:-raw)?\.modrinth\.com\//.test(x.iconUrl))?x.iconUrl:"",description:String(x.description||"").slice(0,240),author:String(x.author||"").slice(0,80),versionId:String(x.versionId||"").slice(0,64),versionNumber:String(x.versionNumber||"").slice(0,70),gameVersion:String(x.gameVersion||"").slice(0,20),loader:String(x.loader||"").slice(0,30),dependencies:Array.isArray(x.dependencies)?x.dependencies.filter(d=>d&&typeof d.projectId==="string").slice(0,25).map(d=>({projectId:d.projectId.slice(0,64),versionId:String(d.versionId||"").slice(0,64)})):[]}})};
 }
 function makeId(){return "p"+Date.now()+"-"+Math.random().toString(36).slice(2,8)}
 function load(){
@@ -307,13 +308,15 @@ function renderEditor(){
   p.items.filter(function(x){return x.type===t}).forEach(function(x){
    var row=document.createElement("div");row.className="mp-item";
    var thumb=document.createElement("span");thumb.className="mp-saved-thumb";thumb.textContent=t==="Mod"?"🧩":t==="Shader"?"🌠":t==="Resource pack"?"🎨":t==="Datapack"?"📜":"📦";
-   if(x.iconUrl && x.iconUrl.startsWith("https://cdn.modrinth.com/")){
+   if(x.iconUrl && /^https:\/\/cdn(?:-raw)?\.modrinth\.com\//.test(x.iconUrl)){
      var image=document.createElement("img");image.alt="";image.loading="lazy";image.src=x.iconUrl;
      image.onload=function(){if(image.parentNode===thumb){thumb.replaceChildren(image)}};image.onerror=function(){image.remove()};
      thumb.appendChild(image);
    }
    var name=document.createElement("span");name.textContent=x.name;
-   if(x.author){var sub=document.createElement("small");sub.textContent=" · "+x.author;name.appendChild(sub)}
+   if(x.author){var sub=document.createElement("small");sub.textContent="Autor: "+x.author;name.appendChild(sub)}
+   if(x.versionNumber){var edition=document.createElement("small");edition.textContent="Wydanie: "+x.versionNumber+(x.gameVersion?" · Minecraft "+x.gameVersion:"");name.appendChild(edition)}
+   if(x.dependencies&&x.dependencies.length){var req=document.createElement("small");req.textContent="Wymagane zależności: "+x.dependencies.length+" (nie instalowane automatycznie)";name.appendChild(req)}
    var del=compactButton("Usuń",function(){
     var index=p.items.indexOf(x);if(index<0)return;
     var previous=p.items.slice();p.items.splice(index,1);
@@ -325,7 +328,7 @@ function renderEditor(){
   if(!p.items.some(function(x){return x.type===t})){var empty=document.createElement("p");empty.className="muted";empty.textContent="Brak dodatków";group.appendChild(empty)}
   root.appendChild(group)
  })
- window.dispatchEvent(new CustomEvent("minevora:catalog-context",{detail:{category:currentType,version:p.version,loader:p.loader}}));
+ window.dispatchEvent(new CustomEvent("minevora:catalog-context",{detail:{category:currentType,version:p.version,loader:p.loader,profileId:p.id}}));
 }
 function updatePreview(){
  var target=$("mpPreview");var incoming=iconNode({icon:icon,iconImage:customIcon});incoming.id="mpPreview";target.replaceWith(incoming);
@@ -393,16 +396,21 @@ document.querySelectorAll("#mpEditor .mp-type").forEach(function(b){b.addEventLi
 window.addEventListener("minevora:add-catalog-item",function(event){
  var d=event.detail, p=selected();
  if(!d||!p||!types.includes(d.type)||!d.name)return;
+ if(d.profileId!==p.id){status("Przełączono profil podczas sprawdzania moda. Spróbuj ponownie.");return}
+ if(d.gameVersion!==p.version||d.loader!==p.loader){status("Zmieniła się wersja profilu. Odśwież wyszukiwanie dodatków.");return}
+ if(!d.versionId||!d.versionNumber){status("Brak potwierdzonej wersji dodatku.");return}
  if(p.items.length>=100){status("Limit 100 dodatków w profilu.");return}
  if(p.items.some(function(x){return x.type===d.type&&(d.id&&x.id===d.id||x.name.toLowerCase()===d.name.toLowerCase())})){
    status("Ten dodatek jest już zapisany w profilu.");return
  }
  var entry={type:d.type,name:String(d.name).slice(0,80),id:String(d.id||"").slice(0,64),
   author:String(d.author||"").slice(0,80),description:String(d.description||"").slice(0,240),
-  iconUrl:typeof d.iconUrl==="string"&&d.iconUrl.startsWith("https://cdn.modrinth.com/")?d.iconUrl:""};
+  iconUrl:typeof d.iconUrl==="string"&&/^https:\/\/cdn(?:-raw)?\.modrinth\.com\//.test(d.iconUrl)?d.iconUrl:"",
+  versionId:String(d.versionId||"").slice(0,64),versionNumber:String(d.versionNumber||"").slice(0,70),gameVersion:p.version,loader:p.loader,
+  dependencies:Array.isArray(d.dependencies)?d.dependencies.filter(x=>x&&typeof x.projectId==="string").slice(0,25):[]};
  p.items.push(entry);
  if(!saveToStorage()){p.items.pop();return}
- d.accepted=true;render();status("Zapisano do profilu „"+p.name+"”: "+entry.name+". Pliki nie zostały pobrane.");
+ d.accepted=true;render();status("Zapisano do profilu „"+p.name+"”: "+entry.name+" · wydanie "+entry.versionNumber+". Pliki i zależności nie zostały pobrane.");
 });
 $("mpDelete").addEventListener("click",function(){
  var p=selected();if(!p)return;
