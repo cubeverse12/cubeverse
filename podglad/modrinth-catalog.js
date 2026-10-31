@@ -9,8 +9,7 @@
     "Mod":{facet:"project_type:mod",label:"mody",project:"mod",icon:"🧩"},
     "Shader":{facet:"project_type:shader",label:"shadery",project:"shader",icon:"🌠"},
     "Resource pack":{facet:"project_type:resourcepack",label:"resource packi",project:"resourcepack",icon:"🎨"},
-    "Datapack":{facet:"all_project_types:datapack",label:"datapacki",project:"datapack",icon:"📜"},
-    "Modpack":{facet:"project_type:modpack",label:"modpacki",project:"modpack",icon:"📦"}
+    "Datapack":{facet:"all_project_types:datapack",label:"datapacki",project:"datapack",icon:"📜"}
   };
   let context=null, controller=null, timer=null, requestId=0, offset=0, total=0, busy=false;
   const step=12;
@@ -41,7 +40,7 @@
     if(selection.type==="Mod"&&selection.loader==="Vanilla")throw new Error("Wybierz Fabric, Forge, NeoForge lub Quilt — mod nie działa na czystym Vanilla.");
     const endpoint=new URL("https://api.modrinth.com/v2/project/"+projectId+"/version");
     endpoint.searchParams.set("game_versions",JSON.stringify([selection.version]));
-    if((selection.type==="Mod"||selection.type==="Modpack")&&selection.loader!=="Vanilla"){
+    if((selection.type==="Mod")&&selection.loader!=="Vanilla"){
       endpoint.searchParams.set("loaders",JSON.stringify([selection.loader.toLowerCase().replace(" (plan)","")]));
     }
     endpoint.searchParams.set("include_changelog","false");
@@ -60,7 +59,7 @@
     const compatible=versions.filter(v=>v&&Array.isArray(v.game_versions)&&v.game_versions.includes(selection.version));
     if(!compatible.length)throw new Error("Nie znaleziono potwierdzonej wersji dla Minecraft "+selection.version+".");
     const loader=selection.loader.toLowerCase().replace(" (plan)","");
-    const filtered=(selection.type==="Mod"||selection.type==="Modpack")&&selection.loader!=="Vanilla"?
+    const filtered=(selection.type==="Mod")&&selection.loader!=="Vanilla"?
       compatible.filter(v=>Array.isArray(v.loaders)&&v.loaders.includes(loader)):compatible;
     if(!filtered.length)throw new Error("Brak zgodnego wydania dla loadera "+selection.loader+".");
     const stable=filtered.filter(v=>v.version_type==="release");
@@ -98,7 +97,7 @@
     const meta=el("div","mp-result-metas");
     const supported=Array.isArray(hit.versions) && hit.versions.includes(context.version);
     meta.appendChild(mark((supported?"✓ ":"")+"Minecraft "+selection.version));
-    if((context.type==="Mod"||context.type==="Modpack") && selection.loader!=="Vanilla"){
+    if((context.type==="Mod") && selection.loader!=="Vanilla"){
       meta.appendChild(mark(selection.loader.replace(" (plan)","")+" · filtr loadera"));
     }else if(selection.type==="Mod"&&selection.loader==="Vanilla"){
       meta.appendChild(mark("Vanilla: mod wymaga odpowiedniego loadera"));
@@ -152,7 +151,7 @@
   }
   function facets(){
     const arr=[[types[context.type].facet],["versions:"+context.version]];
-    if((context.type==="Mod"||context.type==="Modpack") && context.loader!=="Vanilla"){
+    if((context.type==="Mod") && context.loader!=="Vanilla"){
       arr.push(["categories:"+context.loader.toLowerCase().replace(" (plan)","")]);
     }
     return arr;
@@ -211,7 +210,7 @@
     const fresh={type:data.category,version:String(data.version||"1.21.1"),loader:String(data.loader||"Fabric"),profileId:String(data.profileId||"")};
     if(context&&fresh.type===context.type&&fresh.version===context.version&&fresh.loader===context.loader){context=fresh;return;}
     context=fresh;
-    search.placeholder=fresh.type==="Mod"?"Wpisz np. Sodium, Fabric API…":fresh.type==="Shader"?"Wpisz np. Complementary…":fresh.type==="Resource pack"?"Wpisz np. Faithful…":fresh.type==="Datapack"?"Znajdź datapack…":"Wpisz nazwę modpacka…";
+    search.placeholder=fresh.type==="Mod"?"Wpisz np. Sodium, Fabric API…":fresh.type==="Shader"?"Wpisz np. Complementary…":fresh.type==="Resource pack"?"Wpisz np. Faithful…":"Znajdź datapack…";
     byId("mpCatalogHeading").textContent="Katalog Modrinth · "+types[context.type].label;
     search.value="";
     load(false);
