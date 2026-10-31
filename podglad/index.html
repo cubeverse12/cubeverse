@@ -82,7 +82,7 @@ body.light .mp-create,body.light .mp-profile,body.light .mp-group{background:#ff
 body.light .mp-dialog{background:#f4ecff;color:#282037}body.light .mp-field-title{color:#504467}
 @media(max-width:800px){.mp-items-grid{grid-template-columns:1fr}.mp-add-form{flex-wrap:wrap}}
 @media(max-width:480px){.mp-form-pair{grid-template-columns:1fr}.mp-dialog form{padding:17px}.mp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mp-add-form .btn{width:100%}}
-.nav #navNewProfile{width:36px;height:36px;min-width:36px;flex:0 0 36px;display:flex;justify-content:center;align-items:center;padding:0;margin:5px 0 5px 7px;background:#322342;border:1px solid #665184;border-radius:9px;color:#f2e5ff;box-shadow:none;line-height:1}.nav #navNewProfile .ico{font-size:20px;width:auto;line-height:1;font-weight:600}.nav #navNewProfile:hover{background:#573184;border-color:#ab78ec}body.light .nav #navNewProfile{background:#e1cffa;color:#462b69}@media(max-width:1000px){.nav #navNewProfile{margin:5px auto}}</style>
+.nav #navNewProfile{width:36px;height:36px;min-width:36px;flex:0 0 36px;display:flex;justify-content:center;align-items:center;padding:0;margin:5px 0 5px 7px;background:#322342;border:1px solid #665184;border-radius:9px;color:#f2e5ff;box-shadow:none;line-height:1}.nav #navNewProfile .ico{font-size:20px;width:auto;line-height:1;font-weight:600}.nav #navNewProfile:hover{background:#573184;border-color:#ab78ec}body.light .nav #navNewProfile{background:#e1cffa;color:#462b69}@media(max-width:1000px){.nav #navNewProfile{margin:5px auto}}.mp-icon img{display:block;width:100%;height:100%;object-fit:cover}#mpPreview{width:82px;height:82px;border-radius:14px}.mp-icon-preview{gap:14px}</style>
 </head>
 <body>
 <div class="layout">
@@ -183,7 +183,7 @@ body.light .mp-dialog{background:#f4ecff;color:#282037}body.light .mp-field-titl
           <button type="button" class="mp-choice" data-icon="🔥" aria-label="Ogień" aria-pressed="false">🔥</button>
           <button type="button" class="mp-choice" data-icon="🛡️" aria-label="Tarcza" aria-pressed="false">🛡️</button>
         </div>
-        <label class="mp-upload">Lub wybierz własną ikonę PNG / JPG / WebP (maks. 120 KB)
+        <label class="mp-upload">Wybierz własne logo lub zdjęcie PNG / JPG / WebP (do 8 MB) — automatyczne dopasowanie do kwadratu
           <input type="file" id="mpIconFile" accept="image/png,image/jpeg,image/webp">
         </label>
         <div class="mp-icon-preview">Wybrana ikona: <span id="mpPreview" class="mp-icon" aria-hidden="true">🌿</span></div>
@@ -219,7 +219,7 @@ var types=["Mod","Shader","Resource pack"];
 var labels={"Mod":"Mody","Shader":"Shadery","Resource pack":"Resource packi"};
 function status(t){$("mpStatus").textContent=t}
 function error(t){$("mpFormError").textContent=t}
-function safeIcon(p){return p&&typeof p.iconImage==="string"&&/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/.test(p.iconImage)&&p.iconImage.length<190000?p.iconImage:null}
+function safeIcon(p){return p&&typeof p.iconImage==="string"&&/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/.test(p.iconImage)&&p.iconImage.length<400000?p.iconImage:null}
 function emoji(p){return p&&typeof p.icon==="string"&&["🌿","⚔️","💎","🌙","🔥","🛡️"].includes(p.icon)?p.icon:"🌿"}
 function iconNode(p){
  var span=document.createElement("span");span.className="mp-icon";span.setAttribute("aria-hidden","true");
@@ -306,12 +306,29 @@ function openDialog(p){
 function closeDialog(){if($("mpDialog").open)$("mpDialog").close();if(lastFocus&&typeof lastFocus.focus==="function")lastFocus.focus()}
 document.querySelectorAll("#mpIcons .mp-choice").forEach(function(b){b.addEventListener("click",function(){icon=b.dataset.icon;customIcon="";$("mpIconFile").value="";error("");updatePreview()})});
 $("mpIconFile").addEventListener("change",function(event){
- var f=event.target.files&&event.target.files[0];if(!f)return;
- if(!["image/png","image/jpeg","image/webp"].includes(f.type)){error("Dozwolone są tylko PNG, JPG i WebP.");event.target.value="";return}
- if(f.size>120*1024){error("Ikona może mieć maksymalnie 120 KB.");event.target.value="";return}
- var reader=new FileReader();
- reader.onload=function(){if(typeof reader.result==="string"){customIcon=reader.result;error("");updatePreview()}};
- reader.onerror=function(){error("Nie udało się odczytać obrazka.")};reader.readAsDataURL(f)
+ var file=event.target.files&&event.target.files[0];if(!file)return;
+ if(!["image/png","image/jpeg","image/webp"].includes(file.type)){error("Wybierz plik PNG, JPG lub WebP.");event.target.value="";return}
+ if(file.size>8*1024*1024){error("Maksymalny rozmiar zdjęcia to 8 MB.");event.target.value="";return}
+ var objectUrl=URL.createObjectURL(file),picture=new Image();
+ var clearUrl=function(){URL.revokeObjectURL(objectUrl)};
+ picture.onerror=function(){clearUrl();error("Nie udało się odczytać zdjęcia.");event.target.value=""};
+ picture.onload=function(){
+  try{
+   if(!picture.naturalWidth||!picture.naturalHeight)throw new Error("Empty image");
+   var canvas=document.createElement("canvas");canvas.width=256;canvas.height=256;
+   var context=canvas.getContext("2d");if(!context)throw new Error("Canvas unavailable");
+   var side=Math.min(picture.naturalWidth,picture.naturalHeight);
+   context.imageSmoothingEnabled=true;context.imageSmoothingQuality="high";
+   context.drawImage(picture,(picture.naturalWidth-side)/2,(picture.naturalHeight-side)/2,side,side,0,0,256,256);
+   var result=canvas.toDataURL("image/webp",0.78);
+   if(!/^data:image\/webp;base64,/.test(result))result=canvas.toDataURL("image/jpeg",0.75);
+   if(result.length>395000)throw new Error("Output too big");
+   customIcon=result;updatePreview();
+   error("Zdjęcie dopasowano do kwadratu 256 × 256. Zapisz profil, aby je zachować.");
+  }catch(err){error("Nie udało się przygotować zdjęcia. Wybierz inny plik.")}
+  finally{clearUrl()}
+ };
+ picture.src=objectUrl;
 });
 $("mpForm").addEventListener("submit",function(event){
  event.preventDefault();
