@@ -15,6 +15,9 @@ const between=(start,end)=>{
 };
 const nav=between('<nav class="nav"','</nav>');
 assert(nav.includes('id="navNewProfile"'),"Missing plus button");
+assert(nav.includes('class="nav-section-divider"'),"Missing section separator above Minecraft servers");
+assert(nav.indexOf('data-page="pvp"')<nav.indexOf('class="nav-section-divider"'),"Divider must follow PvP Studio");
+assert(nav.indexOf('class="nav-section-divider"')<nav.indexOf('data-page="servers"'),"Divider must precede Minecraft servers");
 assert(nav.indexOf('data-page="servers"')<nav.indexOf('id="navNewProfile"'),"Plus must be below servers");
 assert(nav.indexOf('id="navNewProfile"')<nav.indexOf('data-page="settings"'),"Plus must be above settings");
 assert(!nav.includes('data-page="mods"'),"Duplicate mods tab");
