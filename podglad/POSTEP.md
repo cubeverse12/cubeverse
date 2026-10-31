@@ -32,3 +32,14 @@ Aktualizacja: 31.10.2026. Ten dokument rozdziela **podgląd WWW** od **aplikacji
 Nowy moduł w repozytorium launchera: https://github.com/cubeverse12/minevora-launcher/blob/main/tools/modrinth_plan_installer.py. Testy offline zakończone sukcesem (GitHub Actions: https://github.com/cubeverse12/minevora-launcher/actions/runs/41242441149). Nie jest to potwierdzenie pracy launchera GUI ani instalacji Minecrafta.
 
 Kody JavaScript przeszły kontrolę składni. Logika wyboru konkretnej wersji została sprawdzona przy użyciu danych testowych (Fabric 1.21.1, zależność wymagana, odrzucenie Vanilla). GitHub Actions zostało skonfigurowane, ale nie zostało jeszcze potwierdzone zakończenie jego uruchomienia. Nie deklaruje się testu instalatora Windows ani realnego pobierania plików Minecrafta.
+
+
+### Integracja launchera Windows — 31.10.2026
+
+- [x] Dodałem w repozytorium `minevora-launcher` moduł MSAL device-code + Xbox/XSTS/Minecraft do weryfikacji konta Java, bez adresu callback localhost i bez zapisu tokenów na dysku.
+- [x] Dodałem okno PySide6 z logowaniem Microsoft i weryfikacją planu Modrinth; na życzenie instaluje sprawdzone dodatki do wskazanej instancji.
+- [x] Zbudowałem **eksperymentalną** paczkę 18.3.8 na bazie publicznej 18.3.7, z menu Ctrl+M. Testy modułów offline: 24/24; kompilacja nowej paczki i kontrole AST zakończone sukcesem.
+- [ ] Logowanie wymaga własnego identyfikatora rejestracji aplikacji Microsoft (`MINEVORA_MS_CLIENT_ID`) i dostępu do wymaganych usług Minecraft. Nie przeprowadzono testu konta na żywo.
+- [ ] Potwierdzenie uruchomienia paczki na Windows 11, integracja przycisku GRAJ z nową sesją Microsoft i pełny instalator Minecraft + loaderów pozostają niewykonane.
+
+**Eksperymentalny artefakt GitHub Actions:** https://github.com/cubeverse12/minevora-launcher/actions/runs/41243357172 (sekcja Artifacts, MINEVORA-18.3.8-SERVICES-EXPERIMENTAL). Nie jest to stabilny release.
