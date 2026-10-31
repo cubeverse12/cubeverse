@@ -117,8 +117,8 @@ body.light .mp-result-meta{color:#543d74}
 .mp-profile-remove:focus-visible{outline:2px solid #dd9af3;outline-offset:2px}
 body.light .mp-profile-remove{background:#f3e5ee;color:#6e294e}
 
-/* Czytelny podział sekcji nawigacji: Serwery Minecraft */
-.nav-section-divider{flex:none;height:1px;margin:14px 12px 9px;background:linear-gradient(90deg,transparent,#685477 15%,#8b67b1 50%,#685477 85%,transparent);opacity:.9}
+/* Oddziel tworzenie profilu i ustawienia od PvP Studio i Serwerów Minecraft */
+.nav-section-divider{flex:none;height:2px;min-height:2px;margin:12px 10px 11px;background:linear-gradient(90deg,#7856a6,#bb83f4 50%,#7856a6);border-radius:3px;box-shadow:0 0 8px #9d69d788}
 @media(max-width:640px){.nav-section-divider{width:1px;min-width:1px;height:31px;margin:7px 9px;background:linear-gradient(180deg,transparent,#8b67b1 50%,transparent)}}
 </style>
 </head>
@@ -132,8 +132,8 @@ body.light .mp-profile-remove{background:#f3e5ee;color:#6e294e}
   <button data-page="instances" aria-label="Instancje"><span class="ico">▦</span><span class="name">Instancje</span></button>
   <button data-page="skins" aria-label="Skin Studio"><span class="ico">♙</span><span class="name">Skin Studio</span></button>
   <button data-page="pvp" aria-label="PvP Studio"><span class="ico">⚔</span><span class="name">PvP Studio</span></button>
-  <div class="nav-section-divider" role="separator" aria-label="Oddzielenie serwerów Minecraft od innych funkcji"></div>
   <button data-page="servers" aria-label="Serwery"><span class="ico">🌐</span><span class="name">Serwery Minecraft</span></button>
+  <div class="nav-section-divider" role="separator" aria-label="Oddzielenie funkcji gry od tworzenia profili i ustawień"></div>
   <button id="navNewProfile" class="nav-add" type="button" aria-label="Utwórz profil" title="Nowy profil Minecraft"><span class="ico">+</span></button>
   <button data-page="settings" aria-label="Ustawienia"><span class="ico">⚙</span><span class="name">Ustawienia</span></button>
  </nav>
