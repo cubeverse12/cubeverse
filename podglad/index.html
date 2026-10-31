@@ -109,6 +109,13 @@ body.light .mp-result-description{color:#554863}
 body.light .mp-result-meta{color:#543d74}
 @media(max-width:750px){.mp-result{grid-template-columns:46px 1fr}.mp-result-actions{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center}.mp-catalog-search{flex-wrap:wrap}}
 .mp-version-error{color:#ffbabf;font-size:11px;line-height:1.4;margin:4px 0;max-width:220px}.mp-result-actions .btn:disabled{opacity:.75}.mp-item small{line-height:1.4}
+
+.mp-profile-wrap{position:relative;min-width:0}
+.mp-profile-wrap .mp-profile{width:100%;height:100%;min-height:153px;padding-bottom:39px}
+.mp-profile-remove{position:absolute;right:10px;bottom:10px;background:#30263e;border:1px solid #7e647d;color:#f0d6e4;border-radius:8px;padding:5px 11px;font-size:12px;cursor:pointer;z-index:1}
+.mp-profile-remove:hover{background:#5d2f50;border-color:#ce8097}
+.mp-profile-remove:focus-visible{outline:2px solid #dd9af3;outline-offset:2px}
+body.light .mp-profile-remove{background:#f3e5ee;color:#6e294e}
 </style>
 </head>
 <body>
@@ -286,15 +293,30 @@ function render(){
  var sub=document.createElement("small");sub.textContent="Utwórz własną paczkę";
  create.append(plus,heading,sub);create.addEventListener("click",function(){openDialog(null)});container.appendChild(create);
  profiles.forEach(function(p){
+  var wrap=document.createElement("div");wrap.className="mp-profile-wrap"+(p.id===selectedId?" selected":"");
   var b=document.createElement("button");b.type="button";b.className="mp-profile"+(p.id===selectedId?" selected":"");b.setAttribute("aria-label","Otwórz profil "+p.name);
   var title=document.createElement("strong");title.textContent=p.name;
   var meta=document.createElement("small");meta.textContent="Minecraft "+p.version+" · "+p.loader;
   var cnt=document.createElement("small");cnt.textContent=p.items.length+" dodatków";
-  b.append(iconNode(p),title,meta,cnt);b.addEventListener("click",function(){selectedId=p.id;currentType="Mod";render()});container.appendChild(b)
+  b.append(iconNode(p),title,meta,cnt);
+  b.addEventListener("click",function(){selectedId=p.id;currentType="Mod";render()});
+  var remove=document.createElement("button");remove.type="button";remove.className="mp-profile-remove";
+  remove.textContent="Usuń";remove.setAttribute("aria-label","Usuń profil "+p.name);
+  remove.addEventListener("click",function(){deleteProfile(p.id)});
+  wrap.append(b,remove);container.appendChild(wrap)
  });
  renderEditor()
 }
 function selected(){return profiles.find(function(p){return p.id===selectedId})}
+function deleteProfile(id){
+ var p=profiles.find(function(item){return item.id===id});if(!p)return;
+ if(!window.confirm("Usunąć profil „"+p.name+"” i wszystkie zapisane w nim dodatki?"))return;
+ var previous=profiles.slice();
+ profiles=profiles.filter(function(item){return item.id!==id});
+ if(!saveToStorage()){profiles=previous;status("Nie udało się usunąć profilu. Spróbuj ponownie.");return}
+ if(selectedId===id)selectedId=null;
+ render();status("Usunięto profil „"+p.name+"” z tej przeglądarki.")
+}
 function renderEditor(){
  var p=selected(),box=$("mpEditor");box.hidden=!p;if(!p)return;
  $("mpSelectedIcon").replaceWith(iconNode(p));var newIcon=$("mpEditor").querySelector(".mp-heading .mp-icon");newIcon.id="mpSelectedIcon";
@@ -413,11 +435,7 @@ window.addEventListener("minevora:add-catalog-item",function(event){
  d.accepted=true;render();status("Zapisano do profilu „"+p.name+"”: "+entry.name+" · wydanie "+entry.versionNumber+". Pliki i zależności nie zostały pobrane.");
 });
 $("mpDelete").addEventListener("click",function(){
- var p=selected();if(!p)return;
- if(!confirm("Usunąć profil „"+p.name+"” i zapisane w nim dodatki?"))return;
- var previous=profiles.slice();profiles=profiles.filter(function(x){return x.id!==p.id});
- if(!saveToStorage()){profiles=previous;return}
- selectedId=null;render();status("Usunięto profil "+p.name+".")
+ var p=selected();if(p)deleteProfile(p.id)
 });
 $("mpExport").addEventListener("click",function(){
  var p=selected();if(!p)return;
