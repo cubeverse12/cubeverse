@@ -82,7 +82,7 @@ body.light .mp-create,body.light .mp-profile,body.light .mp-group{background:#ff
 body.light .mp-dialog{background:#f4ecff;color:#282037}body.light .mp-field-title{color:#504467}
 @media(max-width:800px){.mp-items-grid{grid-template-columns:1fr}.mp-add-form{flex-wrap:wrap}}
 @media(max-width:480px){.mp-form-pair{grid-template-columns:1fr}.mp-dialog form{padding:17px}.mp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mp-add-form .btn{width:100%}}
-</style>
+.nav .nav-add{width:48px;height:46px;min-width:48px;display:flex;justify-content:center;align-items:center;padding:0;margin:3px 0 3px 8px;background:#33224b;border:1px solid #664489;border-radius:11px;color:#f2e5ff}.nav .nav-add .ico{font-size:25px;width:auto;line-height:1}.nav .nav-add:hover{background:#573184;border-color:#ab78ec}body.light .nav .nav-add{background:#e1cffa;color:#462b69}@media(max-width:1000px){.nav .nav-add{margin:3px auto}}</style>
 </head>
 <body>
 <div class="layout">
@@ -92,8 +92,8 @@ body.light .mp-dialog{background:#f4ecff;color:#282037}body.light .mp-field-titl
  <nav class="nav" id="menu" aria-label="Widoki podglądu">
   <button data-page="start" class="active" aria-label="Start"><span class="ico">▶</span><span class="name">Start</span></button>
   <button data-page="instances" aria-label="Instancje"><span class="ico">▦</span><span class="name">Instancje</span></button>
-  <button data-page="mods" aria-label="Mody i modpacki"><span class="ico">⬡</span><span class="name">Mody i modpacki</span></button>
   <button data-page="skins" aria-label="Skin Studio"><span class="ico">♙</span><span class="name">Skin Studio</span></button>
+  <button id="navNewProfile" class="nav-add" type="button" aria-label="Utwórz profil" title="Nowy profil Minecraft"><span class="ico">+</span></button>
   <button data-page="pvp" aria-label="PvP Studio"><span class="ico">⚔</span><span class="name">PvP Studio</span></button>
   <button data-page="servers" aria-label="Serwery"><span class="ico">🌐</span><span class="name">Serwery Minecraft</span></button>
   <button data-page="settings" aria-label="Ustawienia"><span class="ico">⚙</span><span class="name">Ustawienia</span></button>
@@ -105,11 +105,11 @@ body.light .mp-dialog{background:#f4ecff;color:#282037}body.light .mp-field-titl
  <div class="note"><strong>Wersja do wspólnego dopracowywania wyglądu.</strong> Zmiany opublikowane na GitHubie będą widoczne tutaj po odświeżeniu strony. Przyciski służą tylko do prezentacji interfejsu — nie instalują Minecrafta, modów ani nie logują do Microsoft.</div>
  <section class="page active" id="start">
   <div class="head"><div class="kicker">MINEVORA 4.1 · GLOW EDITION</div><h1>Centrum gry</h1><p>Prosty launcher z boczną nawigacją, fioletowo-grafitowym motywem i dużym przyciskiem GRAJ.</p></div>
-  <div class="hero"><div><div class="kicker">TWÓJ MINECRAFT. TWOJE ZASADY.</div><h2>Odkrywaj. <span>Twórz. Graj.</span></h2><p>Wybierz wersję Minecrafta i własną paczkę modów. To wizualny podgląd ekranu startowego MINEVORA.</p><div class="actions"><button class="btn" data-show="instances">▶ GRAJ / INSTANCJE</button><button class="btn secondary" data-show="mods">MODY I PACZKI</button></div></div><div class="wolf" aria-hidden="true">🐺</div></div>
-  <div class="grid"><article class="card"><div class="emoji">⬡</div><h3>Mody i modpacki</h3><p>Tworzenie paczek Fabric, wersje Minecrafta i dodatki do profilu.</p><button class="btn secondary tiny" data-show="mods">Zobacz moduł</button></article><article class="card"><div class="emoji">⚔</div><h3>PvP Studio</h3><p>Przykładowe serca i kafelki HUD, planowane dostosowanie w grze.</p><button class="btn secondary tiny" data-show="pvp">Zobacz podgląd</button></article><article class="card"><div class="emoji">♙</div><h3>Skin Studio</h3><p>Biblioteka skinów i osobny podgląd postaci.</p><button class="btn secondary tiny" data-show="skins">Zobacz studio</button></article></div>
+  <div class="hero"><div><div class="kicker">TWÓJ MINECRAFT. TWOJE ZASADY.</div><h2>Odkrywaj. <span>Twórz. Graj.</span></h2><p>Wybierz wersję Minecrafta i własną paczkę modów. To wizualny podgląd ekranu startowego MINEVORA.</p><div class="actions"><button class="btn" data-show="instances">▶ GRAJ / INSTANCJE</button><button class="btn secondary" data-show="instances">MODY I PACZKI</button></div></div><div class="wolf" aria-hidden="true">🐺</div></div>
+  <div class="grid"><article class="card"><div class="emoji">⬡</div><h3>Mody i modpacki</h3><p>Tworzenie paczek Fabric, wersje Minecrafta i dodatki do profilu.</p><button class="btn secondary tiny" data-show="instances">Zobacz moduł</button></article><article class="card"><div class="emoji">⚔</div><h3>PvP Studio</h3><p>Przykładowe serca i kafelki HUD, planowane dostosowanie w grze.</p><button class="btn secondary tiny" data-show="pvp">Zobacz podgląd</button></article><article class="card"><div class="emoji">♙</div><h3>Skin Studio</h3><p>Biblioteka skinów i osobny podgląd postaci.</p><button class="btn secondary tiny" data-show="skins">Zobacz studio</button></article></div>
  </section>
- <section class="page" id="instances"><div class="head"><div class="kicker">MINECRAFT JAVA</div><h1>Twoje instancje <span class="demoBadge">DEMO</span></h1><p>Podgląd wyboru wersji i loadera; instalowanie plików działa wyłącznie w aplikacji desktopowej po wdrożeniu.</p></div><div class="panel"><h3>Nowa instalacja</h3><div class="form"><label class="field">Nazwa paczki<input id="instanceName" value="Mój Minecraft"></label><label class="field">Wersja Minecraft<select id="gameVersion"><option>1.21.1</option><option>1.21.4</option><option>1.20.1</option><option>1.19.4</option><option>1.18.2</option></select></label><label class="field">Loader<select id="gameLoader"><option>Fabric</option><option>Vanilla</option><option>Forge — planowane</option><option>NeoForge — planowane</option></select></label></div><div class="buttons"><button class="btn" id="demoInstance">Pokaż przykładową instancję</button></div><p class="muted" id="instanceResult">Nie utworzono żadnej rzeczywistej instalacji.</p></div></section>
- <section class="page" id="mods">
+ <section class="page" id="instances">
+
   <div class="head">
     <div class="kicker">MINEVORA · MODPACK STUDIO</div>
     <h1>Twoje profile Minecraft <span class="demoBadge">PODGLĄD</span></h1>
@@ -196,9 +196,9 @@ body.light .mp-dialog{background:#f4ecff;color:#282037}body.light .mp-field-titl
 <script>
 (function(){
  var titles={start:"Start",instances:"Instancje",mods:"Mody i modpacki",skins:"Skin Studio",pvp:"PvP Studio",servers:"Serwery Minecraft",settings:"Ustawienia"};
- function show(id){if(!titles[id])id="start";document.querySelectorAll(".page").forEach(function(e){e.classList.toggle("active",e.id===id)});document.querySelectorAll("#menu button").forEach(function(e){e.classList.toggle("active",e.dataset.page===id)});document.getElementById("currentPage").textContent=titles[id];location.hash=id;window.scrollTo(0,0)}
+ function show(id){if(id==="mods")id="instances";if(!titles[id])id="start";document.querySelectorAll(".page").forEach(function(e){e.classList.toggle("active",e.id===id)});document.querySelectorAll("#menu button").forEach(function(e){e.classList.toggle("active",e.dataset.page===id)});document.getElementById("currentPage").textContent=titles[id];location.hash=id;window.scrollTo(0,0)}
  document.querySelectorAll("[data-page]").forEach(function(e){e.addEventListener("click",function(){show(e.dataset.page)})});document.querySelectorAll("[data-show]").forEach(function(e){e.addEventListener("click",function(){show(e.dataset.show)})});window.addEventListener("hashchange",function(){show(location.hash.slice(1))});
- document.getElementById("demoInstance").addEventListener("click",function(){document.getElementById("instanceResult").textContent="Podgląd: "+document.getElementById("instanceName").value+" · "+document.getElementById("gameVersion").value+" · "+document.getElementById("gameLoader").value+" (nie zapisano instalacji)."});
+ document.getElementById("navNewProfile").addEventListener("click",function(){window.dispatchEvent(new Event("minevora:new-profile"))});
  document.getElementById("skinFile").addEventListener("change",function(e){var f=e.target.files&&e.target.files[0];document.getElementById("skinMessage").textContent=f&&f.type==="image/png"?"Wybrano: "+f.name+" (bez wysyłania pliku)":"Wybierz plik PNG."});
  document.getElementById("serverSearch").addEventListener("input",function(e){var q=e.target.value.toLowerCase();document.querySelectorAll(".server").forEach(function(x){x.style.display=x.dataset.text.includes(q)?"flex":"none"})});
  function theme(n){document.body.classList.toggle("light",n==="light");try{localStorage.setItem("minevora_preview_theme",n)}catch(e){}}
@@ -289,6 +289,7 @@ function updatePreview(){
  var target=$("mpPreview");var incoming=iconNode({icon:icon,iconImage:customIcon});incoming.id="mpPreview";target.replaceWith(incoming);
  document.querySelectorAll("#mpIcons .mp-choice").forEach(function(b){var yes=b.dataset.icon===icon&&!customIcon;b.classList.toggle("selected",yes);b.setAttribute("aria-pressed",String(yes))})
 }
+window.addEventListener("minevora:new-profile",function(){openDialog(null)});
 function openDialog(p){
  editId=p?p.id:null;lastFocus=document.activeElement;
  $("mpDialogTitle").textContent=p?"Edytuj profil":"Nowy profil";
@@ -321,7 +322,7 @@ $("mpForm").addEventListener("submit",function(event){
  var p;
  if(idx>=0){p=Object.assign({},profiles[idx],data);profiles[idx]=p}else{p=Object.assign({id:makeId(),items:[]},data);profiles.push(p)}
  if(!saveToStorage()){profiles=old;error("Nie udało się zapisać profilu.");return}
- selectedId=p.id;closeDialog();render();status("Zapisano profil „"+name+"”. Teraz możesz dodać mody, shadery i resource packi.")
+ selectedId=p.id;closeDialog();document.querySelector('#menu [data-page="instances"]').click();render();status("Zapisano profil „"+name+"”. Teraz możesz dodać mody, shadery i resource packi.")
 });
 $("mpCancel").addEventListener("click",closeDialog);
 $("mpCancelX").addEventListener("click",closeDialog);
