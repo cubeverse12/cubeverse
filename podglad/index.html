@@ -40,7 +40,7 @@ body.light{--bg:#e8e4f5;--shell:#ece8f9;--panel:#f1eafa;--card:#fff;--line:#c5b3
 body.light .sidebar{background:#e3daf2}body.light .nav button{color:#423857}body.light .nav button.active{background:#ded0f8;color:#30134f}body.light .card{background:#fff}body.light .panel{background:#fff}body.light .note{background:#e8def4;color:#3c2c52}body.light input,body.light select{background:white;color:#261e38}body.light .hero{color:#fff}body.light .server{background:#fff}
 @media(max-width:1000px){.layout{grid-template-columns:76px minmax(0,1fr)}.sidebar{padding:16px 7px}.logo{justify-content:center;padding:0 0 26px}.logo span,.navtitle,.nav button .name,.sidebar-bottom{display:none}.nav button{justify-content:center;padding:12px 4px}.main{padding:16px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.layout{grid-template-columns:1fr}.sidebar{position:relative;height:auto;padding:9px 12px;display:block}.logo{display:none}.nav{flex-direction:row;overflow:auto}.nav button{min-width:48px;flex:0 0 48px}.main{padding:13px}.top{align-items:flex-start}.grid,.form{grid-template-columns:1fr}.hero{padding:23px;min-height:210px}.wolf{display:none}.server .banner{width:65px}.server .tag{display:none}}
-</style>
+.builder-row{border:1px solid var(--line);background:#151527;padding:11px;border-radius:10px;margin:7px 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.builder-row span{flex:1;min-width:190px;overflow-wrap:anywhere;font-size:13px}.builder-row .btn{box-shadow:none}body.light .builder-row{background:#f6f1ff}</style>
 </head>
 <body>
 <div class="layout">
@@ -68,7 +68,25 @@ body.light .sidebar{background:#e3daf2}body.light .nav button{color:#423857}body
  </section>
  <section class="page" id="instances"><div class="head"><div class="kicker">MINECRAFT JAVA</div><h1>Twoje instancje <span class="demoBadge">DEMO</span></h1><p>Podgląd wyboru wersji i loadera; instalowanie plików działa wyłącznie w aplikacji desktopowej po wdrożeniu.</p></div><div class="panel"><h3>Nowa instalacja</h3><div class="form"><label class="field">Nazwa paczki<input id="instanceName" value="Mój Minecraft"></label><label class="field">Wersja Minecraft<select id="gameVersion"><option>1.21.1</option><option>1.21.4</option><option>1.20.1</option><option>1.19.4</option><option>1.18.2</option></select></label><label class="field">Loader<select id="gameLoader"><option>Fabric</option><option>Vanilla</option><option>Forge — planowane</option><option>NeoForge — planowane</option></select></label></div><div class="buttons"><button class="btn" id="demoInstance">Pokaż przykładową instancję</button></div><p class="muted" id="instanceResult">Nie utworzono żadnej rzeczywistej instalacji.</p></div></section>
  <section class="page" id="mods"><div class="head"><div class="kicker">MODPACK STUDIO</div><h1>Własne paczki <span class="demoBadge">DEMO</span></h1><p>Tak mógłby wyglądać kreator paczek Fabric z podziałem na mody, shadery i resource packi.</p></div><div class="panel"><h3>Przykładowa konfiguracja</h3><div class="form"><label class="field">Wersja<select id="packVersion"><option>1.21.1</option><option>1.20.1</option><option>1.21.4</option></select></label><label class="field">Loader<select id="packLoader"><option>Fabric</option><option>Forge (planowane)</option></select></label></div><div class="cards" style="margin-top:15px"><div class="mini"><h4>📦 Mody</h4><span class="muted">Modrinth · zależności</span></div><div class="mini"><h4>🌠 Shadery</h4><span class="muted">Opcjonalne dodatki</span></div><div class="mini"><h4>🎨 Resource packi</h4><span class="muted">Wygląd i tekstury</span></div></div><div class="buttons"><button class="btn" id="demoPack">Pokaż ustawienia paczki</button></div><p class="muted" id="packResult">Ten podgląd nie pobiera modów.</p></div></section>
- <section class="page" id="skins"><div class="head"><div class="kicker">SKIN STUDIO</div><h1>Skórki Minecraft <span class="demoBadge">DEMO</span></h1><p>Podgląd biblioteki skinów, bez zmiany prawdziwego konta.</p></div><div class="panel stage"><div class="skin" aria-hidden="true">♟</div><div><h3>Twoja postać</h3><p class="muted">Wgraj PNG 64×64, aby zobaczyć nazwę wybranego pliku.</p><input type="file" accept="image/png" id="skinFile"><p id="skinMessage" class="muted">Brak wybranego skina.</p><div class="note">Zmiana skina podczas gry wymaga osobnego moda i obsługi aktualizacji wyglądu.</div></div></div></section>
+ 
+<div class="panel">
+<h3>Nowy kreator paczek <span class="demoBadge">ZAPIS LOKALNY</span></h3>
+<p class="muted">Tutaj ustawisz własną paczkę i zapiszesz ją w przeglądarce. Nazwy modów, shaderów i resource packów wpisujesz ręcznie. Ta funkcja nie pobiera ani nie instaluje plików.</p>
+<div class="form">
+<label class="field">Nazwa paczki<input id="builderName" value="Moja paczka" maxlength="60"></label>
+<label class="field">Wersja Minecraft<select id="builderVersion"><option>1.21.1</option><option>1.21.4</option><option>1.20.1</option><option>1.19.4</option><option>1.18.2</option></select></label>
+<label class="field">Loader<select id="builderLoader"><option>Fabric</option><option>Vanilla</option><option disabled>Forge — w przygotowaniu</option></select></label>
+<label class="field">Rodzaj dodatku<select id="builderType"><option value="Mod">Mod</option><option value="Shader">Shader</option><option value="Resource pack">Resource pack</option></select></label>
+<label class="field">Nazwa dodatku<input id="builderAddon" maxlength="80" placeholder="np. Sodium"></label>
+</div>
+<div class="buttons"><button class="btn secondary" type="button" id="builderAdd">+ Dodaj do paczki</button></div>
+<h3 style="margin-top:25px">Lista dodatków</h3><div id="builderItems"></div>
+<div class="buttons"><button class="btn" type="button" id="builderSave">Zapisz paczkę</button><button class="btn secondary" type="button" id="builderExport">Eksportuj JSON</button><button class="btn secondary" type="button" id="builderClear">Nowa paczka</button></div>
+<p class="muted" role="status" id="builderStatus" aria-live="polite">Konfiguracje pozostają w przeglądarce na tym urządzeniu.</p>
+<h3 style="margin-top:25px">Zapisane paczki</h3><div id="builderSaved"></div>
+</div>
+</section>
+<section class="page" id="skins"><div class="head"><div class="kicker">SKIN STUDIO</div><h1>Skórki Minecraft <span class="demoBadge">DEMO</span></h1><p>Podgląd biblioteki skinów, bez zmiany prawdziwego konta.</p></div><div class="panel stage"><div class="skin" aria-hidden="true">♟</div><div><h3>Twoja postać</h3><p class="muted">Wgraj PNG 64×64, aby zobaczyć nazwę wybranego pliku.</p><input type="file" accept="image/png" id="skinFile"><p id="skinMessage" class="muted">Brak wybranego skina.</p><div class="note">Zmiana skina podczas gry wymaga osobnego moda i obsługi aktualizacji wyglądu.</div></div></div></section>
  <section class="page" id="pvp"><div class="head"><div class="kicker">PVP STUDIO</div><h1>Podgląd HUD <span class="demoBadge">DEMO</span></h1><p>Przykładowa prezentacja serc nad graczem i panelu ekwipunku. Nie jest to działający HUD w Minecraft.</p></div><div class="hud"><div class="hearts">❤ ❤ ❤ ❤ ❤<br><small>Player</small></div><div class="armor">🛡️ 🪖 👕 👖 👢</div></div></section>
  <section class="page" id="servers"><div class="head"><div class="kicker">KATALOG MINECRAFT</div><h1>Lista serwerów <span class="demoBadge">DEMO</span></h1><p>Docelowo lista publiczna i lokalna, opcjonalne banery PNG, JPG, GIF, WebM oraz filtry wersji i trybów.</p></div><div class="panel"><label class="field">Wyszukaj serwer<input id="serverSearch" placeholder="Wpisz nazwę albo tryb..."></label><div id="serverRows"><div class="server" data-text="przykladowy survival"><div class="banner">🌳</div><div><h3>Przykładowy Survival</h3><p>Survival · 1.21.1 · wizualizacja</p></div><div class="tag">PRZYKŁAD</div></div><div class="server" data-text="przykladowy bedwars pvp"><div class="banner second">⚔️</div><div><h3>Przykładowy PvP</h3><p>BedWars · 1.20.1 · wizualizacja</p></div><div class="tag">PRZYKŁAD</div></div></div></div></section>
  <section class="page" id="settings"><div class="head"><div class="kicker">PERSONALIZACJA</div><h1>Ustawienia</h1><p>Możesz porównać wariant ciemny i jasny, a następnie powiedzieć, co poprawić.</p></div><div class="panel"><h3>Motyw interfejsu</h3><div class="buttons"><button class="btn" id="darkMode">🌙 Ciemny</button><button class="btn secondary" id="lightMode">☀️ Jasny</button></div><p class="muted">Wybrany motyw zostaje zapamiętany w tej przeglądarce.</p></div></section>
@@ -89,5 +107,27 @@ body.light .sidebar{background:#e3daf2}body.light .nav button{color:#423857}body
  show(location.hash.slice(1)||"start");
 })();
 </script>
-</body>
+<script>
+(function(){
+"use strict";
+var key="minevora-modpack-preview-v1",items=[],saved=[],editing=null;
+var $=function(id){return document.getElementById(id)};
+function msg(t){$("builderStatus").textContent=t}
+function btn(label,cb){var b=document.createElement("button");b.type="button";b.className="btn secondary tiny";b.textContent=label;b.onclick=cb;return b}
+function addRow(parent,text,buttons){var d=document.createElement("div");d.className="builder-row";var s=document.createElement("span");s.textContent=text;d.appendChild(s);buttons.forEach(function(b){d.appendChild(b)});parent.appendChild(d)}
+function showItems(){$("builderItems").replaceChildren();if(!items.length){$("builderItems").textContent="Brak dodatków."}items.forEach(function(x,i){addRow($("builderItems"),x.type+": "+x.name,[btn("Usuń",function(){items.splice(i,1);showItems()})])})}
+function showSaved(){$("builderSaved").replaceChildren();if(!saved.length){$("builderSaved").textContent="Brak zapisanych paczek."}saved.forEach(function(p,i){
+addRow($("builderSaved"),p.name+" · "+p.version+" · "+p.loader+" · "+p.items.length+" dodatków",[
+btn("Edytuj",function(){editing=i;$("builderName").value=p.name;$("builderVersion").value=p.version;$("builderLoader").value=p.loader;items=p.items.map(function(a){return {type:a.type,name:a.name}});showItems();msg("Otworzono paczkę: "+p.name)}),
+btn("Usuń",function(){saved.splice(i,1);if(editing===i)editing=null;else if(editing!==null&&editing>i)editing--;persist();showSaved();msg("Usunięto zapis w tej przeglądarce.")})
+])})}
+function persist(){try{localStorage.setItem(key,JSON.stringify(saved));return true}catch(e){msg("Zapis w przeglądarce jest niedostępny.");return false}}
+try{var data=JSON.parse(localStorage.getItem(key)||"[]");if(Array.isArray(data))saved=data.filter(function(p){return p&&typeof p.name==="string"&&Array.isArray(p.items)}).slice(0,50)}catch(e){}
+$("builderAdd").onclick=function(){var name=$("builderAddon").value.trim(),type=$("builderType").value;if(!name){msg("Wpisz nazwę dodatku.");return}if(items.length>=100){msg("Osiągnięto limit 100 dodatków.");return}if(items.some(function(x){return x.name.toLowerCase()===name.toLowerCase()&&x.type===type})){msg("Ten dodatek jest już na liście.");return}items.push({type:type,name:name.slice(0,80)});$("builderAddon").value="";showItems();msg("Dodano do planu: "+name)};
+$("builderSave").onclick=function(){var name=$("builderName").value.trim();if(!name){msg("Wpisz nazwę paczki.");return}var p={name:name.slice(0,60),version:$("builderVersion").value,loader:$("builderLoader").value,items:items.map(function(x){return {type:x.type,name:x.name}})};if(editing===null){if(saved.length>=50){msg("Limit 50 paczek.");return}saved.push(p);editing=saved.length-1}else saved[editing]=p;if(persist()){showSaved();msg("Paczka zapisana lokalnie: "+name)}};
+$("builderClear").onclick=function(){editing=null;items=[];$("builderName").value="Nowa paczka";$("builderVersion").selectedIndex=0;$("builderLoader").selectedIndex=0;showItems();msg("Utworzono pusty plan. Poprzednie zapisy pozostały.")};
+$("builderExport").onclick=function(){var p={format:"minevora-demo-plan-v1",name:$("builderName").value.trim(),version:$("builderVersion").value,loader:$("builderLoader").value,items:items};var blob=new Blob([JSON.stringify(p,null,2)],{type:"application/json"});var url=URL.createObjectURL(blob);var a=document.createElement("a");a.href=url;a.download="minevora-plan.json";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},1000);msg("Wyeksportowano plan JSON, a nie instalowalną paczkę .mrpack.")};
+showItems();showSaved();
+})();
+</script></body>
 </html>
