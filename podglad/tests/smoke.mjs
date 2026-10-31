@@ -15,12 +15,11 @@ const between=(start,end)=>{
 };
 const nav=between('<nav class="nav"','</nav>');
 assert(nav.includes('id="navNewProfile"'),"Missing plus button");
-assert(nav.includes('class="nav-section-divider"'),"Missing section separator below Minecraft servers");
+assert(nav.includes('class="nav-section-divider"'),"Missing section separator below Settings");
 assert(/data-page="pvp"[^]*?<\/button>\s*<button data-page="servers"/.test(nav),"Minecraft Servers must be directly below PvP Studio");
-assert(nav.indexOf('data-page="servers"')<nav.indexOf('class="nav-section-divider"'),"Divider must follow Minecraft servers");
+assert(/data-page="servers"[^]*?<\/button>\s*<button data-page="settings"/.test(nav),"Settings must be directly below Minecraft Servers");
+assert(nav.indexOf('data-page="settings"')<nav.indexOf('class="nav-section-divider"'),"Divider must follow Settings");
 assert(nav.indexOf('class="nav-section-divider"')<nav.indexOf('id="navNewProfile"'),"Divider must precede the plus button");
-assert(nav.indexOf('data-page="servers"')<nav.indexOf('id="navNewProfile"'),"Plus must be below servers");
-assert(nav.indexOf('id="navNewProfile"')<nav.indexOf('data-page="settings"'),"Plus must be above settings");
 assert(!nav.includes('data-page="mods"'),"Duplicate mods tab");
 assert(html.indexOf('<dialog id="mpDialog"')>html.indexOf('</main></div>'),"Modal must be outside hidden page");
 assert(html.includes('window.dispatchEvent(new Event("minevora:new-profile"))'),"Missing plus event");
