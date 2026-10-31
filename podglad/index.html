@@ -166,7 +166,6 @@ body.light .mp-profile-remove{background:#f3e5ee;color:#6e294e}
       <button class="btn secondary mp-type" data-type="Shader" type="button">+ Shadery</button>
       <button class="btn secondary mp-type" data-type="Resource pack" type="button">+ Resource packi</button>
       <button class="btn secondary mp-type" data-type="Datapack" type="button">+ Datapacki</button>
-      <button class="btn secondary mp-type" data-type="Modpack" type="button">+ Modpacki</button>
     </div>
     <div class="mp-catalog">
       <h3 id="mpCatalogHeading">Katalog Modrinth · mody</h3>
@@ -257,8 +256,9 @@ body.light .mp-profile-remove{background:#f3e5ee;color:#6e294e}
 var $=function(id){return document.getElementById(id)};
 var key="minevora-modpack-preview-v2", oldKey="minevora-modpack-preview-v1",profiles=[],selectedId=null,editId=null,icon="🌿",customIcon="",currentType="Mod",lastFocus=null;
 var allowedLoaders=["Fabric","Forge (plan)","NeoForge (plan)","Quilt (plan)","Vanilla"];
-var types=["Mod","Shader","Resource pack","Datapack","Modpack"];
-var labels={"Mod":"Mody","Shader":"Shadery","Resource pack":"Resource packi","Datapack":"Datapacki","Modpack":"Modpacki"};
+var types=["Mod","Shader","Resource pack","Datapack"];
+var storedTypes=types.concat(["Modpack"]); // Zachowaj starsze wpisy; nie oferuj gotowych modpacków jako dodatków
+var labels={"Mod":"Mody","Shader":"Shadery","Resource pack":"Resource packi","Datapack":"Datapacki"};
 function status(t){$("mpStatus").textContent=t}
 function error(t){$("mpFormError").textContent=t}
 function safeIcon(p){return p&&typeof p.iconImage==="string"&&/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/.test(p.iconImage)&&p.iconImage.length<400000?p.iconImage:null}
@@ -270,7 +270,7 @@ function iconNode(p){
 }
 function safePack(p){
  if(!p||typeof p.name!=="string"||!Array.isArray(p.items))return null;
- return {id:typeof p.id==="string"?p.id:makeId(),name:p.name.slice(0,60),version:typeof p.version==="string"?p.version:"1.21.1",loader:typeof p.loader==="string"?p.loader:"Fabric",icon:emoji(p),iconImage:safeIcon(p),items:p.items.filter(function(x){return x&&types.includes(x.type)&&typeof x.name==="string"}).slice(0,100).map(function(x){return {type:x.type,name:x.name.slice(0,80),id:String(x.id||"").slice(0,64),iconUrl:(typeof x.iconUrl==="string"&&/^https:\/\/cdn(?:-raw)?\.modrinth\.com\//.test(x.iconUrl))?x.iconUrl:"",description:String(x.description||"").slice(0,240),author:String(x.author||"").slice(0,80),versionId:String(x.versionId||"").slice(0,64),versionNumber:String(x.versionNumber||"").slice(0,70),gameVersion:String(x.gameVersion||"").slice(0,20),loader:String(x.loader||"").slice(0,30),dependencies:Array.isArray(x.dependencies)?x.dependencies.filter(d=>d&&typeof d.projectId==="string").slice(0,25).map(d=>({projectId:d.projectId.slice(0,64),versionId:String(d.versionId||"").slice(0,64)})):[]}})};
+ return {id:typeof p.id==="string"?p.id:makeId(),name:p.name.slice(0,60),version:typeof p.version==="string"?p.version:"1.21.1",loader:typeof p.loader==="string"?p.loader:"Fabric",icon:emoji(p),iconImage:safeIcon(p),items:p.items.filter(function(x){return x&&storedTypes.includes(x.type)&&typeof x.name==="string"}).slice(0,100).map(function(x){return {type:x.type,name:x.name.slice(0,80),id:String(x.id||"").slice(0,64),iconUrl:(typeof x.iconUrl==="string"&&/^https:\/\/cdn(?:-raw)?\.modrinth\.com\//.test(x.iconUrl))?x.iconUrl:"",description:String(x.description||"").slice(0,240),author:String(x.author||"").slice(0,80),versionId:String(x.versionId||"").slice(0,64),versionNumber:String(x.versionNumber||"").slice(0,70),gameVersion:String(x.gameVersion||"").slice(0,20),loader:String(x.loader||"").slice(0,30),dependencies:Array.isArray(x.dependencies)?x.dependencies.filter(d=>d&&typeof d.projectId==="string").slice(0,25).map(d=>({projectId:d.projectId.slice(0,64),versionId:String(d.versionId||"").slice(0,64)})):[]}})};
 }
 function makeId(){return "p"+Date.now()+"-"+Math.random().toString(36).slice(2,8)}
 function load(){
@@ -297,7 +297,7 @@ function render(){
   var b=document.createElement("button");b.type="button";b.className="mp-profile"+(p.id===selectedId?" selected":"");b.setAttribute("aria-label","Otwórz profil "+p.name);
   var title=document.createElement("strong");title.textContent=p.name;
   var meta=document.createElement("small");meta.textContent="Minecraft "+p.version+" · "+p.loader;
-  var cnt=document.createElement("small");cnt.textContent=p.items.length+" dodatków";
+  var cnt=document.createElement("small");cnt.textContent=p.items.filter(function(x){return types.includes(x.type)}).length+" dodatków";
   b.append(iconNode(p),title,meta,cnt);
   b.addEventListener("click",function(){selectedId=p.id;currentType="Mod";render()});
   var remove=document.createElement("button");remove.type="button";remove.className="mp-profile-remove";
