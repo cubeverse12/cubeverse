@@ -120,6 +120,19 @@ body.light .mp-profile-remove{background:#f3e5ee;color:#6e294e}
 /* Separator sekcji serwerów i oddzielny separator narzędzi profilu */
 .nav-section-divider{flex:none;height:2px;min-height:2px;margin:12px 10px 11px;background:linear-gradient(90deg,#7856a6,#bb83f4 50%,#7856a6);border-radius:3px;box-shadow:0 0 8px #9d69d788}
 @media(max-width:640px){.nav-section-divider{width:1px;min-width:1px;height:31px;margin:7px 9px;background:linear-gradient(180deg,transparent,#8b67b1 50%,transparent)}}
+
+/* Ikonowe menu MINEVORA: zachowaj oba oryginalne separatory. */
+@media(min-width:1001px){.layout{grid-template-columns:80px minmax(0,1fr)}}
+@media(min-width:641px){.sidebar{padding:18px 10px}.logo{justify-content:center;padding:4px 0 23px}}
+.logo span,.navtitle,.sidebar-bottom{display:none}
+.nav button:not(#navNewProfile){width:48px;height:48px;min-width:48px;flex:0 0 48px;padding:0;justify-content:center;margin:0 auto}
+.nav button .ico{width:28px;font-size:21px;line-height:1.2}
+.nav #navNewProfile{margin:6px auto}
+.nav button:focus-visible{outline:2px solid #d0a0ff;outline-offset:3px}
+.menu-tooltip{position:fixed;z-index:9999;display:block;max-width:min(230px,calc(100vw - 16px));padding:9px 13px;border-radius:10px;background:#302047;border:1px solid #a16ae1;color:#f7edff;font-size:13px;font-weight:600;white-space:normal;box-shadow:0 8px 24px #080512aa;pointer-events:none}
+.menu-tooltip[hidden]{display:none}
+body.light .menu-tooltip{background:#f7efff;border-color:#9e74ca;color:#3d205d;box-shadow:0 8px 24px #38245835}
+@media(max-width:640px){.nav button:not(#navNewProfile){margin:0}.nav #navNewProfile{margin:5px 0 5px 7px}}
 </style>
 </head>
 <body>
@@ -128,16 +141,17 @@ body.light .mp-profile-remove{background:#f3e5ee;color:#6e294e}
  <a class="logo" href="./"><img src="/v4/assets/minevora-icon-20261028.webp" alt=""><span><strong>MINEVORA</strong><small>CYBERWOLF · 4.1 GLOW</small></span></a>
  <div class="navtitle">MENU LAUNCHERA</div>
  <nav class="nav" id="menu" aria-label="Widoki podglądu">
-  <button data-page="start" class="active" aria-label="Start"><span class="ico">▶</span><span class="name">Start</span></button>
-  <button data-page="instances" aria-label="Instancje"><span class="ico">▦</span><span class="name">Instancje</span></button>
-  <button data-page="skins" aria-label="Skin Studio"><span class="ico">♙</span><span class="name">Skin Studio</span></button>
-  <button data-page="pvp" aria-label="PvP Studio"><span class="ico">⚔</span><span class="name">PvP Studio</span></button>
+  <button data-page="start" class="active" aria-label="Start" data-tooltip="Start"><span class="ico">▶</span></button>
+  <button data-page="instances" aria-label="Instancje" data-tooltip="Instancje"><span class="ico">▦</span></button>
+  <button data-page="skins" aria-label="Skin Studio" data-tooltip="Skin Studio"><span class="ico">♙</span></button>
+  <button data-page="pvp" aria-label="PvP Studio" data-tooltip="PvP Studio"><span class="ico">⚔</span></button>
   <div class="nav-section-divider" role="separator" aria-label="Oddzielenie sekcji Serwery Minecraft"></div>
-  <button data-page="servers" aria-label="Serwery"><span class="ico">🌐</span><span class="name">Serwery Minecraft</span></button>
-  <button data-page="settings" aria-label="Ustawienia"><span class="ico">⚙</span><span class="name">Ustawienia</span></button>
+  <button data-page="servers" aria-label="Serwery Minecraft" data-tooltip="Serwery Minecraft"><span class="ico">🌐</span></button>
+  <button data-page="settings" aria-label="Ustawienia" data-tooltip="Ustawienia"><span class="ico">⚙</span></button>
   <div class="nav-section-divider" role="separator" aria-label="Oddzielenie ustawień od tworzenia profili"></div>
-  <button id="navNewProfile" class="nav-add" type="button" aria-label="Utwórz profil" title="Nowy profil Minecraft"><span class="ico">+</span></button>
+  <button id="navNewProfile" class="nav-add" type="button" aria-label="Nowy profil Minecraft" data-tooltip="Nowy profil Minecraft"><span class="ico">+</span></button>
  </nav>
+ <div id="menuTooltip" class="menu-tooltip" role="tooltip" hidden></div>
  <div class="sidebar-bottom"><p>Podgląd wizualny, bez uruchamiania gry.</p><a href="https://github.com/cubeverse12/cubeverse/tree/main/podglad">Kod podglądu na GitHubie</a></div>
 </aside>
 <main class="main">
@@ -244,6 +258,39 @@ body.light .mp-profile-remove{background:#f3e5ee;color:#6e294e}
   </dialog>
 <script>
 (function(){
+
+ /* Tooltip obok ikony, z obsługą kliknięć, myszy i klawiatury. */
+ var menu=document.getElementById("menu"),menuTooltip=document.getElementById("menuTooltip");
+ var tipOwner=null,tipPinned=false;
+ function closeMenuTip(){
+   if(tipOwner)tipOwner.removeAttribute("aria-describedby");
+   tipOwner=null;tipPinned=false;menuTooltip.hidden=true;
+ }
+ function openMenuTip(button){
+   if(!button)return;
+   if(tipOwner&&tipOwner!==button)tipOwner.removeAttribute("aria-describedby");
+   tipOwner=button;
+   menuTooltip.textContent=button.dataset.tooltip||button.getAttribute("aria-label")||"";
+   menuTooltip.hidden=false;
+   button.setAttribute("aria-describedby","menuTooltip");
+   var rect=button.getBoundingClientRect(),width=menuTooltip.offsetWidth,height=menuTooltip.offsetHeight;
+   var mobile=window.matchMedia("(max-width:640px)").matches;
+   var left=mobile?rect.left+rect.width/2-width/2:rect.right+12;
+   var top=mobile?rect.bottom+9:rect.top+rect.height/2-height/2;
+   menuTooltip.style.left=Math.max(8,Math.min(window.innerWidth-width-8,left))+"px";
+   menuTooltip.style.top=Math.max(8,Math.min(window.innerHeight-height-8,top))+"px";
+ }
+ menu.querySelectorAll("button").forEach(function(button){
+   button.addEventListener("mouseenter",function(){if(!tipPinned)openMenuTip(button)});
+   button.addEventListener("mouseleave",function(){if(!tipPinned&&!button.matches(":focus-visible"))closeMenuTip()});
+   button.addEventListener("focus",function(){if(!tipPinned)openMenuTip(button)});
+   button.addEventListener("blur",function(){if(!tipPinned)closeMenuTip()});
+   button.addEventListener("click",function(){tipPinned=true;openMenuTip(button)});
+ });
+ document.addEventListener("pointerdown",function(event){if(!menu.contains(event.target))closeMenuTip()});
+ document.addEventListener("keydown",function(event){if(event.key==="Escape")closeMenuTip()});
+ window.addEventListener("resize",function(){if(tipOwner)openMenuTip(tipOwner)});
+ window.addEventListener("scroll",function(){if(tipOwner)openMenuTip(tipOwner)},true);
  var titles={start:"Start",instances:"Instancje",mods:"Mody i modpacki",skins:"Skin Studio",pvp:"PvP Studio",servers:"Serwery Minecraft",settings:"Ustawienia"};
  function show(id){if(id==="mods")id="instances";if(!titles[id])id="start";document.querySelectorAll(".page").forEach(function(e){e.classList.toggle("active",e.id===id)});document.querySelectorAll("#menu button").forEach(function(e){e.classList.toggle("active",e.dataset.page===id)});document.getElementById("currentPage").textContent=titles[id];location.hash=id;window.scrollTo(0,0)}
  document.querySelectorAll("[data-page]").forEach(function(e){e.addEventListener("click",function(){show(e.dataset.page)})});document.querySelectorAll("[data-show]").forEach(function(e){e.addEventListener("click",function(){show(e.dataset.show)})});window.addEventListener("hashchange",function(){show(location.hash.slice(1))});
