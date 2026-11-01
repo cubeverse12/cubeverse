@@ -11,7 +11,7 @@ Aktualizacja: 01.11.2026. Ten dokument rozdziela **podgląd WWW** od **aplikacji
 - [ ] Przetestować PLAY i cały przepływ od wyboru profilu do uruchomienia gry na **Windows 11**, w tym brak internetu, niezgodne mody i brak autoryzacji.
 - [ ] Zachować spójność wyglądu **strony WWW i launchera**, ale nie sugerować, że przycisk w podglądzie strony uruchamia grę — **strona pozostaje demonstracją**, a działanie PLAY wymaga programu Windows.
 
-**Status na 01.11.2026:** zaplanowane, jeszcze niezaimplementowane i niepotwierdzone testem uruchomienia gry.
+**Postęp na 01.11.2026:** przygotowano **eksperymentalną paczkę 18.3.9 PLAY** w repozytorium `minevora-launcher`. Duży przycisk PLAY jest nadal połączony z istniejącą metodą `launcher.play`, a karty wyboru prowadzą do istniejących paneli profili i loaderów. GitHub Actions pomyślnie zakończył testy kodu i budowę ZIP: https://github.com/cubeverse12/minevora-launcher/actions/runs/41285674814 (Artifact: `MINEVORA-18.3.9-PLAY-EXPERIMENTAL`). **Nie potwierdzono jeszcze** logowania Microsoft ani uruchomienia Minecrafta i instalacji plików na Windows 11. Nie jest to stabilne wydanie.
 
 ## Etap 1 — podgląd WWW i profile
 - [x] Boczne menu, jeden mały plus pod „Ustawienia” (po oddzielającym pasku), okno tworzenia profilu poza ukrywanymi zakładkami.
