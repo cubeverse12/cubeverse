@@ -117,11 +117,8 @@ body.light .mp-result-meta{color:#543d74}
 .mp-profile-remove:focus-visible{outline:2px solid #dd9af3;outline-offset:2px}
 body.light .mp-profile-remove{background:#f3e5ee;color:#6e294e}
 
-/* Separator sekcji serwerów i oddzielny separator narzędzi profilu */
-.nav-section-divider{flex:none;height:2px;min-height:2px;margin:12px 10px 11px;background:linear-gradient(90deg,#7856a6,#bb83f4 50%,#7856a6);border-radius:3px;box-shadow:0 0 8px #9d69d788}
-@media(max-width:640px){.nav-section-divider{width:1px;min-width:1px;height:31px;margin:7px 9px;background:linear-gradient(180deg,transparent,#8b67b1 50%,transparent)}}
 
-/* Ikonowe menu MINEVORA: zachowaj oba oryginalne separatory. */
+/* Ikonowe menu MINEVORA bez separatorów. */
 @media(min-width:1001px){.layout{grid-template-columns:80px minmax(0,1fr)}}
 @media(min-width:641px){.sidebar{padding:18px 10px}.logo{justify-content:center;padding:4px 0 23px}}
 .logo span,.navtitle,.sidebar-bottom{display:none}
@@ -145,10 +142,8 @@ body.light .menu-tooltip{background:#f7efff;border-color:#9e74ca;color:#3d205d;b
   <button data-page="instances" aria-label="Instancje" data-tooltip="Instancje"><span class="ico">▦</span></button>
   <button data-page="skins" aria-label="Skin Studio" data-tooltip="Skin Studio"><span class="ico">♙</span></button>
   <button data-page="pvp" aria-label="PvP Studio" data-tooltip="PvP Studio"><span class="ico">⚔</span></button>
-  <div class="nav-section-divider" role="separator" aria-label="Oddzielenie sekcji Serwery Minecraft"></div>
   <button data-page="servers" aria-label="Serwery Minecraft" data-tooltip="Serwery Minecraft"><span class="ico">🌐</span></button>
   <button data-page="settings" aria-label="Ustawienia" data-tooltip="Ustawienia"><span class="ico">⚙</span></button>
-  <div class="nav-section-divider" role="separator" aria-label="Oddzielenie ustawień od tworzenia profili"></div>
   <button id="navNewProfile" class="nav-add" type="button" aria-label="Nowy profil Minecraft" data-tooltip="Nowy profil Minecraft"><span class="ico">+</span></button>
  </nav>
  <div id="menuTooltip" class="menu-tooltip" role="tooltip" hidden></div>
