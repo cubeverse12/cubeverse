@@ -1,6 +1,17 @@
 # MINEVORA 4.1 GLOW — postęp prac
 
-Aktualizacja: 31.10.2026. Ten dokument rozdziela **podgląd WWW** od **aplikacji Windows**. Nie należy przedstawiać zachowania makiety jako funkcji działającego launchera.
+Aktualizacja: 01.11.2026. Ten dokument rozdziela **podgląd WWW** od **aplikacji Windows**. Nie należy przedstawiać zachowania makiety jako funkcji działającego launchera.
+
+## Następny krok (priorytet) — przycisk PLAY w launcherze Windows
+
+- [ ] W zakładce **Start** aplikacji MINEVORA Windows umieścić **duży, wyraźny, fioletowy przycisk PLAY** z subtelną animacją; wygląd zgodny z podglądem WWW.
+- [ ] Pod przyciskiem pokazać wybór **profilu/instancji** oraz **wersji Minecrafta i loadera**; wybrany profil ma determinować uruchamianą grę.
+- [ ] Podłączyć PLAY do działającego mechanizmu startu aplikacji desktopowej: sprawdzenie poprawnego konta/sesji Microsoft i uprawnień do Minecraft Java, weryfikacja plików, pobranie brakujących plików gry, loadera i zgodnych zależności, a następnie uruchomienie Minecrafta.
+- [ ] Pokazać rzeczywisty stan operacji (**Przygotowanie / Pobieranie / Uruchamianie / Błąd**), postęp, czytelne błędy i możliwość bezpiecznej ponownej próby; zabezpieczyć przed wielokrotnym uruchomieniem po podwójnym kliknięciu.
+- [ ] Przetestować PLAY i cały przepływ od wyboru profilu do uruchomienia gry na **Windows 11**, w tym brak internetu, niezgodne mody i brak autoryzacji.
+- [ ] Zachować spójność wyglądu **strony WWW i launchera**, ale nie sugerować, że przycisk w podglądzie strony uruchamia grę — **strona pozostaje demonstracją**, a działanie PLAY wymaga programu Windows.
+
+**Status na 01.11.2026:** zaplanowane, jeszcze niezaimplementowane i niepotwierdzone testem uruchomienia gry.
 
 ## Etap 1 — podgląd WWW i profile
 - [x] Boczne menu, jeden mały plus pod „Ustawienia” (po oddzielającym pasku), okno tworzenia profilu poza ukrywanymi zakładkami.
