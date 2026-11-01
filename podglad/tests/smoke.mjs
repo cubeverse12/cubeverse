@@ -15,8 +15,8 @@ const between=(start,end)=>{
 };
 const nav=between('<nav class="nav"','</nav>');
 assert(nav.includes('id="navNewProfile"'),"Missing plus button");
-assert(nav.includes('class="nav-section-divider"'),"Missing section separator below Settings");
-assert(/data-page="pvp"[^]*?<\/button>\s*<button data-page="servers"/.test(nav),"Minecraft Servers must be directly below PvP Studio");
+assert((nav.match(/class="nav-section-divider"/g)||[]).length===2,"Expected a divider above Servers and another below Settings");
+assert(/data-page="pvp"[^]*?<\/button>\s*<div class="nav-section-divider"[^>]*>\s*<\/div>\s*<button data-page="servers"/.test(nav),"Minecraft Servers must be below a separator after PvP Studio");
 assert(/data-page="servers"[^]*?<\/button>\s*<button data-page="settings"/.test(nav),"Settings must be directly below Minecraft Servers");
 assert(nav.indexOf('data-page="settings"')<nav.indexOf('class="nav-section-divider"'),"Divider must follow Settings");
 assert(nav.indexOf('class="nav-section-divider"')<nav.indexOf('id="navNewProfile"'),"Divider must precede the plus button");
