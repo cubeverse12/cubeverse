@@ -1,0 +1,151 @@
+/* MINEVORA WWW / Graphite Emerald — visually aligned with launcher 1.31
+   2026-11-02. Last stylesheet wins over the legacy Violet theme.
+   Launcher palette: #0E1116 / #161B22 / #1C2430 / #3DDC84 / #4C9AFF. */
+:root {
+  color-scheme: dark;
+  --bg:#0E1116; --bg2:#161B22; --panel:#1C2430; --panel2:#232B36;
+  --line:#344251; --line-bright:#4C9AFF; --text:#E6EDF3; --muted:#B8C4D0;
+  --violet:#3DDC84; --pink:#4C9AFF; --lav:#95ECC1; --glow:#3DDC84;
+  --mv-green:#3DDC84; --mv-blue:#4C9AFF; --mv-surface:#1C2430;
+  font-family:"Segoe UI Variable","Segoe UI",system-ui,Arial,sans-serif;
+}
+html { color-scheme:dark }
+body {
+  color:#E6EDF3;
+  background:radial-gradient(ellipse 60% 35% at 93% -7%,#195B5660,transparent 75%),
+             radial-gradient(ellipse 57% 27% at 8% 40%,#173D5B47,transparent 85%),
+             #0E1116;
+  text-rendering:optimizeLegibility;
+}
+body:before{background-image:radial-gradient(#4C9AFF .65px,transparent .65px);opacity:.085}
+a:focus-visible,button:focus-visible,summary:focus-visible,select:focus-visible{
+  outline:3px solid #73EAAC;outline-offset:3px;
+}
+.topbar{background:#161B22f2;border-bottom:1px solid #344251}
+.brand span,.grad{
+  background:linear-gradient(112deg,#F2FBFC 0%,#3DDC84 48%,#4C9AFF 92%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.brand img{filter:drop-shadow(0 0 10px #3DDC8466)}
+.desktop-nav a{color:#D6E0E7}
+.desktop-nav a:hover,.footer-nav a:hover{color:#83F3B6}
+.desktop-nav .nav-cta{border-color:#3DDC84;background:#204837;color:#EDFFF3}
+.mobile-nav summary,.mobile-items{background:#161B22;border-color:#344251;color:#F1F7FA}
+.mobile-items a:hover{background:#253D3D}
+.eyebrow{color:#72EAA5}
+.eyebrow .dot{background:#3DDC84;box-shadow:0 0 14px #3DDC8477}
+.hero{padding-top:clamp(50px,6.5vw,95px)}
+.hero-copy .lead{color:#C5D1DB}
+.hero-pills span{color:#CDEBDC;border-color:#3C735C;background:#1C3A328C}
+.btn{border-color:#49606E;color:#F7FCFE;box-shadow:none}
+.btn:hover{filter:brightness(1.1)}
+.btn-primary{
+  color:#09261A;background:linear-gradient(110deg,#5BECA1,#3DDC84 68%,#30B975);
+  border:1px solid #8FFAC0;box-shadow:0 8px 26px #22A66429,inset 0 1px #C9FFDD60;
+}
+.btn-secondary{background:#1C2430;border-color:#4C9AFF;color:#F4FAFF}
+.btn-ghost{background:#161B22;border-color:#344251;color:#E6EDF3}
+.caption,small{color:#B7C5D1}
+.app-shell{
+  border:1px solid #3E5C65;background:#161B22;
+  box-shadow:0 22px 65px #060A0CC9,0 0 0 1px #3DDC8415;
+  transform:none;border-radius:17px;
+}
+.app-top{background:#161B22;border-bottom:1px solid #344251}
+.app-top strong{color:#E6EDF3}
+.app-top .app-breadcrumb,.app-top .app-dots{color:#B5C7D4}
+.app-body{grid-template-columns:52px minmax(0,1fr) 138px}
+.app-rail{gap:13px;background:#161B22;border-right:1px solid #344251;padding-top:16px}
+.app-rail span{color:#C4D5DD;font-size:17px;min-width:36px;text-align:center}
+.app-rail .selected{margin-top:0;color:#0E1116;background:#3DDC84;border-color:#76EDAB}
+.app-main{background:linear-gradient(160deg,#1C2430,#121A22);padding:21px 17px}
+.app-main .app-title{color:#F3FBFF}
+.quick{background:#202F36;border:1px solid #3C665E}
+.quick img{border:1px solid #3C7660}
+.quick .play,.play{background:#3DDC84!important;border-color:#88F4B7!important;color:#09281B!important}
+.app-side{background:#161B22;border-left:1px solid #344251}
+.app-panel{background:#1C2430;border-color:#344251;color:#E6EDF3}
+.app-instance{background:#202B35;border-color:#40576A}
+.app-sub,.app-footnote{color:#C9D4DD}
+.app-search,.app-tags span{background:#161F2A;border:1px solid #344251;color:#E1E9F0}
+.app-footnote{background:#161B22;border-color:#344251}
+.preview-tools{background:#161B22;border:1px solid #344251}
+.preview-caption{color:#B8C4D0}
+.preview-tools button{background:#232B36;border-color:#344251;color:#DFE7EE}
+.preview-tools button:hover{border-color:#4C9AFF;background:#253646;color:#FFFFFF}
+.preview-tools button[aria-pressed=true]{background:#244C3D;border-color:#3DDC84;color:#FFF;box-shadow:0 0 0 1px #3DDC8430}
+.app-shell.is-soft{border-color:#4D626B;box-shadow:0 16px 44px #060A0CBF}
+.app-shell.is-soft .app-top,.app-shell.is-soft .app-rail,.app-shell.is-soft .app-side{background:#202932;border-color:#344251}
+.app-shell.is-soft .app-main{background:#1C2430}
+.app-shell.is-soft .app-rail .selected{background:#39725B;border-color:#6FDFA2;color:#FFF}
+.app-shell.is-soft .quick,.app-shell.is-soft .app-panel,.app-shell.is-soft .app-instance{background:#26343F;border-color:#425D68}
+.app-shell.is-soft .quick .play{background:#3DDC84!important;border-color:#8BF5B6!important;color:#09281B!important}
+.app-shell.is-soft .app-footnote{background:#202932;border-color:#344251}
+.feature,.visual-choice,.step,.visual-card,.pvp-benefits>div,.release-warning{
+  background:linear-gradient(160deg,#1C2430,#161B22);
+  border-color:#344251;color:#E6EDF3;
+}
+.feature:hover,.visual-choice:hover{border-color:#4C9AFF}
+.feature p,.visual-choice p,.step p,.section-heading p,.feature-points,.pvp-caption{
+  color:#C5D2DE;
+}
+.feature-icon,.num,.step-n{color:#3DDC84}
+.visual-swatch,.visual-swatch.soft,.visual-swatch.compact{
+  border-color:#466F64;background:#161B22;box-shadow:inset 0 0 16px #2C8F6830;
+}
+.visual-swatch span,.visual-swatch span:nth-child(2),.visual-swatch span:nth-child(3),
+.visual-swatch.soft span,.visual-swatch.soft span:nth-child(2),.visual-swatch.soft span:nth-child(3),
+.visual-swatch.compact span,.visual-swatch.compact span:nth-child(3){
+  background:linear-gradient(125deg,#3DDC84,#216D69,#4C9AFF);
+}
+.visual-choice p{line-height:1.6}
+.download-card{
+  border:1px solid #3D8B67;
+  background:radial-gradient(ellipse at 95% 0%,#2A8F6633,transparent 55%),#1C2430;
+}
+.version-pill,.release-warning strong{color:#9CF2C0}
+.release-warning{border-color:#5B795D}
+.release-warning p{color:#D5DEE6}
+.site-language-switch{background:#1C2430;border-color:#405F62;color:#E6EDF3;box-shadow:none}
+.site-language-switch select,.site-language-switch select option{background:#161B22;color:#F6FAFC}
+.site-language-switch:focus-within{outline-color:#3DDC84}
+.discord-community-mark,.discord-float{
+  background:linear-gradient(120deg,#20394D,#1C2430);
+  border-color:#4C9AFF;box-shadow:0 10px 32px #02080E80;color:#FFF;
+}
+.discord-float:hover{box-shadow:0 11px 30px #00111a,0 0 24px #4C9AFF6B}
+.discord-community-mark img,.discord-cta img,.discord-float img{filter:drop-shadow(0 0 8px #4C9AFF80)}
+.pvp-scene{border-color:#4C9AFF;background:linear-gradient(180deg,#1B3851 0%,#2A4C52 48%,#234638 49%,#16292B 100%)}
+.pvp-sky{background:linear-gradient(#1B3851,#30556D)}
+.pvp-hud-item{border-color:#4C9AFF;color:#FFF;background:#142934ED}
+.pvp-hud-item b,.pvp-top-label{color:#7FEEB2}
+.pvp-shift-tag{border-color:#4C9AFF;background:#1B3A45}
+.section,.footer{border-color:#344251}
+.footer{background:#161B22}
+.footer-nav a{color:#D9E4EA}
+.visual-note{color:#DAE4EB;background:#161B22}
+.site-alignment-note{color:#A6C7BB;font-size:12px;margin:12px 0 0}
+.resource-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:25px}
+.resource-card{display:flex;flex-direction:column;align-items:flex-start;gap:10px;
+  padding:18px;background:linear-gradient(155deg,#1C2430,#161B22);
+  border:1px solid #344251;border-radius:17px;min-height:218px}
+.resource-card:hover,.resource-card:focus-within{border-color:#4C9AFF}
+.resource-card .resource-icon{display:grid;place-items:center;width:44px;height:44px;
+  border:1px solid #3D705E;background:#214032;color:#3DDC84;border-radius:12px;font-size:24px}
+.resource-card h3{font-size:19px;line-height:1.3;margin:0;color:#F1F8FC}
+.resource-card p{color:#BDCDD9;font-size:13px;line-height:1.55;margin:0 0 10px}
+.resource-card a{color:#8FD2FF;font-size:13px;font-weight:800;margin-top:auto;text-decoration:underline;text-underline-offset:4px}
+.resource-card a:hover{color:#C4E8FF}
+.resource-summary{color:#BCD0DA;max-width:750px}
+@media(max-width:1000px){.resource-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){
+  .app-body{grid-template-columns:37px minmax(0,1fr) 90px}
+  .app-main{padding:11px 9px}
+  .app-rail span{min-width:30px}
+  .resource-grid{grid-template-columns:minmax(0,1fr)}
+  .resource-card{min-height:175px}
+  .hero{padding-top:45px}
+}
+@media(prefers-reduced-motion:reduce){
+  .app-shell,.btn,.resource-card{transition:none!important;animation:none!important}
+}
