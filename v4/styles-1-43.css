@@ -1,0 +1,74 @@
+/* MINEVORA 1.43 — Graphite Emerald. Overrides the earlier Violet preview stylesheet.
+   Static website theme only. Does not alter the Windows launcher's configuration. */
+:root{
+  color-scheme:dark;
+  --bg:#0b1212;--bg2:#111d1b;--panel:#14201e;--panel2:#192a27;
+  --line:#2a4842;--line-bright:#43cda0;--text:#f0faf6;--muted:#acc3bc;
+  --violet:#39d79c;--pink:#8bedd0;--lav:#b5f7db;--glow:#189d72;
+}
+body{background:radial-gradient(ellipse at 80% -5%,#0f7b5a30,transparent 44%),radial-gradient(ellipse at 10% 48%,#1a4b4538,transparent 48%),#0b1212;color:var(--text)}
+body::before{background-image:radial-gradient(#57c9a0 .75px,transparent .75px);opacity:.09}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid #92f4c9;outline-offset:3px}
+.topbar{background:#0b1514f2;border-bottom:1px solid #2d544a}
+.brand span{background:linear-gradient(100deg,#fff 8%,#a2f9d0 58%,#4fd3a3);background-clip:text;-webkit-background-clip:text;color:transparent}
+.brand img{filter:drop-shadow(0 0 10px #41e6ae55)}
+.desktop-nav a{color:#cee1db}
+.desktop-nav a:hover{color:#fff}
+.desktop-nav .nav-cta,.mobile-nav summary{background:#12362a;border-color:#377c65;color:#ecfff7}
+.mobile-items{background:#121f1b;border-color:#376653}
+.hero{background:radial-gradient(ellipse at 76% 45%,#0a93683c,transparent 52%)}
+.grad{background:linear-gradient(100deg,#d6ffee 0%,#7beac2 45%,#37c994 100%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.eyebrow{color:#79e8bd}
+.dot{background:#50e2ac;box-shadow:0 0 15px #2bdd9d}
+.btn-primary,.quick .play,.app-shell .play{background:linear-gradient(110deg,#18a777,#13795e)!important;border-color:#51e2b1!important;color:#fff!important;box-shadow:0 9px 34px #00b8792c!important}
+.btn-primary:hover{filter:brightness(1.11);transform:translateY(-1px)}
+.btn-secondary,.btn-ghost{border-color:#3b6d5e!important;background:#172b27!important;color:#e2f9ed!important}
+.hero-pills span,.version-pill{background:#143529!important;border-color:#34755d!important;color:#a4f0ca!important}
+.feature,.visual-choice,.step,.app-panel,.app-instance{background:linear-gradient(145deg,#1b2d28,#131d1c)!important;border-color:#2c574a!important}
+.feature:hover,.step:hover{border-color:#4ca783!important}
+.feature-icon{color:#74eabc!important}
+.preview-tools button{color:#c3e6d7;background:#142420;border-color:#31574c}
+.preview-tools button[aria-pressed="true"]{background:linear-gradient(110deg,#1ea875,#166b55);border-color:#5de9b8;box-shadow:0 4px 19px #11875732}
+.app-shell{background:#14201d!important;border-color:#3a8068!important;box-shadow:0 15px 60px #0008,0 0 30px #0e966735!important}
+.app-top,.app-rail,.app-side,.app-footnote{background:#142420!important;border-color:#2a4d40!important}
+.app-main{background:radial-gradient(ellipse at 90% 0%,#2a685444,transparent 70%),#111a19!important}
+.app-search,.app-tags span,.quick,.app-sub{border-color:#32604e!important}
+.app-rail .selected{background:#156347!important;border-color:#42b68a!important}
+.app-shell.is-soft{border-color:#557e72!important}
+.app-shell.is-soft .app-top,.app-shell.is-soft .app-rail,.app-shell.is-soft .app-side{background:#202e29!important}
+.app-shell.is-soft .app-main{background:#17241f!important}
+.app-shell.is-soft .quick{background:#254439!important}
+.visual-swatch{background:linear-gradient(120deg,#0b201a,#23805c,#63e8b4)!important}
+.visual-swatch.soft{background:linear-gradient(120deg,#162622,#356454,#a0e9c5)!important}
+.download-card{background:radial-gradient(ellipse at 90% 10%,#18875c55,transparent 60%),linear-gradient(130deg,#14241f,#182b26)!important;border-color:#35916b!important}
+.release-warning{background:#18302a!important;border-color:#497f68!important;color:#d5f0e2!important}
+.pvp-section{background:radial-gradient(ellipse at 20% 10%,#16805a20,transparent 65%)}
+.guide-hero p,.guide-section p,.guide-section li{color:#bcd5cb!important}
+.guide-toc{background:#14221e!important;border-color:#396b57!important}
+.guide-toc a{color:#c5e5d6!important}
+.guide-toc a:hover{background:#1a4433!important}
+.guide-section{background:linear-gradient(145deg,#182a24,#111e1a)!important;border-color:#325644!important}
+.guide-faq details{border-color:#37624e!important}
+.guide-faq summary,.guide-faq details[open] summary{color:#b9f4d7!important}
+.guide-notice{background:#183a2e!important;border-color:#45886b!important;color:#e3f6ec!important}
+.guide-section code{background:#254538!important;color:#d5ffeb!important}
+.footer{border-color:#2c5242!important}
+.release-143{padding:56px 0 66px;background:linear-gradient(160deg,#10201b,#111b1a);border-block:1px solid #2a5a46}
+.release-143-header{max-width:830px;margin-bottom:23px}
+.release-143-header h2{margin-bottom:12px}
+.release-143-header p{color:#c0d8ce;max-width:760px}
+.release-143-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.release-143-grid article{padding:23px 23px 20px;background:linear-gradient(155deg,#1c312a,#12231e);border:1px solid #345d4b;border-radius:19px;box-shadow:inset 0 1px #d8ffe809}
+.release-143-grid h3{font-size:19px;margin:9px 0}
+.release-143-grid p{font-size:14px;color:#bcd8c9;margin:0}
+.release-143-kicker{color:#7ff0bd;font-size:11px;font-weight:800;letter-spacing:.12em}
+.release-143-note{padding:13px 17px;margin:20px 0 18px;border-left:3px solid #55c993;background:#17352a;color:#d5efe1;border-radius:0 10px 10px 0;font-size:14px}
+.download-143-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;margin:22px 0 36px}
+.download-143-layout>*{padding:25px;border:1px solid #34634d;background:#172b25;border-radius:19px}
+.download-143-layout h2,.download-143-layout h3{margin:0 0 15px}
+.download-143-layout p,.download-143-layout li{color:#c4dbcf}
+.download-143-layout .btn{margin-top:10px;display:inline-flex}
+.download-143-layout code{background:#294438;padding:2px 5px;border-radius:4px}
+@media(max-width:830px){.release-143-grid{grid-template-columns:1fr}.download-143-layout{grid-template-columns:1fr}}
+@media(max-width:540px){.release-143{padding:34px 0 42px}.release-143-grid article{padding:20px}.download-143-layout>*{padding:20px}}
+@media(prefers-reduced-motion:reduce){.app-shell::before{animation:none!important}.btn-primary:hover{transform:none}}
