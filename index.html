@@ -12,7 +12,7 @@
 <title>MINEVORA — Otwieranie nowej strony</title>
 <style>:root{color-scheme:dark;font-family:"Segoe UI",system-ui,sans-serif}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(ellipse at top,#125442,#0a1412 65%);color:#f8f2ff;text-align:center}main{max-width:540px;padding:30px}a{display:inline-block;margin-top:16px;color:#fff;background:#15865e;border:1px solid #54dba7;border-radius:12px;padding:13px 23px;text-decoration:none;font-weight:bold}</style>
 <script>
-(function(){var old=decodeURIComponent(location.hash.slice(1).toLowerCase());var map={graj:"start",mody:"funkcje",pvp:"pvp-hud",wiecej:"pobierz",poradnik:"pobierz",skorki:"skin-studio",studio:"skin-studio",sklep:"funkcje",plus:"funkcje",minigry:"funkcje"};var dest="/v4/"+(old?"#"+encodeURIComponent(map[old]||old):"");location.replace(dest)})();
+(function(){var old=decodeURIComponent(location.hash.slice(1).toLowerCase());var map={graj:"start",mody:"funkcje",pvp:"pvp-hud",wiecej:"pobierz",poradnik:"pobierz",skorki:"skin-studio",studio:"skin-studio",sklep:"funkcje",plus:"funkcje",minigry:"funkcje"};if(old==="poradnik"){location.replace("/v4/poradnik/");return;}if(old==="pobierz"||old==="wiecej"){location.replace("/v4/pobierz/");return;}var dest="/v4/"+(old?"#"+encodeURIComponent(map[old]||old):"");location.replace(dest)})();
 </script>
 </head>
 <body><main><h1>MINEVORA</h1><p>Strona główna została przeniesiona do najnowszej wersji MINEVORA.</p><a href="/v4/">Otwórz stronę MINEVORA ↗</a></main></body>
