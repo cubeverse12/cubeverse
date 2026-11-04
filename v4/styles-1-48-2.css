@@ -122,3 +122,85 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
   .actions .btn{min-height:46px}
   .site-language-switch{flex-shrink:0}
 }
+
+/* MINEVORA 1.48.2 — final mobile polish 2026-11-04
+   Keep account language, brand, and navigation in one responsive row. */
+.preview-tools{
+  background:linear-gradient(120deg,#182A3F,#101A2B)!important;
+  border:1px solid #355F88!important;
+  box-shadow:0 7px 20px #070F1E66;
+}
+.preview-caption{color:#B6D7F2!important}
+.preview-tools button{
+  background:#203750!important;
+  border:1px solid #436C91!important;
+  color:#D9EBFF!important;
+}
+.preview-tools button:hover{background:#2E4C6C!important;border-color:#77B7EC!important}
+.preview-tools button[aria-pressed="true"]{
+  background:linear-gradient(120deg,#4F9CE6,#236CAF)!important;
+  border-color:#8BCBFF!important;color:#fff!important;
+  box-shadow:0 4px 15px #235D9940!important;
+}
+.preview-tools button:focus-visible{outline:2px solid #99D5FF!important}
+.site-language-switch{
+  color:#E4F2FF!important;background:#192B40!important;
+  border-color:#4C7BA6!important;box-shadow:none!important;
+}
+.site-language-switch select,
+.site-language-switch select option{
+  color:#EAF5FF!important;background:#192B40!important;
+}
+.mobile-nav summary{background:#1B334A!important;color:#EAF5FF!important;border-color:#4775A0!important}
+.mobile-nav .mobile-items{background:#162538!important;border-color:#456C93!important}
+.mobile-nav .mobile-items a:hover{background:#254664!important}
+.discord-float{
+  background:linear-gradient(125deg,#285B91,#1D3D69)!important;
+  border-color:#6CAFE9!important;box-shadow:0 10px 27px #0008!important;
+}
+.app-shell::before{background:linear-gradient(105deg,transparent 43%,#6FB7FF13 49%,transparent 55%)!important}
+@media(max-width:900px){
+  .preview-tools{display:none!important}
+}
+@media(max-width:600px){
+  .topbar .topbar-inner{
+    display:flex!important;flex-flow:row nowrap!important;align-items:center!important;
+    justify-content:space-between!important;gap:7px!important;
+    padding-top:10px!important;padding-bottom:10px!important;min-height:58px!important;
+  }
+  .topbar-inner>.brand{
+    order:1!important;flex:1 1 auto!important;min-width:0!important;
+    grid-row:auto!important;grid-column:auto!important;
+    font-size:clamp(14px,4vw,17px)!important;gap:6px!important;
+    letter-spacing:0!important;
+  }
+  .topbar-inner>.brand img{width:31px!important;height:31px!important;flex-shrink:0}
+  .topbar-inner>.brand span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .topbar-inner>.site-language-switch{
+    order:2!important;margin:0!important;justify-self:auto!important;
+    grid-row:auto!important;grid-column:auto!important;flex:0 0 auto!important;
+    height:35px!important;padding:0 4px!important;gap:2px!important;
+    border-radius:9px!important;
+  }
+  .site-language-switch span{font-size:14px!important}
+  .site-language-switch select{width:38px!important;min-width:38px!important;font-size:12px!important;padding:2px 0!important}
+  .topbar-inner>.mobile-nav{
+    display:block!important;order:3!important;flex:0 0 auto!important;
+    grid-row:auto!important;grid-column:auto!important;
+    margin:0!important;justify-self:auto!important;
+  }
+  .topbar-inner>.mobile-nav summary{
+    padding:6px 8px!important;font-size:13px!important;line-height:21px!important;
+    border-radius:9px!important;white-space:nowrap;
+  }
+  .topbar-inner>.mobile-nav .mobile-items{
+    top:45px!important;right:0!important;max-width:min(265px,calc(100vw - 24px))!important
+  }
+  .discord-float{display:none!important}
+  body{padding-bottom:0}
+  .preview-stage{margin-top:0!important}
+}
+@media(min-width:601px) and (max-width:900px){
+  .topbar-inner>.mobile-nav{order:3!important}
+  .topbar-inner>.site-language-switch{order:2!important}
+}
