@@ -161,6 +161,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .app-shell::before{background:linear-gradient(105deg,transparent 43%,#6FB7FF13 49%,transparent 55%)!important}
 @media(max-width:900px){
   .preview-tools{display:none!important}
+  .discord-float{display:none!important}
 }
 @media(max-width:600px){
   .topbar .topbar-inner{
