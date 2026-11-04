@@ -1,0 +1,78 @@
+/* MINEVORA 1.48.2 — Graphite Blue / BlockForge. Overrides the earlier Violet preview stylesheet.
+   Static website theme only. Does not alter the Windows launcher's configuration. */
+:root{
+  color-scheme:dark;
+  --bg:#0B0E13;--bg2:#12161D;--panel:#181D26;--panel2:#1F2530;
+  --line:#354357;--line-bright:#5AA9FF;--text:#EEF3F9;--muted:#A3AFBE;
+  --violet:#5AA9FF;--pink:#3D8BF0;--lav:#BCDFFF;--glow:#3D8BF0;
+}
+body{background:radial-gradient(ellipse at 80% -5%,#2160A030,transparent 44%),radial-gradient(ellipse at 10% 48%,#25466C38,transparent 48%),#0B0E13;color:var(--text)}
+body::before{background-image:radial-gradient(#6DB5FF .75px,transparent .75px);opacity:.09}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid #9ACDFF;outline-offset:3px}
+.topbar{background:#12161Df2;border-bottom:1px solid #354357}
+.brand span{background:linear-gradient(100deg,#fff 8%,#A8D4FF 58%,#5AA9FF);background-clip:text;-webkit-background-clip:text;color:transparent}
+.brand img{filter:drop-shadow(0 0 10px #5AA9FF55)}
+.desktop-nav a{color:#C1D0E1}
+.desktop-nav a:hover{color:#fff}
+.desktop-nav .nav-cta,.mobile-nav summary{background:#1D3855;border-color:#4574A3;color:#EEF5FF}
+.mobile-items{background:#16243A;border-color:#426B96}
+.hero{background:radial-gradient(ellipse at 76% 45%,#276AA63c,transparent 52%)}
+.grad{background:linear-gradient(100deg,#E6F5FF 0%,#95CFFF 45%,#4C9AFF 100%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.eyebrow{color:#94CFFF}
+.dot{background:#5AA9FF;box-shadow:0 0 15px #5AA9FF}
+.btn-primary,.quick .play,.app-shell .play{background:linear-gradient(110deg,#5AA9FF,#3D8BF0)!important;border-color:#83C4FF!important;color:#fff!important;box-shadow:0 9px 34px #3D8BF02c!important}
+.btn-primary:hover{filter:brightness(1.11);transform:translateY(-1px)}
+.btn-secondary,.btn-ghost{border-color:#456789!important;background:#1C2D41!important;color:#E2F3FF!important}
+.hero-pills span,.version-pill{background:#1C3856!important;border-color:#476C94!important;color:#AFD9FF!important}
+.feature,.visual-choice,.step,.app-panel,.app-instance{background:linear-gradient(145deg,#1C2D40,#15202E)!important;border-color:#365677!important}
+.feature:hover,.step:hover{border-color:#5AA9FF!important}
+.feature-icon{color:#87C7FF!important}
+.preview-tools button{color:#C0DCF4;background:#19293B;border-color:#395B7F}
+.preview-tools button[aria-pressed="true"]{background:linear-gradient(110deg,#4C9AFF,#275D92);border-color:#83C4FF;box-shadow:0 4px 19px #2C6CA132}
+.app-shell{background:#14201d!important;border-color:#497EAE!important;box-shadow:0 15px 60px #0008,0 0 30px #367BB335!important}
+.app-top,.app-rail,.app-side,.app-footnote{background:#19293B!important;border-color:#315579!important}
+.app-main{background:radial-gradient(ellipse at 90% 0%,#315D8644,transparent 70%),#111B29!important}
+.app-search,.app-tags span,.quick,.app-sub{border-color:#3A6487!important}
+.app-rail .selected{background:#255B87!important;border-color:#70BEFF!important}
+.app-shell.is-soft{border-color:#587D9F!important}
+.app-shell.is-soft .app-top,.app-shell.is-soft .app-rail,.app-shell.is-soft .app-side{background:#1F2F41!important}
+.app-shell.is-soft .app-main{background:#18283B!important}
+.app-shell.is-soft .quick{background:#244461!important}
+.visual-swatch{background:linear-gradient(120deg,#0D2138,#2E74B8,#73BFFF)!important}
+.visual-swatch.soft{background:linear-gradient(120deg,#16283C,#3D6791,#A7D8FF)!important}
+.download-card{background:radial-gradient(ellipse at 90% 10%,#2B70A355,transparent 60%),linear-gradient(130deg,#172A3D,#1D3044)!important;border-color:#4B8CBE!important}
+.release-warning{background:#1E344C!important;border-color:#5283AB!important;color:#D5EAFB!important}
+.pvp-section{background:radial-gradient(ellipse at 20% 10%,#2166A020,transparent 65%)}
+.guide-hero p,.guide-section p,.guide-section li{color:#BDCFDF!important}
+.guide-toc{background:#1A293B!important;border-color:#416B91!important}
+.guide-toc a{color:#C7E0F8!important}
+.guide-toc a:hover{background:#234866!important}
+.guide-section{background:linear-gradient(145deg,#1D2F43,#131F2E)!important;border-color:#3B6082!important}
+.guide-faq details{border-color:#406B8B!important}
+.guide-faq summary,.guide-faq details[open] summary{color:#AFDFFF!important}
+.guide-notice{background:#1D3C59!important;border-color:#4C85B8!important;color:#E3F2FF!important}
+.guide-section code{background:#24445F!important;color:#D5ECFF!important}
+.footer{border-color:#335474!important}
+.release-143{padding:56px 0 66px;background:linear-gradient(160deg,#10253A,#121C2A);border-block:1px solid #365F82}
+.release-143-header{max-width:830px;margin-bottom:23px}
+.release-143-header h2{margin-bottom:12px}
+.release-143-header p{color:#C0D4E8;max-width:760px}
+.release-143-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.release-143-grid article{padding:23px 23px 20px;background:linear-gradient(155deg,#1B344B,#15273B);border:1px solid #3F688B;border-radius:19px;box-shadow:inset 0 1px #D9F0FF09}
+.release-143-grid h3{font-size:19px;margin:9px 0}
+.release-143-grid p{font-size:14px;color:#BDD5EA;margin:0}
+.release-143-kicker{color:#8ECFFF;font-size:11px;font-weight:800;letter-spacing:.12em}
+.release-143-note{padding:13px 17px;margin:20px 0 18px;border-left:3px solid #5AA9FF;background:#1B3954;color:#D6EAFB;border-radius:0 10px 10px 0;font-size:14px}
+.download-143-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;margin:22px 0 36px}
+.download-143-layout>*{padding:25px;border:1px solid #3E688B;background:#1C2D41;border-radius:19px}
+.download-143-layout h2,.download-143-layout h3{margin:0 0 15px}
+.download-143-layout p,.download-143-layout li{color:#C4D8EC}
+.download-143-layout .btn{margin-top:10px;display:inline-flex}
+.download-143-layout code{background:#284A67;padding:2px 5px;border-radius:4px}
+@media(max-width:830px){.release-143-grid{grid-template-columns:1fr}.download-143-layout{grid-template-columns:1fr}}
+@media(max-width:540px){.release-143{padding:34px 0 42px}.release-143-grid article{padding:20px}.download-143-layout>*{padding:20px}}
+@media(prefers-reduced-motion:reduce){.app-shell::before{animation:none!important}.btn-primary:hover{transform:none}}
+
+/* BlockForge 1.48.2 final overrides */
+:root{--bg:#0B0E13;--bg2:#12161D;--panel:#181D26;--panel2:#1F2530;--line:#354357;--line-bright:#5AA9FF;--text:#EEF3F9;--muted:#A3AFBE;--violet:#5AA9FF;--pink:#3D8BF0;--lav:#BCDFFF;--glow:#3D8BF0}
+.topbar{background:#12161Df5}.hero{background:radial-gradient(ellipse at 77% 38%,#255E973e,transparent 59%),#0B0E13}.app-shell{border-radius:18px}.btn-primary,.app-shell .play{color:#0B1525!important}.release-143{border-block:1px solid #345F82}
