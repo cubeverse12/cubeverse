@@ -205,3 +205,57 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
   .topbar-inner>.mobile-nav{order:3!important}
   .topbar-inner>.site-language-switch{order:2!important}
 }
+
+/* 2026-11-04 · Preview rebuilt without purple legacy screenshots. */
+.preview-caption-simple{
+  margin:0 0 10px;padding:0 2px;
+  font-size:12px;letter-spacing:.09em;font-weight:800;
+  color:#9ACFFF!important;text-transform:uppercase;
+}
+.app-shell .app-main{background:linear-gradient(140deg,#142133,#101923)!important}
+.app-shell .quick,.app-shell .app-instance{
+  background:linear-gradient(140deg,#203650,#172536)!important;
+  border-color:#406588!important;color:#EAF6FF!important;
+}
+.app-shell .app-search,.app-shell .app-tags span{
+  background:#182A3F!important;border-color:#395C7E!important;
+  color:#C2DCF5!important;
+}
+.app-shell .app-sub{color:#AFCFEF!important}
+.app-shell .app-title{color:#F0F7FF!important}
+.app-shell .preview-thumb{
+  display:inline-grid;place-items:center;
+  flex:0 0 48px;width:48px;height:48px;
+  border:1px solid #7CBCF0;border-radius:8px;
+  background:linear-gradient(145deg,#7AB7F3 0 36%,#66A168 37% 52%,#694C36 53% 100%);
+  color:#F4FBFF;font-size:23px;
+  text-shadow:0 2px 5px #07111BC0;
+}
+.app-shell .app-instance .preview-thumb.large{
+  width:105px;height:88px;flex-basis:auto;
+  font-size:29px;border-radius:8px;
+}
+.app-shell .app-panel{background:#1B2D40!important;border-color:#385B7C!important}
+.app-shell .app-panel .news-chip{
+  display:inline-block!important;padding:5px 9px;margin:10px 0 2px;
+  color:#EAF6FF;background:#285D91;border:1px solid #5AA9FF;
+  border-radius:6px;font-weight:800;
+}
+.app-shell::before{display:none!important}
+@media(max-width:1180px){
+  .app-shell .app-body{grid-template-columns:40px minmax(0,1fr)!important}
+  .app-shell .app-side{display:none!important}
+  .app-shell .app-main{padding:16px!important}
+  .app-shell .app-top{font-size:12px}
+  .app-shell .app-title{font-size:19px!important}
+  .app-shell .quick b{font-size:13px!important}
+  .app-shell .quick small{font-size:11px!important}
+  .app-shell .app-search{font-size:13px}
+  .app-shell .app-instance{min-width:0}
+}
+@media(max-width:600px){
+  .app-shell .app-main{padding:11px!important}
+  .app-shell .app-top{font-size:11px}
+  .app-shell .app-instance .preview-thumb.large{width:85px;height:78px}
+  .preview-caption-simple{font-size:11px}
+}
