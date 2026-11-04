@@ -76,3 +76,49 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 /* BlockForge 1.48.2 final overrides */
 :root{--bg:#0B0E13;--bg2:#12161D;--panel:#181D26;--panel2:#1F2530;--line:#354357;--line-bright:#5AA9FF;--text:#EEF3F9;--muted:#A3AFBE;--violet:#5AA9FF;--pink:#3D8BF0;--lav:#BCDFFF;--glow:#3D8BF0}
 .topbar{background:#12161Df5}.hero{background:radial-gradient(ellipse at 77% 38%,#255E973e,transparent 59%),#0B0E13}.app-shell{border-radius:18px}.btn-primary,.app-shell .play{color:#0B1525!important}.release-143{border-block:1px solid #345F82}
+
+/* MINEVORA 1.48.2 · mobile layout fix · 2026-11-04
+   Mobile browsers requesting desktop mode typically use a ~980 CSS-px viewport:
+   switch to single-column layout early to prevent the entire page shrinking. */
+@media(max-width:1180px){
+  .topbar-inner{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;padding:12px 0;min-height:70px}
+  .topbar-inner>.desktop-nav{display:none!important}
+  .topbar-inner>.mobile-nav{display:block!important;margin-left:auto;position:relative;order:2}
+  .topbar-inner>.site-language-switch{order:3;margin-left:0}
+  .hero{padding:65px 0 55px}
+  .hero-grid{grid-template-columns:minmax(0,1fr)!important;gap:30px;align-items:stretch}
+  .hero-copy{max-width:760px}
+  .preview-stage{width:100%;max-width:760px;margin:0 auto}
+  .app-shell{max-width:100%;transform:none!important}
+  .feature-grid,.release-143-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mobile-items{z-index:90;box-shadow:0 14px 30px #000b}
+}
+@media(max-width:800px){
+  .app-body{grid-template-columns:40px minmax(0,1fr)!important}
+  .app-side{display:none!important}
+  .app-main{min-width:0}
+  .app-instance{max-width:100%}
+  .preview-tools{gap:6px;padding:9px;flex-wrap:wrap}
+  .preview-caption{width:100%}
+  .hero{padding-top:42px}
+  .hero-grid{gap:25px}
+}
+@media(max-width:600px){
+  .wrap{width:calc(100% - 30px)}
+  .hero{padding:35px 0 45px}
+  .hero h1{font-size:clamp(37px,10vw,52px);line-height:1.12}
+  .hero-copy .lead{font-size:15px;line-height:1.7}
+  .hero-grid{gap:25px}
+  .feature-grid,.release-143-grid,.steps{grid-template-columns:1fr!important}
+  .preview-tools{display:none}
+  .app-shell{border-radius:12px}
+  .app-rail{padding:9px 4px;gap:9px}
+  .app-main{padding:12px 10px}
+  .app-tags{flex-wrap:wrap}
+  .app-top{gap:7px;font-size:10px}
+  .app-breadcrumb{display:none}
+  .release-143{padding:42px 0}
+  .release-143-grid article{padding:19px}
+  .actions .btn{min-height:46px}
+  .site-language-switch{flex-shrink:0}
+}
