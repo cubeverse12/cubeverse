@@ -1,0 +1,23 @@
+/* MINEVORA 1.56.11 — restrained Slate theme for the existing /v4/ website.
+   Keep native layout, feature content and links intact. */
+:root{--bg:#1E2022;--bg2:#23282C;--panel:#282C30;--panel2:#30363B;--line:#45515A;--line-bright:#8199A8;--text:#F0F5F9;--muted:#BBC7CF;--violet:#8FA7B7;--pink:#A5BCC9;--lav:#DCE8EF;--glow:#617A89}
+body{background:radial-gradient(ellipse at 80% 0%,#647D8C2C,transparent 52%),radial-gradient(ellipse at 5% 76%,#52616B1F,transparent 48%),#1E2022;color:#F0F5F9}
+.site-header,.topbar{background:#25292DEF;border-bottom-color:#47525B}
+.hero,.section{border-color:#38434B}
+.eyebrow{color:#A5C0CE}
+.grad{background:linear-gradient(115deg,#D4E3EA,#849DAB);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn-primary,.play{background:linear-gradient(180deg,#829DA6,#435B65)!important;border-color:#9FB5BE!important;color:#fff!important}
+.btn-primary:hover{background:linear-gradient(180deg,#96AFB8,#526C76)!important}
+.app-shell,.app-panel,.app-instance,.quick,.card,.release-143-grid article{box-shadow:0 14px 34px #090C0F50;border-color:#52616B}
+.app-rail .selected::before,.app-rail .selected::after{display:none!important}
+.app-rail>span{box-shadow:0 7px 14px #05080B73}
+.brand img{filter:drop-shadow(0 6px 9px #05080B88)}
+.slate-release-15611{padding:42px 0;background:linear-gradient(155deg,#292F33,#1E2327);border-block:1px solid #52616B}
+.slate-release-15611 .slate-update-title{margin:8px 0 12px;max-width:920px;font-size:clamp(24px,3vw,39px);line-height:1.2;color:#F0F5F9}
+.slate-release-15611 .slate-update-intro{max-width:1000px;color:#C9D5DD;line-height:1.65}
+.slate-release-15611 .slate-update-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:23px 0}
+.slate-release-15611 .slate-update-grid article{padding:20px;background:linear-gradient(180deg,#323A40,#292F34);border:1px solid #52616B;border-radius:14px;box-shadow:0 12px 23px #0A0D1070}
+.slate-release-15611 .slate-update-grid h3{margin:0 0 8px;font-size:17px;color:#EEF5F9}
+.slate-release-15611 .slate-update-grid p{margin:0;color:#BCCCD4;font-size:14px}
+.slate-release-15611 .slate-update-note{max-width:980px;font-size:13px;color:#C3D0D7}
+@media(max-width:760px){.slate-release-15611 .slate-update-grid{grid-template-columns:1fr}.slate-release-15611{padding:30px 0}}
