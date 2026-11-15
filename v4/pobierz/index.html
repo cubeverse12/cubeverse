@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#1E2022">
-<meta name="description" content="MINEVORA 1.48.2 — pobierz publiczne wydanie launchera Minecraft Java, sprawdź wymagania i instrukcję instalacji na Windows 11.">
+<meta name="description" content="MINEVORA Launcher Ciemny Łupek — sprawdź rzeczywiście dostępne wydania, bezpieczeństwo pobierania i instrukcję dla Windows.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pobieranie MINEVORA — wydania i instalacja">
-<meta property="og:description" content="Sprawdź dostępne publiczne wersje MINEVORA, wymagania Windows oraz status testowej wersji 1.48.2.">
+<meta property="og:description" content="Sprawdź dostępne publiczne wersje MINEVORA, wymagania Windows oraz status wersji rozwojowej 1.56.11.">
 <meta property="og:url" content="https://minevora.pl/v4/pobierz/">
 <link rel="canonical" href="https://minevora.pl/v4/pobierz/">
 <link rel="icon" href="../assets/minevora-icon-20261028.webp" type="image/webp">
@@ -17,8 +17,20 @@
 <link rel="stylesheet" href="../styles-1-56-11.css?v=20261115">
 <script defer src="../minevora-i18n.js"></script>
 <title>Pobierz MINEVORA — Launcher Minecraft Java na Windows</title>
+<link rel="stylesheet" href="../launcher-slate-20261115.css?v=2">
+<script defer src="../launcher-slate-20261115.js"></script>
 </head>
 <body>
+<aside class="mv-rail" aria-label="Nawigacja MINEVORA">
+<a class="mv-rail-brand" href="../" title="MINEVORA — Start"><img src="../assets/minevora-icon-20261028.webp" width="48" height="48" alt="Logo MINEVORA"></a>
+<a href="../" data-rail="home" title="Start" aria-label="Start"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 3l9 8v10h-6v-7H9v7H3z"/></svg><span class="mv-rail-label" data-slate-en="Start">Start</span></a>
+<a href="../#funkcje" data-rail="features" title="Dodatki" aria-label="Dodatki"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v5h5v8h-5v5H8v-5H3V8h5z"/></svg><span class="mv-rail-label" data-slate-en="Add-ons">Dodatki</span></a>
+<a href="../#pvp-hud" data-rail="pvp" title="PvP HUD" aria-label="PvP HUD"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.7 5.5a5.4 5.4 0 0 0-7.6 0L12 6.6l-1.1-1.1a5.4 5.4 0 0 0-7.6 7.6L12 22l8.7-8.9a5.4 5.4 0 0 0 0-7.6z"/></svg><span class="mv-rail-label" data-slate-en="PvP HUD">PvP HUD</span></a>
+<a href="../#skin-studio" data-rail="skin" title="Skin Studio" aria-label="Skin Studio"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span class="mv-rail-label" data-slate-en="Skin Studio">Skin Studio</span></a>
+<div class="mv-rail-divider" aria-hidden="true"></div><a href="../pobierz/" data-rail="download" title="Pobierz" aria-label="Pobierz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M4 17v4h16v-4"/></svg><span class="mv-rail-label" data-slate-en="Download">Pobierz</span></a>
+<a href="../poradnik/" data-rail="guide" title="Poradnik" aria-label="Poradnik"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5c3-1.7 6-1.7 9 0 3-1.7 6-1.7 9 0v15c-3-1.7-6-1.7-9 0-3-1.7-6-1.7-9 0zM12 5v15"/></svg><span class="mv-rail-label" data-slate-en="Guide">Poradnik</span></a>
+<a href="https://discord.gg/M2fZVJBCqh" class="mv-rail-bottom" title="Discord" aria-label="Discord MINEVORA" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5c3-2 7-2 10 0l2 3 1 10-4 2-1-2H9l-1 2-4-2 1-10z"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/></svg><span class="mv-rail-label">Discord</span></a>
+</aside>
 <a class="skip" href="#main">Przejdź do treści</a>
 <header class="topbar"><div class="wrap topbar-inner">
  <a class="brand" href="../" aria-label="MINEVORA — strona główna"><img src="../assets/minevora-icon-20261028.webp" alt="" width="39" height="39"><span>MINEVORA</span></a>
@@ -36,10 +48,10 @@
     <span class="version-pill">Publiczne wydania</span><h2>Pliki do pobrania</h2>
     <p>Lista GitHub Releases zawiera wyłącznie faktycznie opublikowane pliki. Wybierz właściwą wersję Windows i przeczytaj jej README przed instalacją.</p>
     <a class="btn btn-primary" href="https://github.com/cubeverse12/minevora-launcher/releases" target="_blank" rel="noopener noreferrer">Otwórz GitHub Releases ↗</a>
-    <p class="caption">Nie udostępniamy fikcyjnego linku do ZIP 1.48.2 ani niesprawdzonego pliku EXE.</p>
+    <p class="caption">Nie udostępniamy fikcyjnego linku do ZIP 1.56.11 ani niesprawdzonego pliku EXE.</p>
    </article>
    <article>
-    <span class="version-pill">Projekt testowy 1.48.2</span><h3>Co zmieniono?</h3>
+    <span class="version-pill">Projekt testowy 1.56.11</span><h3>Co zmieniono?</h3>
     <p>Kontrola konta, wersji gry i loadera przed uruchomieniem, bezpieczniejszy zapis serwerów oraz raport diagnostyki w Ustawieniach.</p>
     <p>Do potwierdzenia: logowanie Microsoft, uruchomienie Minecrafta na Windows 11 i PvP HUD w grze. Dołączony mod jest przeznaczony dla Fabric 1.21.1.</p>
    </article>
@@ -48,11 +60,12 @@
   <div class="steps">
    <article class="step"><span class="step-n">KROK 01</span><h3>Wybierz wydanie</h3><p>Otwórz GitHub Releases i sprawdź numer dostępnej wersji. Nie pomyl kodu źródłowego z instalatorem.</p></article>
    <article class="step"><span class="step-n">KROK 02</span><h3>Rozpakuj ZIP</h3><p>Rozpakuj archiwum do osobnego folderu. Zachowaj README i przejrzyj wymagania systemowe.</p></article>
-   <article class="step"><span class="step-n">KROK 03</span><h3>Uruchom skrypt</h3><p>Wykonaj instrukcję z README danego wydania. W paczce 1.48.2 uruchom INSTALUJ.bat, a następnie START_WINDOWS.bat.</p></article>
+   <article class="step"><span class="step-n">KROK 03</span><h3>Uruchom skrypt</h3><p>Wykonaj instrukcję z README danego wydania. W paczce 1.56.11 uruchom INSTALUJ.bat, a następnie START_WINDOWS.bat.</p></article>
   </div>
   <div class="release-warning" role="note"><strong>Bezpieczeństwo i logowanie</strong><p>Nie wyłączaj Microsoft Defender ani Smart App Control. Logowanie Microsoft wymaga prawidłowej rejestracji aplikacji wydawcy; sam Client ID nie gwarantuje działania. Nie przesyłaj nikomu haseł, tokenów ani kodów urządzenia.</p></div>
   <div class="actions" style="margin-top:25px"><a class="btn btn-secondary" href="../poradnik/">Pełny poradnik instalacji ↗</a><a class="btn btn-ghost" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer">Pomoc na Discordzie ↗</a></div>
  </div></section>
 </main>
-<footer class="footer"><div class="wrap foot-inner"><a class="brand" href="../"><img src="../assets/minevora-icon-20261028.webp" width="39" height="39" alt=""><span>MINEVORA</span></a><p>© 2026 MINEVORA · Informacje o wydaniu testowym 1.48.2</p><nav class="footer-nav"><a href="../">Start</a><a href="../poradnik/">Poradnik</a></nav></div></footer>
+<footer class="footer"><div class="wrap foot-inner"><a class="brand" href="../"><img src="../assets/minevora-icon-20261028.webp" width="39" height="39" alt=""><span>MINEVORA</span></a><p>© 2026 MINEVORA · Wersje rozwojowe Slate</p><nav class="footer-nav"><a href="../">Start</a><a href="../poradnik/">Poradnik</a></nav></div></footer>
+<div class="mv-status" role="note"><span class="dot" aria-hidden="true"></span><span>MINEVORA · CIEMNY ŁUPEK — witryna informacyjna; grę uruchamia aplikacja Windows</span><span>Wersja rozwojowa: 1.56.11</span></div>
 </body></html>
