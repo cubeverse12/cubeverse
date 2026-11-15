@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#1E2022">
-<meta name="description" content="Poradnik MINEVORA: pobieranie launchera Minecraft Java na Windows, instalacja, Microsoft, Fabric/Forge, Modrinth, CurseForge, Skin Studio oraz rozwiązywanie błędów.">
+<meta name="description" content="Poradnik MINEVORA: instalacja Windows, konto Microsoft, wersje Minecraft, Modrinth, modpacki, datapacki, shadery, tekstury i diagnoza błędów.">
 <link rel="canonical" href="https://minevora.pl/v4/poradnik/">
 <link rel="icon" href="../assets/minevora-icon-20261028.webp" type="image/webp">
 <link rel="stylesheet" href="../website-3-0-20.css">
 <link rel="stylesheet" href="../styles-1-43.css">
 <link rel="stylesheet" href="../styles-1-48-2.css?v=20261104-mobile-polish">
-<title>Jak zainstalować MINEVORA? — Poradnik Windows</title>
+<title>Poradnik MINEVORA — instalacja, mody i naprawa błędów</title>
 <style>
 .guide-hero{padding:70px 0 45px;max-width:800px}.guide-hero h1{font-size:clamp(36px,5vw,63px)}.guide-hero p{color:#d0bfdf;font-size:16px}.guide-content{display:grid;grid-template-columns:235px minmax(0,1fr);gap:24px;align-items:start}.guide-toc{position:sticky;top:93px;display:grid;gap:8px;border:1px solid #523776;background:#17112f;padding:18px;border-radius:17px}.guide-toc strong{font-size:14px;margin-bottom:5px}.guide-toc a{font-size:13px;padding:7px 9px;border-radius:9px;color:#d4c4e4}.guide-toc a:hover{background:#381a5b}.guide-main{min-width:0}.guide-section{padding:28px;margin-bottom:20px;border:1px solid #493067;border-radius:20px;background:linear-gradient(145deg,#1d1237,#0f0c26)}.guide-section h2{font-size:27px}.guide-section p,.guide-section li{font-size:14px;color:#cfbddf;line-height:1.75}.guide-section .steps{margin-top:20px}.guide-section .step{padding:18px}.guide-section .step p{margin-bottom:0}.guide-faq details{padding:17px 0;border-top:1px solid #4e3370}.guide-faq details:first-of-type{border-top:0}.guide-faq summary{cursor:pointer;font-weight:750;color:#f3e8ff}.guide-faq details[open] summary{color:#d8a5ff}.guide-faq details p{margin:10px 0 0}.guide-notice{background:#24123d;border:1px solid #8852b2;border-radius:12px;padding:15px;color:#e0d0e8;margin-top:14px;font-size:13px}.guide-section code{padding:2px 5px;background:#3d245b;border-radius:5px;color:#f3d8ff;overflow-wrap:anywhere}
 @media(max-width:790px){.guide-content{grid-template-columns:1fr}.guide-toc{position:static;display:flex;flex-wrap:wrap}.guide-section{padding:20px}.guide-section .steps{grid-template-columns:1fr}.guide-hero{padding:42px 0 22px}}
@@ -17,6 +17,14 @@
 <script defer src="../minevora-i18n.js"></script>
 <link rel="stylesheet" href="../launcher-slate-20261115.css?v=2">
 <script defer src="../launcher-slate-20261115.js"></script>
+<style id="mvg-v15612">
+/* MINEVORA 1.56.12 guide — scoped native Slate layout, no legacy purple panels. */
+.mvg-main{max-width:none!important}.mvg-hero{position:relative;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);gap:28px;align-items:center;margin:26px auto 26px;padding:32px 34px;min-height:345px;overflow:hidden;border:1px solid #627886;border-radius:18px;background:linear-gradient(115deg,#242B30 7%,#34414B 57%,#212A31 100%);box-shadow:0 20px 46px #080D1188}
+.mvg-hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(135deg,transparent 0 64px,#A8CCD007 64px 65px)}
+.mvg-hero-copy,.mvg-hero-visual{position:relative;z-index:1}.mvg-hero h1{margin:9px 0 15px;max-width:none;font-size:clamp(33px,4vw,58px)!important;line-height:1.14}.mvg-gradient{color:#C9E3EF!important}.mvg-hero-copy>p:not(.mvg-kicker){max-width:710px;color:#CBD8E1!important;font-size:15px;line-height:1.75}.mvg-kicker{margin:0;color:#A4CADB!important;font-weight:800;letter-spacing:.11em;font-size:11px!important}.mvg-actions{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 8px}.mvg-hero-note{font-size:12px!important;color:#AFC3CE!important}.mvg-hero-visual{display:flex;min-height:264px;flex-direction:column;align-items:center;justify-content:flex-end;padding:22px;border:1px solid #647A86;border-radius:14px;background:radial-gradient(circle at 52% 30%,#708C9B50,transparent 54%),linear-gradient(155deg,#323D46,#20282F);box-shadow:inset 0 0 36px #0A101647}.mvg-logo-orbit{position:absolute;top:12px;right:25px;width:122px;height:122px;display:grid;place-items:center;border:1px solid #829EAC;border-radius:25px;background:linear-gradient(145deg,#425564,#2B353E);box-shadow:0 10px 26px #090F15A0}.mvg-logo-orbit img{width:96px;height:96px;object-fit:contain;filter:drop-shadow(0 6px 8px #01070BCC)}.mvg-sample-steps{display:grid;gap:7px;width:100%;max-width:430px}.mvg-sample-steps span{display:flex;gap:12px;align-items:center;padding:10px 14px;border-radius:8px;border:1px solid #596F7B;background:#1C252DDE;color:#E6F0F4;font-weight:700;font-size:12px}.mvg-sample-steps b{color:#9DC7DB}.mvg-visual-label{align-self:flex-end;margin-top:11px;font-size:10px;color:#A9C3CE;letter-spacing:.11em;font-weight:800}
+.mvg-columns{display:grid;grid-template-columns:238px minmax(0,1fr);gap:21px;align-items:start;margin-bottom:55px}.mvg-toc{position:sticky;top:91px;display:grid;gap:4px;padding:18px;border-radius:14px;border:1px solid #526674;background:linear-gradient(180deg,#303A42,#262D33);box-shadow:0 10px 22px #090D115C}.mvg-toc strong{color:#DDECF3;letter-spacing:.08em;font-size:11px;margin:0 0 9px}.mvg-toc a{padding:8px 10px;border-radius:7px;color:#C5D5DF;font-size:13px;font-weight:650;line-height:1.45;text-decoration:none}.mvg-toc a:hover,.mvg-toc a:focus-visible{background:#445764;color:#fff}.mvg-content{min-width:0}.mvg-card{scroll-margin-top:92px;padding:28px 31px;margin-bottom:17px;border:1px solid #536A77;border-radius:14px;background:linear-gradient(160deg,#303840,#252D33);box-shadow:0 10px 30px #080C116B}.mvg-card h2{margin:7px 0 16px;font-size:clamp(24px,2.45vw,33px);line-height:1.2;color:#F0F5F9!important}.mvg-card h3{font-size:17px;margin:9px 0 6px;color:#ECF5F9!important}.mvg-card p,.mvg-card li{color:#C7D4DD!important;font-size:14px;line-height:1.77}.mvg-card a:not(.btn){color:#B8DEEF;text-decoration:underline;text-underline-offset:3px}.mvg-card code{padding:3px 6px;border-radius:5px;background:#182128;color:#D8ECF5;overflow-wrap:anywhere}.mvg-step-grid{counter-reset:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:20px 0}.mvg-step-grid li{padding:20px;border-radius:10px;border:1px solid #536976;background:#252F37}.mvg-step-grid li span{display:grid;place-items:center;width:34px;height:34px;border-radius:9px;background:#4A6070;color:#F4FAFF;font-weight:900}.mvg-step-grid p{margin-bottom:0}.mvg-alert{padding:13px 17px;border-left:3px solid #A5C7D7;background:#38444C;border-radius:7px}.mvg-flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:17px 0}.mvg-flow>div{padding:16px;background:#273139;border:1px solid #516674;border-radius:10px}.mvg-flow strong{color:#E6F0F5}.mvg-flow p{margin-bottom:0}.mvg-category-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:18px 0}.mvg-category-grid a{display:flex;flex-direction:column;gap:6px;padding:15px 12px;text-decoration:none!important;border:1px solid #607889;border-radius:9px;background:linear-gradient(#384A57,#29343C);min-height:126px}.mvg-category-grid a:hover{border-color:#B1CFDE;background:#455C69}.mvg-category-grid strong{color:#EEF6F9;font-size:13px}.mvg-category-grid small{color:#BED0D8;font-size:11px;line-height:1.4}.mvg-symbol{font-size:24px;color:#C4DDE9;line-height:1.1}.mvg-faq details{padding:13px 15px;margin:10px 0;border:1px solid #536977;background:#263039;border-radius:8px}.mvg-faq summary{cursor:pointer;color:#E9F3F8;font-weight:750}.mvg-faq details[open] summary{color:#CAE8F7}.mvg-faq p{margin:12px 0 0}
+@media(max-width:1160px){.mvg-category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.mvg-hero{grid-template-columns:1fr}.mvg-hero-visual{min-height:235px}}@media(max-width:790px){.mvg-columns{grid-template-columns:1fr}.mvg-toc{position:static;display:flex;flex-wrap:wrap;gap:3px}.mvg-toc a{font-size:12px}.mvg-hero{padding:22px}.mvg-card{padding:21px}.mvg-step-grid{grid-template-columns:1fr}.mvg-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:460px){.mvg-category-grid{grid-template-columns:1fr 1fr}.mvg-category-grid a{min-height:110px}.mvg-hero-visual{padding:12px}.mvg-logo-orbit{right:12px;top:8px;width:80px;height:80px}.mvg-logo-orbit img{width:68px;height:68px}}
+</style>
 </head>
 <body>
 <aside class="mv-rail" aria-label="Nawigacja MINEVORA">
@@ -34,42 +42,91 @@
 <nav class="desktop-nav" aria-label="Nawigacja"><a href="../">Strona główna</a><a href="#instalacja">Instalacja</a><a href="#logowanie">Microsoft</a><a href="#pvp-hud">PvP HUD</a><a href="#faq">FAQ</a><a class="discord-link" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer"><img src="../assets/discord.svg" width="23" height="23" alt="">Discord</a><a class="nav-cta" href="../pobierz/">Pobierz</a></nav>
 <details class="mobile-nav"><summary>☰ Menu</summary><nav class="mobile-items" aria-label="Menu mobilne"><a href="../">Strona główna</a><a href="#instalacja">Instalacja</a><a href="#logowanie">Microsoft</a><a href="#pvp-hud">PvP HUD</a><a href="#faq">FAQ</a><a class="discord-link" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer"><img src="../assets/discord.svg" width="23" height="23" alt="">Discord</a><a href="../pobierz/">Pobierz</a><a class="discord-link" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer"><img src="../assets/discord.svg" width="23" height="23" alt="">Discord</a></nav></details>
 <label class="site-language-switch" title="Zmień język / Change language"><span aria-hidden="true">🌐</span><select data-minevora-language aria-label="Język strony"><option value="pl">PL</option><option value="en">EN</option></select></label></div></header>
-<main id="main" class="wrap">
- <div class="guide-hero"><span class="eyebrow">MINEVORA / POMOC WINDOWS</span><h1>Instalacja launchera <span class="grad">krok po kroku.</span></h1><p>Jak zacząć z Minecraft Java, własnymi profilami, modami i Skin Studio. Poradnik uwzględnia projekt MINEVORA 1.56.11 oraz różnice między nim a publicznymi wydaniami GitHub.</p><div class="actions"><a class="btn btn-primary" href="../pobierz/">Przejdź do pobierania ↗</a><a class="btn btn-secondary" href="#faq">Rozwiązywanie problemów ↓</a></div></div>
- <div class="guide-content">
- <aside class="guide-toc" aria-label="Spis treści"><strong>Na tej stronie</strong><a href="#instalacja">Instalacja w 3 krokach</a><a href="#wymagania">Wymagania</a><a href="#logowanie">Konto Microsoft</a><a href="#wyglad">Motywy</a><a href="#pvp-hud">PvP HUD 2.0.15</a><a href="#dodatki">Mody i dodatki</a><a href="#faq">Najczęstsze pytania</a><a href="#bezpieczenstwo">Bezpieczeństwo</a></aside>
- <div class="guide-main">
- <section class="guide-section" id="instalacja"><span class="eyebrow">01 / START</span><h2>Instalacja w 3 krokach</h2><div class="steps">
- <div class="step"><span class="step-n">01</span><h3>Pobierz ZIP</h3><p>Otwórz publiczne wydania GitHub i wybierz właściwy plik. Sprawdź numer wersji.</p></div>
- <div class="step"><span class="step-n">02</span><h3>Rozpakuj</h3><p>Wybierz nowy folder. Zapoznaj się z dołączonym README i wymaganiami.</p></div>
- <div class="step"><span class="step-n">03</span><h3>Uruchom</h3><p>Otwórz skrypt startowy wskazany w README (w projekcie 1.56.11: <code>START_WINDOWS.bat</code>), wybierz profil i zaloguj konto.</p></div>
- </div><div class="guide-notice"><strong>Uwaga o wersjach:</strong> projekt 1.56.11 nie jest potwierdzony jako publiczne wydanie w GitHub Releases. Publiczne wydania GitHub mogą mieć inny numer — sprawdź go przed pobraniem. Instrukcja i nazwa skryptu w starszych wydaniach mogą się różnić.</div></section>
- <section class="guide-section" id="wymagania"><span class="eyebrow">02 / SYSTEM</span><h2>Wymagania</h2><p>Wersja desktopowa jest przygotowana dla Windows i Minecraft Java Edition. Pakiety zawierające kod Pythona mogą wymagać zainstalowanego Pythona oraz bibliotek opisanych w README. Do uruchamiania samej gry potrzebne są odpowiednia wersja Java i legalne konto Minecraft.</p><p>Jeśli instalator bibliotek nie zadziała, uruchom skrypt z katalogu projektu i przeczytaj pełny komunikat. W wersji 1.56.11 przydatne są także przyciski Diagnostyka oraz Ostatnie błędy; raport diagnostyczny nie powinien zawierać poufnych danych. Nie zmieniaj zabezpieczeń Windows w celu obejścia blokady niezweryfikowanego programu.</p></section>
- <section class="guide-section" id="logowanie"><span class="eyebrow">03 / KONTO</span><h2>Logowanie Microsoft</h2><p>Otwórz w launcherze zakładkę Konto i wybierz logowanie Microsoft. Przejdź do przeglądarki, zaloguj się na właściwe konto i wróć do programu po zakończeniu autoryzacji.</p><p>W projekcie 1.56.11 logowanie używa kodu urządzenia. W aplikacji Microsoft Entra musi być zarejestrowany prawdziwy publiczny Client ID z odpowiednimi uprawnieniami. Kod z launchera wpisuj wyłącznie na oficjalnej stronie wskazanej przez Microsoft; nie otwieraj ręcznie adresów localhost.</p><div class="guide-notice"><strong>Chroń konto:</strong> nie podawaj nikomu hasła, kodów z przeglądarki, tokenów ani pełnych adresów z parametrem <code>code</code>. Nie wklejaj ich na Discord ani do zgłoszeń.</div></section>
- <section class="guide-section" id="wyglad"><span class="eyebrow">04 / WYGLĄD</span><h2>Ciemny Łupek — motyw strony</h2><p>Strona MINEVORA 1.56.11 ma grafitowo-niebiesową kolorystykę. Przyciski podglądu wyglądu na stronie zmieniają jedynie makietę; nie zapisują ustawień w launcherze ani Minecraft.</p><p>Rzeczywiste opcje interfejsu w aplikacji Windows sprawdzisz w Ustawieniach. Podgląd WWW nie zastępuje testu GUI.</p></section>
-<section class="guide-section" id="pvp-hud"><span class="eyebrow">05 / PVP HUD 2.0.15</span><h2>Jak włączyć PvP Mode w Minecraft?</h2>
-<p>Nowe wydanie <strong>MINEVORA PvP HUD 2.0.15</strong> jest dostępne osobno dla <strong>Fabric 1.21.1</strong>. Dodaje serduszka nad graczami oraz przesuwane kafelki CPS, FPS, Combo, mikstur i pancerza. Wersja 1.56.11 ma dołączony mod dla Fabric 1.21.1 i obsługę brakującego Fabric API, ale działanie w grze wymaga testu. Mod udostępniany osobno na GitHub może być innym wydaniem.</p>
-<div class="steps">
-<div class="step"><span class="step-n">01</span><h3>Wybierz Fabric</h3><p>Wybierz profil Minecraft Java 1.21.1 z Fabric Loader i Fabric API. Potrzebujesz Java 21. Nie instaluj tego pliku w Vanilla, Forge, NeoForge ani w innych wersjach Minecraft.</p></div>
-<div class="step"><span class="step-n">02</span><h3>Pobierz PvP HUD 2.0.15</h3><p>Pobierz oficjalny plik JAR z GitHub Releases, zamknij grę i umieść plik w folderze <code>mods</code> używanym przez wybraną instancję. Jeśli znajduje się tam starszy MINEVORA PvP HUD, usuń starszą wersję przed uruchomieniem gry.</p></div>
-<div class="step"><span class="step-n">03</span><h3>Otwórz menu i ustaw HUD</h3><p>Wejdź do świata Minecraft i naciśnij <strong>prawy Shift</strong> lub <strong>P</strong>, aby otworzyć menu moda. Wybierz <strong>HUD → PRZESUŃ KAFELKI</strong>, przeciągnij moduły i kliknij Gotowe. Klawisz <strong>H</strong> ukrywa lub pokazuje HUD.</p></div>
-</div>
-<div class="guide-notice"><strong>Serduszka nad graczami:</strong> działają w pobliżu innych widocznych postaci, ale ich dokładność zależy od informacji o HP, które udostępnia serwer. Ułożenie kafelków zapisuje się w konfiguracji moda. Pokaz na stronie jest tylko interaktywną makietą, nie steruje ustawieniami Minecraft.</div>
-<p><a style="color:#dca4ff;text-decoration:underline" href="https://github.com/cubeverse12/minevora-pvp-hud./releases/tag/v2.0.15-fabric-1.21.1" target="_blank" rel="noopener noreferrer">Pobierz i sprawdź wydanie PvP HUD 2.0.15 na GitHub</a>.</p>
-</section>
-<section class="guide-section" id="dodatki"><span class="eyebrow">06 / BIBLIOTEKA</span><h2>Modrinth, CurseForge i modpacki</h2><p>Wybierz instancję Minecraft, następnie kategorię: Mody, Modpacki, Shadery, Resource Packi albo Datapacki. Filtruj wyniki według wersji gry i loadera, zanim zainstalujesz dodatek.</p><p>Nie wszystkie mody działają na każdej wersji Minecraft; Fabric i Forge mają różne wymagania. Datapack należy przypisać do konkretnego świata. Pełna integracja CurseForge może wymagać klucza API zapisanego lokalnie w launcherze.</p></section>
- <section class="guide-section guide-faq" id="faq"><span class="eyebrow">07 / POMOC</span><h2>Najczęstsze pytania</h2>
- <details><summary>Dlaczego GitHub może oferować starszy ZIP niż 1.56.11?</summary><p>Witryna opisuje projekt testowy 1.56.11; nie potwierdzono opublikowania tej wersji w GitHub Releases. Link pobierania prowadzi do rzeczywiście dostępnych publicznych plików.</p></details>
- <details><summary>Launcher nie uruchamia się. Co sprawdzić?</summary><p>Sprawdź, czy uruchamiasz skrypt z rozpakowanego folderu, czy Python i biblioteki są dostępne oraz czy w oknie konsoli pojawił się konkretny komunikat błędu. W razie potrzeby prześlij sam tekst błędu, bez danych logowania.</p></details>
- <details><summary>Po logowaniu Microsoft pojawia się błąd localhost.</summary><p>Sprawdź, czy wersja launchera uruchamia lokalny odbiornik, czy port nie jest zajęty, a adres URI przekierowania w Entra dokładnie odpowiada konfiguracji aplikacji, łącznie z <code>/callback</code>. Nie udostępniaj URL zawierającego kod jednorazowy.</p></details>
- <details><summary>Czy PvP HUD działa na każdej wersji Minecraft?</summary><p>Nie. PvP HUD 2.0.15 działa z Fabric 1.21.1. Inne wersje Minecraft i inne loadery wymagają osobnych zgodnych kompilacji.</p></details>
- <details><summary>Dlaczego mod nie instaluje się na mojej wersji?</summary><p>Sprawdź wersję Minecraft, loader, zależności i rodzaj pliku. Nie każda modyfikacja jest zgodna ze wszystkimi wersjami lub loaderami.</p></details>
- <details><summary>Czy Skin Studio zmienia skina na koncie automatycznie?</summary><p>Skin Studio edytuje i zapisuje skiny lokalnie. Funkcje konta Minecraft mogą wymagać osobnego kroku; nie należy zakładać, że sam eksport PNG ustawia skina na koncie.</p></details>
- </section>
- <section class="guide-section" id="bezpieczenstwo"><span class="eyebrow">08 / BEZPIECZEŃSTWO</span><h2>Pobieraj ze sprawdzonych źródeł</h2><p>Nie wyłączaj Microsoft Defender ani Smart App Control. Nie udostępniaj folderu z tokenami i sprawdzaj raporty przed przekazaniem ich innym osobom. Sprawdzaj źródło plików, licencje modów i adresy stron autoryzacji. Jeśli potrzebujesz pomocy, napisz na <a style="color:#dca4ff;text-decoration:underline" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer">Discordzie MINEVORA</a>, ale nigdy nie publikuj tokenów ani poufnych danych.</p></section>
- </div></div>
+
+<main id="main" class="mvg-main">
+  <section class="mvg-hero" aria-labelledby="guide-title">
+    <div class="mvg-hero-copy"><p class="mvg-kicker">MINEVORA / PORADNIK WINDOWS</p>
+      <h1 id="guide-title">Minecraft Java.<br><span class="mvg-gradient">Od pierwszego uruchomienia.</span></h1>
+      <p>Krótki i uporządkowany poradnik: instalacja launchera, konto Microsoft, własne paczki, Modrinth, shadery, datapacki i rozwiązywanie problemów.</p>
+      <div class="mvg-actions"><a class="btn btn-primary" href="../pobierz/">Zobacz dostępne wydania</a><a class="btn btn-secondary" href="#instalacja">Przejdź do instrukcji ↓</a></div>
+      <p class="mvg-hero-note">Wersja rozwojowa 1.56.12 to kod źródłowy do testów. Dostępność publicznego wydania oraz numer pobieranej paczki zawsze sprawdzaj osobno.</p>
+    </div>
+    <div class="mvg-hero-visual" role="img" aria-label="Symbol wilka MINEVORA na grafitowej ilustracji z trzema etapami instalacji">
+      <div class="mvg-visual-glow"></div><div class="mvg-logo-orbit"><img src="../assets/minevora-icon-20261028.webp" alt="" width="170" height="170" loading="eager"></div>
+      <div class="mvg-sample-steps"><span><b>01</b> Pobierz i rozpakuj ZIP</span><span><b>02</b> Uruchom INSTALUJ.bat</span><span><b>03</b> Otwórz START_WINDOWS.bat</span></div>
+      <div class="mvg-visual-label">MINEVORA · CIEMNY ŁUPEK</div>
+    </div>
+  </section>
+  <div class="mvg-columns">
+    <nav class="mvg-toc" aria-label="Spis treści poradnika">
+      <strong>SPIS TREŚCI</strong><a href="#instalacja">01 · Instalacja</a>
+      <a href="#pierwszy-start">02 · Pierwsze uruchomienie</a>
+      <a href="#logowanie">03 · Konto Microsoft</a>
+      <a href="#dodatki">04 · Mody i Modrinth</a>
+      <a href="#modpacki">05 · Modpacki</a>
+      <a href="#datapacki">06 · Datapacki</a>
+      <a href="#shadery">07 · Shadery i tekstury</a>
+      <a href="#skin-studio">08 · Skin Studio i PvP</a>
+      <a href="#problemy">09 · Błędy i diagnostyka</a>
+      <a href="#bezpieczenstwo">10 · Bezpieczeństwo</a>
+    </nav>
+    <div class="mvg-content">
+      <section class="mvg-card" id="instalacja"><p class="mvg-kicker">01 / INSTALACJA</p><h2>Uruchom launcher w trzech krokach</h2>
+        <ol class="mvg-step-grid"><li><span>01</span><h3>Pobierz</h3><p>Na stronie <a href="../pobierz/">Pobierz</a> sprawdź dostępne wydania. Wybierz ZIP pasujący do Windows i przeczytaj opis.</p></li>
+        <li><span>02</span><h3>Rozpakuj</h3><p>Wypakuj cały ZIP do nowego folderu, razem z podfolderami i plikami <code>.bat</code>. Nie uruchamiaj programu bezpośrednio z archiwum.</p></li>
+        <li><span>03</span><h3>Zainstaluj i uruchom</h3><p>W paczce źródłowej MINEVORA uruchom <code>INSTALUJ.bat</code>, a następnie <code>START_WINDOWS.bat</code>. Postępuj według dołączonego README.</p></li></ol>
+        <p class="mvg-alert">Nie wyłączaj zabezpieczeń Windows. Jeśli instalacja się nie powiedzie, sprawdź komunikat w oknie terminala zamiast ponawiać ją w ciemno.</p>
+      </section>
+      <section class="mvg-card" id="pierwszy-start"><p class="mvg-kicker">02 / GRAJ</p><h2>Pierwsze uruchomienie Minecrafta</h2>
+        <div class="mvg-flow"><div><strong>Wybierz paczkę</strong><p>Utwórz lub wybierz istniejący profil w „Moje paczki”.</p></div><div><strong>Ustaw wersję i loader</strong><p>Wybierz zgodną wersję Minecraft Java i Vanilla, Fabric, Forge, NeoForge lub Quilt.</p></div><div><strong>Kliknij GRAJ</strong><p>Launcher powinien przygotować profil, a następnie uruchomić grę. Uruchomienie na danym komputerze należy przetestować.</p></div></div>
+        <p>Nie zmieniaj wersji istniejącego świata bez kopii zapasowej. Wymagane biblioteki i Java zależą od wybranej wersji gry.</p>
+      </section>
+      <section class="mvg-card" id="logowanie"><p class="mvg-kicker">03 / MICROSOFT</p><h2>Zaloguj się bezpiecznie</h2>
+        <p>W launcherze wybierz ikonę konta i uruchom oficjalny proces logowania Microsoft. Jeśli pojawi się kod urządzenia, użyj wyłącznie adresu podanego przez Microsoft. Nie wpisuj hasła bezpośrednio w oknie MINEVORA.</p>
+        <p>Do uruchamiania Minecraft Java wymagane jest konto z odpowiednimi uprawnieniami. Brak poprawnej konfiguracji aplikacji wydawcy może zablokować logowanie — sam Client ID nie jest gwarancją działania.</p>
+      </section>
+      <section class="mvg-card" id="dodatki"><p class="mvg-kicker">04 / MODRINTH</p><h2>Przeglądaj i instaluj dodatki</h2>
+        <div class="mvg-category-grid">
+         <a href="#dodatki" aria-label="Mody"><span class="mvg-symbol">✦</span><strong>Mody</strong><small>Pliki JAR i zależności loadera</small></a>
+         <a href="#modpacki"><span class="mvg-symbol">▦</span><strong>Modpacki</strong><small>Osobne instancje Minecrafta</small></a>
+         <a href="#datapacki"><span class="mvg-symbol">▤</span><strong>Datapacki</strong><small>Pliki konkretnego świata</small></a>
+         <a href="#shadery"><span class="mvg-symbol">◈</span><strong>Shadery</strong><small>Efekty graficzne</small></a>
+         <a href="#shadery"><span class="mvg-symbol">▧</span><strong>Resourcepacki</strong><small>Tekstury i zasoby gry</small></a>
+        </div>
+        <p>Przed instalacją sprawdź wersję Minecrafta i loader. Jeśli Modrinth wymaga dodatkowych modów, zatwierdź ich listę; nie pomijaj kontroli zależności. Gdy prawdziwa okładka jest niedostępna, launcher może pokazać ikonę zastępczą kategorii.</p>
+      </section>
+      <section class="mvg-card" id="modpacki"><p class="mvg-kicker">05 / MODPACKI</p><h2>Oddzielne paczki, oddzielne światy</h2>
+        <p>Użyj przycisku <strong>+</strong> w panelu paczek, aby utworzyć profil albo rozpocząć import obsługiwanego archiwum. Nadaj nazwę, ustaw Minecraft i loader. Każda paczka powinna przechowywać własne mody, konfigurację i światy.</p>
+        <p>Przed aktualizacją modpacka przygotuj kopię zapasową. Nie zamieniaj ręcznie plików paczki podczas działania gry.</p>
+      </section>
+      <section class="mvg-card" id="datapacki"><p class="mvg-kicker">06 / DATAPACKI</p><h2>Datapack jest przypisany do świata</h2>
+        <p>Wybierz paczkę i konkretny świat. Datapack ZIP zapisuje się w katalogu <code>saves/NazwaŚwiata/datapacks</code> — nie w głównym folderze <code>mods</code>. Świat musi istnieć, zanim dodasz do niego datapack.</p>
+        <p>Wykonaj kopię świata przed instalacją, a później sprawdź zawartość w grze.</p>
+      </section>
+      <section class="mvg-card" id="shadery"><p class="mvg-kicker">07 / GRAFIKA</p><h2>Shadery i paczki zasobów</h2>
+        <div class="mvg-flow"><div><strong>Shadery</strong><p>Pliki ZIP trafiają do <code>shaderpacks</code>. Do wyświetlania shaderów wymagany jest zgodny mod, na przykład Iris dla odpowiedniej konfiguracji Fabric.</p></div><div><strong>Paczki zasobów</strong><p>Pliki ZIP trafiają do <code>resourcepacks</code>. Włączysz je w ustawieniach zasobów Minecraft.</p></div></div>
+      </section>
+      <section class="mvg-card" id="skin-studio"><p class="mvg-kicker">08 / PERSONALIZACJA</p><h2>Skin Studio i PvP HUD</h2>
+        <p>W Skin Studio możesz przeglądać i wgrywać obsługiwane skiny PNG. Przed zapisaniem sprawdź podgląd postaci.</p>
+        <p>Dołączony mod PvP HUD jest przeznaczony dla <strong>Fabric 1.21.1</strong>. Nie zakładaj zgodności z innymi wersjami; wymagane są odpowiednie zależności i test w grze.</p>
+      </section>
+      <section class="mvg-card" id="problemy"><p class="mvg-kicker">09 / POMOC</p><h2>Gdy coś nie działa</h2>
+        <div class="mvg-faq">
+          <details><summary>Launcher nie startuje / błąd importu</summary><p>Najpierw sprawdź <code>logs/startup_error.log</code>. Uruchom skrypt diagnostyczny dostępny w danej paczce, na przykład <code>DIAGNOZA_STARTU.bat</code>. Pokaż sam komunikat błędu, bez tokenów i danych konta.</p></details>
+          <details><summary>Modrinth: brakuje obowiązkowych zależności</summary><p>Sprawdź listę wymagań moda, wersję gry i loader. W razie niezgodności wybierz kompatybilną wersję dodatku. Nie instaluj niesprawdzonych plików ręcznie w celu obejścia błędu.</p></details>
+          <details><summary>Nie widać ikon modów albo okładek</summary><p>Sprawdź połączenie z Modrinth CDN i ponów pobieranie okładek. Pliki lokalne bez osadzonej ikony mogą być pokazywane z symbolem kategorii.</p></details>
+          <details><summary>Brak wersji Minecraft</summary><p>Sprawdź połączenie z oficjalnym manifestem wersji, wybierz poprawną wersję Release i w razie potrzeby użyj akcji GRAJ do instalacji gry.</p></details>
+          <details><summary>Nie można zalogować Microsoft</summary><p>Sprawdź konfigurację publicznej aplikacji Microsoft i wymagane uprawnienia. Nie udostępniaj kodu urządzenia, haseł ani tokenów.</p></details>
+        </div>
+      </section>
+      <section class="mvg-card" id="bezpieczenstwo"><p class="mvg-kicker">10 / DANE</p><h2>Nie trać światów i modów</h2>
+        <p>Nowe wersje launchera rozpakowuj do osobnego folderu. Przed większą aktualizacją zrób kopię światów oraz własnych paczek. Naprawa interfejsu nie powinna wymagać kasowania katalogu <code>saves</code>, modyfikacji Minecrafta ani wyłączania ochrony Windows.</p>
+        <div class="mvg-actions"><a class="btn btn-primary" href="../pobierz/">Wydania i pobieranie</a><a class="btn btn-secondary" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer">Społeczność MINEVORA</a></div>
+      </section>
+    </div>
+  </div>
 </main>
 <a class="discord-float" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer" aria-label="Otwórz Discord MINEVORA w nowej karcie" title="Discord MINEVORA"><img src="../assets/discord.svg" width="33" height="33" alt=""><span>Discord</span></a>
 <footer class="footer"><div class="wrap foot-inner"><a class="brand" href="../"><img src="../assets/minevora-icon-20261028.webp" alt="" width="39" height="39"><span>MINEVORA</span></a><p>Poradnik MINEVORA Ciemny Łupek — Windows · wersja rozwojowa</p><nav class="footer-nav" aria-label="Stopka"><a href="../">Strona główna</a><a href="../pobierz/">Pobierz</a></nav></div></footer>
-<div class="mv-status" role="note"><span class="dot" aria-hidden="true"></span><span>MINEVORA · CIEMNY ŁUPEK — witryna informacyjna; grę uruchamia aplikacja Windows</span><span>Wersja rozwojowa: 1.56.11</span></div>
+<div class="mv-status" role="note"><span class="dot" aria-hidden="true"></span><span>MINEVORA · CIEMNY ŁUPEK — witryna informacyjna; grę uruchamia aplikacja Windows</span><span>Wersja rozwojowa: 1.56.12</span></div>
 </body></html>
