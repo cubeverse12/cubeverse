@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0B0E13">
-<meta name="description" content="MINEVORA 1.48.2 — testowa wersja launchera Minecraft Java. Diagnoza przed GRAJ, Skin Studio, mody, profile oraz PvP HUD Fabric 1.21.1.">
+<meta name="theme-color" content="#1E2022">
+<meta name="description" content="MINEVORA Launcher Minecraft Java — Ciemny Łupek (Slate), mody, datapacki, serwery i Skin Studio. Rozwój wersji 1.56.11.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:title" content="MINEVORA — Launcher Minecraft Java">
@@ -19,8 +19,9 @@
 <link rel="stylesheet" href="./pvp-hud-2-0-15.css">
 <link rel="stylesheet" href="./styles-1-43.css">
 <link rel="stylesheet" href="./styles-1-48-2.css?v=20261104-preview-clean">
+<link rel="stylesheet" href="./styles-1-56-11.css?v=20261115">
 <script defer src="./pvp-hud-2-0-15.js"></script>
-<title>MINEVORA 1.48.2 — BlockForge UI na Windows</title>
+<title>MINEVORA — Ciemny Łupek • Launcher Minecraft Java</title>
 <script defer src="./minevora-i18n.js"></script>
 </head>
 <body>
@@ -43,15 +44,15 @@
 <section class="hero" id="start">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow"><span class="dot" aria-hidden="true"></span> MINEVORA / WERSJA TESTOWA 1.48.2</span>
+      <span class="eyebrow"><span class="dot" aria-hidden="true"></span> MINEVORA / CIEMNY ŁUPEK · ROZWÓJ 1.56.11</span>
       <h1>Twój Minecraft.<br><span class="grad">Twój świat.</span><br>Twoje zasady.</h1>
-      <p class="lead">MINEVORA 1.48.2 ma nowy ekran startowy w stylu BlockForge z kartami instancji i wyszukiwarką, a także bibliotekę modów, paczek, Skin Studio i diagnostykę przed grą. Dołączony PvP HUD jest przeznaczony dla Fabric 1.21.1. Logowanie Microsoft i uruchamianie Minecrafta wymagają jeszcze testów na Windows 11.</p>
-      <div class="hero-pills"><span>Windows 11</span><span>MINEVORA 1.48.2</span><span>Fabric 1.21.1</span><span>Modrinth</span></div>
+      <p class="lead">MINEVORA rozwija spójny motyw Ciemny Łupek, zarządzanie paczkami, katalog Modrinth, datapacki i listę serwerów Minecraft Java. W wersji roboczej 1.56.11 poprawiono cień ikon i próby pobierania prawdziwych ikon serwerów. Dołączony PvP HUD jest przeznaczony dla Fabric 1.21.1; uruchomienie gry i logowanie Microsoft nadal wymagają sprawdzenia na Windows.</p>
+      <div class="hero-pills"><span>Windows 11</span><span>Rozwój 1.56.11</span><span>Fabric 1.21.1</span><span>Modrinth</span></div>
       <div class="actions"><a class="btn btn-primary" href="./pobierz/">Zobacz dostępne pobrania <span aria-hidden="true">↓</span></a><a class="btn btn-secondary" href="#funkcje">Poznaj funkcje <span aria-hidden="true">↗</span></a></div>
-      <p class="caption">Wersja 1.48.2 jest przygotowana do testów. Na GitHub Releases sprawdź numer rzeczywiście opublikowanego pliku — wydania 1.48.2 nie potwierdzono.</p>
+      <p class="caption">Wersja 1.56.11 jest paczką źródłową przekazywaną do testów. Dostępność publicznego pobrania sprawdź na stronie wydań; nie oznacza to podpisanej aplikacji EXE.</p>
     </div>
     <div class="preview-stage">
-      <p class="preview-caption-simple">PODGLĄD MINEVORA 1.48.2 — układ BlockForge</p>
+      <p class="preview-caption-simple">POGLĄDOWA MAKIETA INTERFEJSU — nie zrzut ekranu 1.56.11</p>
     <div class="app-shell" role="img" aria-label="Makieta grafitowo-niebieskiego interfejsu launchera MINEVORA z menu bocznym, biblioteką instancji, przyciskiem GRAJ i panelem konta">
       <div class="app-top"><img src="./assets/minevora-icon-20261028.webp" alt=""><strong>MINEVORA</strong><span class="app-breadcrumb">‹　›　⌂　 Start</span><span class="app-dots" aria-hidden="true">– □ ×</span></div>
       <div class="app-body">
@@ -74,6 +75,17 @@
     </div>
   </div>
 </section>
+<section class="slate-release-15611" id="aktualizacja-15611" aria-labelledby="slate-title"><div class="wrap">
+  <span class="eyebrow">AKTUALIZACJA PROJEKTU · 15.11.2026</span>
+  <h2 class="slate-update-title" id="slate-title">MINEVORA 1.56.11 — <span class="grad">Ciemny Łupek</span></h2>
+  <p class="slate-update-intro">Ujednolicamy wygląd launchera i strony. Widoki paczek, dodatków oraz serwerów zachowują swoje funkcje, a ikony otrzymują subtelniejszy cień. Aktywna ikona nie ma już pionowego paska wyboru.</p>
+  <div class="slate-update-grid">
+    <article><h3>Ikony i nawigacja</h3><p>Większy miękki cień, spójne oznaczenia i zaznaczenie całego kafelka zamiast kreski z boku.</p></article>
+    <article><h3>Serwery Minecraft</h3><p>Launcher próbuje odczytać oryginalne logo serwera Java po bezpośrednim sprawdzeniu statusu; gdy brak odpowiedzi, pokazuje inicjały.</p></article>
+    <article><h3>Mody i datapacki</h3><p>Katalog Modrinth oraz instalacja datapacków do wybranego świata pozostają osobnymi, rzeczywistymi funkcjami.</p></article>
+  </div>
+  <p class="slate-update-note">To opis wydania rozwojowego. Pliki dla Windows są testowane osobno; na stronie pobierania sprawdzaj faktycznie opublikowaną wersję. Starsza sekcja 1.48.2 poniżej pozostaje archiwum zmian.</p>
+  </div></section>
 <section class="release-143" aria-labelledby="release-143-title"><div class="wrap"><div class="release-143-header"><span class="eyebrow">AKTUALIZACJA · 04.11.2026</span><h2 id="release-143-title">MINEVORA <span class="grad">1.48.2</span> — nowy wygląd BlockForge</h2><p>Nowy ekran startowy w granatowo-niebieskiej kolorystyce: karty instancji Minecraft, wyszukiwarka paczek, szybkie skróty i panel konta. Silnik launchera pozostaje oparty na MINEVORA PySide6.</p></div><div class="release-143-grid"><article><span class="release-143-kicker">NOWY WYGLĄD</span><h3>Moje instancje</h3><p>Karty profili i paczek, przejrzysty wybór oraz integracja z dotychczasowym przyciskiem GRAJ.</p></article><article><span class="release-143-kicker">FUNKCJE MINEVORA</span><h3>Modrinth, Skin Studio i PvP</h3><p>Modrinth, serwery i Skin Studio zachowują własne moduły. PvP JAR wspiera Fabric 1.21.1.</p></article><article><span class="release-143-kicker">DO SPRAWDZENIA</span><h3>Windows 11 i Microsoft</h3><p>Logowanie Microsoft i rzeczywiste uruchomienie Minecrafta nadal wymagają testów na Windows.</p></article></div><p class="release-143-note">Wersja testowa 1.48.2. Jej publicznej publikacji w GitHub Releases nie potwierdzono; sprawdź numer dostępnego wydania.</p><div class="actions"><a class="btn btn-primary" href="./pobierz/">Pobieranie i wydania ↗</a><a class="btn btn-secondary" href="./poradnik/">Poradnik instalacji ↗</a></div></div></section>
 <section class="section" id="funkcje">
   <div class="wrap">
