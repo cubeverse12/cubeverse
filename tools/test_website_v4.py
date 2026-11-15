@@ -1,4 +1,4 @@
-"""Browser regression checks for the current MINEVORA 3.0.25 static site.
+"""Browser regression checks for the current MINEVORA Slate static site.
 
 Former checks targeted an obsolete 19.0.3 layout, so they could not pass.
 This script exercises PL/EN, page navigation, Discord, PvP preview, and phones.
@@ -50,11 +50,14 @@ try:
             assert response and response.status==200,(label,"homepage status")
             expect(page.locator("h1")).to_have_count(1)
             expect(page.locator("h1")).to_contain_text("Twój Minecraft")
-            assert "3.0.25" in page.title()
+            assert "Ciemny Łupek" in page.title()
             assert page.locator("link[rel='canonical']").get_attribute("href")=="https://minevora.pl/v4/"
             assert image_loaded(page,"header .brand img")
             assert page.locator(".app-shell").count()==1
             assert page.locator(".feature-grid").count()==1
+            assert page.locator(".mv-rail a[data-rail]").count()==6
+            assert page.locator(".mv-addon-grid .mv-addon").count()==5
+            assert page.locator('link[href*="launcher-slate-20261115.css"]').count()==1
             assert page.locator("a[href='./poradnik/']").count()>=1
             assert page.locator("a[href='https://discord.gg/M2fZVJBCqh']").count()>=2
             assert page.locator("[data-minevora-language]").count()==1
@@ -89,7 +92,7 @@ try:
             no_overflow(page,label+" English home")
             page.goto(BASE+"poradnik/",wait_until="networkidle")
             expect(page.locator("h1")).to_contain_text("Launcher installation")
-            assert "3.0.25" in page.locator("main").inner_text()
+            assert "1.56.11" in page.locator("main").inner_text()
             expect(page.locator("#pvp-hud")).to_contain_text("Right Shift")
             expect(page.locator("#pvp-hud")).to_contain_text("2.0.15")
             assert "How to install MINEVORA" in page.title()
