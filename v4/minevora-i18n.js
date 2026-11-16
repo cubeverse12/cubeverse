@@ -542,6 +542,45 @@ Object.assign(dictionary,{
   "W MINEVORA 1.56.13 R3 możesz przenieść pozycje kafelków do moda z zakładki PvP. Zamknij grę, wybierz profil Fabric 1.21.1 i ustaw skalę podglądu na 75–100%. Wyższa skala zostanie odrzucona zamiast zapisania innej wartości. W grze naciśnij prawy Shift lub P, aby otworzyć ustawienia; H ukrywa lub pokazuje HUD.": "In MINEVORA 1.56.13 R3, you can export HUD tile positions to the mod from the PvP tab. Close Minecraft, choose a Fabric 1.21.1 profile and set the preview scale to 75–100%. A higher scale is rejected rather than silently changed. In-game, press Right Shift or P to open settings; H toggles the HUD.",
   "W wersji testowej R3 użyj przycisku „SPRAWDŹ PvP HUD W TEJ PACZCE”. Kontrola jest tylko do odczytu: sprawdza sumę SHA-256 moda, zgłasza uszkodzony lub zmieniony JAR oraz nie nadpisuje własnych plików.": "In the R3 test build, use “CHECK PvP HUD IN THIS MODPACK”. This is a read-only check: it verifies the mod SHA-256 checksum, flags altered or damaged JARs, and never overwrites your files."
 });
+/* MINEVORA HOST 0.9.7 localized website section */
+Object.assign(dictionary,{
+  "MINEVORA HOST — lokalny panel Minecraft Java": "MINEVORA HOST — Local Minecraft Java Panel",
+  "Twój serwer.": "Your server.",
+  "Twój komputer.": "Your computer.",
+  "MINEVORA HOST 0.9.7 to osobny panel do lokalnego zarządzania serwerami Minecraft Java na Windows. Możesz sprawdzać stan instancji, przygotowywać Vanilla, zarządzać światami, kopiami zapasowymi i diagnostyką. To narzędzie do lokalnych testów, nie publiczna usługa hostingowa.": "MINEVORA HOST 0.9.7 is a separate local control panel for Minecraft Java servers on Windows. Check instance status, prepare Vanilla, manage worlds, backups and diagnostics. It is for local testing, not a public hosting service.",
+  "Otwórz lokalny panel HOST": "Open local HOST panel",
+  "Podgląd gościa": "Guest overview",
+  "Launcher Windows": "Windows launcher",
+  "Panel otworzy się wyłącznie wtedy, gdy MINEVORA HOST działa na tym samym urządzeniu. Na telefonie adres 127.0.0.1 wskazuje telefon, a nie komputer Windows.": "The panel opens only when MINEVORA HOST is running on the same device. On a phone, 127.0.0.1 refers to the phone, not your Windows computer.",
+  "LOKALNE FUNKCJE": "LOCAL FEATURES",
+  "Panel zarządzania": "Management panel for",
+  "HOST zachowuje oddzielne logowanie operatora i kontrolę lokalnego agenta. Strona minevora.pl nie pobiera danych z panelu, haseł ani tokenów.": "HOST retains separate operator authentication and local agent controls. minevora.pl does not read panel data, passwords or tokens.",
+  "Serwery i instancje": "Servers and instances",
+  "Zarządzaj lokalnymi instancjami i sprawdzaj ich stan z poziomu panelu HOST.": "Manage local instances and check their status in the HOST panel.",
+  "Światy i kopie": "Worlds and backups",
+  "Przechowuj światy oddzielnie, wykonuj kopie zapasowe i korzystaj z kontroli bezpiecznej aktualizacji.": "Keep worlds separate, make backups and use safer update checks.",
+  "Vanilla i dodatki": "Vanilla and add-ons",
+  "Wybierz zgodną wersję serwera; pluginy Paper i mody Fabric wymagają odpowiedniego silnika, nie Vanilla.": "Choose a compatible server version; Paper plugins and Fabric mods require the appropriate server software, not Vanilla.",
+  "Stan i diagnostyka": "Status and diagnostics",
+  "Sprawdzaj informacje o serwerze, lokalnego agenta i komunikaty diagnostyczne.": "Check server information, the local agent and diagnostic messages.",
+  "URUCHOMIENIE HOST": "START HOST",
+  "Uruchom w trzech krokach": "Start in three steps",
+  "Wybierz instalację": "Choose an installation",
+  "W launcherze otwórz MINEVORA HOST. Wskaż swój istniejący folder 0.9.7 albo przygotuj nową oddzielną kopię. Nie nadpisuj folderu ze światami.": "Open MINEVORA HOST in the launcher. Select your existing 0.9.7 folder or create a separate new copy. Do not overwrite the folder containing your worlds.",
+  "Włącz panel i agenta": "Start the panel and agent",
+  "Uruchom panel i agenta w osobnych oknach Windows. Panel używa portu 8000, a agent portu 8767, tylko lokalnie.": "Start the panel and agent in separate Windows consoles. The panel uses port 8000 and the agent uses port 8767, both locally.",
+  "Zaloguj operatora": "Sign in as operator",
+  "Otwórz panel na tym samym komputerze, zaloguj się na konto operatora i wybierz instancję serwera. Uprawnienia pozostają po stronie HOST.": "Open the panel on the same computer, sign in to the operator account and select a server instance. Permissions remain managed by HOST.",
+  "Bezpieczeństwo i ograniczenia": "Security and limitations",
+  "Nie udostępniaj publicznie portów 8000 ani 8767. Nie uruchamiaj panelu na internetowym serwerze bez osobnej architektury bezpieczeństwa. HOST 0.9.7 nie gwarantuje publicznych adresów, automatycznej ochrony DDoS ani dostępności 24/7.": "Do not expose ports 8000 or 8767 publicly. Do not run the panel on an internet-facing server without a separate secure architecture. HOST 0.9.7 does not provide public addresses, automatic DDoS protection or 24/7 availability.",
+  "Twój własny": "Your own",
+  "serwer Minecraft.": "Minecraft server.",
+  "Połącz launcher z osobnym lokalnym panelem HOST. Zarządzaj instancjami, światem i kopiami zapasowymi na Windows. Panel działa tylko na Twoim komputerze.": "Connect your launcher to a separate local HOST panel. Manage instances, worlds and backups on Windows. The panel only runs on your computer.",
+  "Poznaj MINEVORA HOST": "Explore MINEVORA HOST",
+  "Otwórz lokalny panel": "Open local panel",
+  "Nie jest to publiczna usługa hostingowa.": "This is not a public hosting service.",
+  "MINEVORA HOST 0.9.7 · lokalny panel": "MINEVORA HOST 0.9.7 · local panel"
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
