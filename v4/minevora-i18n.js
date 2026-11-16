@@ -432,6 +432,52 @@ Object.assign(dictionary,{
   "Poradnik MINEVORA Ciemny Łupek — Windows · wersja rozwojowa": "MINEVORA Dark Slate Guide — Windows · development build",
   "Wersja rozwojowa: sprawdź aktualne wydanie": "Development version: check the latest release"
 });
+/* 2026-11-16 preview, navigation and category labels */
+Object.assign(dictionary,{
+  "Dodatki": "Add-ons",
+  "launcherze.": "launcher.",
+  "‹　›　⌂　 Dodatki": "‹　›　⌂　 Add-ons",
+  "Dodatki Minecraft": "Minecraft add-ons",
+  "Moja paczka": "My modpack",
+  "KATALOG MODRINTH": "MODRINTH CATALOG",
+  "⌕　Wyszukaj mod, datapack lub shader…": "⌕　Find a mod, data pack or shader…",
+  "MODY": "MODS",
+  "MODPACKI": "MODPACKS",
+  "DATAPACKI": "DATA PACKS",
+  "SHADERY": "SHADERS",
+  "RESOURCEPACKI": "RESOURCE PACKS",
+  "Wyniki z Modrinth · Minecraft Java": "Results from Modrinth · Minecraft Java",
+  "Wersja 1.56.11": "Version 1.56.11",
+  "Jedno miejsce.": "One place.",
+  "Mody": "Mods",
+  "Modpacki": "Modpacks",
+  "Paczki Minecraft": "Minecraft packs",
+  "Datapacki": "Data packs",
+  "Shadery": "Shaders",
+  "Efekty graficzne": "Graphics effects",
+  "Resourcepacki": "Resource packs",
+  "AKTUALIZACJA PROJEKTU · 15.11.2026": "PROJECT UPDATE · 15 NOV 2026",
+  "Serwery Minecraft": "Minecraft servers",
+  "Skin Studio 3D": "3D Skin Studio",
+  "Paleta Slate": "Slate palette",
+  "Czytelne ikony": "Readable icons",
+  "Wersja rozwojowa: 1.56.11": "Development build: 1.56.11",
+  "Od pierwszego uruchomienia.": "From the first launch.",
+  "Uruchom INSTALUJ.bat": "Run INSTALUJ.bat",
+  "01 · Instalacja": "01 · Installation",
+  "02 · Pierwsze uruchomienie": "02 · First launch",
+  "03 · Konto Microsoft": "03 · Microsoft account",
+  "05 · Modpacki": "05 · Modpacks",
+  "06 · Datapacki": "06 · Data packs",
+  "Pierwsze uruchomienie Minecrafta": "First Minecraft launch",
+  "Kliknij GRAJ": "Click PLAY",
+  "Osobne instancje Minecrafta": "Separate Minecraft instances",
+  "Brak wersji Minecraft": "Minecraft version missing",
+  "Projekt testowy 1.56.11": "Test project 1.56.11",
+  "RIGHT SHIFT · MENU   |   H · HUD": "RIGHT SHIFT · MENU   |   H · HUD",
+  "✦ Speed II": "✦ Speed II",
+  "♧ Microsoft": "♧ Microsoft"
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
