@@ -50,6 +50,8 @@ try:
             assert response and response.status==200,(label,"homepage status")
             expect(page.locator("h1")).to_have_count(1)
             expect(page.locator("h1")).to_contain_text("Twój Minecraft")
+            assert page.locator("#skin-studio img").get_attribute("src").endswith("20261116.svg")
+
             assert "Ciemny Łupek" in page.title()
             assert page.locator("link[rel='canonical']").get_attribute("href")=="https://minevora.pl/v4/"
             assert image_loaded(page,"header .brand img")
@@ -87,24 +89,30 @@ try:
             expect(page.locator("html")).to_have_attribute("lang","en")
             expect(page.locator("h1")).to_contain_text("Your Minecraft")
             expect(page.locator("#pvp-hud")).to_contain_text("Hearts above players")
+            expect(page.locator(".hero .lead")).to_contain_text("One place to launch Minecraft Java")
+            expect(page.locator(".app-title")).to_have_text("Minecraft add-ons")
+            expect(page.locator(".mv-addon-grid .mv-addon").first).to_contain_text("Mods")
+            assert page.locator("#skin-studio img").get_attribute("src").endswith("-en.svg")
+            assert image_loaded(page,"#skin-studio img")
+
             expect(page.locator("[data-demo-hud-reset]")).to_have_text("Reset layout")
             assert page.evaluate("localStorage.getItem('minevora_site_language')")=="en"
             no_overflow(page,label+" English home")
             page.goto(BASE+"poradnik/",wait_until="networkidle")
-            expect(page.locator("h1")).to_contain_text("Launcher installation")
-            assert "1.56.11" in page.locator("main").inner_text()
-            expect(page.locator("#pvp-hud")).to_contain_text("Right Shift")
-            expect(page.locator("#pvp-hud")).to_contain_text("2.0.15")
-            assert "How to install MINEVORA" in page.title()
+            expect(page.locator("h1")).to_contain_text("From the first launch.")
+            expect(page.locator("#instalacja")).to_contain_text("Start the launcher")
+            expect(page.locator("#skin-studio")).to_contain_text("PvP HUD")
+            expect(page.locator("#skin-studio")).to_contain_text("Fabric 1.21.1")
+            assert "MINEVORA Guide" in page.title()
             assert page.locator("link[rel='canonical']").get_attribute("href")=="https://minevora.pl/v4/poradnik/"
             assert image_loaded(page,"header .brand img")
-            assert page.locator("#faq details").count()>=5
+            assert page.locator("#problemy details").count()>=5
             expect(page.locator("[data-minevora-language]")).to_have_value("en")
             no_overflow(page,label+" English guide")
             page.locator("[data-minevora-language]").select_option("pl")
             expect(page.locator("html")).to_have_attribute("lang","pl")
-            expect(page.locator("h1")).to_contain_text("Instalacja launchera")
-            expect(page.locator("#pvp-hud")).to_contain_text("prawy Shift")
+            expect(page.locator("h1")).to_contain_text("Od pierwszego uruchomienia.")
+            expect(page.locator("#instalacja")).to_contain_text("Uruchom launcher")
             assert not errors,(label,"JS exceptions",errors)
             no_overflow(page,label+" Polish guide")
             page.screenshot(path=str(OUT/(label+"-guide.png")),full_page=True,animations="disabled")
