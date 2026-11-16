@@ -513,6 +513,15 @@ Object.assign(dictionary,{
   "Dla paczki rozwojowej 1.56.13 uruchom kolejno:": "For development package 1.56.13, run in this order:",
   ". W innych wydaniach korzystaj z README dołączonego do paczki.": ". For other releases, follow the included README."
 });
+/* MINEVORA website fixes: localized PvP HUD synchronization notes. */
+Object.assign(dictionary,{
+  "To osobny JAR moda Fabric 1.21.1, nie instalator launchera. Wymagane są Fabric API i Java 21+. Synchronizacja układu z launchera do moda obsługuje skalę 75–100%; większa skala podglądu nie jest eksportowana.": "This is a standalone Fabric 1.21.1 mod JAR, not the launcher installer. Fabric API and Java 21+ are required. Syncing the launcher HUD layout to the mod supports a 75–100% scale; higher preview scales are not exported.",
+  "W MINEVORA 1.56.13 R2 możesz przenieść pozycje kafelków do moda z zakładki PvP. Zamknij grę, wybierz profil Fabric 1.21.1 i ustaw skalę podglądu na": "In MINEVORA 1.56.13 R2, you can export HUD tile positions to the mod from the PvP tab. Close the game, choose a Fabric 1.21.1 profile and set the preview scale to",
+  "Wyższa skala zostanie odrzucona zamiast zapisania innej wartości. W grze naciśnij": "A higher scale is rejected rather than silently replaced with another value. In-game, press",
+  "prawy Shift lub P": "Right Shift or P",
+  ", aby otworzyć ustawienia;": "to open settings;",
+  "ukrywa lub pokazuje HUD.": "hides or shows the HUD."
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
