@@ -190,3 +190,40 @@ header .brand img,footer .brand img,.mv-rail-brand img,.mvg-logo-orbit img,
   .site-language-switch{padding:0 3px!important}
   .app-shell .app-rail{width:37px}
 }
+
+
+/* MINEVORA Cyberwolf sharp-logo pass: pure SVG with no blur or enlargement of bitmap art. */
+.brand img,.mv-rail-brand img,.app-shell .app-top img,.mvg-logo-orbit img,
+.footer .brand img,.mvg-hero-visual .mvg-logo-orbit img{
+  filter:none!important;
+  -webkit-filter:none!important;
+  transform:none!important;
+  opacity:1!important;
+  image-rendering:auto!important;
+  object-fit:contain!important;
+  mix-blend-mode:normal!important;
+  backface-visibility:visible!important;
+  will-change:auto!important;
+}
+.topbar .brand img{width:46px!important;height:46px!important;max-width:none;flex-shrink:0!important}
+.mv-rail-brand img{width:50px!important;height:50px!important}
+.app-shell .app-top img{width:34px!important;height:34px!important}
+.mvg-logo-orbit{
+  width:146px!important;height:146px!important;
+  border:2px solid #8DC6D8!important;
+  border-radius:26px!important;
+  background:#1A2D3A!important;
+  box-shadow:0 0 0 5px rgba(12,26,37,.50)!important;
+}
+.mvg-logo-orbit img{display:block!important;width:100%!important;height:100%!important;padding:8px!important}
+@media(max-width:760px){
+  .topbar .brand img{width:41px!important;height:41px!important}
+  .mvg-logo-orbit{width:112px!important;height:112px!important;right:14px!important;top:14px!important}
+  .mvg-logo-orbit img{padding:5px!important}
+  .mvg-hero-visual{padding-top:142px!important}
+}
+@media(max-width:390px){
+  .topbar .brand img{width:36px!important;height:36px!important}
+  .mvg-logo-orbit{width:99px!important;height:99px!important}
+  .mvg-hero-visual{padding-top:128px!important}
+}
