@@ -522,6 +522,7 @@ Object.assign(dictionary,{
   ", aby otworzyć ustawienia;": "to open settings;",
   "ukrywa lub pokazuje HUD.": "hides or shows the HUD."
 });
+Object.assign(dictionary,{"W MINEVORA 1.56.13 R2 możesz przenieść pozycje kafelków do moda z zakładki PvP. Zamknij grę, wybierz profil Fabric 1.21.1 i ustaw skalę podglądu na 75–100%. Wyższa skala zostanie odrzucona zamiast zapisania innej wartości. W grze naciśnij prawy Shift lub P, aby otworzyć ustawienia; H ukrywa lub pokazuje HUD.":"In MINEVORA 1.56.13 R2, you can export HUD tile positions to the mod from the PvP tab. Close the game, choose a Fabric 1.21.1 profile and set the preview scale to 75–100%. A higher scale is rejected rather than silently changed to another value. In-game, press Right Shift or P to open settings; H hides or shows the HUD."});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
