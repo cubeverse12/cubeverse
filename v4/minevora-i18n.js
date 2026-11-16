@@ -507,6 +507,12 @@ Object.assign(dictionary, {
   "Projekt testowy 1.56.13": "Test project 1.56.13",
   "Wykonaj instrukcję z README danego wydania. W paczce źródłowej 1.56.13 uruchom 01_INSTALUJ_15613.bat, potem 02_SPRAWDZ_15613.bat i 03_URUCHOM_15613.bat. Inne wydania mogą mieć inne skrypty — sprawdź README.": "Follow the release README. In source package 1.56.13, run 01_INSTALUJ_15613.bat, then 02_SPRAWDZ_15613.bat and 03_URUCHOM_15613.bat. Other releases may use different scripts — consult their README."
 });
+/* Slate R3 installation-guide script names */
+Object.assign(dictionary,{
+  "Uruchom skrypty z README": "Run the README scripts",
+  "Dla paczki rozwojowej 1.56.13 uruchom kolejno:": "For development package 1.56.13, run in this order:",
+  ". W innych wydaniach korzystaj z README dołączonego do paczki.": ". For other releases, follow the included README."
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
