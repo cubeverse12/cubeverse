@@ -509,11 +509,27 @@ function changeLanguage(lang){
    if(el.getAttribute(attr)!==translated)el.setAttribute(attr,translated);
   }
  }
+ // Illustrations with embedded lettering have separate local PL/EN variants.
+ for(const img of document.querySelectorAll('img[data-src-pl][data-src-en]')) {
+  const source=lang==='en'?img.dataset.srcEn:img.dataset.srcPl;
+  if(source&&img.getAttribute('src')!==source)img.setAttribute('src',source);
+ }
  for(const el of document.querySelectorAll('[data-minevora-language]'))el.setAttribute('aria-label',lang==='en'?'Website language':'Język strony');
+ document.dispatchEvent(new CustomEvent('minevora:languagechange',{detail:{lang}}));
 }
 document.addEventListener('DOMContentLoaded',()=>{
  const lang=readLanguage();changeLanguage(lang);
  document.querySelectorAll('[data-minevora-language]').forEach(el=>el.addEventListener('change',()=>changeLanguage(el.value)));
  document.addEventListener('click',event=>{if(event.target.closest('[data-demo-hud-toggle], [data-preview-theme], [data-preview-compact], [data-preview-motion]')){queueMicrotask(()=>changeLanguage(readLanguage()))}});
+ // Translates content added later by interactive modules without changing app state.
+ let updatePending=false;
+ const observer=new MutationObserver(records=>{
+  if(!records.some(r=>r.addedNodes.length))return;
+  if(updatePending)return;
+  updatePending=true;
+  queueMicrotask(()=>{updatePending=false;changeLanguage(readLanguage());});
+ });
+ observer.observe(document.body,{childList:true,subtree:true});
+
 });
 })();
