@@ -9,7 +9,7 @@ const isHost=location.pathname.includes("/host/");
 const sections=[
  ["start","home"],["kategorie-dodatkow","features"],["aktualizacja-15611","features"],
  ["funkcje","features"],["pvp-hud","pvp"],["wyglad","features"],
- ["skin-studio","skin"],["pobierz","download"],["spolecznosc","home"]
+ ["skin-studio","skin"],["hosting","host"],["pobierz","download"],["spolecznosc","home"]
 ].map(([id,rail])=>({node:document.getElementById(id),rail})).filter(x=>x.node);
 function setActive(rail){
  for(const link of links){
