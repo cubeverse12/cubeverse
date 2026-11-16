@@ -75,12 +75,25 @@ try:
             info = measurements(page)
             assert info["scrollWidth"]<=info["innerWidth"]+2,(label,"horizontal overflow",info)
             expect(page.locator("h1")).to_have_count(1)
-            assert "3.0.25" in page.title(),(label,"wrong page version",page.title())
+            assert "MINEVORA" in page.title() and "Ciemny Łupek" in page.title(),(label,"unexpected page title",page.title())
             assert info["preview"]["width"]>100,(label,"preview missing",info)
             assert info["button"]["height"]>=43,(label,"hero button too small",info)
             expect(page.locator('[data-demo-hud-tile]')).to_have_count(5)
             expect(page.locator(".pvp-overhead-hearts")).to_have_count(1)
-            if width>=790:
+            assert page.locator("#wyglad .icon-swatch svg").count()==3,(label,"missing vector icon gallery")
+            assert page.locator("#wyglad .layout-swatch svg").count()==1,(label,"missing layout preview")
+            visual=page.evaluate("""() => ({
+              sky:getComputedStyle(document.querySelector('#pvp-hud .pvp-sky')).backgroundImage,
+              iconPanel:getComputedStyle(document.querySelector('#wyglad .visual-swatch')).backgroundColor,
+              bottomPad:parseFloat(getComputedStyle(document.body).paddingBottom),
+              dockHeight:document.querySelector('.mv-rail').getBoundingClientRect().height,
+            })""")
+            assert "rgb(57, 37, 84)" not in visual["sky"],(label,"old purple PvP sky",visual)
+            if width<=760:
+                assert visual["bottomPad"]>=75,(label,"bottom dock overlaps content",visual)
+                assert 45<=visual["dockHeight"]<=65,(label,"mobile dock too tall",visual)
+
+            if width>1120:
                 assert info["desktopNav"]["visible"],(label,"desktop navigation missing",info)
                 assert not info["mobileNav"]["visible"],(label,"mobile navigation displayed",info)
                 assert info["preview"]["x"]>=info["copy"]["right"]-20,(label,"hero not side by side",info)
