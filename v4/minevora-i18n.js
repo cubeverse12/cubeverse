@@ -523,6 +523,20 @@ Object.assign(dictionary,{
   "ukrywa lub pokazuje HUD.": "hides or shows the HUD."
 });
 Object.assign(dictionary,{"W MINEVORA 1.56.13 R2 możesz przenieść pozycje kafelków do moda z zakładki PvP. Zamknij grę, wybierz profil Fabric 1.21.1 i ustaw skalę podglądu na 75–100%. Wyższa skala zostanie odrzucona zamiast zapisania innej wartości. W grze naciśnij prawy Shift lub P, aby otworzyć ustawienia; H ukrywa lub pokazuje HUD.":"In MINEVORA 1.56.13 R2, you can export HUD tile positions to the mod from the PvP tab. Close the game, choose a Fabric 1.21.1 profile and set the preview scale to 75–100%. A higher scale is rejected rather than silently changed to another value. In-game, press Right Shift or P to open settings; H hides or shows the HUD."});
+/* Slate R3: translations for accessible PvP HUD preview controls. */
+Object.assign(dictionary,{
+  "Przeciągnij kafelek lub użyj strzałek": "Drag the tile or use the arrow keys",
+  "Gracz · HP przykładowe": "Player · sample HP",
+  "Przeciągnij kafelek FPS": "Drag FPS tile",
+  "Przeciągnij kafelek CPS": "Drag CPS tile",
+  "Przeciągnij kafelek Combo": "Drag Combo tile",
+  "Przeciągnij kafelek pancerza": "Drag armor tile",
+  "Przeciągnij kafelek mikstur": "Drag potions tile",
+  "Ukryj HUD (podgląd)": "Hide HUD (preview)",
+  "Pokaż HUD (podgląd)": "Show HUD (preview)",
+  "RESETUJ UKŁAD": "RESET LAYOUT",
+  "Resetuj układ": "Reset layout"
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
