@@ -82,13 +82,24 @@ try:
             hud.click()
             expect(hud).to_have_attribute("aria-pressed","false")
             expect(page.locator("[data-demo-hud-preview]")).to_have_attribute("data-hud","off")
+            # Hidden tiles must not remain keyboard-focusable or visible to screen readers.
+            for hidden_tile in page.locator("[data-demo-hud-tile]").all():
+                expect(hidden_tile).to_be_disabled()
+                expect(hidden_tile).to_have_attribute("aria-hidden","true")
+
             hud.click()
             expect(hud).to_have_attribute("aria-pressed","true")
+            expect(tile).to_be_enabled()
+            expect(tile).to_have_attribute("aria-hidden","false")
+
 
             page.locator("[data-minevora-language]").select_option("en")
             expect(page.locator("html")).to_have_attribute("lang","en")
             expect(page.locator("h1")).to_contain_text("Your Minecraft")
             expect(page.locator("#pvp-hud")).to_contain_text("Hearts above players")
+            expect(tile).to_have_attribute("title","Drag the tile or use the arrow keys")
+            expect(page.locator("#pvp-hud .pvp-overhead-hearts small")).to_have_text("Player · sample HP")
+
             expect(page.locator("#pvp-hud .pvp-install-note")).to_contain_text("75–100%")
             expect(page.locator(".hero .lead")).to_contain_text("One place to launch Minecraft Java")
             expect(page.locator(".app-title")).to_have_text("Minecraft add-ons")
