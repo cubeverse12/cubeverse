@@ -537,6 +537,11 @@ Object.assign(dictionary,{
   "RESETUJ UKŁAD": "RESET LAYOUT",
   "Resetuj układ": "Reset layout"
 });
+/* Slate R3: up-to-date bilingual guide diagnostics. */
+Object.assign(dictionary,{
+  "W MINEVORA 1.56.13 R3 możesz przenieść pozycje kafelków do moda z zakładki PvP. Zamknij grę, wybierz profil Fabric 1.21.1 i ustaw skalę podglądu na 75–100%. Wyższa skala zostanie odrzucona zamiast zapisania innej wartości. W grze naciśnij prawy Shift lub P, aby otworzyć ustawienia; H ukrywa lub pokazuje HUD.": "In MINEVORA 1.56.13 R3, you can export HUD tile positions to the mod from the PvP tab. Close Minecraft, choose a Fabric 1.21.1 profile and set the preview scale to 75–100%. A higher scale is rejected rather than silently changed. In-game, press Right Shift or P to open settings; H toggles the HUD.",
+  "W wersji testowej R3 użyj przycisku „SPRAWDŹ PvP HUD W TEJ PACZCE”. Kontrola jest tylko do odczytu: sprawdza sumę SHA-256 moda, zgłasza uszkodzony lub zmieniony JAR oraz nie nadpisuje własnych plików.": "In the R3 test build, use “CHECK PvP HUD IN THIS MODPACK”. This is a read-only check: it verifies the mod SHA-256 checksum, flags altered or damaged JARs, and never overwrites your files."
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
