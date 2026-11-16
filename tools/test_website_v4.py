@@ -57,7 +57,7 @@ try:
             assert image_loaded(page,"header .brand img")
             assert page.locator(".app-shell").count()==1
             assert page.locator(".feature-grid").count()==1
-            assert page.locator(".mv-rail a[data-rail]").count()==6
+            assert page.locator(".mv-rail a[data-rail]").count()==7
             assert page.locator(".mv-addon-grid .mv-addon").count()==5
             assert page.locator('link[href*="launcher-slate-20261115.css"]').count()==1
             assert page.locator("a[href='./poradnik/']").count()>=1
@@ -110,6 +110,20 @@ try:
             expect(page.locator("[data-demo-hud-reset]")).to_have_text("Reset layout")
             assert page.evaluate("localStorage.getItem('minevora_site_language')")=="en"
             no_overflow(page,label+" English home")
+            expect(page.locator("#hosting")).to_contain_text("Connect your launcher")
+            page.goto(BASE+"host/",wait_until="networkidle")
+            assert page.locator("a[href='http://127.0.0.1:8000/']").count()>=1
+            assert page.locator("a[href='http://127.0.0.1:8000/podglad/']").count()>=1
+            expect(page.locator("html")).to_have_attribute("lang","en")
+            expect(page.locator("h1")).to_contain_text("Your server.")
+            expect(page.locator(".mv-rail a[data-rail='host']")).to_have_attribute("aria-current","page")
+            assert page.locator(".mv-rail a[data-rail]").count()==7
+            no_overflow(page,label+" English HOST")
+            page.locator("[data-minevora-language]").select_option("pl")
+            expect(page.locator("h1")).to_contain_text("Twój serwer.")
+            no_overflow(page,label+" Polish HOST")
+            page.locator("[data-minevora-language]").select_option("en")
+
             page.goto(BASE+"poradnik/",wait_until="networkidle")
             expect(page.locator("h1")).to_contain_text("From the first launch.")
             expect(page.locator("#instalacja")).to_contain_text("Start the launcher")
@@ -146,6 +160,10 @@ try:
         assert response and response.status==200
         expect(page.locator("h1")).to_contain_text("Od pierwszego uruchomienia.")
         no_overflow(page,"No-JS guide")
+        response=page.goto(BASE+"host/",wait_until="load")
+        assert response and response.status==200
+        no_overflow(page,"No-JS HOST")
+
         ctx.close()
         browser.close()
     (OUT/"results.json").write_text(json.dumps(results,ensure_ascii=False,indent=2),encoding="utf-8")
