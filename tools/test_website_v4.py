@@ -128,7 +128,7 @@ try:
         no_overflow(page,"No-JS home")
         response=page.goto(BASE+"poradnik/",wait_until="load")
         assert response and response.status==200
-        expect(page.locator("h1")).to_contain_text("Instalacja launchera")
+        expect(page.locator("h1")).to_contain_text("Od pierwszego uruchomienia.")
         no_overflow(page,"No-JS guide")
         ctx.close()
         browser.close()
