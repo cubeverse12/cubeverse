@@ -8,13 +8,5 @@ function update(){
  for(const link of links){if(link.dataset.rail===current)link.setAttribute("aria-current","page");else link.removeAttribute("aria-current");}
 }
 addEventListener("hashchange",update);update();
-const el=[...document.querySelectorAll("[data-slate-en]")];
-for(const e of el){e.dataset.slatePl=e.textContent;}
-function language(){
- const selected=document.querySelector("[data-minevora-language]");
- const lang=selected?.value==="en"?"en":"pl";
- for(const e of el){e.textContent=lang==="en"?e.dataset.slateEn:e.dataset.slatePl;}
-}
-for(const s of document.querySelectorAll("[data-minevora-language]"))s.addEventListener("change",language);
-language();
+/* The shared i18n controller owns all PL/EN text changes, including sidebar labels. */
 })();
