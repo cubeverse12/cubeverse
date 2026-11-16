@@ -581,6 +581,13 @@ Object.assign(dictionary,{
   "Nie jest to publiczna usługa hostingowa.": "This is not a public hosting service.",
   "MINEVORA HOST 0.9.7 · lokalny panel": "MINEVORA HOST 0.9.7 · local panel"
 });
+/* MINEVORA HOST build 1.56.14 - preserve translations for updated version labels. */
+Object.assign(dictionary,Object.fromEntries(Object.entries(dictionary).filter(([source])=>source.includes('1.56.13')).map(([source,translation])=>[source.replaceAll('1.56.13','1.56.14').replaceAll('15613.bat','15614.bat'),translation.replaceAll('1.56.13','1.56.14').replaceAll('15613.bat','15614.bat')])));
+Object.assign(dictionary,{
+  "Paczka rozwojowa 1.56.14 zawiera PvP HUD 2.0.15 i integrację lokalnego MINEVORA HOST 0.9.7. To kod do testów Windows, nie potwierdzony publiczny instalator. W GitHub Releases mogą być dostępne inne wersje.": "Development package 1.56.14 includes PvP HUD 2.0.15 and local MINEVORA HOST 0.9.7 integration. It is Windows source code for testing, not a confirmed public installer. Other versions may be available on GitHub Releases.",
+  "Projekt MINEVORA jest rozwijany w motywie Ciemny Łupek (Slate). Paczka rozwojowa 1.56.14 dodaje PvP HUD 2.0.15, HOST 0.9.7 i poprawki launchera. To źródła do testów Windows, niepotwierdzone jako publiczne wydanie. Na GitHub Releases sprawdź rzeczywiście dostępne pliki.": "MINEVORA is developed in the Dark Slate theme. Development package 1.56.14 adds PvP HUD 2.0.15, HOST 0.9.7 and launcher fixes. These Windows test sources are not a confirmed public release. Check GitHub Releases for files actually available.",
+  "Od MINEVORA 1.56.13 R3 możesz przenieść pozycje kafelków do moda z zakładki PvP. Zamknij grę, wybierz profil Fabric 1.21.1 i ustaw skalę podglądu na 75–100%. Wyższa skala zostanie odrzucona zamiast zapisania innej wartości. W grze naciśnij prawy Shift lub P, aby otworzyć ustawienia; H ukrywa lub pokazuje HUD.": "Since MINEVORA 1.56.13 R3, you can export HUD tile positions to the mod from the PvP tab. Close Minecraft, select a Fabric 1.21.1 profile and set the preview scale to 75–100%. A higher scale is rejected rather than silently changed. In-game, press Right Shift or P to open settings; H toggles the HUD."
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
