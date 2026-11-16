@@ -175,3 +175,52 @@ main section[id],main [id]{scroll-margin-top:92px}
  #wyglad .visual-swatch.icon-swatch svg{padding:9px}
  #wyglad .visual-swatch.layout-swatch svg{max-height:62px}
 }
+
+
+/* 2026-11-16: compact mobile dropdown. Supersedes legacy wide/tall menu. */
+@media(max-width:1120px){
+ .topbar .mobile-nav{position:relative!important;z-index:151!important;min-width:0}
+ .topbar .mobile-nav summary{
+   display:inline-flex!important;align-items:center;justify-content:center;
+   min-height:43px;line-height:1.15;cursor:pointer;white-space:nowrap;
+   font-size:14px!important;font-weight:650;padding:9px 12px!important
+ }
+ .topbar .mobile-nav[open] summary{
+   background:#314653!important;border-color:#91bdcf!important;
+   color:#f0fbff!important
+ }
+ .topbar .mobile-nav:not([open])>.mobile-items{display:none!important}
+ .topbar .mobile-nav[open]>.mobile-items{
+   position:absolute!important;top:calc(100% + 7px)!important;
+   right:0!important;left:auto!important;
+   width:min(216px,calc(100vw - 24px))!important;
+   max-width:calc(100vw - 24px)!important;min-width:0!important;
+   max-height:min(360px,calc(100dvh - 158px))!important;
+   overflow-y:auto!important;overscroll-behavior:contain;
+   display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+   gap:2px!important;padding:7px!important;margin:0!important;
+   background:#202f3d!important;border:1px solid #7899ad!important;
+   border-radius:13px!important;box-shadow:0 15px 40px #020910c9!important;
+   font-size:14px!important;
+ }
+ .topbar .mobile-nav .mobile-items a{
+   display:flex!important;align-items:center!important;gap:9px!important;
+   min-height:38px!important;padding:8px 11px!important;margin:0!important;
+   font-size:14px!important;font-weight:650!important;line-height:1.25!important;
+   white-space:normal!important;text-decoration:none!important;
+   background:transparent;border-radius:8px!important;
+   color:#e0edf4!important
+ }
+ .topbar .mobile-nav .mobile-items a:hover,
+ .topbar .mobile-nav .mobile-items a:focus-visible{
+   background:#385465!important;color:#fff!important
+ }
+ .topbar .mobile-nav .mobile-items .discord-link img{
+   width:19px!important;height:19px!important;object-fit:contain
+ }
+}
+@media(max-width:760px){
+ .topbar .mobile-nav[open]>.mobile-items{
+   max-height:min(340px,calc(100dvh - 148px))!important
+ }
+}
