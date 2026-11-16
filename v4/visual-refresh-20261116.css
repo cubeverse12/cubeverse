@@ -102,3 +102,27 @@ input,select,textarea{background:#28313B!important;color:#F2F8FC!important;borde
 @media(max-width:980px){.hero{background-position:62% center!important}.hero::after{content:"";position:absolute;inset:0;background:rgba(11,19,25,.27);z-index:-1;pointer-events:none}.hero-grid{gap:18px}}
 @media(max-width:650px){.hero{background-image:linear-gradient(90deg,rgba(16,22,27,.92),rgba(16,22,27,.72)),url("./assets/minevora-slate-world-20261116.svg")!important;background-position:70% center!important}.feature{min-height:auto}.hero h1{font-size:clamp(34px,10vw,51px)}.btn{min-height:46px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.feature,.mv-addon{transition:none!important}}
+
+
+/* 16.11.2026: replace stale miniature glyphs and complete visual hierarchy. */
+.mv-new-icon{display:block;width:27px;height:27px;fill:none!important;stroke:currentColor!important;stroke-width:1.85;stroke-linecap:round;stroke-linejoin:round}
+.mv-addon-grid .mv-new-icon{width:38px!important;height:38px!important;margin-bottom:7px}
+.mv-addon{min-height:144px!important;display:flex!important;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;padding:22px!important}
+.mv-addon strong{font-size:17px!important}
+.mv-addon small{font-size:13px!important;line-height:1.45}
+.app-shell .app-rail>span{display:grid!important;place-items:center;font-size:0!important;min-height:40px;min-width:40px;border-radius:10px}
+.app-shell .app-rail .mv-new-icon{width:23px;height:23px}
+.app-shell .app-rail .selected{background:#476674!important;color:#E3F8FD!important}
+.app-shell .preview-thumb{display:grid!important;place-items:center;font-size:0!important;color:#D4F0F7!important;background:linear-gradient(135deg,#456274,#263E4B)!important;border:1px solid #72919D;border-radius:10px}
+.app-shell .preview-thumb .mv-new-icon{width:25px;height:25px}
+.app-shell .preview-thumb.large .mv-new-icon{width:36px;height:36px}
+.app-shell .app-tags span{font-size:10px;letter-spacing:.04em;white-space:nowrap}
+.app-shell .app-main,.app-shell .app-side{min-width:0}
+#skin-studio .visual-card img{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:contain!important;background:#1C2933}
+#skin-studio .visual-note{font-size:12px;line-height:1.55}
+#funkcje .feature{display:flex;flex-direction:column;align-items:flex-start}
+#funkcje .feature h3{line-height:1.25}
+.mv-rail .mv-rail-label{font-size:12px}
+.mvg-category-grid .mv-new-icon{width:32px;height:32px;color:#C4E3F0}
+@media(max-width:760px){.mv-addon-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.mv-addon{padding:17px!important;min-height:134px!important}.app-shell .app-side{display:none!important}}
+@media(max-width:420px){.mv-addon strong{font-size:15px!important}.mv-addon small{font-size:12px!important}.mv-addon-grid{gap:10px!important}}
