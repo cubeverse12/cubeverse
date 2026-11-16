@@ -1,0 +1,44 @@
+
+/* MINEVORA HOST 0.9.7. Informational website only; no localhost fetches. */
+.host-intro{padding-top:62px!important;background:linear-gradient(140deg,#25313a,#1e252b)!important}
+.host-intro .wrap{max-width:1160px}
+.host-intro h1{font-size:clamp(35px,5.2vw,67px);letter-spacing:-.035em;line-height:1.1;margin:12px 0 23px;color:#f3f9fd}
+.host-intro .lead{font-size:clamp(15px,1.4vw,19px);color:#cbdce6!important;line-height:1.78;max-width:960px}
+.host-badges{display:flex;flex-wrap:wrap;gap:10px;margin:23px 0}
+.host-badges span{padding:7px 12px;border-radius:11px;background:#344852;border:1px solid #608392;color:#dceff4;font-weight:650;font-size:13px}
+.host-actions{display:flex;align-items:center;flex-wrap:wrap;gap:11px;margin:22px 0}
+.host-actions .btn{max-width:100%;text-align:center;white-space:normal}
+.host-note{font-size:13px;line-height:1.75;color:#c6d6df!important;max-width:910px}
+.host-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.host-card{padding:20px;min-width:0;background:linear-gradient(160deg,#313d45,#252e35);border:1px solid #5c7380;border-radius:16px}
+.host-card h3{font-size:19px;margin:12px 0 7px;color:#f1f9fc}
+.host-card p{font-size:14px;line-height:1.65;color:#ccdae4;margin:0}
+.host-card-icon{display:grid;place-items:center;width:43px;height:43px;border-radius:10px;border:1px solid #7dabb9;background:#3a5b6a;color:#d5f5f9;font-size:25px}
+.host-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.host-steps .host-card small{font-weight:850;color:#a1d6e2;font-size:12px}
+.host-warning{background:#2c373f;border:1px solid #7393a0;border-radius:15px;padding:20px;margin-top:22px;max-width:1150px}
+.host-warning strong{font-size:16px;color:#f0f8fb}
+.host-warning p{margin:10px 0 0;color:#cbdbe3;line-height:1.65}
+.host-callout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(240px,0.75fr);gap:28px;align-items:center;
+ background:linear-gradient(135deg,#2e414d,#252e35);border:1px solid #6d929e;border-radius:19px;padding:27px}
+.host-callout h2{font-size:clamp(27px,3vw,39px);margin:12px 0}
+.host-callout p{color:#d0e0e7;line-height:1.7;font-size:15px}
+.host-callout-meta{padding:21px;background:#202f38;border:1px solid #6a919f;border-radius:15px;display:grid;gap:11px}
+.host-callout-meta strong{font-size:19px;color:#d5eff6}
+.host-callout-meta span{font-size:14px;color:#c3dce5}
+.host-callout-meta small{font-size:12px;color:#a9c4d0;line-height:1.5}
+@media(max-width:1080px){.host-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.host-callout{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:760px){
+ .mv-rail{justify-content:space-between!important;padding-left:5px!important;padding-right:5px!important;gap:0!important}
+ .mv-rail a[data-rail]{min-width:0!important;width:41px!important;height:44px!important;flex:0 0 41px!important}
+ .mv-rail a[data-rail] svg{width:22px!important;height:22px!important}
+ .host-intro{padding-top:31px!important}
+ .host-intro h1{font-size:clamp(32px,8vw,43px)}
+ .host-grid,.host-steps{grid-template-columns:minmax(0,1fr);gap:12px}
+ .host-card{padding:17px}
+ .host-callout{padding:20px;gap:14px}
+ .host-actions{align-items:stretch;gap:8px}
+ .host-actions .btn{width:100%;justify-content:center;min-height:47px}
+ .host-warning{padding:17px}
+}
+@media(max-width:350px){.mv-rail a[data-rail]{width:35px!important;flex-basis:35px!important}.mv-rail{padding-left:3px!important;padding-right:3px!important}}
