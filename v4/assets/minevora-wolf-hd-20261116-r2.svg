@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="wolf-title wolf-desc">
+<title id="wolf-title">MINEVORA Cyberwolf</title>
+<desc id="wolf-desc">Wyrazisty geometryczny cyberwilk o jasnym pysku, turkusowym oku i grafitowym tle</desc>
+<defs>
+  <linearGradient id="shield" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#263C4D"/>
+    <stop offset="1" stop-color="#111B27"/>
+  </linearGradient>
+</defs>
+<!-- Solid vector paths are intentionally used instead of filters or raster overlays. -->
+<rect x="7" y="7" width="242" height="242" rx="48" fill="url(#shield)" stroke="#79AFC3" stroke-width="6"/>
+<path d="M36 184 51 101 84 88 102 29 137 68 174 39 180 104 220 126 199 180 145 217 90 209Z" fill="#152B38" stroke="#B1DAE8" stroke-width="7" stroke-linejoin="round"/>
+<path d="M59 156 74 109 106 101 109 58 137 94 162 65 163 121 199 137 183 165 139 193 100 202Z" fill="#D9F1F9"/>
+<path d="M78 119 117 98 149 114 173 116 143 143 111 149 84 137Z" fill="#334E61"/>
+<path d="M119 127 144 117 170 121 150 136 134 133Z" fill="#4CE0F1"/>
+<path d="M147 150 205 142 190 168 157 182 132 195 115 175Z" fill="#F7FCFF"/>
+<path d="M171 151 201 144 189 160 175 163Z" fill="#142935"/>
+<path d="M84 158 105 176 86 196 113 201 138 191 121 220 91 225 60 204Z" fill="#4F829A"/>
+<path d="M107 183 126 196 155 178" fill="none" stroke="#63CBDD" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M52 181 42 195 75 222" fill="none" stroke="#8CBBCB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
