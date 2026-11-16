@@ -24,6 +24,8 @@ jobs:
               'independent': ('https://minevora.pl/v4/sprawdz-wersje.html?build-check=hd-r2', token),
               'home_r3': ('https://minevora.pl/v4/?build-check=slate-r3-20261116', 'slate-r3-mobile-20261116.css'),
               'downloads_r3': ('https://minevora.pl/v4/pobierz/?build-check=slate-r3-20261116', 'slate-r3-mobile-20261116.css'),
+              'host_097': ('https://minevora.pl/v4/host/?build-check=host097-15614', 'MINEVORA HOST 0.9.7'),
+              'host_menu': ('https://minevora.pl/v4/?build-check=host-nav-15614', 'data-rail="host"'),
               'css_r3': ('https://minevora.pl/v4/slate-r3-mobile-20261116.css?build-check=slate-r3-20261116', 'MINEVORA Slate R3'),
               'logo': ('https://minevora.pl/v4/assets/minevora-app-icon-launcher-1-56-12.png?build-check=hd-r2', '9d90d6eb3f76d2a5bf158010f12031a3f0302a4acaf7a6b05fafe39b317eaf2d'),
           }
