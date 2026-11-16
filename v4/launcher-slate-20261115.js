@@ -37,4 +37,26 @@ addEventListener("scroll",schedule,{passive:true});
 addEventListener("resize",schedule,{passive:true});
 addEventListener("hashchange",schedule);
 update();
+// The native <details> mobile menu should not stay open after navigation,
+// tapping outside, or pressing Escape. No modal overlay or scroll lock.
+const mobileMenus=[...document.querySelectorAll(".mobile-nav")];
+const closeMenus=()=>{for(const menu of mobileMenus)menu.open=false};
+for(const menu of mobileMenus){
+ const summary=menu.querySelector("summary");
+ const syncExpanded=()=>{if(summary)summary.setAttribute("aria-expanded",String(menu.open))};
+ menu.addEventListener("toggle",syncExpanded);
+ menu.querySelectorAll(".mobile-items a").forEach(link=>link.addEventListener("click",closeMenus));
+ syncExpanded();
+}
+document.addEventListener("pointerdown",event=>{
+ if(mobileMenus.some(menu=>menu.open&&!menu.contains(event.target)))closeMenus();
+});
+document.addEventListener("keydown",event=>{
+ if(event.key==="Escape"&&mobileMenus.some(menu=>menu.open)){
+  const menu=mobileMenus.find(m=>m.open);
+  closeMenus();
+  menu?.querySelector("summary")?.focus();
+ }
+});
+addEventListener("hashchange",closeMenus);
 })();
