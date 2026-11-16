@@ -117,6 +117,8 @@ try:
             expect(page.locator("#skin-studio")).to_contain_text("Fabric 1.21.1")
             expect(page.locator("#skin-studio")).to_contain_text("A higher scale is rejected")
             expect(page.locator("#skin-studio")).to_contain_text("Right Shift or P")
+            expect(page.locator("#skin-studio")).to_contain_text("SHA-256")
+            expect(page.locator("#skin-studio")).to_contain_text("never overwrites your files")
             assert "MINEVORA Guide" in page.title()
             assert page.locator("link[rel='canonical']").get_attribute("href")=="https://minevora.pl/v4/poradnik/"
             assert image_loaded(page,"header .brand img")
