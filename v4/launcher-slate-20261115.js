@@ -5,6 +5,7 @@ const links=[...document.querySelectorAll(".mv-rail a[data-rail]")];
 if(!links.length)return;
 const isGuide=location.pathname.includes("/poradnik/");
 const isDownload=location.pathname.includes("/pobierz/");
+const isHost=location.pathname.includes("/host/");
 const sections=[
  ["start","home"],["kategorie-dodatkow","features"],["aktualizacja-15611","features"],
  ["funkcje","features"],["pvp-hud","pvp"],["wyglad","features"],
@@ -19,6 +20,7 @@ function setActive(rail){
 function update(){
  if(isGuide)return setActive("guide");
  if(isDownload)return setActive("download");
+ if(isHost)return setActive("host");
  const sample=Math.max(100,Math.min(window.innerHeight*.34,310));
  let active="home";
  for(const {node,rail} of sections){
