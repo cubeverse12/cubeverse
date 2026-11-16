@@ -227,3 +227,6 @@ header .brand img,footer .brand img,.mv-rail-brand img,.mvg-logo-orbit img,
   .mvg-logo-orbit{width:99px!important;height:99px!important}
   .mvg-hero-visual{padding-top:128px!important}
 }
+/* Deployment marker (not launcher version). Positioned in the footer without overlaying controls. */
+.mv-site-build{font:600 11px/1.5 'Segoe UI',sans-serif;letter-spacing:.05em;text-align:center;color:#BCD2DE;padding:8px 12px 84px;background:#1B2024;border-top:1px solid #374957}
+@media(min-width:761px){.mv-site-build{padding-bottom:12px}}
