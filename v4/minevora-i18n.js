@@ -489,6 +489,24 @@ Object.assign(dictionary,{
   "Wizualizacja koncepcyjna Skin Studio MINEVORA — motyw Ciemny Łupek": "MINEVORA Skin Studio concept art — Dark Slate theme",
   "Makieta grafitowo-niebieskiego interfejsu launchera MINEVORA z menu bocznym, biblioteką instancji, przyciskiem GRAJ i panelem konta": "Concept of MINEVORA's graphite-blue launcher with sidebar, instance library, PLAY button and account panel"
 });
+/* MINEVORA Slate R3 - updated source build and release language */
+Object.assign(dictionary, {
+  "MINEVORA / CIEMNY ŁUPEK · WERSJA ROZWOJOWA 1.56.13": "MINEVORA / DARK SLATE · DEVELOPMENT BUILD 1.56.13",
+  "Rozwój 1.56.13": "Development 1.56.13",
+  "Wersja 1.56.13 to paczka źródłowa do testów, nie publiczny instalator. Faktycznie udostępnione pliki sprawdzaj w GitHub Releases.": "Version 1.56.13 is a source package for testing, not a public installer. Check GitHub Releases for files that have actually been published.",
+  "POGLĄDOWY PROJEKT INTERFEJSU — nie zrzut działającej aplikacji": "INTERFACE DESIGN CONCEPT — not a screenshot of a running app",
+  "Wersja 1.56.13": "Version 1.56.13",
+  "AKTUALIZACJA PROJEKTU · 16.11.2026": "PROJECT UPDATE · 16 NOV 2026",
+  "MINEVORA 1.56.13 —": "MINEVORA 1.56.13 —",
+  "Paczka rozwojowa: MINEVORA 1.56.13": "Development package: MINEVORA 1.56.13",
+  "Paczka rozwojowa 1.56.13 zawiera aktualizację PvP HUD 2.0.15. To kod do testów Windows, nie potwierdzony publiczny instalator. W GitHub Releases mogą być dostępne inne wersje.": "Development package 1.56.13 includes the PvP HUD 2.0.15 update. This is Windows test source code, not a confirmed public installer. Other versions may be available on GitHub Releases.",
+  "MINEVORA 1.56.13 wymaga jeszcze testów logowania Microsoft, startu gry i PvP HUD w Minecrafcie. Przycisk prowadzi wyłącznie do rzeczywiście opublikowanych wydań GitHub.": "MINEVORA 1.56.13 still needs Microsoft sign-in, game startup and in-game PvP HUD testing. This button only opens releases actually published on GitHub.",
+  "Wersja rozwojowa: 1.56.13": "Development build: 1.56.13",
+  "Projekt MINEVORA jest rozwijany w motywie Ciemny Łupek (Slate). Paczka rozwojowa 1.56.13 dodaje PvP HUD 2.0.15 i poprawki launchera. To źródła do testów Windows, niepotwierdzone jako publiczne wydanie. Na GitHub Releases sprawdź rzeczywiście dostępne pliki.": "MINEVORA is developed in the Dark Slate theme. Development package 1.56.13 adds PvP HUD 2.0.15 and launcher fixes. These Windows test sources are not confirmed as a public release. Check GitHub Releases for files actually available.",
+  "Wersja 1.56.13 nie została potwierdzona jako publiczny instalator. Pobieraj tylko pliki rzeczywiście widoczne na GitHub Releases.": "Version 1.56.13 has not been confirmed as a public installer. Only download files actually listed on GitHub Releases.",
+  "Projekt testowy 1.56.13": "Test project 1.56.13",
+  "Wykonaj instrukcję z README danego wydania. W paczce źródłowej 1.56.13 uruchom 01_INSTALUJ_15613.bat, potem 02_SPRAWDZ_15613.bat i 03_URUCHOM_15613.bat. Inne wydania mogą mieć inne skrypty — sprawdź README.": "Follow the release README. In source package 1.56.13, run 01_INSTALUJ_15613.bat, then 02_SPRAWDZ_15613.bat and 03_URUCHOM_15613.bat. Other releases may use different scripts — consult their README."
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
