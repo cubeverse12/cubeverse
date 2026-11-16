@@ -308,6 +308,51 @@ Object.assign(dictionary, {
   "Pobierz i sprawdź wydanie PvP HUD 2.0.15 na GitHub": "Get and inspect PvP HUD 2.0.15 on GitHub",
   "Nie. PvP HUD 2.0.15 działa z Fabric 1.21.1. Inne wersje Minecraft i inne loadery wymagają osobnych zgodnych kompilacji.": "No. PvP HUD 2.0.15 works with Fabric 1.21.1. Other Minecraft versions and loaders need separate compatible builds."
 });
+/* 2026-11-16 current homepage and download translations */
+Object.assign(dictionary,{
+  "MINEVORA — Ciemny Łupek • Launcher Minecraft Java": "MINEVORA — Dark Slate • Minecraft Java Launcher",
+  "MINEVORA / CIEMNY ŁUPEK · WERSJA ROZWOJOWA 1.56.11": "MINEVORA / DARK SLATE · DEVELOPMENT BUILD 1.56.11",
+  "Wszystko w jednym": "All in one",
+  "Jedno miejsce do uruchamiania Minecraft Java, tworzenia instancji i zarządzania modami, shaderami, datapackami oraz paczkami zasobów. Wszystkie moduły korzystają z jednego motywu Ciemny Łupek. Logowanie Microsoft, instalację dodatków i uruchomienie gry sprawdź na swoim Windows; dołączony PvP HUD jest przygotowany dla Fabric 1.21.1.": "One place to launch Minecraft Java, create instances and manage mods, shaders, data packs and resource packs. All modules share the Dark Slate theme. Test Microsoft sign-in, add-on installation and game launch on your Windows PC; the bundled PvP HUD targets Fabric 1.21.1.",
+  "Rozwój 1.56.11": "Development 1.56.11",
+  "Wersja 1.56.11 jest paczką źródłową przekazywaną do testów. Dostępność publicznego pobrania sprawdź na stronie wydań; nie oznacza to podpisanej aplikacji EXE.": "Version 1.56.11 is a source package provided for testing. Check the releases page for a public download; this is not a signed EXE.",
+  "POGLĄDOWA MAKIETA INTERFEJSU — nie zrzut ekranu 1.56.11": "INTERFACE CONCEPT — not a screenshot of version 1.56.11",
+  "Przeglądaj dodatki": "Browse add-ons",
+  "MINEVORA / DODATKI MINECRAFT": "MINEVORA / MINECRAFT ADD-ONS",
+  "Osobne moduły.": "Separate modules.",
+  "Mody, modpacki, datapacki, shadery i resourcepacki mają własne kategorie. Wybór dodatku na stronie pokazuje możliwości — instalacja odbywa się w launcherze Windows.": "Mods, modpacks, data packs, shaders and resource packs each have their own category. This website demonstrates the features; installation happens in the Windows launcher.",
+  "Katalog i zależności": "Catalog and dependencies",
+  "Do wybranego świata": "For your selected world",
+  "Tekstury i zasoby": "Textures and resources",
+  "MINEVORA 1.56.11 —": "MINEVORA 1.56.11 —",
+  "Ciemny Łupek": "Dark Slate",
+  "Ciemny Łupek.": "Dark Slate.",
+  "Ujednolicamy wygląd launchera i strony. Widoki paczek, dodatków oraz serwerów zachowują swoje funkcje, a ikony otrzymują subtelniejszy cień. Aktywna ikona nie ma już pionowego paska wyboru.": "We are aligning the launcher and website design. Modpack, add-on and server views retain their functions, while icons receive a subtler shadow. The active icon no longer has a vertical selection bar.",
+  "Ikony i nawigacja": "Icons and navigation",
+  "Nowy wspólny styl ikon kategorii, wyraźny stan aktywnych przycisków oraz poprawiony kontrast.": "One consistent icon style across categories, clear active-button states and improved contrast.",
+  "Launcher próbuje odczytać oryginalne logo serwera Java po bezpośrednim sprawdzeniu statusu; gdy brak odpowiedzi, pokazuje inicjały.": "The launcher attempts to retrieve the original Java server icon through a direct status check; if unavailable, it shows initials.",
+  "Mody i datapacki": "Mods and data packs",
+  "Katalog Modrinth oraz instalacja datapacków do wybranego świata pozostają osobnymi, rzeczywistymi funkcjami.": "Modrinth browsing and data pack installation for a selected world remain separate functions.",
+  "To opis wydania rozwojowego. Pliki dla Windows są testowane osobno; na stronie pobierania sprawdzaj faktycznie opublikowaną wersję. Archiwalne wydania nie są już pokazywane na stronie głównej.": "This describes a development build. Windows packages are tested separately; check the downloads page for an actual published release. Older releases are no longer listed on the homepage.",
+  "Katalog Modrinth, instalowanie zgodnych modów i paczek oraz kontrola zależności. Inne integracje są w trakcie rozwoju.": "Browse Modrinth, install compatible mods and modpacks, and review dependencies. Other integrations are still being developed.",
+  "Logowanie Microsoft kodem urządzenia. Wymaga poprawnej konfiguracji aplikacji wydawcy i testów na Windows.": "Microsoft device-code sign-in requires the publisher's app to be configured correctly and tested on Windows.",
+  "Nowe MINEVORA PvP HUD 2.0.15 dla Minecraft Fabric 1.21.1 wyświetla serca nad postaciami i pozwala rozmieszczać kafelki tak, aby nie zasłaniały gry. Dołączony mod w launcherze obsługuje Fabric 1.21.1; działanie w grze wymaga testu.": "MINEVORA PvP HUD 2.0.15 for Minecraft Fabric 1.21.1 shows hearts above players and lets you position HUD tiles so they do not block gameplay. The bundled mod targets Fabric 1.21.1; in-game testing is still required.",
+  "Wspólny wygląd launchera i strony.": "One consistent look for the launcher and website.",
+  "Grafitowe panele, błękitno-stalowe akcenty, nowa grafika świata blokowego i czytelne ikony. Bez zbędnego przełączania motywów.": "Graphite panels, steel-blue accents, new block-world artwork and readable icons. No unnecessary theme switching.",
+  "Tło #1E2022, panele #282C30, akcent #52616B, tekst #F0F5F9.": "Background #1E2022, panels #282C30, accent #52616B, text #F0F5F9.",
+  "Jeden zestaw kontrastowych ikon, bez jasnych kwadratowych podkładów i z wyraźnym stanem aktywnej funkcji.": "One set of high-contrast icons, without bright square backplates, and with a clear active state.",
+  "Więcej miejsca": "More space",
+  "Oddzielne kategorie modów, paczek, shaderów, datapacków i resourcepacków.": "Separate categories for mods, modpacks, shaders, data packs and resource packs.",
+  "Nowa grafika koncepcyjna w motywie Ciemny Łupek, nie zrzut ekranu działającego programu.": "New Dark Slate concept art, not a screenshot of a running app.",
+  "Wersja testowa: MINEVORA 1.56.11": "Test build: MINEVORA 1.56.11",
+  "Wersja źródłowa 1.56.11 została przygotowana do testów na Windows. Publiczne wydania GitHub mogą mieć inny numer, dlatego sprawdź pliki faktycznie dostępne w zakładce wydań.": "Source build 1.56.11 was prepared for Windows testing. Public GitHub releases may have different version numbers; check which files are actually available.",
+  "GitHub Releases udostępnia tylko faktycznie opublikowane wydania. MINEVORA 1.56.11 nadal wymaga testów logowania Microsoft i startu gry; pod tym przyciskiem nie obiecujemy nieopublikowanego instalatora.": "GitHub Releases only contains files that have actually been published. MINEVORA 1.56.11 still needs Microsoft sign-in and game-launch testing; this button does not promise an unpublished installer.",
+  "MINEVORA · CIEMNY ŁUPEK — witryna informacyjna; grę uruchamia aplikacja Windows": "MINEVORA · DARK SLATE — information website; the Windows app launches the game",
+  "Projekt MINEVORA jest rozwijany w motywie Ciemny Łupek (Slate). Wersja 1.56.11 zawiera poprawki ikon i listy serwerów. Ta paczka była przekazywana do testów jako archiwum ZIP; przed pobraniem na stronie wydań sprawdź rzeczywiście udostępniony plik i jego numer. Nie obiecujemy tu pliku, którego nie opublikowano.": "MINEVORA is being developed with the Dark Slate theme. Version 1.56.11 includes improvements to icons and the server list. This ZIP package was distributed for testing; check the releases page for the actual published file and version. We do not promise an unpublished download.",
+  "Nie udostępniamy fikcyjnego linku do ZIP 1.56.11 ani niesprawdzonego pliku EXE.": "We do not provide a fake download link to the 1.56.11 ZIP or an unverified EXE.",
+  "Wykonaj instrukcję z README danego wydania. W paczce 1.56.11 uruchom INSTALUJ.bat, a następnie START_WINDOWS.bat.": "Follow the README for your release. For package 1.56.11, run INSTALUJ.bat and then START_WINDOWS.bat.",
+  "© 2026 MINEVORA · Wersje rozwojowe Slate": "© 2026 MINEVORA · Dark Slate development releases"
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
