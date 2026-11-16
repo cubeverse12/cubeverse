@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="minevora-build" content="MINEVORA-LOGO-1TO1-15612-20261116">
 <meta name="theme-color" content="#1E2022">
-<meta name="description" content="MINEVORA Launcher Minecraft Java — Ciemny Łupek (Slate), mody, datapacki, serwery i Skin Studio. Rozwój wersji 1.56.11.">
+<meta name="description" content="MINEVORA Launcher Minecraft Java — Ciemny Łupek (Slate), mody, datapacki, serwery i Skin Studio. Rozwój wersji 1.56.13.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:title" content="MINEVORA — Launcher Minecraft Java">
@@ -27,6 +27,7 @@
 <link rel="stylesheet" href="./launcher-slate-20261115.css?v=2">
 <script defer src="./launcher-slate-20261115.js?v=3"></script>
 <link rel="stylesheet" href="./visual-refresh-20261116.css?v=20261116e">
+<link rel="stylesheet" href="./slate-r3-mobile-20261116.css?v=20261116-r3">
 <script defer src="./visual-refresh-20261116.js?v=20261116c"></script>
 </head>
 <body>
@@ -59,15 +60,15 @@
 <section class="hero" id="start">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow"><span class="dot" aria-hidden="true"></span> MINEVORA / CIEMNY ŁUPEK · WERSJA ROZWOJOWA 1.56.11</span>
+      <span class="eyebrow"><span class="dot" aria-hidden="true"></span> MINEVORA / CIEMNY ŁUPEK · WERSJA ROZWOJOWA 1.56.13</span>
       <h1>Twój Minecraft.<br><span class="grad">Wszystko w jednym</span><br>launcherze.</h1>
       <p class="lead">Jedno miejsce do uruchamiania Minecraft Java, tworzenia instancji i zarządzania modami, shaderami, datapackami oraz paczkami zasobów. Wszystkie moduły korzystają z jednego motywu Ciemny Łupek. Logowanie Microsoft, instalację dodatków i uruchomienie gry sprawdź na swoim Windows; dołączony PvP HUD jest przygotowany dla Fabric 1.21.1.</p>
-      <div class="hero-pills"><span>Windows 11</span><span>Rozwój 1.56.11</span><span>Fabric 1.21.1</span><span>Modrinth</span></div>
+      <div class="hero-pills"><span>Windows 11</span><span>Rozwój 1.56.13</span><span>Fabric 1.21.1</span><span>Modrinth</span></div>
       <div class="actions"><a class="btn btn-primary" href="./pobierz/">Zobacz dostępne pobrania <span aria-hidden="true">↓</span></a><a class="btn btn-secondary" href="#funkcje">Poznaj funkcje <span aria-hidden="true">↗</span></a></div>
-      <p class="caption">Wersja 1.56.11 jest paczką źródłową przekazywaną do testów. Dostępność publicznego pobrania sprawdź na stronie wydań; nie oznacza to podpisanej aplikacji EXE.</p>
+      <p class="caption">Wersja 1.56.13 to paczka źródłowa do testów, nie publiczny instalator. Faktycznie udostępnione pliki sprawdzaj w GitHub Releases.</p>
     </div>
     <div class="preview-stage">
-      <p class="preview-caption-simple">POGLĄDOWA MAKIETA INTERFEJSU — nie zrzut ekranu 1.56.11</p>
+      <p class="preview-caption-simple">POGLĄDOWY PROJEKT INTERFEJSU — nie zrzut działającej aplikacji</p>
     <div class="app-shell" role="img" aria-label="Makieta grafitowo-niebieskiego interfejsu launchera MINEVORA z menu bocznym, biblioteką instancji, przyciskiem GRAJ i panelem konta">
       <div class="app-top"><img src="./assets/minevora-app-icon-launcher-1-56-12.png" alt=""><strong>MINEVORA</strong><span class="app-breadcrumb">‹　›　⌂　 Dodatki</span><span class="app-dots" aria-hidden="true">– □ ×</span></div>
       <div class="app-body">
@@ -82,7 +83,7 @@
         <aside class="app-side" aria-hidden="true">
           <div class="app-panel"><b>Pierwsze kroki</b><span>✓ Utwórz instancję</span><span>◯ Zaloguj się</span></div>
           <div class="app-panel"><b>Konto</b><span>♧ Microsoft</span><span>Połącz w launcherze</span></div>
-          <div class="app-panel"><b>Aktualności</b><span class="news-chip">SLATE</span><span>Wersja 1.56.11</span></div>
+          <div class="app-panel"><b>Aktualności</b><span class="news-chip">SLATE</span><span>Wersja 1.56.13</span></div>
         </aside>
       </div>
       <div class="app-footnote">Interaktywny podgląd stylu — ustawienia i przycisk GRAJ działają w aplikacji Windows, nie w tej makiecie.</div>
@@ -97,8 +98,8 @@
 <div class="mv-addon-grid"><a class="mv-addon" href="#funkcje"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v5h5v8h-5v5H8v-5H3V8h5z"/></svg><strong data-slate-en="Mods">Mody</strong><small>Katalog i zależności</small></a><a class="mv-addon" href="#funkcje"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 9 5-9 5-9-5 9-5zM3 7v10l9 5V12M21 7v10l-9 5"/></svg><strong data-slate-en="Modpacks">Modpacki</strong><small>Paczki Minecraft</small></a><a class="mv-addon" href="#funkcje"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 10 6-10 6L2 8l10-6zm-10 11 10 6 10-6M2 18l10 5 10-5"/></svg><strong data-slate-en="Data packs">Datapacki</strong><small>Do wybranego świata</small></a><a class="mv-addon" href="#funkcje"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></svg><strong data-slate-en="Shaders">Shadery</strong><small>Efekty graficzne</small></a><a class="mv-addon" href="#funkcje"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 10 6-10 6L2 8l10-6zm-10 11 10 6 10-6M2 18l10 5 10-5"/></svg><strong data-slate-en="Resource packs">Resourcepacki</strong><small>Tekstury i zasoby</small></a></div>
 </div></section>
 <section class="slate-release-15611" id="aktualizacja-15611" aria-labelledby="slate-title"><div class="wrap">
-  <span class="eyebrow">AKTUALIZACJA PROJEKTU · 15.11.2026</span>
-  <h2 class="slate-update-title" id="slate-title">MINEVORA 1.56.11 — <span class="grad">Ciemny Łupek</span></h2>
+  <span class="eyebrow">AKTUALIZACJA PROJEKTU · 16.11.2026</span>
+  <h2 class="slate-update-title" id="slate-title">MINEVORA 1.56.13 — <span class="grad">Ciemny Łupek</span></h2>
   <p class="slate-update-intro">Ujednolicamy wygląd launchera i strony. Widoki paczek, dodatków oraz serwerów zachowują swoje funkcje, a ikony otrzymują subtelniejszy cień. Aktywna ikona nie ma już pionowego paska wyboru.</p>
   <div class="slate-update-grid">
     <article><h3>Ikony i nawigacja</h3><p>Nowy wspólny styl ikon kategorii, wyraźny stan aktywnych przycisków oraz poprawiony kontrast.</p></article>
@@ -160,13 +161,13 @@
 <div class="section-heading"><span class="eyebrow">03 / JEDEN MOTYW</span><h2>Ciemny Łupek. <span class="grad">Wspólny wygląd launchera i strony.</span></h2><p>Grafitowe panele, błękitno-stalowe akcenty, nowa grafika świata blokowego i czytelne ikony. Bez zbędnego przełączania motywów.</p></div>
 <div class="visual-choice-grid">
 <article class="visual-choice"><div class="visual-swatch" aria-hidden="true"><span></span><span></span><span></span></div><h3>Paleta Slate</h3><p>Tło #1E2022, panele #282C30, akcent #52616B, tekst #F0F5F9.</p></article>
-<article class="visual-choice"><div class="visual-swatch soft" aria-hidden="true"><span></span><span></span><span></span></div><h3>Czytelne ikony</h3><p>Jeden zestaw kontrastowych ikon, bez jasnych kwadratowych podkładów i z wyraźnym stanem aktywnej funkcji.</p></article>
-<article class="visual-choice"><div class="visual-swatch compact" aria-hidden="true"><span></span><span></span><span></span></div><h3>Więcej miejsca</h3><p>Oddzielne kategorie modów, paczek, shaderów, datapacków i resourcepacków.</p></article>
+<article class="visual-choice"><div class="visual-swatch soft icon-swatch" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6v4h4v6h-4v8H9v-8H5V7h4z"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M5 5l2 2m10 10 2 2M5 19l2-2M17 7l2-2"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7zM3 7l9 5 9-5M12 12v10"/></svg></div><h3>Czytelne ikony</h3><p>Jeden zestaw kontrastowych ikon, bez jasnych kwadratowych podkładów i z wyraźnym stanem aktywnej funkcji.</p></article>
+<article class="visual-choice"><div class="visual-swatch compact layout-swatch" aria-hidden="true"><svg viewBox="0 0 240 66"><rect x="5" y="6" width="42" height="54" rx="7"/><rect x="54" y="6" width="86" height="22" rx="6"/><rect x="148" y="6" width="87" height="22" rx="6"/><rect x="54" y="36" width="58" height="24" rx="6"/><rect x="120" y="36" width="115" height="24" rx="6"/></svg></div><h3>Więcej miejsca</h3><p>Oddzielne kategorie modów, paczek, shaderów, datapacków i resourcepacków.</p></article>
 </div></div></section>
 <section class="section" id="skin-studio">
   <div class="wrap split">
     <div class="visual-card"><img src="./assets/minevora-skin-concept-20261116.svg" data-src-pl="./assets/minevora-skin-concept-20261116.svg" data-src-en="./assets/minevora-skin-concept-20261116-en.svg" width="960" height="480" loading="lazy" alt="Wizualizacja koncepcyjna Skin Studio MINEVORA — motyw Ciemny Łupek"><div class="visual-note">Nowa grafika koncepcyjna w motywie Ciemny Łupek, nie zrzut ekranu działającego programu.</div></div>
-    <div><span class="eyebrow">04 / SKIN STUDIO</span><h2>Twoja postać.<br><span class="grad">Twój styl.</span></h2><p style="color:#cfc1e2">Twórz własne skórki Minecraft i zapisuj je lokalnie. Wybieraj z biblioteki, obracaj postać w podglądzie 3D i edytuj teksturę piksel po pikselu.</p>
+    <div><span class="eyebrow">04 / SKIN STUDIO</span><h2>Twoja postać.<br><span class="grad">Twój styl.</span></h2><p >Twórz własne skórki Minecraft i zapisuj je lokalnie. Wybieraj z biblioteki, obracaj postać w podglądzie 3D i edytuj teksturę piksel po pikselu.</p>
       <ul class="feature-points"><li>Obracany podgląd modelu 3D</li><li>Import i eksport plików PNG 64×64</li><li>Wybór szerokich lub wąskich ramion</li><li>Biblioteka gotowych i zapisanych skórek</li></ul>
       <a href="./pobierz/" class="btn btn-secondary">Sprawdź wersję Windows ↗</a>
     </div>
@@ -176,10 +177,10 @@
  <div class="wrap">
   <span class="eyebrow">05 / WINDOWS</span>
   <div class="download-card">
-    <div><span class="version-pill">Wersja testowa: MINEVORA 1.56.11</span><h2>Gotowy na <span class="grad">swój świat?</span></h2><p>Wersja źródłowa 1.56.11 została przygotowana do testów na Windows. Publiczne wydania GitHub mogą mieć inny numer, dlatego sprawdź pliki faktycznie dostępne w zakładce wydań.</p></div>
+    <div><span class="version-pill">Paczka rozwojowa: MINEVORA 1.56.13</span><h2>Gotowy na <span class="grad">swój świat?</span></h2><p>Paczka rozwojowa 1.56.13 zawiera aktualizację PvP HUD 2.0.15. To kod do testów Windows, nie potwierdzony publiczny instalator. W GitHub Releases mogą być dostępne inne wersje.</p></div>
     <div><a class="btn btn-primary" href="https://github.com/cubeverse12/minevora-launcher/releases" target="_blank" rel="noopener noreferrer">Publiczne wydania GitHub ↗</a></div>
   </div>
-  <div class="release-warning" role="note"><strong>Ważne przed pobraniem</strong><p>GitHub Releases udostępnia tylko faktycznie opublikowane wydania. MINEVORA 1.56.11 nadal wymaga testów logowania Microsoft i startu gry; pod tym przyciskiem nie obiecujemy nieopublikowanego instalatora.</p><p>Nie wyłączaj zabezpieczeń Windows. Zawsze sprawdź README, wersję i źródło pobieranego ZIP-a.</p></div>
+  <div class="release-warning" role="note"><strong>Ważne przed pobraniem</strong><p>MINEVORA 1.56.13 wymaga jeszcze testów logowania Microsoft, startu gry i PvP HUD w Minecrafcie. Przycisk prowadzi wyłącznie do rzeczywiście opublikowanych wydań GitHub.</p><p>Nie wyłączaj zabezpieczeń Windows. Zawsze sprawdź README, wersję i źródło pobieranego ZIP-a.</p></div>
   <div class="steps" aria-label="Jak zacząć">
     <article class="step"><span class="step-n">KROK 01</span><h3>Pobierz</h3><p>Wybierz dostępne wydanie ZIP z GitHub Releases i zapoznaj się z opisem wersji.</p></article>
     <article class="step"><span class="step-n">KROK 02</span><h3>Rozpakuj</h3><p>Rozpakuj archiwum do nowego folderu i przeczytaj README dołączone do wydania.</p></article>
@@ -201,6 +202,6 @@
 </main>
 
 <footer class="footer"><div class="wrap foot-inner"><a class="brand" href="#start"><img src="./assets/minevora-app-icon-launcher-1-56-12.png" alt="" width="39" height="39"><span>MINEVORA</span></a><p>© 2026 MINEVORA. Projekt niezależny, niepowiązany z Mojang Studios ani Microsoft.</p><nav class="footer-nav" aria-label="Stopka"><a href="./poradnik/">Poradnik</a><a href="./pobierz/">Pobierz</a><a class="discord-link" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer"><img src="./assets/discord.svg" width="23" height="23" alt="" loading="lazy">Discord</a></nav></div></footer>
-<div class="mv-status" role="note"><span class="dot" aria-hidden="true"></span><span>MINEVORA · CIEMNY ŁUPEK — witryna informacyjna; grę uruchamia aplikacja Windows</span><span>Wersja rozwojowa: 1.56.11</span></div>
+<div class="mv-status" role="note"><span class="dot" aria-hidden="true"></span><span>MINEVORA · CIEMNY ŁUPEK — witryna informacyjna; grę uruchamia aplikacja Windows</span><span>Wersja rozwojowa: 1.56.13</span></div>
 <div class="mv-site-build" aria-label="Wersja grafik MINEVORA">Logo 1:1 z launchera 1.56.12 · 16.11.2026</div>
 </body></html>
