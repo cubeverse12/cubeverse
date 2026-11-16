@@ -126,3 +126,67 @@ input,select,textarea{background:#28313B!important;color:#F2F8FC!important;borde
 .mvg-category-grid .mv-new-icon{width:32px;height:32px;color:#C4E3F0}
 @media(max-width:760px){.mv-addon-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.mv-addon{padding:17px!important;min-height:134px!important}.app-shell .app-side{display:none!important}}
 @media(max-width:420px){.mv-addon strong{font-size:15px!important}.mv-addon small{font-size:12px!important}.mv-addon-grid{gap:10px!important}}
+
+
+/* 16 Nov 2026: viewport stability and high-contrast vector branding. */
+html{max-width:100%;overflow-x:clip}
+body{max-width:100%;min-width:0!important;overflow-x:clip}
+*,*::before,*::after{box-sizing:border-box}
+body main,main>section,.wrap,.hero-grid,.hero-copy,.preview-stage,
+.app-shell,.app-shell .app-body,.mvg-main,.mvg-hero,.mvg-columns,
+.mvg-content,.mvg-card,.mvg-hero-copy,.mvg-hero-visual{min-width:0;max-width:100%}
+body main{width:100%}
+img{max-width:100%}
+header .brand img,footer .brand img,.mv-rail-brand img,.mvg-logo-orbit img,
+.app-shell .app-top img,.mvg-hero-visual img{
+  filter:none!important;opacity:1!important;image-rendering:auto!important;
+  object-fit:contain!important;
+}
+.mvg-logo-orbit{box-shadow:0 8px 22px rgba(1,10,18,.46)!important;
+  background:linear-gradient(135deg,#415B6D,#172835)!important;border-color:#8FBAC8!important}
+.mvg-logo-orbit img{width:100%!important;height:100%!important;padding:12px}
+.app-shell .app-top img{width:32px!important;height:32px!important}
+@media(max-width:1180px){
+  .hero-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important}
+  .hero-copy,.preview-stage{width:100%!important;margin-inline:0!important}
+  .preview-stage{max-width:100%!important}
+  .mvg-hero{display:grid!important;grid-template-columns:minmax(0,1fr)!important}
+  .mvg-hero-visual{width:100%!important}
+}
+@media(max-width:760px){
+  body{padding-left:0!important}
+  .topbar{height:auto!important;min-height:64px}
+  .topbar .topbar-inner{
+    display:flex!important;flex-flow:row wrap!important;align-items:center!important;
+    justify-content:space-between!important;width:calc(100% - 24px)!important;
+    gap:9px!important;min-height:0!important;padding:9px 0!important;
+  }
+  .topbar-inner>.brand{order:1!important;flex:1 1 108px!important;min-width:0!important;
+    margin:0!important;white-space:nowrap}
+  .topbar-inner>.brand img{width:38px!important;height:38px!important}
+  .topbar-inner>.mobile-nav{order:2!important;flex:0 0 auto!important;margin:0!important}
+  .topbar-inner>.site-language-switch{order:3!important;flex:0 0 auto!important;margin:0!important}
+  .topbar .mobile-items{max-width:calc(100vw - 24px)!important}
+  .wrap,.page-width{width:calc(100% - 24px)!important;margin-inline:auto!important}
+  .hero,.guide-hero,.mvg-hero{max-width:100%}
+  .mvg-hero{width:100%!important;min-height:0!important;margin:12px auto 18px!important;
+    padding:19px!important;gap:18px!important;overflow:hidden}
+  .mvg-hero h1{font-size:clamp(29px,8vw,43px)!important;overflow-wrap:anywhere}
+  .mvg-logo-orbit{width:76px!important;height:76px!important;right:10px!important;top:10px!important}
+  .mvg-logo-orbit img{padding:5px}
+  .mvg-hero-visual{min-height:190px!important;padding:14px!important;padding-top:88px!important}
+  .mvg-sample-steps{min-width:0}
+  .mvg-sample-steps span{white-space:normal;overflow-wrap:anywhere}
+  .mvg-columns,.mvg-content,.mvg-card{width:100%!important;min-width:0!important}
+  .app-shell .app-main{min-width:0;max-width:100%;overflow:hidden}
+  .app-shell .app-search,.app-shell .quick,.app-shell .app-instance{min-width:0;max-width:100%;overflow-wrap:anywhere}
+  .app-shell .app-tags{display:flex;flex-wrap:wrap!important;gap:4px}
+  .mv-addon-grid,.feature-grid,.mvg-category-grid{min-width:0}
+}
+@media(max-width:390px){
+  .topbar-inner>.brand{font-size:14px!important}
+  .topbar-inner>.brand img{width:32px!important;height:32px!important}
+  .topbar .mobile-nav summary{font-size:12px!important;padding:7px!important}
+  .site-language-switch{padding:0 3px!important}
+  .app-shell .app-rail{width:37px}
+}
