@@ -89,6 +89,7 @@ try:
             expect(page.locator("html")).to_have_attribute("lang","en")
             expect(page.locator("h1")).to_contain_text("Your Minecraft")
             expect(page.locator("#pvp-hud")).to_contain_text("Hearts above players")
+            expect(page.locator("#pvp-hud .pvp-install-note")).to_contain_text("75–100%")
             expect(page.locator(".hero .lead")).to_contain_text("One place to launch Minecraft Java")
             expect(page.locator(".app-title")).to_have_text("Minecraft add-ons")
             expect(page.locator(".mv-addon-grid .mv-addon").first).to_contain_text("Mods")
@@ -103,6 +104,8 @@ try:
             expect(page.locator("#instalacja")).to_contain_text("Start the launcher")
             expect(page.locator("#skin-studio")).to_contain_text("PvP HUD")
             expect(page.locator("#skin-studio")).to_contain_text("Fabric 1.21.1")
+            expect(page.locator("#skin-studio")).to_contain_text("A higher scale is rejected")
+            expect(page.locator("#skin-studio")).to_contain_text("Right Shift or P")
             assert "MINEVORA Guide" in page.title()
             assert page.locator("link[rel='canonical']").get_attribute("href")=="https://minevora.pl/v4/poradnik/"
             assert image_loaded(page,"header .brand img")
