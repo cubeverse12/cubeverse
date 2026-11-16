@@ -478,6 +478,17 @@ Object.assign(dictionary,{
   "✦ Speed II": "✦ Speed II",
   "♧ Microsoft": "♧ Microsoft"
 });
+Object.assign(dictionary,{
+  "Nawigacja MINEVORA": "MINEVORA navigation",
+  "Nawigacja główna": "Main navigation",
+  "Nawigacja": "Navigation",
+  "Otwórz menu": "Open menu",
+  "Zmień język / Change language": "Change language",
+  "Język strony": "Website language",
+  "Otwórz Discord MINEVORA w nowej karcie": "Open MINEVORA Discord in a new tab",
+  "Wizualizacja koncepcyjna Skin Studio MINEVORA — motyw Ciemny Łupek": "MINEVORA Skin Studio concept art — Dark Slate theme",
+  "Makieta grafitowo-niebieskiego interfejsu launchera MINEVORA z menu bocznym, biblioteką instancji, przyciskiem GRAJ i panelem konta": "Concept of MINEVORA's graphite-blue launcher with sidebar, instance library, PLAY button and account panel"
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
@@ -499,10 +510,10 @@ function changeLanguage(lang){
  }
  for(const sel of document.querySelectorAll('[data-minevora-language]'))sel.value=lang;
  document.title=translateText(originalPageTitle,lang);
- for(const el of document.querySelectorAll('[aria-label],[title],[placeholder]')) {
+ for(const el of document.querySelectorAll('[aria-label],[title],[placeholder],[alt]')) {
   let sources=attributeOriginals.get(el);
   if(!sources){sources={};attributeOriginals.set(el,sources);}
-  for(const attr of ['aria-label','title','placeholder']) {
+  for(const attr of ['aria-label','title','placeholder','alt']) {
    if(!el.hasAttribute(attr))continue;
    if(!(attr in sources))sources[attr]=el.getAttribute(attr);
    const translated=translateText(sources[attr],lang);
