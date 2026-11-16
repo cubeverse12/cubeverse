@@ -7,6 +7,20 @@
   if(!scene || !reset)return;
   const defaults={fps:[.03,.18],cps:[.03,.35],combo:[.94,.18],armor:[.03,.76],potions:[.94,.76]};
   const tiles=Array.from(scene.querySelectorAll("[data-demo-hud-tile]"));
+  // Keep invisible HUD tiles out of keyboard navigation and screen readers.
+  // The hide/show control only changes this website preview, never the Minecraft mod.
+  const syncTileVisibility=()=>{
+    const hidden=scene.dataset.hud==="off";
+    for(const tile of tiles){
+      tile.disabled=hidden;
+      tile.setAttribute("aria-hidden",String(hidden));
+    }
+  };
+  new MutationObserver(syncTileVisibility).observe(scene,{
+    attributes:true,attributeFilter:["data-hud"]
+  });
+  syncTileVisibility();
+
   const storageKey="minevora_pvp_demo_positions_v215";
   const clamp=(v)=>Math.max(0,Math.min(1,v));
   const positions={};
@@ -41,6 +55,8 @@
     let active=null;
     const key=tile.dataset.demoHudTile;
     tile.title="Przeciągnij kafelek lub użyj strzałek";
+    tile.setAttribute("aria-keyshortcuts","ArrowUp ArrowDown ArrowLeft ArrowRight");
+
     tile.addEventListener("pointerdown",(event)=>{
       if(event.button!==0 && event.pointerType==="mouse")return;
       event.preventDefault();
@@ -88,4 +104,7 @@
   if(typeof ResizeObserver!=="undefined"){const observer=new ResizeObserver(render);observer.observe(scene);}
   else window.addEventListener("resize",render);
   render();
+  // A resized viewport cannot leave a tile off-screen: render is calculated
+  // from current available space, and all normalized coordinates are clamped.
+  syncTileVisibility();
 })();
