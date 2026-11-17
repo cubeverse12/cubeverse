@@ -67,6 +67,15 @@ try:
             assert page.locator('a[href="./poradnik/#skin-studio"]').count()==1, (label,"PvP guide link")
             assert page.locator(".mv-rail a[data-rail]").count()==7
             assert page.locator(".mv-addon-grid .mv-addon").count()==5
+            # Add-on cards must use Graphite Green, not the old blue Slate palette.
+            addon_colors=page.locator("#kategorie-dodatkow .mv-addon").first.evaluate(
+                "el => ({bg:getComputedStyle(el).backgroundImage,stroke:getComputedStyle(el.querySelector('svg')).stroke})")
+            assert "36, 43, 38" in addon_colors["bg"], (label,"stale blue add-on cards",addon_colors)
+            assert addon_colors["stroke"]=="rgb(145, 224, 168)", (label,"stale blue outline icons",addon_colors)
+            distinct_icons=page.locator(".app-results-grid .app-instance .preview-thumb svg").evaluate_all(
+                "els => new Set(els.map(el=>el.innerHTML)).size")
+            assert distinct_icons==3,(label,"preview add-ons need three distinct icons",distinct_icons)
+
             assert page.locator('link[href*="launcher-slate-20261115.css"]').count()==1
             assert page.locator("a[href='./poradnik/']").count()>=1
             assert page.locator("a[href='https://discord.gg/M2fZVJBCqh']").count()>=2
