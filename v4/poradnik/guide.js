@@ -1,37 +1,63 @@
-/* Optional progressive enhancement. Full guide is already in static HTML. */
+/* MINEVORA 1.56.17 guide: accessible progressive enhancements; content works without JS. */
 (()=>{"use strict";
  const input=document.getElementById("guideSearch");
  const results=document.getElementById("searchResults");
- const details=[...document.querySelectorAll(".guide-faq details")];
- if(!input||!results)return;
- const clean=s=>String(s||"").toLocaleLowerCase("pl").trim();
- function filter(){
+ const details=Array.from(document.querySelectorAll(".guide-faq details"));
+ if(!input||!results||!details.length)return;
+ const shortcuts=Array.from(document.querySelectorAll("[data-guide-query]"));
+ const toc=Array.from(document.querySelectorAll('.mvg-toc a[href^="#"]'));
+ const lang=()=>document.documentElement.lang==="en"?"en":"pl";
+ const clean=value=>String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ł/g,"l").toLocaleLowerCase().trim();
+ function search(){
    const q=clean(input.value);
-   let found=0;
-   details.forEach(d=>{
-     const hay=clean(d.textContent)+" "+clean(d.dataset.keywords);
+   let count=0;
+   for(const d of details){
+     const hay=clean(d.textContent+" "+(d.dataset.keywords||""));
      const match=!q||hay.includes(q);
      d.hidden=!match;
-     if(match)found++;
      if(q&&match)d.open=true;
-     else if(!q)d.open=false;
-   });
-   results.textContent=q?(found?"Znaleziono odpowiedzi: "+found:"Brak wyników. Spróbuj innego hasła lub kodu błędu."):"Szukaj w FAQ — wpisz opis problemu albo kod błędu.";
+     if(!q)d.open=false;
+     if(match)count++;
+   }
+   if(lang()==="en"){
+     results.textContent=q?(count?"Matching answers: "+count:"No results. Try another keyword or error code."):"Search FAQ using an error message or keyword.";
+   }else{
+     results.textContent=q?(count?"Znalezione odpowiedzi: "+count:"Brak wyników. Spróbuj innego hasła lub kodu błędu."):"Szukaj w FAQ — wpisz opis problemu albo kod błędu.";
+   }
  }
- input.addEventListener("input",filter);
+ function updateLang(){
+   const en=lang()==="en";
+   input.placeholder=en?"E.g. icons, Microsoft, Fabric, HOST…":"Np. ikony, Microsoft, Fabric, HOST…";
+   const names={ikony:en?"Icons":"Ikony",Microsoft:"Microsoft",shadery:en?"Shaders":"Shadery",HOST:"HOST"};
+   shortcuts.forEach(el=>{const value=el.dataset.guideQuery; if(value in names)el.textContent=names[value]});
+   search();
+ }
+ function syncToc(){
+   const current=location.hash||"#instalacja";
+   for(const link of toc){
+     if(link.getAttribute("href")===current)link.setAttribute("aria-current","true");
+     else link.removeAttribute("aria-current");
+   }
+ }
+ input.addEventListener("input",search);
+ shortcuts.forEach(button=>button.addEventListener("click",()=>{
+   input.value=button.dataset.guideQuery||"";
+   search();
+   input.focus();
+   input.scrollIntoView({behavior:"smooth",block:"center"});
+ }));
  document.addEventListener("keydown",event=>{
    if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==="k"){
-     event.preventDefault();
-     input.focus();
-     input.scrollIntoView({behavior:"smooth",block:"center"});
+     event.preventDefault();input.focus();input.scrollIntoView({behavior:"smooth",block:"center"});
    }
    if(event.key==="Escape"&&document.activeElement===input){
-     input.value="";
-     filter();
-     input.blur();
+     input.value="";search();input.blur();
    }
  });
- const param=new URLSearchParams(location.search).get("q");
- if(param){input.value=param;filter()}
- else filter();
+ document.addEventListener("minevora:languagechange",updateLang);
+ window.addEventListener("hashchange",syncToc);
+ const query=new URLSearchParams(location.search).get("q");
+ if(query)input.value=query.slice(0,120);
+ syncToc();
+ updateLang();
 })();
