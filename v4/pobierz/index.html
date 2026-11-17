@@ -50,7 +50,7 @@
  <section class="section"><div class="wrap">
   <span class="eyebrow">MINEVORA / WYDANIA WINDOWS</span>
   <h1>Pobierz MINEVORA <span class="grad">bez zgadywania wersji.</span></h1>
-  <p class="lead">MINEVORA jest rozwijana w grafitowo-zielonym stylu Graphite Green. Paczka testowa 1.56.19 łączy konturowe ikony, odświeżony wygląd, PvP HUD 2.0.15 i integrację HOST 0.9.7. To źródła do testów Windows, niepotwierdzone jako publiczne wydanie. Na GitHub Releases sprawdź rzeczywiście dostępne pliki.</p>
+  <p class="lead">MINEVORA jest rozwijana w grafitowo-zielonym stylu Graphite Green. Paczka testowa 1.56.19 R7 ma przebudowany wizualnie ekran GRAJ: trzy selektory ponad dużym przyciskiem startu oraz dopracowane grafitowe panele. Zawiera również PvP HUD 2.0.15 i integrację HOST 0.9.7. To źródła do testów Windows, niepotwierdzone jako publiczne wydanie. Na GitHub Releases sprawdź rzeczywiście dostępne pliki.</p>
   <div class="download-143-layout">
    <article>
     <span class="version-pill">Publiczne wydania</span><h2>Pliki do pobrania</h2>
@@ -59,9 +59,9 @@
     <p class="caption">Wersja 1.56.19 nie została potwierdzona jako publiczny instalator. Pobieraj tylko pliki rzeczywiście widoczne na GitHub Releases.</p>
    </article>
    <article>
-    <span class="version-pill">Projekt testowy 1.56.19</span><h3>Co zmieniono?</h3>
-    <p>Grafitowe panele, spójne konturowe ikony, zielony przycisk GRAJ i poprawione skrypty Windows. Zachowano dotychczasowe funkcje i moduły.</p>
-    <p>Do potwierdzenia: logowanie Microsoft, uruchomienie Minecrafta na Windows 11 i PvP HUD w grze. Dołączony mod jest przeznaczony dla Fabric 1.21.1.</p>
+    <span class="version-pill">Projekt testowy 1.56.19 R7</span><h3>Co zmieniono w R7?</h3>
+    <p>Na ekranie GRAJ pola Wersja Minecraft, Loader i Profil / Instancja są ustawione w jednym rzędzie, a duży zielony przycisk GRAJ znajduje się poniżej. Poprawiono również wygląd kafelków, konturowych ikon i marginesów. Nie zmieniono mechanizmu uruchamiania gry.</p>
+    <p>Podgląd interfejsu znajduje się <a href="../#start">na stronie głównej</a> i jest makietą na podstawie kodu Qt, nie zrzutem działającego launchera. Do potwierdzenia pozostają: okno PySide6 na Windows, logowanie Microsoft, start Minecrafta oraz PvP HUD w grze (Fabric 1.21.1).</p>
    </article>
   </div>
   <div class="section-heading"><span class="eyebrow">INSTALACJA</span><h2>Trzy proste kroki.</h2></div>
@@ -73,6 +73,7 @@
   <div class="release-warning" role="note"><strong>Poprawki źródeł 1.56.19 R2 i R3</strong><p>R2 naprawia README, nagłówek instalatora i skrypt kontroli plików. R3 dodaje <code>04_DIAGNOZA_15619_R3.bat</code> — bezpieczny raport startu bez haseł, tokenów i pełnych ścieżek użytkownika.</p><p>W R3 przeszło 39 testów offline, a 1405 sum SHA-256 jest zgodnych. Nie jest to test uruchomienia gry na Windows. Pełna paczka R3 jest dostępna w rozmowie z dnia 17.11.2026; na GitHub Releases pobieraj tylko faktycznie opublikowane wydania.</p></div>
   <div class="release-warning" role="note"><strong>Kontrola importów — 1.56.19 R4</strong><p>R4 rozszerza sprawdzanie lokalnych modułów programu. <code>02_SPRAWDZ_15619.bat</code> wykrywa statycznie brakujące nazwy funkcji i klas w pięciu kluczowych plikach interfejsu. Dodatkowo dostępny jest <code>05_SPRAWDZ_IMPORTY_15619_R4.bat</code>.</p><p>Pakiet R4 został przekazany w rozmowie. Publiczną dostępność wydania potwierdzaj osobno w GitHub Releases. Kontrola nie uruchamia Minecrafta, Qt ani logowania Microsoft.</p></div>
   <div class="release-warning" role="note"><strong>R5 — ikony konturowe i pełna analiza importów</strong><p>W paczce źródłowej <strong>1.56.19 R5</strong> poprawiono odczyt ikon konturowych, w tym <code>plus</code> i <code>server-check</code>. Dodano też skrypt <code>06_SPRAWDZ_ZASOBY_15619_R5.bat</code>, który sprawdza grafikę SVG/PNG i lokalne importy bez uruchamiania gry.</p><p>Pakiet R5 jest udostępniony w rozmowie, nie jako potwierdzony publiczny instalator. W GitHub Releases sprawdzaj rzeczywiście dostępne wydania.</p></div>
+  <div class="release-warning" role="note"><strong>Najnowsza wersja wyglądu: 1.56.19 R7</strong><p>R6 naprawiała przycinanie grafiki cyberwilka w nagłówku. R7 przebudowuje jedynie układ ekranu GRAJ w Qt, zachowując podłączone przyciski i pola profilu. Do paczki dołączono test wizualny <code>08_SPRAWDZ_WYGLAD_15619_R7.bat</code>.</p><p>Kontrole offline nie dowodzą, że gra lub logowanie działają na komputerze Windows. Paczka R7 została przygotowana w rozmowie, lecz nie potwierdzono jej publikacji w GitHub Releases. <a href="../#start">Zobacz podgląd układu R7</a>.</p></div>
   <div class="release-warning" role="note"><strong>Bezpieczeństwo i logowanie</strong><p>Nie wyłączaj Microsoft Defender ani Smart App Control. Logowanie Microsoft wymaga prawidłowej rejestracji aplikacji wydawcy; sam Client ID nie gwarantuje działania. Nie przesyłaj nikomu haseł, tokenów ani kodów urządzenia.</p></div>
   <div class="actions" style="margin-top:25px"><a class="btn btn-secondary" href="../poradnik/">Pełny poradnik instalacji ↗</a><a class="btn btn-ghost" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer">Pomoc na Discordzie ↗</a></div>
  </div></section>
