@@ -636,6 +636,20 @@ Object.assign(dictionary,{
   "Jeśli instalacja nie powiedzie się, odczytaj komunikat w terminalu. Nie wyłączaj Microsoft Defender i nie uruchamiaj skryptów pobranych z nieznanych źródeł.": "If installation fails, read the terminal error. Do not disable Microsoft Defender or run scripts from untrusted sources.",
   "Dołączony PvP HUD 2.0.15 jest przeznaczony dla": "The bundled PvP HUD 2.0.15 targets"
 });
+Object.assign(dictionary,{
+  "Graphite Green.": "Graphite Green.",
+  "Paleta Graphite Green": "Graphite Green palette",
+  "Tło #0D0F10, panele #1B1E20, akcent #22C55E, tekst #EDF3EF.": "Background #0D0F10, panels #1B1E20, accent #22C55E, text #EDF3EF.",
+  "Grafitowe panele, stonowana szmaragdowa zieleń, nowa grafika świata blokowego i jednolite ikony konturowe. Bez zbędnego przełączania motywów.": "Graphite panels, subtle emerald highlights, new block-world scenery and matching outline icons. No unnecessary theme switcher.",
+  "Wygląd Graphite Green opiera się na grafitowych panelach, zielonym akcencie GRAJ i jednolitych ikonach konturowych. Wszystkie zakładki zachowują swoje funkcje; strona prezentuje koncepcję interfejsu.": "Graphite Green uses graphite panels, a green PLAY accent and consistent outline icons. All launcher tabs retain their functions; the website shows a conceptual preview.",
+  "Zobacz dostępne wydania": "See available releases",
+  "Dla paczki testowej 1.56.17 uruchom kolejno:": "For test package 1.56.17, run the scripts in this order:",
+  "Ikony": "Icons",
+  "Shadery": "Shaders",
+  "Popularne problemy": "Common issues",
+  "Znalezione odpowiedzi:": "Matching answers:",
+  "Brak wyników. Spróbuj innego hasła lub kodu błędu.": "No results. Try another keyword or error code."
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
