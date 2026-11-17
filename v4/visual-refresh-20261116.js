@@ -47,7 +47,10 @@
   document.querySelectorAll('.app-shell .app-rail > span').forEach((el,i)=>{
     el.innerHTML=makeIcon(rail[i]||'instance');
   });
-  document.querySelectorAll('.app-shell .preview-thumb').forEach(el=>{el.innerHTML=makeIcon('modpacks')});
+  const previewIcons=['modpacks','mods','modpacks','shaders'];
+  document.querySelectorAll('.app-shell .preview-thumb').forEach((el,i)=>{
+    el.innerHTML=makeIcon(previewIcons[i]||'modpacks');
+  });
   const studio=document.querySelector('#skin-studio .visual-note');
   if(studio)studio.textContent='Wizualizacja koncepcyjna, nie rzeczywisty zrzut ekranu. Podgląd 3D należy sprawdzić w aplikacji Windows.';
   document.querySelectorAll('.mvg-category-grid .mvg-symbol').forEach((el,i)=>{
