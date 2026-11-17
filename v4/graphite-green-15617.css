@@ -144,3 +144,17 @@ a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible,
 .slate-update-intro,.slate-update-note,.visual-choice p{color:#BACBBF!important}
 .pvp-benefits i{font-style:normal;color:#86DFA3!important}
 .pvp-benefits i svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* Graphite Green R3 — guide quick filters and accessible visibility */
+.guide-search-quick{display:flex;flex-wrap:wrap;gap:8px;margin:7px 0 4px}
+.guide-search-quick button{
+  border:1px solid #45634D;border-radius:20px;
+  background:#1E2A22;color:#C8EDCF;
+  padding:7px 14px;font:600 13px/1.25 "Segoe UI",system-ui,sans-serif;
+  cursor:pointer;transition:border-color .16s,background-color .16s;
+}
+.guide-search-quick button:hover,.guide-search-quick button:focus-visible{background:#2A4130;border-color:#78CC8E;color:#F4FFF7}
+.guide-faq details[hidden]{display:none!important}
+.guide-faq details summary{cursor:pointer}
+.mvg-toc a[aria-current="true"]{background:#203528!important;color:#A9F5BC!important;border-left:2px solid #48D680!important}
+.guide-results{min-height:20px}
