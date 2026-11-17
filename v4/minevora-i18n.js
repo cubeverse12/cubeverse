@@ -626,6 +626,16 @@ Object.assign(dictionary,{
   "Moje paczki": "My packs",
   "Nie wyłączaj Microsoft Defender i nie uruchamiaj skryptów pobranych z nieznanych źródeł.": "Do not disable Microsoft Defender or run scripts from unknown sources."
 });
+
+Object.assign(dictionary,{
+  "Jedno miejsce do uruchamiania Minecraft Java, tworzenia instancji i zarządzania modami, shaderami, datapackami oraz paczkami zasobów. Wszystkie moduły mają jednolity, grafitowy interfejs, konturowe ikony i stonowane zielone akcenty. Logowanie Microsoft, instalację dodatków i uruchomienie gry sprawdź na swoim Windows; dołączony PvP HUD jest przygotowany dla Fabric 1.21.1.": "One place to launch Minecraft Java, create instances and manage mods, shaders, datapacks and resource packs. Every module has a unified graphite interface, outline icons and subtle green accents. Microsoft sign-in, add-on installs and game launches still require testing on Windows; the bundled PvP HUD targets Fabric 1.21.1.",
+  "Uruchom 03_URUCHOM_15617.bat": "Run 03_URUCHOM_15617.bat",
+  "03_URUCHOM_15617.bat": "03_URUCHOM_15617.bat",
+  "Dodaj adres serwera Minecraft Java w zakładce Serwery. Jeżeli nie pojawia się ikona, odśwież status i sprawdź połączenie; brak ikony nie oznacza automatycznie, że serwer nie działa.": "Add your Minecraft Java server address on the Servers tab. If its icon is missing, refresh its status and check the connection; a missing icon does not necessarily mean the server is offline.",
+  "HOST to oddzielny, lokalny panel Windows. Po jego uruchomieniu sprawdzisz go pod adresem": "HOST is a separate Windows local panel. Once started, access it at",
+  "Jeśli instalacja nie powiedzie się, odczytaj komunikat w terminalu. Nie wyłączaj Microsoft Defender i nie uruchamiaj skryptów pobranych z nieznanych źródeł.": "If installation fails, read the terminal error. Do not disable Microsoft Defender or run scripts from untrusted sources.",
+  "Dołączony PvP HUD 2.0.15 jest przeznaczony dla": "The bundled PvP HUD 2.0.15 targets"
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
