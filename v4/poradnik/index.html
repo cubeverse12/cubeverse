@@ -2,8 +2,8 @@
 <html lang="pl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="minevora-build" content="MINEVORA-LOGO-1TO1-15612-20261116">
-<meta name="theme-color" content="#1E2022">
+<meta name="minevora-build" content="MINEVORA-WWW-GRAPHITE-GREEN-15617-20261117">
+<meta name="theme-color" content="#0D0F10">
 <meta name="description" content="Poradnik MINEVORA: instalacja Windows, konto Microsoft, wersje Minecraft, Modrinth, modpacki, datapacki, shadery, tekstury i diagnoza błędów.">
 <link rel="canonical" href="https://minevora.pl/v4/poradnik/">
 <link rel="icon" href="../assets/minevora-app-icon-launcher-1-56-12.png" type="image/png">
@@ -30,6 +30,8 @@
 <link rel="stylesheet" href="../slate-r3-mobile-20261116.css?v=20261116-menu-r4">
 <script defer src="../visual-refresh-20261116.js?v=20261116c"></script>
 <link rel="stylesheet" href="../host-integration-20261116.css?v=1">
+<link rel="stylesheet" href="../graphite-green-15617.css?v=20261117-r1">
+<script defer src="./guide.js?v=15617"></script>
 </head>
 <body>
 <aside class="mv-rail" aria-label="Nawigacja MINEVORA">
@@ -45,22 +47,22 @@
 </aside>
 <a class="skip" href="#main">Przejdź do treści</a>
 <header class="topbar"><div class="wrap topbar-inner"><a href="../" class="brand"><img src="../assets/minevora-app-icon-launcher-1-56-12.png" width="39" height="39" alt=""><span>MINEVORA</span></a>
-<nav class="desktop-nav" aria-label="Nawigacja"><a href="../">Strona główna</a><a href="#instalacja">Instalacja</a><a href="#logowanie">Microsoft</a><a href="#skin-studio">PvP HUD</a><a href="#problemy">FAQ</a><a class="discord-link" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer"><img src="../assets/discord.svg" width="23" height="23" alt="">Discord</a><a class="nav-cta" href="../pobierz/">Pobierz</a><a href="../host/">HOST</a></nav>
-<details class="mobile-nav"><summary>☰ Menu</summary><nav class="mobile-items" aria-label="Menu mobilne"><a href="../">Strona główna</a><a href="#instalacja">Instalacja</a><a href="#logowanie">Microsoft</a><a href="#skin-studio">PvP HUD</a><a href="#problemy">FAQ</a><a class="discord-link" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer"><img src="../assets/discord.svg" width="23" height="23" alt="">Discord</a><a href="../pobierz/">Pobierz</a><a href="../host/">MINEVORA HOST</a></nav></details>
+<nav class="desktop-nav" aria-label="Nawigacja"><a href="../">Strona główna</a><a href="#instalacja">Instalacja</a><a href="#logowanie">Microsoft</a><a href="#skin-studio">Skin Studio / PvP HUD</a><a href="#problemy">FAQ</a><a class="discord-link" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer"><img src="../assets/discord.svg" width="23" height="23" alt="">Discord</a><a class="nav-cta" href="../pobierz/">Pobierz</a><a href="../host/">HOST</a></nav>
+<details class="mobile-nav"><summary>☰ Menu</summary><nav class="mobile-items" aria-label="Menu mobilne"><a href="../">Strona główna</a><a href="#instalacja">Instalacja</a><a href="#logowanie">Microsoft</a><a href="#skin-studio">Skin Studio / PvP HUD</a><a href="#problemy">FAQ</a><a class="discord-link" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer"><img src="../assets/discord.svg" width="23" height="23" alt="">Discord</a><a href="../pobierz/">Pobierz</a><a href="../host/">MINEVORA HOST</a></nav></details>
 <label class="site-language-switch" title="Zmień język / Change language"><span aria-hidden="true">🌐</span><select data-minevora-language aria-label="Język strony"><option value="pl">PL</option><option value="en">EN</option></select></label></div></header>
 
 <main id="main" class="mvg-main">
   <section class="mvg-hero" aria-labelledby="guide-title">
     <div class="mvg-hero-copy"><p class="mvg-kicker">MINEVORA / PORADNIK WINDOWS</p>
       <h1 id="guide-title">Minecraft Java.<br><span class="mvg-gradient">Od pierwszego uruchomienia.</span></h1>
-      <p>Krótki i uporządkowany poradnik: instalacja launchera, konto Microsoft, własne paczki, Modrinth, shadery, datapacki i rozwiązywanie problemów.</p>
+      <p>Praktyczny przewodnik dla MINEVORA 1.56.17: uruchomienie na Windows, konto Microsoft, mody, datapacki, shadery, serwery i diagnostyka.</p>
       <div class="mvg-actions"><a class="btn btn-primary" href="../pobierz/">Zobacz dostępne wydania</a><a class="btn btn-secondary" href="#instalacja">Przejdź do instrukcji ↓</a></div>
-      <p class="mvg-hero-note">Wydania rozwojowe to kod źródłowy przeznaczony do testów. Dostępność publicznego wydania oraz numer pobieranej paczki zawsze sprawdzaj osobno.</p>
+      <p class="mvg-hero-note">Wydanie 1.56.17 jest paczką źródłową do testów Windows, nie sprawdzonym instalatorem EXE. Dostępność publicznego wydania oraz numer pobieranej paczki zawsze sprawdzaj osobno.</p>
     </div>
     <div class="mvg-hero-visual" role="img" aria-label="Symbol wilka MINEVORA na grafitowej ilustracji z trzema etapami instalacji">
       <div class="mvg-visual-glow"></div><div class="mvg-logo-orbit"><img src="../assets/minevora-app-icon-launcher-1-56-12.png" alt="" width="170" height="170" loading="eager"></div>
-      <div class="mvg-sample-steps"><span><b>01</b> Pobierz i rozpakuj ZIP</span><span><b>02</b> Uruchom skrypty z README</span><span><b>03</b> Otwórz START_WINDOWS.bat</span></div>
-      <div class="mvg-visual-label">MINEVORA · CIEMNY ŁUPEK</div>
+      <div class="mvg-sample-steps"><span><b>01</b> Pobierz i rozpakuj ZIP</span><span><b>02</b> Uruchom skrypty z README</span><span><b>03</b> Uruchom 03_URUCHOM_15617.bat</span></div>
+      <div class="mvg-visual-label">MINEVORA · GRAPHITE GREEN</div>
     </div>
   </section>
   <div class="mvg-columns">
@@ -73,31 +75,32 @@
       <a href="#datapacki">06 · Datapacki</a>
       <a href="#shadery">07 · Shadery i tekstury</a>
       <a href="#skin-studio">08 · Skin Studio i PvP</a>
-      <a href="#problemy">09 · Błędy i diagnostyka</a>
-      <a href="#bezpieczenstwo">10 · Bezpieczeństwo</a>
+      <a href="#serwery">09 · Serwery i HOST</a>
+      <a href="#problemy">10 · Błędy i diagnostyka</a>
+      <a href="#bezpieczenstwo">11 · Bezpieczeństwo</a>
     </nav>
     <div class="mvg-content">
       <section class="mvg-card" id="instalacja"><p class="mvg-kicker">01 / INSTALACJA</p><h2>Uruchom launcher w trzech krokach</h2>
         <ol class="mvg-step-grid"><li><span>01</span><h3>Pobierz</h3><p>Na stronie <a href="../pobierz/">Pobierz</a> sprawdź dostępne wydania. Wybierz ZIP pasujący do Windows i przeczytaj opis.</p></li>
         <li><span>02</span><h3>Rozpakuj</h3><p>Wypakuj cały ZIP do nowego folderu, razem z podfolderami i plikami <code>.bat</code>. Nie uruchamiaj programu bezpośrednio z archiwum.</p></li>
-        <li><span>03</span><h3>Zainstaluj i uruchom</h3><p>Dla paczki rozwojowej 1.56.14 uruchom kolejno: <code>01_INSTALUJ_15614.bat</code> → <code>02_SPRAWDZ_15614.bat</code> → <code>03_URUCHOM_15614.bat</code>. W innych wydaniach korzystaj z README dołączonego do paczki.</p></li></ol>
-        <p class="mvg-alert">Nie wyłączaj zabezpieczeń Windows. Jeśli instalacja się nie powiedzie, sprawdź komunikat w oknie terminala zamiast ponawiać ją w ciemno.</p>
+        <li><span>03</span><h3>Zainstaluj i uruchom</h3><p>Dla paczki rozwojowej 1.56.17 uruchom kolejno: <code>01_INSTALUJ_15617.bat</code> → <code>02_SPRAWDZ_15617.bat</code> → <code>03_URUCHOM_15617.bat</code>. W innych wydaniach korzystaj z README dołączonego do paczki.</p></li></ol>
+        <p class="mvg-alert">Nie wyłączaj zabezpieczeń Windows. Jeśli instalacja nie powiedzie się, odczytaj komunikat w terminalu. Nie wyłączaj Microsoft Defender i nie uruchamiaj skryptów pobranych z nieznanych źródeł.</p>
       </section>
       <section class="mvg-card" id="pierwszy-start"><p class="mvg-kicker">02 / GRAJ</p><h2>Pierwsze uruchomienie Minecrafta</h2>
         <div class="mvg-flow"><div><strong>Wybierz paczkę</strong><p>Utwórz lub wybierz istniejący profil w „Moje paczki”.</p></div><div><strong>Ustaw wersję i loader</strong><p>Wybierz zgodną wersję Minecraft Java i Vanilla, Fabric, Forge, NeoForge lub Quilt.</p></div><div><strong>Kliknij GRAJ</strong><p>Launcher powinien przygotować profil, a następnie uruchomić grę. Uruchomienie na danym komputerze należy przetestować.</p></div></div>
         <p>Nie zmieniaj wersji istniejącego świata bez kopii zapasowej. Wymagane biblioteki i Java zależą od wybranej wersji gry.</p>
       </section>
-      <section class="mvg-card" id="logowanie"><p class="mvg-kicker">03 / MICROSOFT</p><h2>Zaloguj się bezpiecznie</h2>
+      <section class="mvg-card" id="logowanie"><p class="mvg-kicker">03 / MICROSOFT</p><h2>Konto Microsoft — bezpieczne logowanie</h2>
         <p>W launcherze wybierz ikonę konta i uruchom oficjalny proces logowania Microsoft. Jeśli pojawi się kod urządzenia, użyj wyłącznie adresu podanego przez Microsoft. Nie wpisuj hasła bezpośrednio w oknie MINEVORA.</p>
         <p>Do uruchamiania Minecraft Java wymagane jest konto z odpowiednimi uprawnieniami. Brak poprawnej konfiguracji aplikacji wydawcy może zablokować logowanie — sam Client ID nie jest gwarancją działania.</p>
       </section>
       <section class="mvg-card" id="dodatki"><p class="mvg-kicker">04 / MODRINTH</p><h2>Przeglądaj i instaluj dodatki</h2>
         <div class="mvg-category-grid">
-         <a href="#dodatki" aria-label="Mody"><span class="mvg-symbol">✦</span><strong>Mody</strong><small>Pliki JAR i zależności loadera</small></a>
-         <a href="#modpacki"><span class="mvg-symbol">▦</span><strong>Modpacki</strong><small>Osobne instancje Minecrafta</small></a>
-         <a href="#datapacki"><span class="mvg-symbol">▤</span><strong>Datapacki</strong><small>Pliki konkretnego świata</small></a>
-         <a href="#shadery"><span class="mvg-symbol">◈</span><strong>Shadery</strong><small>Efekty graficzne</small></a>
-         <a href="#shadery"><span class="mvg-symbol">▧</span><strong>Resourcepacki</strong><small>Tekstury i zasoby gry</small></a>
+         <a href="#dodatki" aria-label="Mody"><span class="mvg-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 3h8v5h5v8h-5v5H8v-5H3V8h5z"/></svg></span><strong>Mody</strong><small>Pliki JAR i zależności loadera</small></a>
+         <a href="#modpacki"><span class="mvg-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7Z"/><path d="m3 7 9 5 9-5m-9 0 9-5"/></svg></span><strong>Modpacki</strong><small>Osobne instancje Minecrafta</small></a>
+         <a href="#datapacki"><span class="mvg-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8m-8 4h8m-8 4h5"/></svg></span><strong>Datapacki</strong><small>Pliki konkretnego świata</small></a>
+         <a href="#shadery"><span class="mvg-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17c3-8 6-8 9 0s6 8 9 0M3 8c3-8 6-8 9 0s6 8 9 0"/></svg></span><strong>Shadery</strong><small>Efekty graficzne</small></a>
+         <a href="#shadery"><span class="mvg-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 10h18M10 3v18"/></svg></span><strong>Resourcepacki</strong><small>Tekstury i zasoby gry</small></a>
         </div>
         <p>Przed instalacją sprawdź wersję Minecrafta i loader. Jeśli Modrinth wymaga dodatkowych modów, zatwierdź ich listę; nie pomijaj kontroli zależności. Gdy prawdziwa okładka jest niedostępna, launcher może pokazać ikonę zastępczą kategorii.</p>
       </section>
@@ -114,20 +117,32 @@
       </section>
       <section class="mvg-card" id="skin-studio"><p class="mvg-kicker">08 / PERSONALIZACJA</p><h2>Skin Studio i PvP HUD</h2>
         <p>W Skin Studio możesz przeglądać i wgrywać obsługiwane skiny PNG. Przed zapisaniem sprawdź podgląd postaci.</p>
-        <p>Dołączony mod PvP HUD jest przeznaczony dla <strong>Fabric 1.21.1</strong>. Nie zakładaj zgodności z innymi wersjami; wymagane są odpowiednie zależności i test w grze.</p>
+        <p>Dołączony PvP HUD 2.0.15 jest przeznaczony dla <strong>Fabric 1.21.1</strong>. Nie zakładaj zgodności z innymi wersjami; wymagane są odpowiednie zależności i test w grze.</p>
         <p>Od MINEVORA 1.56.13 R3 możesz przenieść pozycje kafelków do moda z zakładki PvP. Zamknij grę, wybierz profil Fabric 1.21.1 i ustaw skalę podglądu na 75–100%. Wyższa skala zostanie odrzucona zamiast zapisania innej wartości. W grze naciśnij prawy Shift lub P, aby otworzyć ustawienia; H ukrywa lub pokazuje HUD.</p>
         <p>W wersji testowej R3 użyj przycisku „SPRAWDŹ PvP HUD W TEJ PACZCE”. Kontrola jest tylko do odczytu: sprawdza sumę SHA-256 moda, zgłasza uszkodzony lub zmieniony JAR oraz nie nadpisuje własnych plików.</p>
       </section>
-      <section class="mvg-card" id="problemy"><p class="mvg-kicker">09 / POMOC</p><h2>Gdy coś nie działa</h2>
-        <div class="mvg-faq">
+      <section class="mvg-card" id="serwery"><p class="mvg-kicker">09 / SERWERY I HOST</p><h2>Serwery Minecraft oraz lokalny panel HOST</h2>
+        <div class="mvg-flow">
+          <div><strong>Lista serwerów</strong><p>Dodaj adres serwera Minecraft Java w zakładce Serwery. Jeżeli nie pojawia się ikona, odśwież status i sprawdź połączenie; brak ikony nie oznacza automatycznie, że serwer nie działa.</p></div>
+          <div><strong>MINEVORA HOST 0.9.7</strong><p>HOST to oddzielny, lokalny panel Windows. Po jego uruchomieniu sprawdzisz go pod adresem <code>127.0.0.1:8000</code> na tym samym komputerze.</p></div>
+        </div>
+        <p class="mvg-note">Strona minevora.pl nie uruchamia panelu na Twoim komputerze. HOST nie jest publiczną usługą hostingową i wymaga własnej konfiguracji.</p>
+        <div class="mvg-actions"><a class="btn btn-secondary" href="../host/">Przeczytaj o HOST</a></div>
+      </section>
+      <section class="mvg-card" id="problemy"><p class="mvg-kicker">10 / POMOC</p><h2>Gdy coś nie działa</h2>
+        <div class="guide-search-wrap"><label for="guideSearch">Wyszukaj rozwiązanie</label><input id="guideSearch" type="search" autocomplete="off" placeholder="Np. ikony, Microsoft, Fabric, HOST…" aria-describedby="searchResults"><div id="searchResults" class="guide-results" role="status" aria-live="polite">Szukaj w pytaniach i odpowiedziach.</div></div>
+        <div class="mvg-faq guide-faq">
           <details><summary>Launcher nie startuje / błąd importu</summary><p>Najpierw sprawdź <code>logs/startup_error.log</code>. Uruchom skrypt diagnostyczny dostępny w danej paczce, na przykład <code>DIAGNOZA_STARTU.bat</code>. Pokaż sam komunikat błędu, bez tokenów i danych konta.</p></details>
           <details><summary>Modrinth: brakuje obowiązkowych zależności</summary><p>Sprawdź listę wymagań moda, wersję gry i loader. W razie niezgodności wybierz kompatybilną wersję dodatku. Nie instaluj niesprawdzonych plików ręcznie w celu obejścia błędu.</p></details>
           <details><summary>Nie widać ikon modów albo okładek</summary><p>Sprawdź połączenie z Modrinth CDN i ponów pobieranie okładek. Pliki lokalne bez osadzonej ikony mogą być pokazywane z symbolem kategorii.</p></details>
           <details><summary>Brak wersji Minecraft</summary><p>Sprawdź połączenie z oficjalnym manifestem wersji, wybierz poprawną wersję Release i w razie potrzeby użyj akcji GRAJ do instalacji gry.</p></details>
           <details><summary>Nie można zalogować Microsoft</summary><p>Sprawdź konfigurację publicznej aplikacji Microsoft i wymagane uprawnienia. Nie udostępniaj kodu urządzenia, haseł ani tokenów.</p></details>
+          <details data-keywords="grafika ikony modpack shadery paczki SVG PNG"><summary>Po aktualizacji ikony są stare, niewyraźne lub zniknęły</summary><p>Użyj pełnej paczki 1.56.17 w nowym folderze; nie mieszaj jej plików z wcześniejszą wersją. Sprawdź, czy rozpakowały się wszystkie katalogi z ikonami, oraz uruchom <code>02_SPRAWDZ_15617.bat</code>. Jeśli problem pozostanie, wyślij zrzut ekranu i raport, bez danych logowania.</p></details>
+          <details data-keywords="host panel localhost offline 127.0.0.1"><summary>HOST pokazuje „offline” lub nie otwiera panelu</summary><p>Panel HOST jest osobnym programem. Najpierw uruchom go lokalnie, a potem sprawdź adres <code>http://127.0.0.1:8000/</code>. Sam launcher ani strona internetowa nie uruchamiają usługi w tle.</p></details>
+          <details data-keywords="fabric forge neoforge quilt loader java mod"><summary>Mod albo shader nie działa po instalacji</summary><p>Porównaj wersję Minecrafta, loader, wersję moda i jego wymagane biblioteki. Shadery wymagają zgodnej obsługi, np. Iris w konfiguracji Fabric. Nie zastępuj w ciemno plików swojej instancji.</p></details>
         </div>
       </section>
-      <section class="mvg-card" id="bezpieczenstwo"><p class="mvg-kicker">10 / DANE</p><h2>Nie trać światów i modów</h2>
+      <section class="mvg-card" id="bezpieczenstwo"><p class="mvg-kicker">11 / DANE</p><h2>Nie trać światów i modów</h2>
         <p>Nowe wersje launchera rozpakowuj do osobnego folderu. Przed większą aktualizacją zrób kopię światów oraz własnych paczek. Naprawa interfejsu nie powinna wymagać kasowania katalogu <code>saves</code>, modyfikacji Minecrafta ani wyłączania ochrony Windows.</p>
         <div class="mvg-actions"><a class="btn btn-primary" href="../pobierz/">Wydania i pobieranie</a><a class="btn btn-secondary" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer">Społeczność MINEVORA</a></div>
       </section>
@@ -135,7 +150,7 @@
   </div>
 </main>
 <a class="discord-float" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer" aria-label="Otwórz Discord MINEVORA w nowej karcie" title="Discord MINEVORA"><img src="../assets/discord.svg" width="33" height="33" alt=""><span>Discord</span></a>
-<footer class="footer"><div class="wrap foot-inner"><a class="brand" href="../"><img src="../assets/minevora-app-icon-launcher-1-56-12.png" alt="" width="39" height="39"><span>MINEVORA</span></a><p>Poradnik MINEVORA Ciemny Łupek — Windows · wersja rozwojowa</p><nav class="footer-nav" aria-label="Stopka"><a href="../">Strona główna</a><a href="../pobierz/">Pobierz</a></nav></div></footer>
-<div class="mv-status" role="note"><span class="dot" aria-hidden="true"></span><span>MINEVORA · CIEMNY ŁUPEK — witryna informacyjna; grę uruchamia aplikacja Windows</span><span>Wersja rozwojowa: sprawdź aktualne wydanie</span></div>
-<div class="mv-site-build" aria-label="Wersja grafik MINEVORA">Logo 1:1 z launchera 1.56.12 · 16.11.2026</div>
+<footer class="footer"><div class="wrap foot-inner"><a class="brand" href="../"><img src="../assets/minevora-app-icon-launcher-1-56-12.png" alt="" width="39" height="39"><span>MINEVORA</span></a><p>Poradnik MINEVORA Graphite Green — Windows · wersja rozwojowa</p><nav class="footer-nav" aria-label="Stopka"><a href="../">Strona główna</a><a href="../pobierz/">Pobierz</a></nav></div></footer>
+<div class="mv-status" role="note"><span class="dot" aria-hidden="true"></span><span>MINEVORA · GRAPHITE GREEN — witryna informacyjna; grę uruchamia aplikacja Windows</span><span>Wersja rozwojowa: sprawdź aktualne wydanie</span></div>
+<div class="mv-site-build" aria-label="Aktualizacja strony MINEVORA">MINEVORA WWW · Graphite Green · 17.11.2026</div>
 </body></html>
