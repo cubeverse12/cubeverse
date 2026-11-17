@@ -57,6 +57,9 @@ try:
             assert image_loaded(page,"header .brand img")
             assert page.locator(".app-shell").count()==1
             assert page.locator(".feature-grid").count()==1
+            assert page.locator(".feature-grid .feature-icon svg").count()==8, (label,"feature icons must be outlines")
+            expect(page.locator("#wyglad")).to_contain_text("Paleta Graphite Green")
+            assert page.locator('a[href="./poradnik/#skin-studio"]').count()==1, (label,"PvP guide link")
             assert page.locator(".mv-rail a[data-rail]").count()==7
             assert page.locator(".mv-addon-grid .mv-addon").count()==5
             assert page.locator('link[href*="launcher-slate-20261115.css"]').count()==1
@@ -143,6 +146,15 @@ try:
             expect(page.locator("html")).to_have_attribute("lang","pl")
             expect(page.locator("h1")).to_contain_text("Od pierwszego uruchomienia.")
             expect(page.locator("#instalacja")).to_contain_text("Uruchom launcher")
+            assert page.locator(".guide-search-quick button").count()==4
+            page.locator('[data-guide-query="ikony"]').click()
+            expect(page.locator("#searchResults")).to_contain_text("Znalezione odpowiedzi:")
+            assert page.locator("#problemy .guide-faq details:not([hidden])").count()>=2
+            page.locator("#guideSearch").fill("nieistniejacykodbledu123")
+            expect(page.locator("#searchResults")).to_contain_text("Brak wyników")
+            assert page.locator("#problemy .guide-faq details:not([hidden])").count()==0
+            page.locator("#guideSearch").press("Escape")
+            assert page.locator("#problemy .guide-faq details:not([hidden])").count()>=8
             assert not errors,(label,"JS exceptions",errors)
             no_overflow(page,label+" Polish guide")
             page.screenshot(path=str(OUT/(label+"-guide.png")),full_page=True,animations="disabled")
