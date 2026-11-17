@@ -23,7 +23,11 @@ a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible,
 .mv-rail a svg :is(path,rect,line,polyline,circle){fill:none!important;stroke:currentColor!important;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
 .eyebrow,.mvg-kicker{color:#80DEA2!important}
 .eyebrow .dot,.dot{background:#3BD27A;box-shadow:0 0 0 3px rgba(34,197,94,.12)}
-.hero{background:transparent!important}
+.hero{
+  background-image:linear-gradient(90deg,rgba(13,16,14,.94) 0%,rgba(13,16,14,.77) 37%,rgba(13,16,14,.34) 76%,rgba(13,16,14,.23) 100%),url("./assets/minevora-graphite-world-20261117.svg")!important;
+  background-color:#111713!important;background-size:cover!important;background-position:center!important;
+  border-bottom:1px solid #39473D!important
+}
 .hero-copy .lead,.lead,.caption{color:#BBC9C0!important}
 .hero-pills span,.version-pill{background:#1E2922!important;border:1px solid #40584A!important;color:#B9ECCC!important}
 .btn,.nav-cta{border-radius:11px;border-color:#414B44;box-shadow:none}
@@ -98,3 +102,11 @@ a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible,
 @media(max-width:650px){.mvg-hero{margin-top:12px!important;padding:20px!important;gap:18px!important}.mvg-hero h1{font-size:clamp(29px,8vw,40px)!important}.mvg-step-grid,.mvg-category-grid{grid-template-columns:1fr 1fr!important}.mvg-category-grid a{min-height:113px!important}.mvg-card{padding:17px!important}.mv-status{font-size:11px}}
 @media(max-width:390px){.mvg-category-grid{grid-template-columns:1fr!important}.mvg-hero-visual{min-height:206px!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.app-shell{transition:none!important;transform:none!important}}
+
+/* Shared scenic hero background and compact layouts */
+@media(max-width:650px){
+ .hero{background-image:linear-gradient(95deg,rgba(13,16,14,.95),rgba(13,16,14,.77)),url("./assets/minevora-graphite-world-20261117.svg")!important;background-position:61% center!important}
+}
+@media(min-width:761px){
+ .mvg-toc{max-height:calc(100vh - 108px);overflow:auto}
+}
