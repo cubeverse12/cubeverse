@@ -20,16 +20,16 @@
      if(match)count++;
    }
    if(lang()==="en"){
-     results.textContent=q?(count?"Matching answers: "+count:"No results. Try another keyword or error code."):"Search FAQ using an error message or keyword.";
+     const message=q?(count?"Matching answers: "+count:"No results. Try another keyword or error code."):"Search FAQ using an error message or keyword."; if(results.textContent!==message)results.textContent=message;
    }else{
-     results.textContent=q?(count?"Znalezione odpowiedzi: "+count:"Brak wyników. Spróbuj innego hasła lub kodu błędu."):"Szukaj w FAQ — wpisz opis problemu albo kod błędu.";
+     const message=q?(count?"Znalezione odpowiedzi: "+count:"Brak wyników. Spróbuj innego hasła lub kodu błędu."):"Szukaj w FAQ — wpisz opis problemu albo kod błędu."; if(results.textContent!==message)results.textContent=message;
    }
  }
  function updateLang(){
    const en=lang()==="en";
    input.placeholder=en?"E.g. icons, Microsoft, Fabric, HOST…":"Np. ikony, Microsoft, Fabric, HOST…";
    const names={ikony:en?"Icons":"Ikony",Microsoft:"Microsoft",shadery:en?"Shaders":"Shadery",HOST:"HOST"};
-   shortcuts.forEach(el=>{const value=el.dataset.guideQuery; if(value in names)el.textContent=names[value]});
+   shortcuts.forEach(el=>{const value=el.dataset.guideQuery; if(value in names&&el.textContent!==names[value])el.textContent=names[value]});
    search();
  }
  function syncToc(){
