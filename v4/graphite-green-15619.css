@@ -627,3 +627,198 @@ input[type="search"],.guide-search-wrap input, .guide-search-wrap select {
   #wyglad .visual-choice p{font-size:14px !important}
   #spolecznosc .community{padding:24px 19px !important}
 }
+
+
+/* R4 — Guide, Downloads and HOST: unify remaining dated Slate components.
+   Only presentation rules; no changes to script behaviour. */
+.mvg-hero,
+.mvg-hero-visual,
+.mvg-toc,
+.mvg-card,
+.mvg-flow>div,
+.mvg-step-grid li,
+.mvg-category-grid a,
+.mvg-faq details,
+.guide-search-wrap,
+.guide-results,
+.download-143-layout>article,
+#host-funkcje .host-card,
+#host-start .host-card,
+.host-warning {
+  background:#202020 !important;
+  background-image:none !important;
+  border:1px solid #404040 !important;
+  color:#F9FAFB !important;
+  box-shadow:none !important;
+  border-radius:14px !important;
+}
+.mvg-hero{
+  background:linear-gradient(130deg,#232323,#161616) !important;
+  padding:clamp(20px,3vw,36px) !important;
+}
+.mvg-hero::after{
+  background:radial-gradient(circle at 90% 10%,#22C55E15,transparent 55%) !important;
+}
+.mvg-hero h1,.mvg-card h2,.mvg-card h3,.mvg-toc strong,
+.guide-search-wrap label,.host-card h3{
+  color:#F9FAFB !important;
+}
+.mvg-hero-copy>p:not(.mvg-kicker),.mvg-hero-note,.mvg-card p,
+.mvg-card li,.mvg-flow>div p,.mvg-step-grid li p,
+.mvg-faq details p,.host-warning p{
+  color:#D1D5DB !important;
+  line-height:1.7 !important;
+}
+.mvg-hero-visual{
+  background:radial-gradient(circle at 50% 25%,#22C55E22,transparent 53%),#191919 !important;
+  border-color:#3F5545 !important;
+}
+.mvg-logo-orbit{
+  background:#1A2920 !important;
+  border:1px solid #4E835D !important;
+  box-shadow:0 12px 30px #0005 !important;
+}
+.mvg-sample-steps span{
+  background:#252525 !important;
+  border:1px solid #495B4C !important;
+  color:#F9FAFB !important;
+}
+.mvg-sample-steps b,.mvg-kicker,.mvg-visual-label{
+  color:#4ADE80 !important;
+}
+.mvg-toc{
+  background:#181818 !important;
+  border:1px solid #404040 !important;
+  gap:5px !important;
+}
+.mvg-toc a{
+  display:flex !important;
+  align-items:center !important;
+  min-height:40px !important;
+  padding:8px 12px !important;
+  color:#D1D5DB !important;
+  border-radius:9px !important;
+  font-size:14px !important;
+}
+.mvg-toc a:hover,.mvg-toc a:focus-visible,
+.mvg-toc a[aria-current]{
+  background:#193823 !important;
+  color:#78EDA1 !important;
+}
+.mvg-card{
+  border-color:#424242 !important;
+  scroll-margin-top:90px !important;
+}
+.mvg-card code,.mvg-card kbd{
+  background:#171E19 !important;
+  color:#C7FAD7 !important;
+  border:1px solid #46614D !important;
+}
+.mvg-step-grid li span{
+  background:#1C3B26 !important;
+  color:#71EB9B !important;
+  border:1px solid #3B6F4C !important;
+}
+.mvg-alert,.mvg-note,.guide-notice{
+  background:#202B23 !important;
+  border:1px solid #48664E !important;
+  color:#D4EBDD !important;
+  border-radius:12px !important;
+}
+.guide-search-wrap{
+  padding:17px !important;
+}
+#guideSearch{
+  display:block;
+  width:100%;
+  max-width:100%;
+  min-height:48px;
+  font-size:16px !important;
+  background:#141414 !important;
+  color:#F9FAFB !important;
+  border:1px solid #545454 !important;
+  border-radius:10px !important;
+  padding:12px 14px !important;
+}
+#guideSearch::placeholder{color:#9CA3AF !important}
+.guide-search-quick{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:9px !important;
+}
+.guide-search-quick button{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:42px !important;
+  padding:9px 13px !important;
+  background:#272727 !important;
+  color:#E5E7EB !important;
+  border:1px solid #515151 !important;
+  border-radius:9px !important;
+  cursor:pointer !important;
+}
+.guide-search-quick button:hover,
+.guide-search-quick button:focus-visible{
+  background:#1E3D28 !important;
+  border-color:#4ADE80 !important;
+  color:#4ADE80 !important;
+}
+.guide-results{padding:10px 12px !important;color:#C6D3CA !important}
+.mvg-faq details{padding:13px 16px !important}
+.mvg-faq details summary{
+  color:#F9FAFB !important;
+  cursor:pointer !important;
+  line-height:1.55 !important;
+}
+.mvg-faq details[open]{border-color:#4C7656 !important;background:#222E25 !important}
+.mvg-faq details[open] summary{color:#A1F0B9 !important}
+.download-143-layout{gap:16px !important}
+.download-143-layout>article{padding:clamp(18px,2vw,26px) !important}
+.download-143-layout>article h2,.download-143-layout>article h3{
+  color:#F9FAFB !important;
+}
+.download-143-layout>article p{color:#D1D5DB !important;line-height:1.75 !important}
+#host-funkcje .host-card-icon{
+  display:inline-flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  width:49px !important;height:49px !important;
+  color:#4ADE80 !important;
+  background:#1B3624 !important;
+  border:1px solid #456A50 !important;
+  border-radius:11px !important;
+}
+#host-funkcje .host-card-icon svg{
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.8 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+  width:27px !important;height:27px !important;
+}
+#host-start .host-card small{color:#4ADE80 !important}
+.host-warning{padding:20px !important}
+.host-warning strong{color:#F9FAFB !important}
+@media(max-width:760px) {
+  .mvg-hero{grid-template-columns:1fr !important;gap:18px !important}
+  .mvg-columns{grid-template-columns:minmax(0,1fr) !important}
+  .mvg-hero-visual{min-height:205px !important}
+  .mvg-toc{position:static !important;display:flex !important;flex-wrap:wrap !important}
+  .mvg-toc strong{flex-basis:100% !important}
+  .mvg-card{padding:20px 18px !important}
+  .mvg-card h2{font-size:clamp(23px,6vw,30px) !important}
+  .mvg-card p,.mvg-card li,.mvg-flow p{font-size:14px !important}
+  .mvg-card .mvg-step-grid{grid-template-columns:minmax(0,1fr) !important;gap:10px !important}
+  .mvg-card .mvg-step-grid li{padding:17px !important}
+  .mvg-flow{grid-template-columns:minmax(0,1fr) !important}
+  .mvg-toc a{min-height:42px !important}
+  .download-143-layout{grid-template-columns:minmax(0,1fr) !important}
+  #host-funkcje .host-grid,#host-start .host-steps{grid-template-columns:minmax(0,1fr) !important}
+}
+@media(min-width:761px) and (max-width:1120px){
+  .mvg-columns{grid-template-columns:minmax(0,1fr) !important}
+  .mvg-toc{position:static !important;display:flex !important;flex-wrap:wrap !important}
+  .mvg-toc strong{flex-basis:100% !important}
+  .mvg-card .mvg-step-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+}
