@@ -400,3 +400,230 @@ input[type="search"],.guide-search-wrap input, .guide-search-wrap select {
 @media (max-width:360px){
   #kategorie-dodatkow .mv-addon-grid{grid-template-columns:1fr !important}
 }
+
+
+/* R3 (17 Nov 2026): visual audit of user-provided phone screenshots.
+   Remove remaining Slate-cyan layers; improve readability without touching functionality. */
+:root {
+  --mv-r3-bg:#0D0D0D;
+  --mv-r3-panel:#202020;
+  --mv-r3-panel2:#262626;
+  --mv-r3-border:#414141;
+  --mv-r3-muted:#D1D5DB;
+  --mv-r3-ink:#F9FAFB;
+  --mv-r3-cyan:#4ADE80;
+  --slate-bg:#0D0D0D;
+  --slate-panel:#202020;
+  --slate-accent:#22C55E;
+  --slate-accent-strong:#4ADE80;
+  --slate-copy:#F9FAFB;
+  --slate-muted:#D1D5DB;
+}
+#aktualizacja-15611,.slate-release-15611 {
+  background:#141414 !important;
+  background-image:none !important;
+  border-top:1px solid #303030 !important;
+  border-bottom:1px solid #303030 !important;
+}
+#aktualizacja-15611 .slate-update-grid article {
+  background:#202020 !important;
+  background-image:none !important;
+  border:1px solid #3F3F3F !important;
+  border-radius:13px !important;
+  box-shadow:none !important;
+  padding:20px !important;
+}
+#aktualizacja-15611 .slate-update-title,
+#aktualizacja-15611 .slate-update-grid h3{
+  color:#F9FAFB !important;
+}
+#aktualizacja-15611 .slate-update-intro,
+#aktualizacja-15611 .slate-update-note,
+#aktualizacja-15611 .slate-update-grid p {
+  color:#D1D5DB !important;
+  line-height:1.65 !important;
+}
+#funkcje,#wyglad,#skin-studio,#pvp-hud,#hosting,#pobierz {
+  background:#0D0D0D !important;
+  background-image:none !important;
+  border-color:#303030 !important;
+}
+#funkcje .feature-grid .feature,
+#wyglad .visual-choice-grid .visual-choice,
+#skin-studio .visual-card,
+#pvp-hud .pvp-benefits>div{
+  background:#202020 !important;
+  background-image:none !important;
+  border:1px solid #3D3D3D !important;
+  box-shadow:none !important;
+}
+#funkcje .feature-grid .feature:hover,
+#wyglad .visual-choice-grid .visual-choice:hover {
+  background:#262626 !important;
+  border-color:#4D9962 !important;
+}
+#funkcje .feature .feature-icon,
+#funkcje .feature .feature-icon svg{
+  background:#193323 !important;
+  border-color:#385D44 !important;
+  color:#4ADE80 !important;
+  stroke:#4ADE80 !important;
+}
+#funkcje .feature p,
+#wyglad .visual-choice-grid .visual-choice p,
+#pvp-hud .pvp-benefits>div,
+#pvp-hud .pvp-install-note,
+#pvp-hud .pvp-caption,
+#skin-studio p,#skin-studio li,#skin-studio .visual-note {
+  color:#D1D5DB !important;
+  line-height:1.65 !important;
+}
+#wyglad .visual-swatch {
+  background:#111111 !important;
+  background-image:none !important;
+  border:1px solid #414141 !important;
+  box-shadow:none !important;
+}
+#wyglad .visual-swatch span {
+  border-color:#525252 !important;
+  box-shadow:none !important;
+}
+#wyglad .visual-swatch span:nth-child(1) {background:#0D0D0D !important}
+#wyglad .visual-swatch span:nth-child(2) {background:#202020 !important}
+#wyglad .visual-swatch span:nth-child(3) {background:#22C55E !important}
+#wyglad .visual-swatch.icon-swatch svg{
+  background:#1B2A20 !important;
+  stroke:#4ADE80 !important;
+  fill:none !important;
+  border:1px solid #4A7354 !important;
+}
+#wyglad .visual-swatch.layout-swatch svg {
+  fill:#25392B !important;
+  stroke:#4ADE80 !important;
+}
+#wyglad .visual-swatch.layout-swatch svg rect:nth-of-type(1){
+  fill:#18241C !important;
+}
+#wyglad .visual-swatch.layout-swatch svg rect:nth-of-type(3),
+#wyglad .visual-swatch.layout-swatch svg rect:nth-of-type(5){
+  fill:#3F7850 !important;
+}
+#pvp-hud .pvp-scene{
+  background:linear-gradient(180deg,#1B3427 0%,#315440 49%,#1A2D23 49.2%,#121D17 100%) !important;
+  border:1px solid #45654D !important;
+  box-shadow:0 12px 30px #0007 !important;
+}
+#pvp-hud .pvp-scene::before{
+  background:repeating-linear-gradient(90deg,transparent 0 49px,#87BD9212 50px 51px) !important;
+  opacity:.42 !important;
+}
+#pvp-hud .pvp-sky{
+  background:radial-gradient(circle at 78% 20%,#9BDAB626,transparent 30%),linear-gradient(180deg,#1B392A,#355740) !important;
+}
+#pvp-hud .pvp-block{
+  background:linear-gradient(135deg,#2D4736,#14241A) !important;
+  box-shadow:16px 12px 0 #102018 !important;
+}
+#pvp-hud .pvp-hud-item {
+  background:#1C3025EA !important;
+  border:1px solid #65B47A !important;
+  box-shadow:0 5px 14px #07180B88 !important;
+  color:#F9FAFB !important;
+}
+#pvp-hud .pvp-hud-item:hover,#pvp-hud .pvp-hud-item:focus-visible{
+  background:#284934 !important;border-color:#4ADE80 !important;
+}
+#pvp-hud .pvp-hud-item b,
+#pvp-hud .pvp-top-label{
+  color:#E0FBE8 !important;
+  text-shadow:none !important;
+}
+#pvp-hud .pvp-requirements span,
+#pvp-hud .pvp-demo-controls button{
+  background:#252525 !important;
+  border:1px solid #4C5A4E !important;
+  color:#E5E7EB !important;
+}
+#pvp-hud .pvp-overhead-hearts{
+  background:#1C2620E8 !important;
+  border-color:#6A986F !important;
+}
+#skin-studio .visual-card {padding:12px !important;border-radius:15px !important}
+#skin-studio .visual-card img{width:100%;height:auto;object-fit:contain;border-radius:10px !important}
+#skin-studio .feature-points li::before{color:#22C55E !important}
+#hosting .host-callout {
+  background:#202020 !important;
+  background-image:none !important;
+  border:1px solid #3F3F3F !important;
+}
+#hosting .host-callout-meta {
+  background:#1C2920 !important;
+  background-image:none !important;
+  border:1px solid #44654C !important;
+  border-radius:12px !important;
+  box-shadow:none !important;
+}
+#hosting .host-callout-meta strong{color:#F9FAFB !important}
+#hosting .host-callout-meta span,
+#hosting .host-callout-meta small {color:#C6E3CE !important}
+#pobierz .download-card,
+#pobierz .release-warning,
+#pobierz .steps .step{
+  background:#202020 !important;
+  background-image:none !important;
+  border:1px solid #414141 !important;
+  color:#F9FAFB !important;
+  border-radius:14px !important;
+  box-shadow:none !important;
+}
+#pobierz .steps .step-n{color:#4ADE80 !important}
+#pobierz .steps .step h3,
+#pobierz .release-warning strong{color:#F9FAFB !important}
+#pobierz .steps .step p,
+#pobierz .release-warning p,
+#pobierz .download-card p {color:#D1D5DB !important;line-height:1.7 !important}
+#spolecznosc{
+  background:#111111 !important;
+  background-image:none !important;
+  border-color:#333333 !important;
+}
+#spolecznosc .community {
+  background:#202020 !important;
+  background-image:none !important;
+  border:1px solid #3F3F3F !important;
+  box-shadow:none !important;
+}
+#spolecznosc .discord-community-mark{
+  background:#181818 !important;
+  border-radius:18px !important;
+}
+#spolecznosc .community p{color:#D1D5DB !important}
+@media(min-width:761px) and (max-width:1120px){
+  #aktualizacja-15611 .slate-update-grid,
+  #pobierz .steps {grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .section-heading p,.slate-update-intro,#funkcje .feature p{
+    font-size:16px !important;
+  }
+  #wyglad .visual-choice-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  #pvp-hud .pvp-benefits>div{font-size:15px !important}
+  #pobierz .steps .step p{font-size:15px !important}
+}
+@media(max-width:760px){
+  #aktualizacja-15611 .slate-update-grid,
+  #pobierz .steps,
+  #wyglad .visual-choice-grid{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  #aktualizacja-15611 .slate-update-grid article,
+  #pobierz .steps .step{padding:18px !important}
+  #aktualizacja-15611 .slate-update-grid p,
+  #pobierz .steps .step p{font-size:14px !important}
+  #funkcje .feature-grid{grid-template-columns:minmax(0,1fr) !important}
+  #pvp-hud .pvp-benefits>div{font-size:14px !important}
+  #pvp-hud .pvp-scene{border-radius:14px !important}
+  #pvp-hud .pvp-hud-item{font-size:10px !important}
+  #wyglad .visual-choice p{font-size:14px !important}
+  #spolecznosc .community{padding:24px 19px !important}
+}
