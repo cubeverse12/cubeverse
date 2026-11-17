@@ -650,6 +650,14 @@ Object.assign(dictionary,{
   "Znalezione odpowiedzi:": "Matching answers:",
   "Brak wyników. Spróbuj innego hasła lub kodu błędu.": "No results. Try another keyword or error code."
 });
+Object.assign(dictionary,{
+  "Jedno miejsce do uruchamiania Minecraft Java, tworzenia instancji i zarządzania modami, modpackami, shaderami i datapackami. Grafitowy wygląd, zielony przycisk GRAJ i konturowe ikony w całym interfejsie.": "One place to launch Minecraft Java, create instances and manage mods, modpacks, shaders and datapacks. Graphite styling, a green PLAY button and consistent outline icons throughout the interface.",
+  "Makieta wyglądu. Instalacja, logowanie i przycisk GRAJ działają w aplikacji Windows.": "Concept preview. Installation, sign-in and the PLAY button work in the Windows app.",
+  "PODGLĄD WYGLĄDU MINEVORA — MAKIETA, NIE ZRZUT EKRANU": "MINEVORA DESIGN PREVIEW — CONCEPT, NOT A SCREENSHOT",
+  "Wersja i zależności": "Versions and dependencies",
+  "Własne instancje": "Separate instances",
+  "Grafika Minecraft Java": "Minecraft Java graphics"
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
