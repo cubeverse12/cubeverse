@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="minevora-build" content="MINEVORA-WWW-GRAPHITE-GREEN-15619-20261117">
+<meta name="minevora-build" content="MINEVORA-WWW-GRAPHITE-GREEN-15619-R9-20261117">
 <meta name="theme-color" content="#0D0D0D">
 <meta name="description" content="Poradnik MINEVORA: instalacja Windows, konto Microsoft, wersje Minecraft, Modrinth, modpacki, datapacki, shadery, tekstury i diagnoza błędów.">
 <link rel="canonical" href="https://minevora.pl/v4/poradnik/">
@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../website-3-0-20.css">
 <link rel="stylesheet" href="../styles-1-43.css">
 <link rel="stylesheet" href="../styles-1-48-2.css?v=20261104-mobile-polish">
-<title>Poradnik MINEVORA — instalacja, mody i naprawa błędów</title>
+<title>Poradnik MINEVORA R9 BETA — instalacja, mody i diagnostyka Windows</title>
 <style>
 .guide-hero{padding:70px 0 45px;max-width:800px}.guide-hero h1{font-size:clamp(36px,5vw,63px)}.guide-hero p{color:#d0bfdf;font-size:16px}.guide-content{display:grid;grid-template-columns:235px minmax(0,1fr);gap:24px;align-items:start}.guide-toc{position:sticky;top:93px;display:grid;gap:8px;border:1px solid #523776;background:#17112f;padding:18px;border-radius:17px}.guide-toc strong{font-size:14px;margin-bottom:5px}.guide-toc a{font-size:13px;padding:7px 9px;border-radius:9px;color:#d4c4e4}.guide-toc a:hover{background:#381a5b}.guide-main{min-width:0}.guide-section{padding:28px;margin-bottom:20px;border:1px solid #493067;border-radius:20px;background:linear-gradient(145deg,#1d1237,#0f0c26)}.guide-section h2{font-size:27px}.guide-section p,.guide-section li{font-size:14px;color:#cfbddf;line-height:1.75}.guide-section .steps{margin-top:20px}.guide-section .step{padding:18px}.guide-section .step p{margin-bottom:0}.guide-faq details{padding:17px 0;border-top:1px solid #4e3370}.guide-faq details:first-of-type{border-top:0}.guide-faq summary{cursor:pointer;font-weight:750;color:#f3e8ff}.guide-faq details[open] summary{color:#d8a5ff}.guide-faq details p{margin:10px 0 0}.guide-notice{background:#24123d;border:1px solid #8852b2;border-radius:12px;padding:15px;color:#e0d0e8;margin-top:14px;font-size:13px}.guide-section code{padding:2px 5px;background:#3d245b;border-radius:5px;color:#f3d8ff;overflow-wrap:anywhere}
 @media(max-width:790px){.guide-content{grid-template-columns:1fr}.guide-toc{position:static;display:flex;flex-wrap:wrap}.guide-section{padding:20px}.guide-section .steps{grid-template-columns:1fr}.guide-hero{padding:42px 0 22px}}
@@ -33,6 +33,7 @@
 <link rel="stylesheet" href="../graphite-green-15617.css?v=20261117-r6">
 <script defer src="./guide.js?v=15617-r2"></script>
 <link rel="stylesheet" href="../graphite-green-15619.css?v=20261117-r4">
+<link rel="stylesheet" href="../graphite-green-r9-release.css?v=20261117-r9">
 </head>
 <body>
 <aside class="mv-rail" aria-label="Nawigacja MINEVORA">
@@ -56,9 +57,9 @@
   <section class="mvg-hero" aria-labelledby="guide-title">
     <div class="mvg-hero-copy"><p class="mvg-kicker">MINEVORA / PORADNIK WINDOWS</p>
       <h1 id="guide-title">Minecraft Java.<br><span class="mvg-gradient">Od pierwszego uruchomienia.</span></h1>
-      <p>Praktyczny przewodnik dla MINEVORA 1.56.19: uruchomienie na Windows, konto Microsoft, mody, datapacki, shadery, serwery i diagnostyka.</p>
+      <p>Praktyczny przewodnik dla MINEVORA 1.56.19 R9 BETA: instalacja testowa Windows, konto Microsoft, mody, datapacki, shadery, serwery i diagnostyka.</p>
       <div class="mvg-actions"><a class="btn btn-primary" href="../pobierz/">Zobacz dostępne wydania</a><a class="btn btn-secondary" href="#instalacja">Przejdź do instrukcji ↓</a></div>
-      <p class="mvg-hero-note">Wydanie 1.56.19 jest paczką źródłową do testów Windows, nie sprawdzonym instalatorem EXE. Dostępność publicznego wydania oraz numer pobieranej paczki zawsze sprawdzaj osobno.</p>
+      <p class="mvg-hero-note">Wersja 1.56.19 R9 BETA to paczka kodu Pythona do testów Windows, a nie sprawdzony instalator EXE/MSIX. Dostępność publicznego wydania oraz numer pobieranej paczki zawsze sprawdzaj osobno.</p>
     </div>
     <div class="mvg-hero-visual" role="img" aria-label="Symbol wilka MINEVORA na grafitowej ilustracji z trzema etapami instalacji">
       <div class="mvg-visual-glow"></div><div class="mvg-logo-orbit"><img src="../assets/minevora-app-icon-launcher-1-56-12.png" alt="" width="170" height="170" loading="eager"></div>
@@ -69,6 +70,7 @@
   <div class="mvg-columns">
     <nav class="mvg-toc" aria-label="Spis treści poradnika">
       <strong>SPIS TREŚCI</strong><a href="#instalacja">01 · Instalacja</a>
+      <a href="#testy-r9">01a · Testy R9 BETA</a>
       <a href="#pierwszy-start">02 · Pierwsze uruchomienie</a>
       <a href="#logowanie">03 · Konto Microsoft</a>
       <a href="#dodatki">04 · Mody i Modrinth</a>
@@ -85,10 +87,25 @@
       <section class="mvg-card" id="instalacja"><p class="mvg-kicker">01 / INSTALACJA</p><h2>Uruchom launcher w trzech krokach</h2>
         <ol class="mvg-step-grid"><li><span>01</span><h3>Pobierz</h3><p>Na stronie <a href="../pobierz/">Pobierz</a> sprawdź dostępne wydania. Wybierz ZIP pasujący do Windows i przeczytaj opis.</p></li>
         <li><span>02</span><h3>Rozpakuj</h3><p>Wypakuj cały ZIP do nowego folderu, razem z podfolderami i plikami <code>.bat</code>. Nie uruchamiaj programu bezpośrednio z archiwum.</p></li>
-        <li><span>03</span><h3>Zainstaluj i uruchom</h3><p>Dla paczki testowej 1.56.19 uruchom kolejno: <code>01_INSTALUJ_15619.bat</code> → <code>02_SPRAWDZ_15619.bat</code> → <code>03_URUCHOM_15619.bat</code>. W innych wydaniach korzystaj z README dołączonego do paczki.</p></li></ol>
+        <li><span>03</span><h3>Zainstaluj i uruchom</h3><p>Dla paczki testowej 1.56.19 R9 BETA uruchom kolejno: <code>01_INSTALUJ_15619.bat</code> → <code>02_SPRAWDZ_15619.bat</code> → <code>03_URUCHOM_15619.bat</code>. W innych wydaniach korzystaj z README dołączonego do paczki.</p></li></ol>
         <p class="mvg-alert">Jeśli instalacja nie powiedzie się, odczytaj komunikat w terminalu. Nie wyłączaj Microsoft Defender i nie uruchamiaj skryptów pobranych z nieznanych źródeł.</p>
       </section>
-      <section class="mvg-card" id="pierwszy-start"><p class="mvg-kicker">02 / GRAJ</p><h2>Pierwsze uruchomienie Minecrafta</h2><p><strong>Układ ekranu GRAJ w MINEVORA 1.56.19 R7:</strong> u góry są trzy działające pola wyboru — <strong>Wersja Minecraft</strong>, <strong>Loader</strong> oraz <strong>Profil / Instancja</strong>. Pod nimi znajduje się jeden duży przycisk <strong>GRAJ</strong>, a niżej sekcje <strong>Instancje</strong> i <strong>Dodatki i mody</strong>. Na węższych oknach wybory mogą układać się pionowo. Jest to zmiana wyglądu, nie mechanizmu instalacji ani uruchamiania gry.</p><p><a href="../#start">Zobacz makietę układu R7 na stronie głównej</a>. Makieta nie przedstawia rzeczywistego zrzutu ekranu Windows; start PySide6 i Minecrafta nadal wymagają testu na komputerze.</p>
+      <section class="mvg-card" id="testy-r9"><p class="mvg-kicker">R9 BETA / WERYFIKACJA</p>
+        <h2>Sprawdź R9 przed uruchomieniem gry</h2>
+        <div class="mv-r9-flags"><span class="mv-r9-flag">1.56.19 R9 BETA</span><span class="mv-r9-flag mv-r9-muted">Windows 10/11 · Python 3.14 zalecany</span></div>
+        <p>Rozpakuj kompletne archiwum w nowym folderze. W wariancie BETA wybierz katalog <code>MINEVORA_1_56_19_BETA_R9</code>. Nie mieszaj plików z wcześniejszymi wersjami. To kod źródłowy Pythona, a nie instalator EXE/MSIX.</p>
+        <div class="mvg-flow">
+          <div><strong>1. Przygotowanie</strong><p>Uruchom <code>01_INSTALUJ_15619.bat</code>. Instalacja bibliotek może wymagać internetu.</p></div>
+          <div><strong>2. Kontrola</strong><p>Uruchom <code>02_SPRAWDZ_15619.bat</code> oraz dodatkowo <code>09_TESTY_STARTU_R9.bat</code>.</p></div>
+          <div><strong>3. Uruchomienie</strong><p>Użyj <code>03_URUCHOM_15619.bat</code>. Przy błędzie startu uruchom <code>04_DIAGNOZA_15619_R3.bat</code>.</p></div>
+        </div>
+        <div class="mv-r9-notice" role="note"><strong>Co rzeczywiście sprawdzono?</strong>
+          <p>94 aktualne testy offline przeszły. W pełnym archiwalnym zbiorze 1024 testów pozostało 218 niepowodzeń i 5 błędów (część dotyczy nieaktualnych wersji i wymagań). Testy nie potwierdzają działania okna PySide6 ani instalacji i uruchomienia Minecrafta na Windows.</p>
+          <p>R9 zachowuje wcześniejszy układ GRAJ; poprawia testowe metadane JSON/JAR i kontrolę niekompletnej instalacji. <a href="../pobierz/">Porównaj wariant BETA i pełne źródła</a>.</p>
+        </div>
+        <p class="mv-r9-warning">Nie wyłączaj zabezpieczeń Windows. Nie udostępniaj haseł, tokenów ani kodów logowania Microsoft. Przed testami zrób kopię światów i paczek Minecrafta.</p>
+      </section>
+      <section class="mvg-card" id="pierwszy-start"><p class="mvg-kicker">02 / GRAJ</p><h2>Pierwsze uruchomienie Minecrafta</h2><p><strong>Układ ekranu GRAJ w R7 (zachowany w 1.56.19 R9):</strong> u góry są trzy działające pola wyboru — <strong>Wersja Minecraft</strong>, <strong>Loader</strong> oraz <strong>Profil / Instancja</strong>. Pod nimi znajduje się jeden duży przycisk <strong>GRAJ</strong>, a niżej sekcje <strong>Instancje</strong> i <strong>Dodatki i mody</strong>. Na węższych oknach wybory mogą układać się pionowo. Jest to zmiana wyglądu, nie mechanizmu instalacji ani uruchamiania gry.</p><p><a href="../#start">Zobacz makietę układu R7 na stronie głównej</a>. Makieta nie przedstawia rzeczywistego zrzutu ekranu Windows; start PySide6 i Minecrafta nadal wymagają testu na komputerze.</p>
         <div class="mvg-flow"><div><strong>Wybierz paczkę</strong><p>Utwórz lub wybierz istniejący profil w „Moje paczki”.</p></div><div><strong>Ustaw wersję i loader</strong><p>Wybierz zgodną wersję Minecraft Java i Vanilla, Fabric, Forge, NeoForge lub Quilt.</p></div><div><strong>Kliknij GRAJ</strong><p>Launcher powinien przygotować profil, a następnie uruchomić grę. Uruchomienie na danym komputerze należy przetestować.</p></div></div>
         <p>Nie zmieniaj wersji istniejącego świata bez kopii zapasowej. Wymagane biblioteki i Java zależą od wybranej wersji gry.</p>
       </section>
@@ -158,6 +175,8 @@
           <details data-keywords="importerror importy funkcja klasa ast r4 15619 nieznana nazwa"><summary>R4: błąd importu funkcji lub klasy pomimo obecności pliku</summary><p>W paczce 1.56.19 R4 uruchom <code>05_SPRAWDZ_IMPORTY_15619_R4.bat</code> albo standardowe <code>02_SPRAWDZ_15619.bat</code>. Analizator sprawdza wymagane nazwy w pięciu kluczowych modułach bez importowania Qt i bez danych konta. W razie błędu rozpakuj pełną paczkę R4 do osobnego folderu; nie mieszaj plików z innych wersji. Test statyczny nie zastępuje uruchomienia GUI na Windows.</p></details>
           <details data-keywords="r5 ikony puste plus serwer status obraz konturowe importy brak"><summary>R5: brak ikon Dodaj lub statusu serwera</summary><p>W pełnej paczce <strong>1.56.19 R5</strong> poprawiono mapowanie nazw standardowych ikon na pliki SVG i dodano ikonę zastępczą dla brakującej grafiki programu. Użyj pełnego ZIP-a w nowym folderze i uruchom <code>06_SPRAWDZ_ZASOBY_15619_R5.bat</code>. Kontrola weryfikuje 46 par SVG/PNG, aliasy i lokalne importy. Nie usuwa skinów, logo serwerów ani okładek modpacków.</p></details>
           <details data-keywords="r7 wyglad graj start profil loader wersja minecraft qt ui układ przycisk"><summary>R7: dlaczego wygląd ekranu GRAJ różni się od obrazka?</summary><p>W R7 zmieniono położenie istniejących kontrolek Qt: Wersja Minecraft, Loader i Profil / Instancja znajdują się nad centralnym przyciskiem GRAJ. Kafelki Instancje oraz Dodatki i mody są poniżej. Obraz na stronie to schematyczny podgląd oparty na kodzie, nie wykonany zrzut aplikacji. Sprawdź rzeczywiste okno na Windows, a błędy zgłaszaj ze zrzutem i bez danych logowania. Możesz uruchomić kontrolę offline <code>08_SPRAWDZ_WYGLAD_15619_R7.bat</code>; nie dowodzi ona poprawnego renderowania GUI.</p></details>
+          <details data-keywords="r9 beta testy startu 09_TESTY_STARTU_R9.bat python windows 1024 94 bledy"><summary>R9 BETA: dlaczego 94 testy przechodzą, ale historyczne testy mają błędy?</summary><p><code>09_TESTY_STARTU_R9.bat</code> sprawdza aktualne krytyczne scenariusze, m.in. instalację gry z poprawnymi metadanymi JSON/JAR oraz wykrywanie uszkodzonych plików. Starszy zestaw obejmuje także testy dawnych wersji, niezgodne z R9. W ostatnim audycie pełnych źródeł wykonano 1024 testy: 218 niepowodzeń i 5 błędów. Do wydania stabilnego konieczne są dalsze poprawki i testy rzeczywistego Windows.</p></details>
+          <details data-keywords="r9 wersja zip exe instalator github releases beta pobieranie"><summary>Gdzie jest instalator EXE wersji 1.56.19 R9?</summary><p>R9 udostępniono w rozmowie jako pełny ZIP z kodem Python, nie jako EXE/MSIX ani potwierdzone wydanie GitHub Releases. Publiczne pobrania w serwisie GitHub mogą mieć inny numer wersji; zawsze sprawdzaj nazwę i opis pliku. Uruchamiaj wyłącznie pliki z zaufanego źródła.</p></details>
           <details data-keywords="host panel localhost offline 127.0.0.1"><summary>HOST pokazuje „offline” lub nie otwiera panelu</summary><p>Panel HOST jest osobnym programem. Najpierw uruchom go lokalnie, a potem sprawdź adres <code>http://127.0.0.1:8000/</code>. Sam launcher ani strona internetowa nie uruchamiają usługi w tle.</p></details>
           <details data-keywords="fabric forge neoforge quilt loader java mod"><summary>Mod albo shader nie działa po instalacji</summary><p>Porównaj wersję Minecrafta, loader, wersję moda i jego wymagane biblioteki. Shadery wymagają zgodnej obsługi, np. Iris w konfiguracji Fabric. Nie zastępuj w ciemno plików swojej instancji.</p></details>
         </div>
