@@ -2,8 +2,8 @@
 <html lang="pl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="minevora-build" content="MINEVORA-WWW-GRAPHITE-GREEN-15617-20261117">
-<meta name="theme-color" content="#0D0F10">
+<meta name="minevora-build" content="MINEVORA-WWW-GRAPHITE-GREEN-15619-20261117">
+<meta name="theme-color" content="#0D0D0D">
 <meta name="description" content="Poradnik MINEVORA: instalacja Windows, konto Microsoft, wersje Minecraft, Modrinth, modpacki, datapacki, shadery, tekstury i diagnoza błędów.">
 <link rel="canonical" href="https://minevora.pl/v4/poradnik/">
 <link rel="icon" href="../assets/minevora-app-icon-launcher-1-56-12.png" type="image/png">
@@ -32,6 +32,7 @@
 <link rel="stylesheet" href="../host-integration-20261116.css?v=1">
 <link rel="stylesheet" href="../graphite-green-15617.css?v=20261117-r6">
 <script defer src="./guide.js?v=15617-r2"></script>
+<link rel="stylesheet" href="../graphite-green-15619.css?v=20261117-15619">
 </head>
 <body>
 <aside class="mv-rail" aria-label="Nawigacja MINEVORA">
@@ -55,9 +56,9 @@
   <section class="mvg-hero" aria-labelledby="guide-title">
     <div class="mvg-hero-copy"><p class="mvg-kicker">MINEVORA / PORADNIK WINDOWS</p>
       <h1 id="guide-title">Minecraft Java.<br><span class="mvg-gradient">Od pierwszego uruchomienia.</span></h1>
-      <p>Praktyczny przewodnik dla MINEVORA 1.56.17: uruchomienie na Windows, konto Microsoft, mody, datapacki, shadery, serwery i diagnostyka.</p>
+      <p>Praktyczny przewodnik dla MINEVORA 1.56.19: uruchomienie na Windows, konto Microsoft, mody, datapacki, shadery, serwery i diagnostyka.</p>
       <div class="mvg-actions"><a class="btn btn-primary" href="../pobierz/">Zobacz dostępne wydania</a><a class="btn btn-secondary" href="#instalacja">Przejdź do instrukcji ↓</a></div>
-      <p class="mvg-hero-note">Wydanie 1.56.17 jest paczką źródłową do testów Windows, nie sprawdzonym instalatorem EXE. Dostępność publicznego wydania oraz numer pobieranej paczki zawsze sprawdzaj osobno.</p>
+      <p class="mvg-hero-note">Wydanie 1.56.19 jest paczką źródłową do testów Windows, nie sprawdzonym instalatorem EXE. Dostępność publicznego wydania oraz numer pobieranej paczki zawsze sprawdzaj osobno.</p>
     </div>
     <div class="mvg-hero-visual" role="img" aria-label="Symbol wilka MINEVORA na grafitowej ilustracji z trzema etapami instalacji">
       <div class="mvg-visual-glow"></div><div class="mvg-logo-orbit"><img src="../assets/minevora-app-icon-launcher-1-56-12.png" alt="" width="170" height="170" loading="eager"></div>
@@ -83,7 +84,7 @@
       <section class="mvg-card" id="instalacja"><p class="mvg-kicker">01 / INSTALACJA</p><h2>Uruchom launcher w trzech krokach</h2>
         <ol class="mvg-step-grid"><li><span>01</span><h3>Pobierz</h3><p>Na stronie <a href="../pobierz/">Pobierz</a> sprawdź dostępne wydania. Wybierz ZIP pasujący do Windows i przeczytaj opis.</p></li>
         <li><span>02</span><h3>Rozpakuj</h3><p>Wypakuj cały ZIP do nowego folderu, razem z podfolderami i plikami <code>.bat</code>. Nie uruchamiaj programu bezpośrednio z archiwum.</p></li>
-        <li><span>03</span><h3>Zainstaluj i uruchom</h3><p>Dla paczki testowej 1.56.17 uruchom kolejno: <code>01_INSTALUJ_15617.bat</code> → <code>02_SPRAWDZ_15617.bat</code> → <code>03_URUCHOM_15617.bat</code>. W innych wydaniach korzystaj z README dołączonego do paczki.</p></li></ol>
+        <li><span>03</span><h3>Zainstaluj i uruchom</h3><p>Dla paczki testowej 1.56.19 uruchom kolejno: <code>01_INSTALUJ_15617.bat</code> → <code>02_SPRAWDZ_15617.bat</code> → <code>03_URUCHOM_15617.bat</code>. W innych wydaniach korzystaj z README dołączonego do paczki.</p></li></ol>
         <p class="mvg-alert">Jeśli instalacja nie powiedzie się, odczytaj komunikat w terminalu. Nie wyłączaj Microsoft Defender i nie uruchamiaj skryptów pobranych z nieznanych źródeł.</p>
       </section>
       <section class="mvg-card" id="pierwszy-start"><p class="mvg-kicker">02 / GRAJ</p><h2>Pierwsze uruchomienie Minecrafta</h2>
@@ -137,7 +138,7 @@
           <details><summary>Nie widać ikon modów albo okładek</summary><p>Sprawdź połączenie z Modrinth CDN i ponów pobieranie okładek. Pliki lokalne bez osadzonej ikony mogą być pokazywane z symbolem kategorii.</p></details>
           <details><summary>Brak wersji Minecraft</summary><p>Sprawdź połączenie z oficjalnym manifestem wersji, wybierz poprawną wersję Release i w razie potrzeby użyj akcji GRAJ do instalacji gry.</p></details>
           <details><summary>Nie można zalogować Microsoft</summary><p>Sprawdź konfigurację publicznej aplikacji Microsoft i wymagane uprawnienia. Nie udostępniaj kodu urządzenia, haseł ani tokenów.</p></details>
-          <details data-keywords="grafika ikony modpack shadery paczki SVG PNG"><summary>Po aktualizacji ikony są stare, niewyraźne lub zniknęły</summary><p>Użyj pełnej paczki 1.56.17 w nowym folderze; nie mieszaj jej plików z wcześniejszą wersją. Sprawdź, czy rozpakowały się wszystkie katalogi z ikonami, oraz uruchom <code>02_SPRAWDZ_15617.bat</code>. Jeśli problem pozostanie, wyślij zrzut ekranu i raport, bez danych logowania.</p></details>
+          <details data-keywords="grafika ikony modpack shadery paczki SVG PNG"><summary>Po aktualizacji ikony są stare, niewyraźne lub zniknęły</summary><p>Użyj pełnej paczki 1.56.19 w nowym folderze; nie mieszaj jej plików z wcześniejszą wersją. Sprawdź, czy rozpakowały się wszystkie katalogi z ikonami, oraz uruchom <code>02_SPRAWDZ_15617.bat</code>. Jeśli problem pozostanie, wyślij zrzut ekranu i raport, bez danych logowania.</p></details>
           <details data-keywords="host panel localhost offline 127.0.0.1"><summary>HOST pokazuje „offline” lub nie otwiera panelu</summary><p>Panel HOST jest osobnym programem. Najpierw uruchom go lokalnie, a potem sprawdź adres <code>http://127.0.0.1:8000/</code>. Sam launcher ani strona internetowa nie uruchamiają usługi w tle.</p></details>
           <details data-keywords="fabric forge neoforge quilt loader java mod"><summary>Mod albo shader nie działa po instalacji</summary><p>Porównaj wersję Minecrafta, loader, wersję moda i jego wymagane biblioteki. Shadery wymagają zgodnej obsługi, np. Iris w konfiguracji Fabric. Nie zastępuj w ciemno plików swojej instancji.</p></details>
         </div>
