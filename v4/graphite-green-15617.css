@@ -286,3 +286,81 @@ a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible,
  .mv-addon-grid .mv-addon strong{font-size:14px!important}
  .mv-addon-grid .mv-addon small{font-size:12px!important}
 }
+
+/* R6 — screenshot-based consistency: the real add-ons section had Slate-blue cards. */
+#kategorie-dodatkow{
+  background:#171C19!important;
+  border-top:1px solid #2B3B30!important;
+  border-bottom:1px solid #2C3C32!important;
+}
+#kategorie-dodatkow .mv-addon-grid{
+  align-items:stretch!important;
+  gap:clamp(10px,1.5vw,16px)!important;
+}
+#kategorie-dodatkow .mv-addon-grid .mv-addon{
+  background:linear-gradient(154deg,#242B26 0%,#1D2420 100%)!important;
+  border:1px solid #3E5244!important;
+  box-shadow:0 8px 20px #070B084A!important;
+  border-radius:14px!important;
+  padding:20px!important;
+  min-height:136px!important;
+  color:#E9F4EB!important;
+  transition:background .17s,border-color .17s,transform .17s;
+}
+#kategorie-dodatkow .mv-addon-grid .mv-addon:is(:hover,:focus-visible){
+  background:linear-gradient(154deg,#2B382F,#212B25)!important;
+  border-color:#62AF79!important;
+  transform:translateY(-2px);
+}
+#kategorie-dodatkow .mv-addon-grid .mv-addon :is(svg,.mv-new-icon){
+  width:30px!important;height:30px!important;
+  fill:none!important;stroke:#91E0A8!important;color:#91E0A8!important;
+  stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important;
+  margin-bottom:7px!important;
+}
+#kategorie-dodatkow .mv-addon-grid .mv-addon strong{
+  color:#F1FAF3!important;font-size:15px!important;
+  font-weight:730!important;line-height:1.25!important;
+}
+#kategorie-dodatkow .mv-addon-grid .mv-addon small{
+  color:#B4CDBA!important;font-size:12px!important;line-height:1.45!important;
+}
+#kategorie-dodatkow .mv-addon-header p,
+#kategorie-dodatkow .mv-addon-header h2{color:#D6E8DA!important}
+#funkcje .feature-grid .feature,
+#wyglad .visual-choice-grid .visual-choice{
+  background:linear-gradient(155deg,#232A25,#1B211E)!important;
+  border:1px solid #3E5244!important;
+  box-shadow:0 10px 24px #060A0750!important;
+}
+#funkcje .feature-grid .feature:is(:hover,:focus-within),
+#wyglad .visual-choice-grid .visual-choice:hover{
+  background:#29362D!important;border-color:#5CA975!important;
+}
+#funkcje .feature-grid .feature p,
+#wyglad .visual-choice-grid .visual-choice p{color:#BDD1C2!important}
+#wyglad .visual-swatch{
+  background:#151D18!important;border-color:#3F5845!important;
+  box-shadow:none!important;
+}
+#wyglad .visual-swatch span:nth-child(1){background:#0D0F10!important}
+#wyglad .visual-swatch span:nth-child(2){background:#1B1E20!important}
+#wyglad .visual-swatch span:nth-child(3){background:#22C55E!important}
+#wyglad .visual-swatch svg{stroke:#8EE7AA!important;fill:none!important}
+#skin-studio .visual-card,#pvp-hud .pvp-benefits>div{
+  background:#1E2520!important;border-color:#425648!important;
+}
+#skin-studio .feature-points li,#skin-studio p{color:#BFCFC3!important}
+#skin-studio .feature-points li::before{color:#55D985!important}
+@media(max-width:760px){
+ #kategorie-dodatkow .mv-addon-grid .mv-addon{
+  padding:15px!important;min-height:132px!important;
+ }
+ #kategorie-dodatkow .mv-addon-grid .mv-addon :is(svg,.mv-new-icon){
+  width:28px!important;height:28px!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ #kategorie-dodatkow .mv-addon-grid .mv-addon{transition:none!important}
+ #kategorie-dodatkow .mv-addon-grid .mv-addon:hover{transform:none!important}
+}
