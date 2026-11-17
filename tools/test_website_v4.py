@@ -50,7 +50,7 @@ try:
             assert response and response.status==200,(label,"homepage status")
             expect(page.locator("h1")).to_have_count(1)
             expect(page.locator("h1")).to_contain_text("Twój Minecraft")
-            assert page.locator("#skin-studio img").get_attribute("src").endswith("20261116.svg")
+            assert page.locator("#skin-studio img").get_attribute("src").endswith("minevora-skin-graphite-20261117.svg")
 
             assert "Graphite Green" in page.title()
             assert page.locator("link[rel='canonical']").get_attribute("href")=="https://minevora.pl/v4/"
