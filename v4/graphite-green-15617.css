@@ -110,3 +110,37 @@ a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible,
 @media(min-width:761px){
  .mvg-toc{max-height:calc(100vh - 108px);overflow:auto}
 }
+
+/* Graphite Green R2 — consistent vector icon size and active surfaces */
+.feature-grid .feature .feature-icon{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  width:50px!important;height:50px!important;min-width:50px!important;
+  border-radius:12px!important;border:1px solid #45604B!important;
+  background:#243329!important;color:#93E9B0!important;
+  box-shadow:inset 0 1px 0 rgba(212,255,226,.05)!important;
+}
+.feature-grid .feature .feature-icon svg{
+  display:block!important;width:27px!important;height:27px!important;
+  stroke:currentColor!important;stroke-width:1.7!important;fill:none!important;
+  stroke-linecap:round!important;stroke-linejoin:round!important;
+}
+.feature-grid .feature:hover,.visual-choice-grid .visual-choice:hover,
+.slate-update-grid article:hover,.mv-addon-grid .mv-addon:hover{
+  background:#242C27!important;border-color:#558565!important;
+}
+.feature-grid .feature .num{color:#84D6A0!important}
+.visual-choice-grid .visual-choice .visual-swatch span{
+  background:#0D0F10!important;border-color:#42634E!important;
+}
+.visual-choice-grid .visual-choice .visual-swatch span:nth-child(2){background:#1B1E20!important}
+.visual-choice-grid .visual-choice .visual-swatch span:nth-child(3){background:#22C55E!important}
+.visual-choice-grid .visual-choice .icon-swatch svg,
+.visual-choice-grid .visual-choice .layout-swatch svg{
+  stroke:#83DBA0!important;fill:none!important;stroke-width:1.7!important;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.slate-release-15611,.slate-update-grid article{border-color:#3D4B40!important;background:#1C2120!important}
+.slate-update-grid article h3,.slate-update-title{color:#F0F6F1!important}
+.slate-update-intro,.slate-update-note,.visual-choice p{color:#BACBBF!important}
+.pvp-benefits i{font-style:normal;color:#86DFA3!important}
+.pvp-benefits i svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
