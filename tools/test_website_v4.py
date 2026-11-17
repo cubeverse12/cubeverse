@@ -1,4 +1,4 @@
-"""Browser regression checks for the current MINEVORA Slate static site.
+"""Browser regression checks for the current MINEVORA Graphite Green static site.
 
 Former checks targeted an obsolete 19.0.3 layout, so they could not pass.
 This script exercises PL/EN, page navigation, Discord, PvP preview, and phones.
@@ -52,7 +52,7 @@ try:
             expect(page.locator("h1")).to_contain_text("Twój Minecraft")
             assert page.locator("#skin-studio img").get_attribute("src").endswith("20261116.svg")
 
-            assert "Ciemny Łupek" in page.title()
+            assert "Graphite Green" in page.title()
             assert page.locator("link[rel='canonical']").get_attribute("href")=="https://minevora.pl/v4/"
             assert image_loaded(page,"header .brand img")
             assert page.locator(".app-shell").count()==1
