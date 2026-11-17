@@ -271,3 +271,18 @@ a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible,
   .hero .app-shell .app-tags{gap:4px!important}
   .hero .app-shell .app-tags span{font-size:9px!important;padding:5px 5px!important}
 }
+
+/* Mid-width Android / desktop-site mode: avoid tiny three-column cards. */
+@media(min-width:761px) and (max-width:1050px){
+ .mv-addon-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .hero .app-shell .app-results-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .hero .app-shell .app-instance{min-height:113px!important}
+ .hero-copy .lead{max-width:780px!important}
+}
+@media(max-width:760px){
+ .mv-addon-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .mv-addon-grid .mv-addon{min-width:0!important;padding:14px!important}
+ .mv-addon-grid .mv-addon strong{font-size:14px!important}
+ .mv-addon-grid .mv-addon small{font-size:12px!important}
+}
