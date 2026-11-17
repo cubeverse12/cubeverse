@@ -297,3 +297,106 @@ input[type="search"],.guide-search-wrap input, .guide-search-wrap select {
 @media(prefers-reduced-motion:reduce) {
   *,*::before,*::after {scroll-behavior:auto !important;animation-duration:.01ms !important;transition-duration:.01ms !important}
 }
+
+
+/* Screenshot-based responsive refinement R2.
+   Desktop-site mode in mobile browsers may expose a ~980px layout viewport:
+   remove duplicate rail navigation, enlarge copy, keep all module cards intact. */
+@media (min-width:761px) and (max-width:1120px) {
+  body {
+    padding-left:0 !important;
+    min-width:0 !important;
+  }
+  .mv-rail{display:none !important}
+  .topbar,.site-header{
+    left:0 !important;
+    right:0 !important;
+    width:100% !important;
+  }
+  .wrap,.page-width{
+    width:calc(100% - 44px) !important;
+    max-width:100% !important;
+  }
+  .topbar-inner{
+    flex-wrap:nowrap !important;
+    gap:12px !important;
+  }
+  .desktop-nav{display:none !important}
+  .topbar .mobile-nav{display:block !important}
+  .topbar .mobile-nav summary{
+    min-height:42px !important;
+    color:#F9FAFB !important;
+    background:#252525 !important;
+    border:1px solid #424242 !important;
+  }
+  .topbar .mobile-nav[open] summary {
+    color:#4ADE80 !important;
+    background:#183B26 !important;
+    border-color:#38774B !important;
+  }
+  .hero-grid{
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:24px !important;
+  }
+  .hero-copy {max-width:850px !important}
+  .hero-copy h1{
+    font-size:clamp(42px,5.5vw,62px) !important;
+    line-height:1.12 !important;
+  }
+  .hero-copy .lead{
+    font-size:17px !important;
+    line-height:1.7 !important;
+    max-width:760px !important;
+  }
+  .hero-copy .caption,.app-footnote{
+    font-size:13px !important;
+    line-height:1.6 !important;
+  }
+  .preview-stage{width:100% !important;max-width:980px !important}
+  .app-shell{width:100% !important}
+  .app-shell .app-title{font-size:clamp(18px,2.3vw,25px) !important}
+  .app-shell .app-instance strong{font-size:14px !important}
+  .app-shell .app-instance small{font-size:12px !important}
+  #kategorie-dodatkow .mv-addon-grid,
+  .feature-grid,.host-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  #kategorie-dodatkow .mv-addon-grid .mv-addon{
+    min-height:136px !important;
+    padding:18px !important;
+  }
+  #kategorie-dodatkow .mv-addon-grid .mv-addon strong{
+    font-size:17px !important;
+  }
+  #kategorie-dodatkow .mv-addon-grid .mv-addon small{
+    font-size:14px !important;
+    line-height:1.6 !important;
+  }
+  .section-heading h2{font-size:clamp(31px,4vw,46px) !important}
+  .section-heading p,.mv-addon-header p{font-size:16px !important;line-height:1.6 !important}
+  .feature p,.mvg-card p,.mvg-card li,.host-card p{
+    font-size:15px !important;
+    line-height:1.65 !important;
+  }
+}
+@media (max-width:760px){
+  .hero-grid{grid-template-columns:minmax(0,1fr) !important;gap:20px !important}
+  .hero-copy{min-width:0 !important}
+  .hero-copy h1{font-size:clamp(31px,8.8vw,45px) !important}
+  .hero .actions{gap:10px !important}
+  .hero .actions .btn{min-height:45px !important}
+  .hero-copy .caption{font-size:12px !important;line-height:1.65 !important}
+  .preview-stage{min-width:0 !important;overflow:hidden !important}
+  .app-shell{width:100% !important;max-width:100% !important}
+  .app-shell .app-main{min-width:0 !important}
+  .app-shell .app-instance{min-width:0 !important}
+  .section-heading h2{font-size:clamp(26px,7vw,37px) !important}
+  .mv-addon-header p,.section-heading p{font-size:14px !important;line-height:1.6 !important}
+  #kategorie-dodatkow .mv-addon-grid .mv-addon strong{font-size:14px !important}
+  #kategorie-dodatkow .mv-addon-grid .mv-addon small{font-size:12px !important;line-height:1.45 !important}
+  .mvg-card,.mvg-hero{width:100%;max-width:100% !important}
+  .topbar .mobile-nav summary{min-height:44px !important}
+}
+@media (max-width:360px){
+  #kategorie-dodatkow .mv-addon-grid{grid-template-columns:1fr !important}
+}
