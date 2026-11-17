@@ -1,0 +1,299 @@
+/* MINEVORA WWW 1.56.19 — Graphite Green
+   Website-only visual layer. Existing navigation, links, guides and JS are preserved.
+   Reference palette: #0D0D0D / #202020 / #22C55E / #4ADE80 / #F9FAFB / #9CA3AF.
+*/
+:root {
+  color-scheme: dark;
+  --bg: #0D0D0D;
+  --bg2: #151515;
+  --panel: #202020;
+  --panel2: #252525;
+  --line: #393939;
+  --line-bright: #4A5F4F;
+  --text: #F9FAFB;
+  --muted: #D1D5DB;
+  --violet: #22C55E;
+  --pink: #22C55E;
+  --lav: #4ADE80;
+  --glow: #22C55E;
+  --mv-green: #22C55E;
+  --mv-surface: #202020;
+  --gg-background: #0D0D0D;
+  --gg-panel: #202020;
+  --gg-accent: #22C55E;
+  --gg-hover: #4ADE80;
+  --gg-text: #F9FAFB;
+  --gg-subtle: #9CA3AF;
+}
+html { scroll-padding-top: 92px; }
+body, body#home {
+  background: #0D0D0D !important;
+  background-image: radial-gradient(ellipse 60% 40% at 85% -12%, rgba(34,197,94,.09), transparent 75%) !important;
+  color: #F9FAFB !important;
+  font-family: Inter, "Segoe UI Variable", "Segoe UI", system-ui, sans-serif !important;
+}
+main, #main {background-color:#0D0D0D !important; color:#F9FAFB !important}
+body::before {opacity:.015 !important;pointer-events:none}
+::selection {background:#175B2B;color:#F9FAFB}
+p, .lead, .caption, .section-heading p, .footer p {color:#D1D5DB !important}
+.eyebrow, .mvg-kicker, .mv-addon-kicker {color:#4ADE80 !important}
+.grad, .mvg-gradient, .topbar .brand span {
+  background:linear-gradient(112deg,#F9FAFB 12%,#D7FCE4 53%,#4ADE80 100%) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  color:transparent !important;
+}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,
+summary:focus-visible,details:focus-visible {
+  outline:2px solid #4ADE80 !important;
+  outline-offset:3px !important;
+}
+.topbar,.site-header {
+  background:#161616F7 !important;
+  border-bottom:1px solid #393939 !important;
+  backdrop-filter:blur(16px);
+  box-shadow:0 9px 25px #00000038 !important;
+}
+.topbar-inner{gap:18px !important}
+.desktop-nav a {color:#E5E7EB !important;border-radius:9px !important}
+.desktop-nav a:not(.nav-cta):hover,.footer-nav a:hover {color:#4ADE80 !important;background:#292929 !important}
+.site-language-switch,.site-language-switch select,
+.mobile-nav summary,.mobile-items {
+  background:#242424 !important;
+  border-color:#393939 !important;
+  color:#F9FAFB !important;
+}
+.mobile-items a:hover {background:#183B26 !important;color:#4ADE80 !important}
+.mv-rail {
+  background:#151515 !important;
+  border-right:1px solid #323232 !important;
+  box-shadow:none !important;
+}
+.mv-rail a[data-rail],.mv-rail .mv-rail-bottom {
+  background:transparent !important;
+  color:#C7CBD0 !important;
+  border:1px solid transparent !important;
+  border-radius:11px !important;
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.mv-rail a[data-rail]:hover,.mv-rail .mv-rail-bottom:hover {
+  background:#232B25 !important;
+  color:#4ADE80 !important;
+  border-color:#385342 !important;
+}
+.mv-rail a[data-rail][aria-current="page"],
+.mv-rail a[data-rail].active,.mv-rail a[data-rail].is-active {
+  background:#183B26 !important;
+  color:#4ADE80 !important;
+  border-color:#2F6242 !important;
+  box-shadow:none !important;
+}
+.mv-rail a svg,.app-rail svg, .mv-addon svg,.feature-icon svg {
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.8 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+.mv-rail a svg{width:22px !important;height:22px !important}
+.brand img,.mv-rail-brand img {filter:drop-shadow(0 6px 12px #000A) !important}
+.btn,button,.nav-cta {transition:background-color .17s ease,border-color .17s ease,transform .17s ease}
+.btn-primary,.nav-cta,.desktop-nav .nav-cta,.btn.nav-cta,
+.quick .play,.app-shell .play,.mvg-actions .btn-primary {
+  background:#22C55E !important;
+  background-image:none !important;
+  color:#0D180F !important;
+  border:1px solid #22C55E !important;
+  box-shadow:0 8px 24px #071F0E40 !important;
+  border-radius:11px !important;
+  font-weight:800 !important;
+}
+.btn-primary:hover,.nav-cta:hover,.desktop-nav .nav-cta:hover,
+.quick .play:hover,.app-shell .play:hover,.mvg-actions .btn-primary:hover {
+  background:#4ADE80 !important;
+  color:#09130C !important;
+  border-color:#4ADE80 !important;
+  transform:translateY(-1px);
+}
+.btn-secondary,.btn-ghost,.actions .btn-secondary {
+  background:#262626 !important;
+  background-image:none !important;
+  color:#F9FAFB !important;
+  border:1px solid #454545 !important;
+  box-shadow:none !important;
+}
+.btn-secondary:hover,.btn-ghost:hover {background:#303030 !important;border-color:#5B9E70 !important}
+.hero,#start.hero {
+  background-color:#0D0D0D !important;
+  background-image:linear-gradient(90deg,#0D0D0DF7 2%,#0D0D0DE8 34%,#0D0D0DC9 68%,#0D0D0DB5),url("./assets/minevora-graphite-world-20261117.svg") !important;
+  background-size:cover !important;
+  background-position:center !important;
+  border-bottom:1px solid #333333 !important;
+}
+.hero-copy h1 {color:#F9FAFB !important;letter-spacing:-.045em}
+.hero-copy .lead {color:#D1D5DB !important;line-height:1.7}
+.hero-pills span,.version-pill,.host-badges span {
+  background:#252525 !important;
+  color:#B9F0CD !important;
+  border:1px solid #3B4D40 !important;
+  box-shadow:none !important;
+}
+.preview-stage,.preview-caption-simple {color:#AEBAB1 !important}
+.app-shell {
+  background:#202020 !important;
+  border:1px solid #424242 !important;
+  border-radius:17px !important;
+  box-shadow:0 22px 55px #0009 !important;
+  overflow:hidden;
+}
+.app-top,.app-main,.app-side,.app-panel,.app-footnote {
+  background:#202020 !important;
+  border-color:#393939 !important;
+}
+.app-rail{background:#151515 !important;border-color:#363636 !important}
+.app-rail span{color:#C7D0CA !important;background:transparent !important}
+.app-rail span.selected {background:#183B26 !important;color:#4ADE80 !important}
+.app-search,.app-tags span,.app-instance,.app-panel,.app-sub,.quick{
+  background:#272727 !important;
+  border-color:#3F3F3F !important;
+  color:#D1D5DB !important;
+}
+.app-instance.large,.app-instance:hover {border-color:#466E52 !important}
+.app-search input {color:#F9FAFB !important;background:transparent !important}
+.app-footnote {color:#9CA3AF !important}
+#kategorie-dodatkow,.mv-addon-section {
+  background:#111111 !important;
+  border-top:1px solid #303030 !important;
+  border-bottom:1px solid #303030 !important;
+}
+#kategorie-dodatkow .mv-addon-grid,.feature-grid,.host-grid {
+  gap:clamp(12px,1.5vw,18px) !important;
+  align-items:stretch !important;
+}
+#kategorie-dodatkow .mv-addon-grid .mv-addon,
+.feature,.step,.download-card,.release-warning,.visual-choice,.visual-card,
+.host-callout,.host-card,.community,.resource-card,.pvp-benefits>div,
+.mv-addon-card,.mv-addon-section article,.slate-update-grid article,
+.mvg-card,.mvg-toc,.mvg-hero,.mvg-hero-visual,
+.download-143-layout > div {
+  background:#202020 !important;
+  background-image:none !important;
+  border:1px solid #393939 !important;
+  border-radius:15px !important;
+  color:#F9FAFB !important;
+  box-shadow:0 9px 26px #00000036 !important;
+}
+#kategorie-dodatkow .mv-addon-grid .mv-addon,
+.feature,.visual-choice,.host-card {
+  transition:border-color .18s ease,transform .18s ease,background-color .18s ease;
+}
+#kategorie-dodatkow .mv-addon-grid .mv-addon:hover,
+.feature:hover,.visual-choice:hover,.host-card:hover,
+.mvg-category-grid a:hover {
+  background:#282828 !important;
+  border-color:#4B915D !important;
+  transform:translateY(-2px);
+}
+#kategorie-dodatkow .mv-addon-grid .mv-addon strong,
+.feature h3,.host-card h3,.slate-update-grid h3 {color:#F9FAFB !important}
+#kategorie-dodatkow .mv-addon-grid .mv-addon small,
+.feature p,.host-card p,.slate-update-grid p {color:#C6CCD0 !important}
+#kategorie-dodatkow .mv-addon-grid .mv-addon svg,
+#kategorie-dodatkow .mv-addon-grid .mv-addon .mv-new-icon,
+.feature .feature-icon,.host-card-icon {
+  color:#4ADE80 !important;
+  stroke:#4ADE80 !important;
+  background:#193323 !important;
+  border:1px solid #385D44 !important;
+  border-radius:11px !important;
+}
+#kategorie-dodatkow .mv-addon-grid .mv-addon svg{
+  width:32px !important;height:32px !important;padding:4px !important;
+}
+.feature-grid .feature .feature-icon {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:50px !important;height:50px !important;
+  min-width:50px !important;
+  border-radius:12px !important;
+}
+.feature-icon svg {width:27px !important;height:27px !important}
+.slate-release-15611,.section,.pvp-section,#wyglad,#hosting {
+  border-color:#303030 !important;
+}
+.slate-update-grid article{padding:22px !important}
+#wyglad .visual-swatch,.visual-swatch {background:#141414 !important;border-color:#393939 !important}
+#wyglad .visual-swatch span:nth-child(1){background:#0D0D0D !important}
+#wyglad .visual-swatch span:nth-child(2){background:#202020 !important}
+#wyglad .visual-swatch span:nth-child(3){background:#22C55E !important}
+.pvp-showcase,.pvp-scene,.pvp-demo-v215 {
+  border-color:#3C4E3F !important;
+  box-shadow:0 14px 37px #0007 !important;
+}
+.mvg-hero {background:linear-gradient(135deg,#202020,#181818) !important}
+.mvg-card p,.mvg-card li,.mvg-toc a,
+.guide-section p,.guide-section li,.host-note,.release-warning p{color:#D1D5DB !important}
+.mvg-toc a,.mvg-category-grid a,.guide-search-wrap,
+.guide-search-quick a,.mvg-faq details,.guide-results,
+.guide-section,.guide-toc {
+  background:#252525 !important;
+  border:1px solid #3E3E3E !important;
+  color:#D1D5DB !important;
+  border-radius:11px !important;
+}
+.mvg-toc a:hover,.guide-toc a:hover,.mvg-category-grid a:hover {
+  background:#193323 !important;
+  border-color:#4A8F5A !important;
+  color:#4ADE80 !important;
+}
+.mvg-card code,.mvg-code-row code,kbd {
+  color:#A9F4C5 !important;
+  background:#141914 !important;
+  border:1px solid #3E5B45 !important;
+  border-radius:6px !important;
+}
+.mvg-card a:not(.btn),.guide-section a:not(.btn) {color:#4ADE80 !important}
+input[type="search"],.guide-search-wrap input, .guide-search-wrap select {
+  color:#F9FAFB !important;
+  background:#262626 !important;
+  border:1px solid #444444 !important;
+}
+.footer,.mv-status,.mv-site-build {
+  background:#151515 !important;
+  border-color:#333333 !important;
+  color:#9CA3AF !important;
+}
+.footer .brand{color:#F9FAFB !important}
+.mv-status .dot,.eyebrow .dot {background:#22C55E !important;box-shadow:0 0 0 4px #22C55E1E !important}
+@media(max-width:1050px) {
+  .hero{background-position:58% center !important}
+}
+@media(max-width:760px) {
+  body{padding-left:0 !important;min-width:0 !important}
+  .mv-rail{display:none !important}
+  .wrap,.page-width {width:calc(100% - 32px) !important;max-width:100% !important}
+  .topbar{height:auto !important;min-height:66px !important}
+  .topbar-inner{min-height:66px !important}
+  .hero,#start.hero {
+    background-image:linear-gradient(120deg,#0D0D0DF2,#0D0D0DE5),url("./assets/minevora-graphite-world-20261117.svg") !important;
+    background-position:68% center !important;
+  }
+  .hero-copy h1{font-size:clamp(31px,8.6vw,48px) !important}
+  .hero-copy .lead{font-size:15px !important}
+  .app-shell{border-radius:13px !important}
+  #kategorie-dodatkow .mv-addon-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .feature-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .mvg-toc{position:static !important}
+  .mvg-hero{padding:20px !important}
+}
+@media(max-width:500px) {
+  .feature-grid,.host-grid{grid-template-columns:1fr !important}
+  #kategorie-dodatkow .mv-addon-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  #kategorie-dodatkow .mv-addon-grid .mv-addon{min-height:125px !important;padding:13px !important}
+  .mvg-category-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .footer .foot-inner{gap:17px !important}
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {scroll-behavior:auto !important;animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
