@@ -158,3 +158,116 @@ a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible,
 .guide-faq details summary{cursor:pointer}
 .mvg-toc a[aria-current="true"]{background:#203528!important;color:#A9F5BC!important;border-left:2px solid #48D680!important}
 .guide-results{min-height:20px}
+
+/* R4 — corrections from the actual Android screenshot, 17.11.2026.
+   Override legacy blue preview colours without modifying the launcher binary. */
+.hero{
+  background-image:linear-gradient(94deg,rgba(13,17,14,.99) 0%,rgba(13,17,14,.97) 44%,rgba(13,17,14,.84) 100%),url("./assets/minevora-graphite-world-20261117.svg")!important;
+  background-position:center center!important;background-size:cover!important;
+}
+.hero .hero-grid{gap:clamp(19px,3vw,38px)!important}
+.hero-copy .lead{max-width:640px!important;line-height:1.7!important;font-size:clamp(15px,1.4vw,17px)!important}
+.hero .caption{line-height:1.6;max-width:600px}
+.hero .preview-caption-simple{font-size:11px!important;letter-spacing:.085em!important;font-weight:750!important}
+.hero .app-shell{
+  border-color:#435A49!important;background:#151A17!important;
+  border-radius:14px!important;box-shadow:0 22px 45px #0008!important;
+  color:#F2F8F4!important;
+}
+.hero .app-shell .app-top{background:#141A17!important;border-bottom:1px solid #39463E!important;color:#D2DED5!important}
+.hero .app-shell .app-breadcrumb{color:#AFC3B5!important}
+.hero .app-shell .app-dots{color:#A8C4B1!important}
+.hero .app-shell .app-body{background:#171D19!important;min-height:315px}
+.hero .app-shell .app-rail{background:#111713!important;border-right:1px solid #344B3B!important}
+.hero .app-shell .app-rail>span{color:#B5C7B9!important;background:transparent!important;border:1px solid transparent!important}
+.hero .app-shell .app-rail>span.selected{color:#6DDE91!important;background:#1D3525!important;border-color:#426A4D!important}
+.hero .app-shell .app-rail svg{stroke:currentColor!important;fill:none!important}
+.hero .app-shell .app-main{
+  background:linear-gradient(145deg,#1D2420,#181E1B 70%)!important;
+  border:0!important;min-width:0!important;padding:17px!important
+}
+.hero .app-shell .app-title{font-size:18px!important;color:#F4FAF5!important}
+.hero .app-shell .quick{
+  background:#252F29!important;border:1px solid #46614D!important;
+  border-radius:11px!important;max-width:500px!important;
+}
+.hero .app-shell .quick b{font-size:12px!important;color:#EFF8F1!important}
+.hero .app-shell .quick small{font-size:10px!important;color:#B7CABD!important}
+.hero .app-shell .quick .play{
+  background:linear-gradient(115deg,#47D982,#22C55E)!important;
+  color:#0C1C11!important;border:1px solid #76EB9A!important;
+  padding:9px 13px!important;white-space:nowrap!important;
+}
+.hero .app-shell .app-sub{font-size:12px!important;letter-spacing:.11em!important;color:#A9D7B7!important}
+.hero .app-shell .app-search{
+  background:#151D18!important;border:1px solid #3E5544!important;
+  color:#C4D5C8!important;font-size:12px!important;min-height:34px!important;
+}
+.hero .app-shell .app-tags span{
+  background:#1D2B21!important;border:1px solid #355840!important;
+  color:#A0E1B6!important;font-size:10px!important;
+}
+.hero .app-shell .preview-thumb{
+  display:grid!important;place-items:center!important;
+  background:#21402B!important;color:#8BE7A6!important;
+  border:1px solid #4C7758!important;border-radius:9px!important;
+}
+.hero .app-shell .preview-thumb svg{
+  width:25px!important;height:25px!important;fill:none!important;
+  stroke:currentColor!important;stroke-width:1.65!important;
+}
+.hero .app-shell .app-results-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+.hero .app-shell .app-instance{
+  width:auto!important;min-width:0!important;min-height:120px!important;
+  margin:0!important;padding:12px!important;display:flex!important;gap:7px!important;
+  flex-direction:column!important;align-items:flex-start!important;
+  background:#232D26!important;border:1px solid #405749!important;
+  border-radius:11px!important;overflow:hidden!important;
+}
+.hero .app-shell .app-instance .preview-thumb.large{
+  width:37px!important;height:37px!important;flex:0 0 37px!important;
+}
+.hero .app-shell .app-instance b{
+  padding:0!important;color:#F1FAF3!important;font-size:12px!important;
+  overflow-wrap:anywhere!important
+}
+.hero .app-shell .app-instance small{
+  padding:0!important;color:#AEC3B4!important;font-size:10px!important;
+  line-height:1.4!important;overflow-wrap:anywhere!important
+}
+.hero .app-shell .app-side{background:#171D19!important;border-left:1px solid #34483B!important}
+.hero .app-shell .app-panel{
+  background:#222B25!important;border:1px solid #3A5140!important;
+  border-radius:9px!important;color:#ECF6EE!important
+}
+.hero .app-shell .app-panel b{color:#EAF6EC!important}
+.hero .app-shell .app-panel span{color:#BBD3C2!important}
+.hero .app-shell .news-chip{color:#77E69A!important}
+.hero .app-shell .app-footnote{
+  background:#121A15!important;border-top:1px solid #364D3B!important;
+  color:#B6CDBB!important;font-size:11px!important;line-height:1.5!important
+}
+@media(max-width:760px){
+  .hero{background-image:radial-gradient(circle at 84% 0%,#23463338,transparent 48%),linear-gradient(#121816,#101512)!important;padding-top:30px!important}
+  .hero .hero-grid{gap:22px!important}
+  .hero-copy h1{font-size:clamp(30px,8vw,42px)!important;line-height:1.13!important}
+  .hero-copy .lead{font-size:15px!important;line-height:1.65!important}
+  .hero-pills{gap:7px!important;margin:16px 0 20px!important}
+  .hero-pills span{padding:6px 9px!important;font-size:11px!important}
+  .hero .app-shell .app-body{grid-template-columns:40px minmax(0,1fr)!important}
+  .hero .app-shell .app-side{display:none!important}
+  .hero .app-shell .app-main{padding:13px!important}
+  .hero .app-shell .app-results-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .hero .app-shell .app-instance{min-height:115px!important}
+}
+@media(max-width:400px){
+  .hero .app-shell .app-main{padding:10px!important}
+  .hero .app-shell .app-body{grid-template-columns:34px minmax(0,1fr)!important}
+  .hero .app-shell .app-rail>span{min-width:31px!important;width:31px!important;min-height:35px!important}
+  .hero .app-shell .app-instance{padding:9px!important}
+  .hero .app-shell .app-results-grid{gap:7px!important}
+  .hero .app-shell .quick{padding:7px!important}
+  .hero .app-shell .quick .play{padding:8px 9px!important}
+  .hero .app-shell .app-tags{gap:4px!important}
+  .hero .app-shell .app-tags span{font-size:9px!important;padding:5px 5px!important}
+}
