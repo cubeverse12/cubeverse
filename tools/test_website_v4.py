@@ -56,6 +56,11 @@ try:
             assert page.locator("link[rel='canonical']").get_attribute("href")=="https://minevora.pl/v4/"
             assert image_loaded(page,"header .brand img")
             assert page.locator(".app-shell").count()==1
+            assert page.locator(".app-results-grid .app-instance").count()==3
+            colors=page.locator(".app-shell .app-main").evaluate("el => ({main:getComputedStyle(el).backgroundImage,play:getComputedStyle(document.querySelector('.app-shell .quick .play')).backgroundImage})")
+            assert "29, 36, 32" in colors["main"], (label,"graphite preview background",colors)
+            assert "71, 217, 130" in colors["play"], (label,"green launcher preview button",colors)
+
             assert page.locator(".feature-grid").count()==1
             assert page.locator(".feature-grid .feature-icon svg").count()==8, (label,"feature icons must be outlines")
             expect(page.locator("#wyglad")).to_contain_text("Paleta Graphite Green")
