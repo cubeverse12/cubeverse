@@ -75,7 +75,7 @@ try:
             info = measurements(page)
             assert info["scrollWidth"]<=info["innerWidth"]+2,(label,"horizontal overflow",info)
             expect(page.locator("h1")).to_have_count(1)
-            assert "MINEVORA" in page.title() and "Ciemny Łupek" in page.title(),(label,"unexpected page title",page.title())
+            assert "MINEVORA" in page.title() and "Graphite Green" in page.title(),(label,"unexpected page title",page.title())
             assert info["preview"]["width"]>100,(label,"preview missing",info)
             assert info["button"]["height"]>=43,(label,"hero button too small",info)
             expect(page.locator('[data-demo-hud-tile]')).to_have_count(5)
