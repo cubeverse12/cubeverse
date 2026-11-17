@@ -588,6 +588,44 @@ Object.assign(dictionary,{
   "Projekt MINEVORA jest rozwijany w motywie Ciemny Łupek (Slate). Paczka rozwojowa 1.56.14 dodaje PvP HUD 2.0.15, HOST 0.9.7 i poprawki launchera. To źródła do testów Windows, niepotwierdzone jako publiczne wydanie. Na GitHub Releases sprawdź rzeczywiście dostępne pliki.": "MINEVORA is developed in the Dark Slate theme. Development package 1.56.14 adds PvP HUD 2.0.15, HOST 0.9.7 and launcher fixes. These Windows test sources are not a confirmed public release. Check GitHub Releases for files actually available.",
   "Od MINEVORA 1.56.13 R3 możesz przenieść pozycje kafelków do moda z zakładki PvP. Zamknij grę, wybierz profil Fabric 1.21.1 i ustaw skalę podglądu na 75–100%. Wyższa skala zostanie odrzucona zamiast zapisania innej wartości. W grze naciśnij prawy Shift lub P, aby otworzyć ustawienia; H ukrywa lub pokazuje HUD.": "Since MINEVORA 1.56.13 R3, you can export HUD tile positions to the mod from the PvP tab. Close Minecraft, select a Fabric 1.21.1 profile and set the preview scale to 75–100%. A higher scale is rejected rather than silently changed. In-game, press Right Shift or P to open settings; H toggles the HUD."
 });
+
+/* Graphite Green 1.56.17: extend legacy translations without changing PL defaults. */
+Object.assign(dictionary,Object.fromEntries(Object.entries(dictionary).filter(([k])=>k.includes('1.56.14')).map(([k,v])=>[k.replaceAll('1.56.14','1.56.17').replaceAll('15614.bat','15617.bat'),v.replaceAll('1.56.14','1.56.17').replaceAll('15614.bat','15617.bat')])));
+Object.assign(dictionary,{
+  "GRAPHITE GREEN": "GRAPHITE GREEN",
+  "MINEVORA / GRAPHITE GREEN · WERSJA ROZWOJOWA 1.56.17": "MINEVORA / GRAPHITE GREEN · DEVELOPMENT BUILD 1.56.17",
+  "Wersja testowa 1.56.17 to kompletna paczka źródłowa Windows, a nie publiczny instalator EXE.": "Test build 1.56.17 is a complete Windows source package, not a public EXE installer.",
+  "Wszystkie moduły mają jednolity, grafitowy interfejs, konturowe ikony i stonowane zielone akcenty.": "All modules share a graphite interface, outline icons and subtle green accents.",
+  "Rozwój 1.56.17": "Development 1.56.17",
+  "MINEVORA 1.56.17 —": "MINEVORA 1.56.17 —",
+  "MINEVORA · GRAPHITE GREEN — witryna informacyjna; Minecraft uruchamia aplikacja Windows": "MINEVORA · GRAPHITE GREEN — information website; the Windows app starts Minecraft",
+  "MINEVORA WWW · Graphite Green · 17.11.2026": "MINEVORA WEB · Graphite Green · 17 Nov 2026",
+  "Projekt testowy 1.56.17": "Test build 1.56.17",
+  "Paczka testowa 1.56.17 łączy konturowe ikony, odświeżony wygląd, PvP HUD 2.0.15 i integrację HOST 0.9.7.": "Test package 1.56.17 combines outline icons, refreshed design, PvP HUD 2.0.15 and HOST 0.9.7 integration.",
+  "Grafitowe panele, spójne konturowe ikony, zielony przycisk GRAJ i poprawione skrypty Windows. Zachowano dotychczasowe funkcje i moduły.": "Graphite panels, consistent outline icons, a green PLAY button and corrected Windows scripts. Existing functionality is retained.",
+  "MINEVORA jest rozwijana w grafitowo-zielonym stylu Graphite Green.": "MINEVORA is developed in the graphite-and-green Graphite Green style.",
+  "Serwery i HOST": "Servers and HOST",
+  "09 · Serwery i HOST": "09 · Servers and HOST",
+  "10 · Błędy i diagnostyka": "10 · Troubleshooting",
+  "11 · Bezpieczeństwo": "11 · Security",
+  "Serwery Minecraft oraz lokalny panel HOST": "Minecraft servers and local HOST panel",
+  "Lista serwerów": "Server list",
+  "HOST to oddzielny, lokalny panel Windows. Po jego uruchomieniu sprawdzisz go pod adresem": "HOST is a separate local Windows panel. When running, you can find it at",
+  "Strona minevora.pl nie uruchamia panelu na Twoim komputerze. HOST nie jest publiczną usługą hostingową i wymaga własnej konfiguracji.": "The minevora.pl website does not start the panel on your PC. HOST is not a public hosting service and requires local configuration.",
+  "Przeczytaj o HOST": "Learn about HOST",
+  "Wyszukaj rozwiązanie": "Search for a solution",
+  "Szukaj w pytaniach i odpowiedziach.": "Search the questions and answers.",
+  "Po aktualizacji ikony są stare, niewyraźne lub zniknęły": "Icons look old, blurry or missing after an update",
+  "HOST pokazuje „offline” lub nie otwiera panelu": "HOST shows offline or its panel won't open",
+  "Mod albo shader nie działa po instalacji": "A mod or shader does not work after installation",
+  "Od pierwszego uruchomienia.": "From the first launch.",
+  "Praktyczny przewodnik dla MINEVORA 1.56.17: uruchomienie na Windows, konto Microsoft, mody, datapacki, shadery, serwery i diagnostyka.": "Practical guide to MINEVORA 1.56.17: Windows setup, Microsoft sign-in, mods, datapacks, shaders, servers and troubleshooting.",
+  "Wydanie 1.56.17 jest paczką źródłową do testów Windows, nie sprawdzonym instalatorem EXE.": "Version 1.56.17 is a Windows test source package, not a validated EXE installer.",
+  "Zainstaluj i uruchom": "Install and launch",
+  "Konto Microsoft — bezpieczne logowanie": "Microsoft account — secure sign-in",
+  "Moje paczki": "My packs",
+  "Nie wyłączaj Microsoft Defender i nie uruchamiaj skryptów pobranych z nieznanych źródeł.": "Do not disable Microsoft Defender or run scripts from unknown sources."
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
