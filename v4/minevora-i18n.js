@@ -658,6 +658,38 @@ Object.assign(dictionary,{
   "Własne instancje": "Separate instances",
   "Grafika Minecraft Java": "Minecraft Java graphics"
 });
+Object.assign(dictionary,{
+  "MINEVORA 1.57.0 RC1 · testy zamknięte": "MINEVORA 1.57.0 RC1 · closed testing",
+  "RC1 łączy poprawki V3–V8: nowe ikony konturowe, równe wymiary, tłumaczenia PL/EN, Dodatki, Serwery i Skin Studio. To odzyskana paczka testowa Windows z kodem Python, a nie podpisany instalator EXE/MSIX.": "RC1 combines V3–V8 fixes: outline icons, consistent dimensions, PL/EN translations, Add-ons, Servers and Skin Studio. It is a recovered Windows test package with Python source, not a signed EXE/MSIX installer.",
+  "Logowanie Microsoft, start Minecrafta, połączenia online i działanie GUI na Windows wymagają testów. CurseForge i aktualizator nie są gotowe do premiery; właściwy JAR PvP HUD nie jest dołączony. RC1 nie jest jeszcze publicznym wydaniem GitHub.": "Microsoft sign-in, Minecraft launch, online connections and the Windows GUI require testing. CurseForge and the updater are not release-ready; the required PvP HUD JAR is not bundled. RC1 is not yet a public GitHub release.",
+  "Kontrola offline: 358 plików Python, 380 grafik, 755 sum SHA-256 i 16 testów Skin Studio zaliczonych według raportu RC1. Wyniki nie zastępują testów aplikacji na Windows.": "Offline checks: 358 Python files, 380 graphics, 755 SHA-256 checks and 16 Skin Studio tests passed according to the RC1 report. These results do not replace Windows application testing.",
+  "RC1 jest przeznaczona do zamkniętych testów i przekazana testerom jako osobny ZIP. Publiczne pliki pobieraj wyłącznie z listy faktycznie opublikowanych wydań GitHub.": "RC1 is intended for closed testing and supplied to testers as a separate ZIP. Download public files only from the list of actually published GitHub releases.",
+  "AKTUALIZACJA PROJEKTU · 24.11.2026": "PROJECT UPDATE · 24 NOV 2026",
+  "Rozpakuj ZIP do nowego folderu. Uruchom INSTALUJ.bat, następnie TESTY_OFFLINE.bat i START_MINEVORA.bat. W razie błędu sprawdź raport i README; nie wyłączaj zabezpieczeń Windows.": "Extract the ZIP to a new folder. Run INSTALUJ.bat, then TESTY_OFFLINE.bat and START_MINEVORA.bat. If an error occurs, consult the report and README; do not disable Windows security.",
+  "Instrukcja testów RC1": "RC1 testing guide",
+  "MINEVORA 1.57.0 RC1 BETA — Graphite Green • Launcher Minecraft Java": "MINEVORA 1.57.0 RC1 BETA — Graphite Green • Minecraft Java Launcher",
+  "MINEVORA / GRAPHITE GREEN · 1.57.0 RC1 BETA": "MINEVORA / GRAPHITE GREEN · 1.57.0 RC1 BETA",
+  "RC1 · testy offline": "RC1 · offline tests",
+  "ARCHIWALNY PODGLĄD R7 — MAKIETA, NIE ZRZUT RC1": "ARCHIVED R7 PREVIEW — CONCEPT, NOT AN RC1 SCREENSHOT",
+  "Interfejs i Dodatki": "Interface and Add-ons",
+  "Spójne ikony, filtry, paginacja i obsługa błędów pobierania.": "Consistent icons, filters, pagination and download error handling.",
+  "Serwery": "Servers",
+  "Wyszukiwanie, sortowanie, logotypy i zachowanie wyników po błędzie sieci.": "Search, sorting, logos and retention of results after network errors.",
+  "Skin Studio": "Skin Studio",
+  "Modele Classic/Slim, import PNG, biblioteka i bezpieczniejszy zapis.": "Classic/Slim models, PNG import, library and safer saving.",
+  "W paczce RC1 nie ma właściwego JAR-a; osobne wydanie moda wymaga weryfikacji.": "The required JAR is not in RC1; the separate mod release requires verification.",
+  "Obracany podgląd postaci, biblioteka skinów, import i eksport PNG oraz modele Classic/Slim.": "Rotating character preview, skin library, PNG import/export and Classic/Slim models.",
+  "Wybieraj skórki z biblioteki, importuj PNG, obracaj postać w podglądzie 3D i zapisuj skórki lokalnie.": "Choose skins from the library, import PNG, rotate the 3D character preview and save skins locally.",
+  "GitHub Releases zawiera publicznie opublikowane paczki. Sprawdź nazwę i opis wybranego pliku.": "GitHub Releases contains publicly published packages. Check the name and description of the selected file.",
+  "Co zmieniono w RC1?": "What changed in RC1?",
+  "Poradnik MINEVORA 1.57.0 RC1 — instalacja i diagnostyka Windows": "MINEVORA 1.57.0 RC1 guide — Windows setup and diagnostics",
+  "Praktyczny przewodnik MINEVORA 1.57.0 RC1: instalacja testowa Windows, konto Microsoft, dodatki, serwery i diagnostyka.": "MINEVORA 1.57.0 RC1 practical guide: Windows test setup, Microsoft account, add-ons, servers and diagnostics.",
+  "Uruchom START_MINEVORA.bat": "Run START_MINEVORA.bat",
+  "01a · Testy RC1": "01a · RC1 testing",
+  "RC1 / WERYFIKACJA": "RC1 / VERIFICATION",
+  "Sprawdź RC1 przed uruchomieniem gry": "Check RC1 before starting the game",
+  "Zrób kopię światów i paczek. Nie udostępniaj haseł, tokenów ani kodów logowania Microsoft.": "Back up worlds and packs. Do not share passwords, tokens or Microsoft sign-in codes."
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
