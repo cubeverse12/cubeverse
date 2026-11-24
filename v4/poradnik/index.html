@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="minevora-build" content="MINEVORA-WWW-GRAPHITE-GREEN-15619-R9-20261117">
+<meta name="minevora-build" content="MINEVORA-WWW-GRAPHITE-GREEN-1570-RC1-20261124">
 <meta name="theme-color" content="#0D0D0D">
 <meta name="description" content="Poradnik MINEVORA: instalacja Windows, konto Microsoft, wersje Minecraft, Modrinth, modpacki, datapacki, shadery, tekstury i diagnoza błędów.">
 <link rel="canonical" href="https://minevora.pl/v4/poradnik/">
@@ -10,12 +10,12 @@
 <link rel="stylesheet" href="../website-3-0-20.css">
 <link rel="stylesheet" href="../styles-1-43.css">
 <link rel="stylesheet" href="../styles-1-48-2.css?v=20261104-mobile-polish">
-<title>Poradnik MINEVORA R9 BETA — instalacja, mody i diagnostyka Windows</title>
+<title>Poradnik MINEVORA 1.57.0 RC1 — instalacja i diagnostyka Windows</title>
 <style>
 .guide-hero{padding:70px 0 45px;max-width:800px}.guide-hero h1{font-size:clamp(36px,5vw,63px)}.guide-hero p{color:#d0bfdf;font-size:16px}.guide-content{display:grid;grid-template-columns:235px minmax(0,1fr);gap:24px;align-items:start}.guide-toc{position:sticky;top:93px;display:grid;gap:8px;border:1px solid #523776;background:#17112f;padding:18px;border-radius:17px}.guide-toc strong{font-size:14px;margin-bottom:5px}.guide-toc a{font-size:13px;padding:7px 9px;border-radius:9px;color:#d4c4e4}.guide-toc a:hover{background:#381a5b}.guide-main{min-width:0}.guide-section{padding:28px;margin-bottom:20px;border:1px solid #493067;border-radius:20px;background:linear-gradient(145deg,#1d1237,#0f0c26)}.guide-section h2{font-size:27px}.guide-section p,.guide-section li{font-size:14px;color:#cfbddf;line-height:1.75}.guide-section .steps{margin-top:20px}.guide-section .step{padding:18px}.guide-section .step p{margin-bottom:0}.guide-faq details{padding:17px 0;border-top:1px solid #4e3370}.guide-faq details:first-of-type{border-top:0}.guide-faq summary{cursor:pointer;font-weight:750;color:#f3e8ff}.guide-faq details[open] summary{color:#d8a5ff}.guide-faq details p{margin:10px 0 0}.guide-notice{background:#24123d;border:1px solid #8852b2;border-radius:12px;padding:15px;color:#e0d0e8;margin-top:14px;font-size:13px}.guide-section code{padding:2px 5px;background:#3d245b;border-radius:5px;color:#f3d8ff;overflow-wrap:anywhere}
 @media(max-width:790px){.guide-content{grid-template-columns:1fr}.guide-toc{position:static;display:flex;flex-wrap:wrap}.guide-section{padding:20px}.guide-section .steps{grid-template-columns:1fr}.guide-hero{padding:42px 0 22px}}
 </style>
-<script defer src="../minevora-i18n.js?v=graphite-15617-r4"></script>
+<script defer src="../minevora-i18n.js?v=1570-rc1-20261124"></script>
 <link rel="stylesheet" href="../launcher-slate-20261115.css?v=2">
 <script defer src="../launcher-slate-20261115.js?v=host-097-r1"></script>
 <style id="mvg-v15612">
@@ -57,20 +57,20 @@
   <section class="mvg-hero" aria-labelledby="guide-title">
     <div class="mvg-hero-copy"><p class="mvg-kicker">MINEVORA / PORADNIK WINDOWS</p>
       <h1 id="guide-title">Minecraft Java.<br><span class="mvg-gradient">Od pierwszego uruchomienia.</span></h1>
-      <p>Praktyczny przewodnik dla MINEVORA 1.56.19 R9 BETA: instalacja testowa Windows, konto Microsoft, mody, datapacki, shadery, serwery i diagnostyka.</p>
+      <p>Praktyczny przewodnik MINEVORA 1.57.0 RC1: instalacja testowa Windows, konto Microsoft, dodatki, serwery i diagnostyka.</p>
       <div class="mvg-actions"><a class="btn btn-primary" href="../pobierz/">Zobacz dostępne wydania</a><a class="btn btn-secondary" href="#instalacja">Przejdź do instrukcji ↓</a></div>
-      <p class="mvg-hero-note">Wersja 1.56.19 R9 BETA to paczka kodu Pythona do testów Windows, a nie sprawdzony instalator EXE/MSIX. Dostępność publicznego wydania oraz numer pobieranej paczki zawsze sprawdzaj osobno.</p>
+      <p class="mvg-hero-note">RC1 jest przeznaczona do zamkniętych testów i przekazana testerom jako osobny ZIP. Publiczne pliki pobieraj wyłącznie z listy faktycznie opublikowanych wydań GitHub.</p>
     </div>
     <div class="mvg-hero-visual" role="img" aria-label="Symbol wilka MINEVORA na grafitowej ilustracji z trzema etapami instalacji">
       <div class="mvg-visual-glow"></div><div class="mvg-logo-orbit"><img src="../assets/minevora-app-icon-launcher-1-56-12.png" alt="" width="170" height="170" loading="eager"></div>
-      <div class="mvg-sample-steps"><span><b>01</b> Pobierz i rozpakuj ZIP</span><span><b>02</b> Uruchom skrypty z README</span><span><b>03</b> Uruchom 03_URUCHOM_15619.bat</span></div>
+      <div class="mvg-sample-steps"><span><b>01</b> Pobierz i rozpakuj ZIP</span><span><b>02</b> Uruchom skrypty z README</span><span><b>03</b> Uruchom START_MINEVORA.bat</span></div>
       <div class="mvg-visual-label">MINEVORA · GRAPHITE GREEN</div>
     </div>
   </section>
   <div class="mvg-columns">
     <nav class="mvg-toc" aria-label="Spis treści poradnika">
       <strong>SPIS TREŚCI</strong><a href="#instalacja">01 · Instalacja</a>
-      <a href="#testy-r9">01a · Testy R9 BETA</a>
+      <a href="#testy-rc1">01a · Testy RC1</a>
       <a href="#pierwszy-start">02 · Pierwsze uruchomienie</a>
       <a href="#logowanie">03 · Konto Microsoft</a>
       <a href="#dodatki">04 · Mody i Modrinth</a>
@@ -87,24 +87,10 @@
       <section class="mvg-card" id="instalacja"><p class="mvg-kicker">01 / INSTALACJA</p><h2>Uruchom launcher w trzech krokach</h2>
         <ol class="mvg-step-grid"><li><span>01</span><h3>Pobierz</h3><p>Na stronie <a href="../pobierz/">Pobierz</a> sprawdź dostępne wydania. Wybierz ZIP pasujący do Windows i przeczytaj opis.</p></li>
         <li><span>02</span><h3>Rozpakuj</h3><p>Wypakuj cały ZIP do nowego folderu, razem z podfolderami i plikami <code>.bat</code>. Nie uruchamiaj programu bezpośrednio z archiwum.</p></li>
-        <li><span>03</span><h3>Zainstaluj i uruchom</h3><p>Dla paczki testowej 1.56.19 R9 BETA uruchom kolejno: <code>01_INSTALUJ_15619.bat</code> → <code>02_SPRAWDZ_15619.bat</code> → <code>03_URUCHOM_15619.bat</code>. W innych wydaniach korzystaj z README dołączonego do paczki.</p></li></ol>
+        <li><span>03</span><h3>Zainstaluj i uruchom</h3><p>Rozpakuj ZIP do nowego folderu. Uruchom INSTALUJ.bat, następnie TESTY_OFFLINE.bat i START_MINEVORA.bat. W razie błędu sprawdź raport i README; nie wyłączaj zabezpieczeń Windows.</p></li></ol>
         <p class="mvg-alert">Jeśli instalacja nie powiedzie się, odczytaj komunikat w terminalu. Nie wyłączaj Microsoft Defender i nie uruchamiaj skryptów pobranych z nieznanych źródeł.</p>
       </section>
-      <section class="mvg-card" id="testy-r9"><p class="mvg-kicker">R9 BETA / WERYFIKACJA</p>
-        <h2>Sprawdź R9 przed uruchomieniem gry</h2>
-        <div class="mv-r9-flags"><span class="mv-r9-flag">1.56.19 R9 BETA</span><span class="mv-r9-flag mv-r9-muted">Windows 10/11 · Python 3.14 zalecany</span></div>
-        <p>Rozpakuj kompletne archiwum w nowym folderze. W wariancie BETA wybierz katalog <code>MINEVORA_1_56_19_BETA_R9</code>. Nie mieszaj plików z wcześniejszymi wersjami. To kod źródłowy Pythona, a nie instalator EXE/MSIX.</p>
-        <div class="mvg-flow">
-          <div><strong>1. Przygotowanie</strong><p>Uruchom <code>01_INSTALUJ_15619.bat</code>. Instalacja bibliotek może wymagać internetu.</p></div>
-          <div><strong>2. Kontrola</strong><p>Uruchom <code>02_SPRAWDZ_15619.bat</code> oraz dodatkowo <code>09_TESTY_STARTU_R9.bat</code>.</p></div>
-          <div><strong>3. Uruchomienie</strong><p>Użyj <code>03_URUCHOM_15619.bat</code>. Przy błędzie startu uruchom <code>04_DIAGNOZA_15619_R3.bat</code>.</p></div>
-        </div>
-        <div class="mv-r9-notice" role="note"><strong>Co rzeczywiście sprawdzono?</strong>
-          <p>94 aktualne testy offline przeszły. W pełnym archiwalnym zbiorze 1024 testów pozostało 218 niepowodzeń i 5 błędów (część dotyczy nieaktualnych wersji i wymagań). Testy nie potwierdzają działania okna PySide6 ani instalacji i uruchomienia Minecrafta na Windows.</p>
-          <p>R9 zachowuje wcześniejszy układ GRAJ; poprawia testowe metadane JSON/JAR i kontrolę niekompletnej instalacji. <a href="../pobierz/">Porównaj wariant BETA i pełne źródła</a>.</p>
-        </div>
-        <p class="mv-r9-warning">Nie wyłączaj zabezpieczeń Windows. Nie udostępniaj haseł, tokenów ani kodów logowania Microsoft. Przed testami zrób kopię światów i paczek Minecrafta.</p>
-      </section>
+      <section class="mvg-card" id="testy-rc1"><span id="testy-r9"></span><p class="mvg-kicker">RC1 / WERYFIKACJA</p><h2>Sprawdź RC1 przed uruchomieniem gry</h2><p>Rozpakuj ZIP do nowego folderu. Uruchom INSTALUJ.bat, następnie TESTY_OFFLINE.bat i START_MINEVORA.bat. W razie błędu sprawdź raport i README; nie wyłączaj zabezpieczeń Windows.</p><div class="mv-r9-notice" role="note"><p>Kontrola offline: 358 plików Python, 380 grafik, 755 sum SHA-256 i 16 testów Skin Studio zaliczonych według raportu RC1. Wyniki nie zastępują testów aplikacji na Windows.</p><p>Logowanie Microsoft, start Minecrafta, połączenia online i działanie GUI na Windows wymagają testów. CurseForge i aktualizator nie są gotowe do premiery; właściwy JAR PvP HUD nie jest dołączony. RC1 nie jest jeszcze publicznym wydaniem GitHub.</p></div><p class="mv-r9-warning">Zrób kopię światów i paczek. Nie udostępniaj haseł, tokenów ani kodów logowania Microsoft.</p></section>
       <section class="mvg-card" id="pierwszy-start"><p class="mvg-kicker">02 / GRAJ</p><h2>Pierwsze uruchomienie Minecrafta</h2><p><strong>Układ ekranu GRAJ w R7 (zachowany w 1.56.19 R9):</strong> u góry są trzy działające pola wyboru — <strong>Wersja Minecraft</strong>, <strong>Loader</strong> oraz <strong>Profil / Instancja</strong>. Pod nimi znajduje się jeden duży przycisk <strong>GRAJ</strong>, a niżej sekcje <strong>Instancje</strong> i <strong>Dodatki i mody</strong>. Na węższych oknach wybory mogą układać się pionowo. Jest to zmiana wyglądu, nie mechanizmu instalacji ani uruchamiania gry.</p><p><a href="../#start">Zobacz makietę układu R7 na stronie głównej</a>. Makieta nie przedstawia rzeczywistego zrzutu ekranu Windows; start PySide6 i Minecrafta nadal wymagają testu na komputerze.</p>
         <div class="mvg-flow"><div><strong>Wybierz paczkę</strong><p>Utwórz lub wybierz istniejący profil w „Moje paczki”.</p></div><div><strong>Ustaw wersję i loader</strong><p>Wybierz zgodną wersję Minecraft Java i Vanilla, Fabric, Forge, NeoForge lub Quilt.</p></div><div><strong>Kliknij GRAJ</strong><p>Launcher powinien przygotować profil, a następnie uruchomić grę. Uruchomienie na danym komputerze należy przetestować.</p></div></div>
         <p>Nie zmieniaj wersji istniejącego świata bez kopii zapasowej. Wymagane biblioteki i Java zależą od wybranej wersji gry.</p>
@@ -191,5 +177,5 @@
 <a class="discord-float" href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer" aria-label="Otwórz Discord MINEVORA w nowej karcie" title="Discord MINEVORA"><img src="../assets/discord.svg" width="33" height="33" alt=""><span>Discord</span></a>
 <footer class="footer"><div class="wrap foot-inner"><a class="brand" href="../"><img src="../assets/minevora-app-icon-launcher-1-56-12.png" alt="" width="39" height="39"><span>MINEVORA</span></a><p>Poradnik MINEVORA Graphite Green — Windows · wersja rozwojowa</p><nav class="footer-nav" aria-label="Stopka"><a href="../">Strona główna</a><a href="../pobierz/">Pobierz</a></nav></div></footer>
 <div class="mv-status" role="note"><span class="dot" aria-hidden="true"></span><span>MINEVORA · GRAPHITE GREEN — witryna informacyjna; grę uruchamia aplikacja Windows</span><span>Wersja rozwojowa: sprawdź aktualne wydanie</span></div>
-<div class="mv-site-build" aria-label="Aktualizacja strony MINEVORA">MINEVORA WWW · Graphite Green · 17.11.2026</div>
+<div class="mv-site-build" aria-label="Aktualizacja strony MINEVORA">MINEVORA WWW · Graphite Green · 24.11.2026</div>
 </body></html>
