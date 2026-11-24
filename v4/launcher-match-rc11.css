@@ -106,3 +106,50 @@ body .mv-addon-grid .mv-addon svg{stroke:#b2c9b4!important}
  body .mv-addon-grid .mv-addon strong{font-size:22px!important}
  body .mv-addon-grid .mv-addon small{font-size:18px!important}
 }
+
+/* UI5 — actual launcher reference artwork and compact touch layout. */
+body .mv-match-banner{aspect-ratio:640/112!important;min-height:0!important;height:auto!important;background:#19251b!important;border:1px solid #586655!important;border-radius:7px!important;overflow:hidden;display:block!important}
+body .mv-match-banner::after{display:none!important}
+body .mv-match-banner-art{display:block!important;width:100%!important;height:auto!important;aspect-ratio:640/112;object-fit:contain;border-radius:0!important}
+body .mv-match-grid{gap:12px!important}
+body .mv-match-control,body .mv-match-note,body .mv-match-cards>a,body .mv-match-preview{border-color:#465344!important;border-radius:7px!important;box-shadow:none!important}
+body .mv-match-fields span{border-radius:5px!important}
+body .mvg-hero,body .mvg-card,body .mvg-toc,body .release-card,body .release-warning,body .mv-addon-grid .mv-addon,body .feature-card,body .step,body .slate-update-grid article{border-color:#465344!important;border-radius:7px!important}
+body .mvg-gradient{color:#a3c3a4!important;background:none!important;-webkit-text-fill-color:currentColor!important}
+body .mv-match-actions .btn-primary{background:linear-gradient(110deg,#245536,#32834a)!important}
+body .mv-match-actions .btn:focus-visible,body .mv-match-cards>a:focus-visible{outline:2px solid #d3e8ce;outline-offset:3px}
+@media(max-width:790px),(max-width:1120px) and (any-pointer:coarse){
+ body .mv-match-home{padding-top:10px!important;padding-bottom:16px!important}
+ body .mv-match-grid{width:calc(100% - 24px)!important;gap:10px!important}
+ body .mv-match-context{margin:0 2px;font-size:11px}
+ body .mv-match-grid h1{font-size:19px!important;line-height:1.35!important;margin:2px 0!important}
+ body .mv-match-control{padding:10px!important}
+ body .mv-match-fields{grid-template-columns:minmax(0,1fr);gap:7px}
+ body .mv-match-fields>div{display:grid;grid-template-columns:minmax(80px,.7fr) minmax(0,1.3fr);align-items:center;gap:8px}
+ body .mv-match-fields small{font-size:11px;line-height:1.35;margin:0;overflow-wrap:break-word}
+ body .mv-match-fields span{font-size:13px;min-height:0;padding:9px 8px;line-height:1.4;overflow-wrap:anywhere}
+ body .mv-match-actions{margin:10px 0 6px;gap:7px}
+ body .mv-match-actions .btn{min-height:44px;font-size:14px!important;padding:10px 12px!important}
+ body .mv-match-control p{font-size:12px;line-height:1.45;margin:4px 0}
+ body .mv-match-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding-top:10px}
+ body .mv-match-cards>a{padding:10px;min-height:62px;gap:5px}
+ body .mv-match-cards>a:last-child{grid-column:1/-1}
+ body .mv-match-cards>a strong{font-size:11px}
+ body .mv-match-cards>a span{font-size:13px;line-height:1.4}
+ body .mv-match-note,body .mv-match-preview{padding:11px!important}
+ body .mv-match-note p{font-size:13px;line-height:1.5}
+ body .mv-match-note a,body .mv-match-preview summary{font-size:13px}
+ body .mv-addon-grid .mv-addon{min-height:80px!important;padding:12px!important}
+}
+@media(min-width:791px) and (max-width:1120px) and (any-pointer:coarse){
+ body .mv-match-grid{width:calc(100% - 40px)!important;gap:16px!important}
+ body .mv-match-context{font-size:16px}
+ body .mv-match-grid h1{font-size:27px!important}
+ body .mv-match-fields small{font-size:17px}
+ body .mv-match-fields span{font-size:20px;padding:13px}
+ body .mv-match-actions .btn{min-height:62px;font-size:21px!important}
+ body .mv-match-control p,body .mv-match-note p{font-size:18px}
+ body .mv-match-cards>a strong{font-size:17px}
+ body .mv-match-cards>a span{font-size:19px}
+ body .mv-match-cards>a{min-height:90px}
+}
