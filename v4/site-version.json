@@ -1,7 +1,8 @@
 {
-  "site_build": "MINEVORA-WWW-GRAPHITE-GREEN-1570-RC11-20261124",
+  "site_build": "MINEVORA-WWW-GRAPHITE-GREEN-1570-RC11-UI2-20261124",
   "launcher_version": "1.57.0 RC11",
   "channel": "closed-testing",
   "public_launcher_release_confirmed": false,
-  "updated_on": "2026-11-24"
+  "updated_on": "2026-11-24",
+  "visual_revision": "launcher-aligned-matte-ui2"
 }

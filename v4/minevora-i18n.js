@@ -711,6 +711,30 @@ Object.assign(dictionary, {
   "Testy przed premierą": "Pre-release testing",
   "Sprawdź logowanie Microsoft, rzeczywiste pobieranie Modrinth i CurseForge oraz uruchomienie gry. Zgłaszaj błędy bez haseł, tokenów, kluczy API i pełnych logów konta.": "Test Microsoft sign-in, real Modrinth and CurseForge downloads and game launch. Report errors without passwords, tokens, API keys or full account logs."
 });
+Object.assign(dictionary, {
+  "MINEVORA / MINECRAFT JAVA": "MINEVORA / MINECRAFT JAVA",
+  "Twój Minecraft. Wszystko w jednym miejscu.": "Your Minecraft. Everything in one place.",
+  "WERSJA MINECRAFT": "MINECRAFT VERSION",
+  "LOADER": "LOADER",
+  "KANAŁ WYDANIA": "RELEASE CHANNEL",
+  "Zamknięte testy": "Closed testing",
+  "POBIERZ LAUNCHER": "DOWNLOAD LAUNCHER",
+  "PORADNIK INSTALACJI": "INSTALLATION GUIDE",
+  "MOJE PACZKI": "MY PACKS",
+  "DODATKI": "ADD-ONS",
+  "SERWERY": "SERVERS",
+  "Profile i modpacki": "Profiles and modpacks",
+  "Modrinth / CurseForge BETA": "Modrinth / CurseForge BETA",
+  "Lista serwerów Minecraft": "Minecraft server list",
+  "Strona informacyjna — gra i logowanie działają w aplikacji Windows.": "Information website — gameplay and sign-in take place in the Windows app.",
+  "Archiwalny podgląd interfejsu R7": "Archived R7 interface preview",
+  "RC11 BETA · testy zamknięte": "RC11 BETA · closed testing",
+  "Baner ilustracyjny MINEVORA": "MINEVORA illustrative banner",
+  "Wersje Minecraft Java": "Minecraft Java versions",
+  "Dostępność zależy od profilu": "Availability depends on profile",
+  "Sprawdź wydania i wymagania przed pobraniem.": "Check releases and requirements before downloading.",
+  "Historia zmian i testy": "Changelog and tests"
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;

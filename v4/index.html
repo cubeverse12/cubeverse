@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="minevora-build" content="MINEVORA-WWW-GRAPHITE-GREEN-1570-RC11-20261124">
+<meta name="minevora-build" content="MINEVORA-WWW-GRAPHITE-GREEN-1570-RC11-UI2-20261124">
 <meta name="theme-color" content="#0D0D0D">
 <meta name="description" content="MINEVORA 1.57.0 RC11: Graphite Green, Dodatki, Serwery i Skin Studio. Wersja do zamkniętych testów Windows.">
 <meta property="og:type" content="website">
@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="./styles-1-56-11.css?v=20261115">
 <script defer src="./pvp-hud-2-0-15.js?v=20261116-r3"></script>
 <title>MINEVORA 1.57.0 RC11 BETA — Graphite Green • Launcher Minecraft Java</title>
-<script defer src="./minevora-i18n.js?v=1570-rc11-20261124"></script>
+<script defer src="./minevora-i18n.js?v=1570-rc11-ui2-20261124"></script>
 <link rel="stylesheet" href="./launcher-slate-20261115.css?v=2">
 <script defer src="./launcher-slate-20261115.js?v=host-097-r1"></script>
 <link rel="stylesheet" href="./visual-refresh-20261116.css?v=20261116e">
@@ -34,6 +34,7 @@
 <link rel="stylesheet" href="./graphite-green-15619.css?v=20261117-r4">
 <link rel="stylesheet" href="./graphite-green-r7-home.css?v=20261117-r7">
 <link rel="stylesheet" href="./graphite-green-r9-release.css?v=20261117-r9">
+<link rel="stylesheet" href="./launcher-match-rc11.css?v=2">
 </head>
 <body>
 <aside class="mv-rail" aria-label="Nawigacja MINEVORA">
@@ -63,17 +64,23 @@
     </details>
   <label class="site-language-switch" title="Zmień język / Change language"><span aria-hidden="true">🌐</span><select data-minevora-language aria-label="Język strony"><option value="pl">PL</option><option value="en">EN</option></select></label></div></header>
 <main id="main">
-<section class="hero" id="start">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <span class="eyebrow"><span class="dot" aria-hidden="true"></span> MINEVORA / GRAPHITE GREEN · 1.57.0 RC11 BETA</span>
-      <h1>Twój Minecraft.<br><span class="grad">Wszystko w jednym</span><br>launcherze.</h1>
-      <p class="lead">Jedno miejsce do uruchamiania Minecraft Java, tworzenia instancji i zarządzania modami, modpackami, shaderami i datapackami. Grafitowy wygląd, zielony przycisk GRAJ i konturowe ikony w całym interfejsie.</p>
-      <div class="hero-pills"><span>Windows 11</span><span>RC11 · testy offline</span><span>Fabric 1.21.1</span><span>Modrinth / CurseForge BETA</span></div>
-      <div class="actions"><a class="btn btn-primary" href="./pobierz/">Zobacz dostępne pobrania <span aria-hidden="true">↓</span></a><a class="btn btn-secondary" href="#funkcje">Poznaj funkcje <span aria-hidden="true">↗</span></a></div>
-      <p class="caption">RC11 BETA jest przeznaczona do zamkniętych testów. Paczkę ZIP otrzymasz od wydawcy. Publiczne pobrania sprawdzaj w GitHub Releases; RC11 nie jest wydaniem STABLE.</p>
-    </div>
-    <div class="preview-stage">
+<section class="hero mv-match-home" id="start">
+<div class="wrap hero-grid mv-match-grid">
+<div class="mv-match-context"><strong>MINEVORA / MINECRAFT JAVA</strong><span>1.57.0 RC11 BETA</span></div>
+<div class="mv-match-banner" role="img" aria-label="Baner ilustracyjny MINEVORA"><div class="mv-match-banner-wolf" aria-hidden="true"></div><div class="mv-match-banner-brand"><strong>MINEVORA</strong><span>MINECRAFT LAUNCHER</span></div></div>
+<h1>Twój Minecraft. Wszystko w jednym miejscu.</h1>
+<div class="mv-match-control"><div class="mv-match-fields">
+<div><small>WERSJA MINECRAFT</small><span>Wersje Minecraft Java</span></div>
+<div><small>LOADER</small><span>Fabric / Forge / NeoForge / Quilt</span></div>
+<div><small>KANAŁ WYDANIA</small><span>Zamknięte testy</span></div></div>
+<div class="mv-match-actions"><a class="btn btn-primary" href="./pobierz/">POBIERZ LAUNCHER</a><a class="btn btn-secondary" href="./poradnik/">PORADNIK INSTALACJI</a></div>
+<p>Sprawdź wydania i wymagania przed pobraniem.</p><p>Strona informacyjna — gra i logowanie działają w aplikacji Windows.</p></div>
+<div class="mv-match-cards">
+<a href="./poradnik/#modpacki"><strong>MOJE PACZKI</strong><span>Profile i modpacki</span></a>
+<a href="#funkcje"><strong>DODATKI</strong><span>Modrinth / CurseForge BETA</span></a>
+<a href="./poradnik/#serwery"><strong>SERWERY</strong><span>Lista serwerów Minecraft</span></a></div>
+<div class="mv-match-note"><strong>RC11 BETA · testy zamknięte</strong><p>RC11 BETA jest przeznaczona do zamkniętych testów. Paczkę ZIP otrzymasz od wydawcy. Publiczne pobrania sprawdzaj w GitHub Releases; RC11 nie jest wydaniem STABLE.</p><a href="#aktualizacja-15611">Historia zmian i testy</a></div>
+<details class="mv-match-preview"><summary>Archiwalny podgląd interfejsu R7</summary><div class="preview-stage">
       <p class="preview-caption-simple">ARCHIWALNY PODGLĄD R7 — MAKIETA, NIE ZRZUT RC11</p>
     <div class="app-shell mv-r7-shell" role="img" aria-label="Makieta na podstawie kodu MINEVORA 1.56.19 R7: ekran GRAJ z wyborem wersji Minecraft, loadera i profilu w jednym rzędzie, dużym centralnym przyciskiem GRAJ, kartami instancji i dodatków. To nie jest zrzut uruchomionej aplikacji.">
       <div class="app-top"><img src="./assets/minevora-app-icon-launcher-1-56-12.png" alt=""><strong>MINEVORA</strong><span class="app-breadcrumb">Start / GRAJ · R7</span><span class="app-dots" aria-hidden="true">– □ ×</span></div>
@@ -104,9 +111,8 @@
       </div>
       <div class="app-footnote">Makieta układu Qt R7 zachowanego w R9. Wartości i profile są przykładowe; ten podgląd WWW nie uruchamia Minecrafta.</div>
     </div>
-    </div>
-  </div>
-</section>
+    </div></details>
+</div></section>
 <section class="mv-addon-section" id="kategorie-dodatkow" aria-labelledby="kategorie-title"><div class="wrap">
 <div class="mv-addon-header"><div><div class="mv-addon-kicker">MINEVORA / DODATKI MINECRAFT</div>
 <h2 id="kategorie-title">Osobne moduły. <span class="grad">Jedno miejsce.</span></h2>
