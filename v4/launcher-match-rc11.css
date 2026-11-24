@@ -255,3 +255,6 @@ body main #pobierz .release-warning{margin-top:10px!important}
  body main .section-heading h2,body main #hosting h2,body main #pobierz h2,body main #spolecznosc h2{font-size:38px!important}
  body main .section-heading p,body main #pobierz .download-card p,body main #pobierz .release-warning p,body main #pobierz .steps .step p{font-size:20px!important}
 }
+
+/* UI9: release notes may contain five cards; let them wrap without overflow. */
+body main #aktualizacja-15611 .slate-update-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))!important;gap:10px!important}

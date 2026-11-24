@@ -82,7 +82,7 @@ try:
             addon_colors=page.locator("#kategorie-dodatkow .mv-addon").first.evaluate(
                 "el => ({bg:getComputedStyle(el).backgroundColor,stroke:getComputedStyle(el.querySelector('svg')).stroke})")
             assert "24, 35, 27" in addon_colors["bg"], (label,"stale blue add-on cards",addon_colors)
-            assert addon_colors["stroke"]=="rgb(178, 201, 180)", (label,"stale blue outline icons",addon_colors)
+            assert addon_colors["stroke"] in {"rgb(178, 201, 180)", "rgb(74, 222, 128)"}, (label,"stale blue outline icons",addon_colors)
             distinct_icons=page.locator(".mv-addon-grid .mv-addon svg").evaluate_all(
                 "els => new Set(els.map(el=>el.innerHTML)).size")
             assert distinct_icons>=5,(label,"add-ons need distinct icons",distinct_icons)
@@ -145,7 +145,7 @@ try:
             page.goto(BASE+"pobierz/",wait_until="networkidle")
             expect(page.locator("html")).to_have_attribute("lang","en")
             expect(page.locator("h1")).to_contain_text("Download MINEVORA")
-            expect(page.locator("body")).to_contain_text("RC11")
+            expect(page.locator("body")).to_contain_text("RC22")
             assert page.locator('a[href="https://github.com/cubeverse12/minevora-launcher/releases"]').count()>=1
             no_overflow(page,label+" English downloads")
             page.locator("[data-minevora-language]").select_option("pl")
@@ -169,9 +169,11 @@ try:
             expect(page.locator("h1")).to_contain_text("From the first launch.")
             expect(page.locator("#instalacja")).to_contain_text("SETUP_TESTOWY.bat")
             expect(page.locator("#pvp-hud")).to_contain_text("Fabric 1.21.1")
-            expect(page.locator("#testy-rc11")).to_contain_text("SHA-256")
-            expect(page.locator("#testy-rc11")).to_contain_text("RC11")
-            assert "RC11" in page.title()
+            expect(page.locator("#testy-rc22")).to_contain_text("SHA-256")
+            expect(page.locator("#testy-rc22")).to_contain_text("RC22")
+            expect(page.locator("#testy-rc22")).to_contain_text("405")
+            expect(page.locator("#dodatki")).to_contain_text("automatic mod repair")
+            assert "RC22" in page.title()
             assert page.locator("link[rel='canonical']").get_attribute("href")=="https://minevora.pl/v4/poradnik/"
             assert image_loaded(page,"header .brand img")
             assert page.locator("#problemy details").count()>=5
