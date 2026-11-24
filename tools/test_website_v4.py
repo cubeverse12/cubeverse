@@ -33,6 +33,20 @@ def visible_panel_edges(page,label):
       .filter(r=>r.left < -2 || r.right > document.documentElement.clientWidth+2)""")
     assert not outside,(label,"visible panels outside viewport",outside)
 
+def header_alignment(page,label):
+    boxes=page.evaluate("""() => {
+      const b=s=>{const r=document.querySelector(s).getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right,height:r.height,width:r.width}};
+      return {menu:b('.topbar .mobile-nav summary'),outer:b('.topbar .site-language-switch'),select:b('.topbar .site-language-switch select')};
+    }""")
+    outer,select,menu=boxes["outer"],boxes["select"],boxes["menu"]
+    assert outer["height"]>=44,(label,"language touch height",boxes)
+    assert select["top"]>=outer["top"]-1 and select["bottom"]<=outer["bottom"]+1,(label,"language select protrudes",boxes)
+    assert select["left"]>=outer["left"]-1 and select["right"]<=outer["right"]+1,(label,"language select horizontally protrudes",boxes)
+    if menu["width"]>0:
+        assert abs(menu["height"]-outer["height"])<=1,(label,"header unequal heights",boxes)
+        assert abs(menu["top"]-outer["top"])<=1,(label,"header controls misaligned",boxes)
+        assert menu["right"]<=outer["left"]+1,(label,"header controls overlap",boxes)
+
 def image_loaded(page,selector):
     return page.locator(selector).evaluate("(img) => img.complete && img.naturalWidth > 0")
 
@@ -98,6 +112,7 @@ try:
             assert page.locator("a[href='./poradnik/']").count()>=1
             assert page.locator("a[href='https://discord.gg/M2fZVJBCqh']").count()>=2
             assert page.locator("[data-minevora-language]").count()==1
+            header_alignment(page,label+" Polish home")
             no_overflow(page,label+" Polish home")
             visible_panel_edges(page,label+" Polish home")
             assert page.locator("[data-demo-hud-tile]").count()==5
@@ -150,6 +165,7 @@ try:
             assert page.evaluate("localStorage.getItem('minevora_site_language')")=="en"
             no_overflow(page,label+" English home")
             visible_panel_edges(page,label+" English home")
+            header_alignment(page,label+" English home")
             expect(page.locator("#hosting")).to_contain_text("Connect your launcher")
             page.goto(BASE+"pobierz/",wait_until="networkidle")
             expect(page.locator("html")).to_have_attribute("lang","en")
