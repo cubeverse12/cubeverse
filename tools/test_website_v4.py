@@ -56,10 +56,13 @@ try:
             assert page.locator("link[rel='canonical']").get_attribute("href")=="https://minevora.pl/v4/"
             assert image_loaded(page,"header .brand img")
             assert page.locator(".app-shell").count()==1
-            assert page.locator(".app-results-grid .app-instance").count()==3
-            colors=page.locator(".app-shell .app-main").evaluate("el => ({main:getComputedStyle(el).backgroundImage,play:getComputedStyle(document.querySelector('.app-shell .quick .play')).backgroundImage})")
-            assert "29, 36, 32" in colors["main"], (label,"graphite preview background",colors)
-            assert "71, 217, 130" in colors["play"], (label,"green launcher preview button",colors)
+            assert page.locator(".mv-match-fields > div").count()==3
+            assert page.locator(".mv-match-cards > a").count()==3
+            expect(page.locator(".mv-match-banner")).to_be_visible()
+            assert page.locator(".mv-match-actions .btn-primary").get_attribute("href")=="./pobierz/"
+            colors=page.locator(".mv-match-control").evaluate("el => ({main:getComputedStyle(el).backgroundColor,play:getComputedStyle(document.querySelector('.mv-match-actions .btn-primary')).backgroundImage})")
+            assert "24, 33, 25" in colors["main"], (label,"matte graphite control",colors)
+            assert "50, 131, 74" in colors["play"], (label,"green download button",colors)
 
             assert page.locator(".feature-grid").count()==1
             assert page.locator(".feature-grid .feature-icon svg").count()==8, (label,"feature icons must be outlines")
@@ -72,9 +75,9 @@ try:
                 "el => ({bg:getComputedStyle(el).backgroundImage,stroke:getComputedStyle(el.querySelector('svg')).stroke})")
             assert "36, 43, 38" in addon_colors["bg"], (label,"stale blue add-on cards",addon_colors)
             assert addon_colors["stroke"]=="rgb(145, 224, 168)", (label,"stale blue outline icons",addon_colors)
-            distinct_icons=page.locator(".app-results-grid .app-instance .preview-thumb svg").evaluate_all(
+            distinct_icons=page.locator(".mv-addon-grid .mv-addon svg").evaluate_all(
                 "els => new Set(els.map(el=>el.innerHTML)).size")
-            assert distinct_icons==3,(label,"preview add-ons need three distinct icons",distinct_icons)
+            assert distinct_icons>=5,(label,"add-ons need distinct icons",distinct_icons)
 
             assert page.locator('link[href*="launcher-slate-20261115.css"]').count()==1
             assert page.locator("a[href='./poradnik/']").count()>=1
@@ -83,7 +86,8 @@ try:
             no_overflow(page,label+" Polish home")
             assert page.locator("[data-demo-hud-tile]").count()==5
             assert page.locator(".pvp-overhead-hearts").count()==1
-            assert page.locator('a[href*="v2.0.15-fabric-1.21.1/"]').count()==1
+            assert page.locator('#pvp-hud a[href="./poradnik/#pvp-hud"]').count()>=1
+            assert page.locator('a[href*="releases/download/v2.0.15-fabric-1.21.1/"]').count()==0
             assert "Prawy Shift" in page.locator("#pvp-hud").inner_text()
             tile=page.locator('[data-demo-hud-tile="fps"]')
             before=tile.evaluate("(el) => el.style.left")
@@ -118,8 +122,8 @@ try:
             expect(page.locator("#pvp-hud .pvp-overhead-hearts small")).to_have_text("Player · sample HP")
 
             expect(page.locator("#pvp-hud .pvp-install-note")).to_contain_text("75–100%")
-            expect(page.locator(".hero .lead")).to_contain_text("One place to launch Minecraft Java")
-            expect(page.locator(".app-title")).to_have_text("Minecraft add-ons")
+            expect(page.locator(".mv-match-actions .btn-primary")).to_have_text("DOWNLOAD LAUNCHER")
+            expect(page.locator(".mv-match-control")).to_contain_text("Closed testing")
             expect(page.locator(".mv-addon-grid .mv-addon").first).to_contain_text("Mods")
             assert page.locator("#skin-studio img").get_attribute("src").endswith("-en.svg")
             assert image_loaded(page,"#skin-studio img")
@@ -143,14 +147,11 @@ try:
 
             page.goto(BASE+"poradnik/",wait_until="networkidle")
             expect(page.locator("h1")).to_contain_text("From the first launch.")
-            expect(page.locator("#instalacja")).to_contain_text("Start the launcher")
-            expect(page.locator("#skin-studio")).to_contain_text("PvP HUD")
-            expect(page.locator("#skin-studio")).to_contain_text("Fabric 1.21.1")
-            expect(page.locator("#skin-studio")).to_contain_text("A higher scale is rejected")
-            expect(page.locator("#skin-studio")).to_contain_text("Right Shift or P")
-            expect(page.locator("#skin-studio")).to_contain_text("SHA-256")
-            expect(page.locator("#skin-studio")).to_contain_text("never overwrites your files")
-            assert "MINEVORA Guide" in page.title()
+            expect(page.locator("#instalacja")).to_contain_text("SETUP_TESTOWY.bat")
+            expect(page.locator("#pvp-hud")).to_contain_text("Fabric 1.21.1")
+            expect(page.locator("#testy-rc11")).to_contain_text("SHA-256")
+            expect(page.locator("#testy-rc11")).to_contain_text("RC11")
+            assert "RC11" in page.title()
             assert page.locator("link[rel='canonical']").get_attribute("href")=="https://minevora.pl/v4/poradnik/"
             assert image_loaded(page,"header .brand img")
             assert page.locator("#problemy details").count()>=5
@@ -159,7 +160,7 @@ try:
             page.locator("[data-minevora-language]").select_option("pl")
             expect(page.locator("html")).to_have_attribute("lang","pl")
             expect(page.locator("h1")).to_contain_text("Od pierwszego uruchomienia.")
-            expect(page.locator("#instalacja")).to_contain_text("Uruchom launcher")
+            expect(page.locator("#instalacja")).to_contain_text("SETUP_TESTOWY.bat")
             assert page.locator(".guide-search-quick button").count()==4
             page.locator('[data-guide-query="ikony"]').click()
             expect(page.locator("#searchResults")).to_contain_text("Znalezione odpowiedzi:")

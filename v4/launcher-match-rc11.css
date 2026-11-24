@@ -41,3 +41,22 @@ body .mvg-card p,body .mvg-card li{color:#c7d1c5!important}
 body .mvg-card a:not(.btn){color:#bad9bf!important}
 body .hero-pills span{background:#18231b!important;border-color:#394d3f!important;color:#c4d3c3!important;border-radius:6px!important}
 @media(max-width:790px){body .mv-match-home{padding-top:14px!important}body .mv-match-grid{width:calc(100% - 28px)!important;gap:12px!important}.mv-match-context{font-size:10px;letter-spacing:0}.mv-match-banner{min-height:110px;aspect-ratio:3.5/1}.mv-match-banner-wolf{width:33%}.mv-match-fields{grid-template-columns:1fr;gap:10px}.mv-match-actions{gap:8px;flex-direction:column;margin-top:14px}body .mv-match-actions .btn{width:100%;min-width:0;justify-content:center}.mv-match-cards{grid-template-columns:1fr;gap:8px;padding-top:12px}.mv-match-cards>a{min-height:0;padding:12px}.mv-match-control,.mv-match-note{padding:12px}}
+
+/* UI3 — compact, matte surfaces and proportions of the launcher concept. */
+body{background:repeating-linear-gradient(125deg,transparent 0,transparent 91px,rgba(176,167,115,.12) 92px,transparent 93px),#131914!important}
+body .mv-match-home{padding-top:14px!important}
+body .mv-match-grid{gap:14px!important}
+.mv-match-banner{aspect-ratio:6.7/1;min-height:0;border-color:#586655;border-radius:8px}
+.mv-match-banner-brand strong{font-size:clamp(22px,6vw,94px);letter-spacing:0}
+body .mv-match-grid h1{font-size:clamp(19px,1.6vw,25px)!important;margin:16px 4px 0!important}
+.mv-match-control,.mv-match-note,.mv-match-cards>a{background:rgba(24,33,25,.92);border-color:#4c5a49;border-radius:8px}
+.mv-match-fields{grid-template-columns:1.4fr 1fr .75fr;gap:12px}
+.mv-match-fields span{background:#131b15;border-color:#586655;padding:10px 12px}
+.mv-match-actions{margin:14px 0 8px}
+body .mv-match-actions .btn{min-height:44px;min-width:164px;border-radius:6px!important}
+.mv-match-cards{padding-top:16px;gap:12px}
+.mv-match-cards>a{min-height:70px;padding:14px 16px}
+body .mv-match-context{margin:0 4px;color:#d7d6c5}
+@media(max-width:790px){.mv-match-banner{aspect-ratio:3.7/1;min-height:88px}.mv-match-fields{grid-template-columns:1fr;gap:8px}.mv-match-actions{margin-top:12px}.mv-match-cards{padding-top:10px;gap:8px}.mv-match-cards>a{min-height:58px}.mv-match-banner-brand span{letter-spacing:.1em}}
+@media(max-width:760px){body{padding-bottom:0!important}}
+@media(prefers-reduced-motion:reduce){.mv-match-grid *{scroll-behavior:auto!important}}

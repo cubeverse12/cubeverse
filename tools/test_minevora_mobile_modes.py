@@ -35,8 +35,8 @@ def measurements(page):
       return {
         innerWidth, scrollWidth:document.documentElement.scrollWidth,
         desktopNav:box('.desktop-nav'),mobileNav:box('.mobile-nav'),
-        title:box('.hero h1'),preview:box('.preview-stage'),
-        copy:box('.hero-copy'),button:box('.hero .actions .btn'),
+        title:box('.hero h1'),preview:box('.mv-match-banner'),
+        copy:box('.mv-match-control'),button:box('.mv-match-actions .btn-primary'),
         heroGrid:getComputedStyle(document.querySelector('.hero-grid')).gridTemplateColumns,
       };
     }""")
@@ -90,17 +90,16 @@ try:
             })""")
             assert "rgb(57, 37, 84)" not in visual["sky"],(label,"old purple PvP sky",visual)
             if width<=760:
-                assert visual["bottomPad"]>=75,(label,"bottom dock overlaps content",visual)
-                assert 45<=visual["dockHeight"]<=65,(label,"mobile dock too tall",visual)
+                assert visual["dockHeight"]==0 or (45<=visual["dockHeight"]<=65 and visual["bottomPad"]>=75),(label,"mobile dock overlaps content or is too tall",visual)
 
             if width>1120:
                 assert info["desktopNav"]["visible"],(label,"desktop navigation missing",info)
                 assert not info["mobileNav"]["visible"],(label,"mobile navigation displayed",info)
-                assert info["preview"]["x"]>=info["copy"]["right"]-20,(label,"hero not side by side",info)
+                assert info["copy"]["y"]>=info["preview"]["bottom"]-2,(label,"control must be below banner",info)
             else:
                 assert info["mobileNav"]["visible"],(label,"mobile menu missing",info)
                 assert not info["desktopNav"]["visible"],(label,"desktop menu displayed",info)
-                assert info["preview"]["y"]>=info["copy"]["bottom"]-20,(label,"hero not stacked",info)
+                assert info["copy"]["y"]>=info["preview"]["bottom"]-2,(label,"control must be below banner",info)
                 toggle=page.locator(".mobile-nav summary")
                 toggle.click()
                 expect(page.locator(".mobile-nav")).to_have_attribute("open","")
