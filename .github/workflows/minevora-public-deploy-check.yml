@@ -3,6 +3,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'index.html'
       - 'v4/**'
       - '.github/workflows/minevora-public-deploy-check.yml'
   workflow_dispatch:
@@ -12,41 +13,52 @@ jobs:
   check-live-website:
     runs-on: ubuntu-latest
     steps:
-      - name: Compare public site with the new HD logo build
+      - uses: actions/checkout@v4
+      - name: Verify deployed page markers and actual artwork hashes
         shell: bash
         run: |
           python - <<'PY'
-          import time, urllib.request, urllib.error, hashlib
-          token = 'MINEVORA-LOGO-1TO1-15612-20261116'
-          checks = {
-              'home': ('https://minevora.pl/v4/?build-check=hd-r2', token),
-              'guide': ('https://minevora.pl/v4/poradnik/?build-check=hd-r2', token),
-              'independent': ('https://minevora.pl/v4/sprawdz-wersje.html?build-check=hd-r2', token),
-              'home_r3': ('https://minevora.pl/v4/?build-check=slate-r3-20261116', 'slate-r3-mobile-20261116.css'),
-              'downloads_r3': ('https://minevora.pl/v4/pobierz/?build-check=slate-r3-20261116', 'slate-r3-mobile-20261116.css'),
-              'host_097': ('https://minevora.pl/v4/host/?build-check=host097-15614', 'MINEVORA HOST 0.9.7'),
-              'host_menu': ('https://minevora.pl/v4/?build-check=host-nav-15614', 'data-rail="host"'),
-              'css_r3': ('https://minevora.pl/v4/slate-r3-mobile-20261116.css?build-check=slate-r3-20261116', 'MINEVORA Slate R3'),
-              'logo': ('https://minevora.pl/v4/assets/minevora-app-icon-launcher-1-56-12.png?build-check=hd-r2', '9d90d6eb3f76d2a5bf158010f12031a3f0302a4acaf7a6b05fafe39b317eaf2d'),
+          import hashlib, json, time, urllib.request
+          from pathlib import Path
+          meta = json.loads(Path('v4/site-version.json').read_text(encoding='utf-8'))
+          token = meta['site_build']
+          html = {
+              'index.html': token,
+              'v4/index.html': token,
+              'v4/pobierz/index.html': token,
+              'v4/poradnik/index.html': token,
+              'v4/host/index.html': token,
+              'v4/site-version.json': token,
           }
-          passed = set()
+          assets = [
+              'v4/' + meta['banner_asset'],
+              'v4/assets/minevora-app-icon-launcher-1-56-12.png',
+              'v4/launcher-match-rc11.css',
+              'v4/minevora-i18n.js',
+          ]
+          checks = {name: ('marker', expected) for name, expected in html.items()}
+          checks.update({name: ('sha256', hashlib.sha256(Path(name).read_bytes()).hexdigest()) for name in assets})
+          pending = set(checks)
           for attempt in range(1, 13):
-              for name, (url, expected) in checks.items():
-                  if name in passed: continue
+              for name in sorted(pending):
+                  mode, expected = checks[name]
+                  path = name[:-10] if name.endswith('index.html') else name
+                  url = 'https://minevora.pl/' + path + '?build-check=' + token + '-' + str(attempt)
                   try:
-                      req = urllib.request.Request(url, headers={'User-Agent':'MINEVORA-GitHub-Pages-Public-Check','Cache-Control':'no-cache'})
-                      with urllib.request.urlopen(req, timeout=12) as resp:
-                          raw = resp.read()
-                          body = raw.decode('utf-8', 'replace') if name != 'logo' else ''
-                          ok = (resp.status == 200 and
-                                (hashlib.sha256(raw).hexdigest() == expected if name == 'logo' else expected in body))
-                          print(name, 'status', resp.status, 'url', resp.url, 'marker present', ok, 'bytes', len(body), flush=True)
-                          if ok: passed.add(name)
-                  except Exception as e:
-                      print(name, type(e).__name__, str(e)[:180], flush=True)
-              if len(passed)==len(checks): break
-              if attempt < 12: time.sleep(10)
-          print('Public check:', sorted(passed), 'of', sorted(checks), flush=True)
-          if len(passed)!=len(checks):
-              raise SystemExit('Public domain is not yet serving the latest source to an uncached client')
+                      req = urllib.request.Request(url, headers={'User-Agent':'MINEVORA-Public-Check', 'Cache-Control':'no-cache'})
+                      with urllib.request.urlopen(req, timeout=12) as response:
+                          raw = response.read()
+                          ok = response.status == 200 and (hashlib.sha256(raw).hexdigest() == expected if mode == 'sha256' else expected in raw.decode('utf-8', 'replace'))
+                          print(name, response.status, 'match', ok, flush=True)
+                          if ok:
+                              pending.remove(name)
+                  except Exception as exc:
+                      print(name, type(exc).__name__, str(exc)[:160], flush=True)
+              if not pending:
+                  break
+              if attempt < 12:
+                  time.sleep(10)
+          if pending:
+              raise SystemExit('Public deployment mismatch: ' + ', '.join(sorted(pending)))
+          print('Verified public build:', token)
           PY
