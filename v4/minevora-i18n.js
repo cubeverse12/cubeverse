@@ -735,13 +735,29 @@ Object.assign(dictionary, {
   "Sprawdź wydania i wymagania przed pobraniem.": "Check releases and requirements before downloading.",
   "Historia zmian i testy": "Changelog and tests"
 });
+Object.assign(dictionary, {
+  "Poradnik Skin Studio ↗": "Skin Studio guide ↗",
+  "Instrukcja i status PvP HUD ↗": "PvP HUD guide and status ↗",
+  "MINEVORA — Minecraft Launcher": "MINEVORA — Minecraft Launcher",
+  "Zainstaluj i uruchom": "Install and launch",
+  "Zobacz podgląd PvP HUD": "View PvP HUD preview",
+  "Sprawdź wydanie launchera": "Check launcher release",
+  "01a · Testy RC11": "01a · RC11 testing",
+  "Wybierz skina": "Choose a skin",
+  "Sprawdź model": "Check the model",
+  "Zapisz": "Save",
+  "Lista serwerów": "Server list",
+  "Wyszukaj rozwiązanie": "Find a solution",
+  "Gdy coś nie działa": "Troubleshooting",
+  "Publiczne wydania GitHub ↗": "Public GitHub releases ↗"
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;
 const languageKey='minevora_site_language';
 const readLanguage=()=>{try{return localStorage.getItem(languageKey)==='en'?'en':'pl'}catch{return 'pl'}};
 const saveLanguage=(lang)=>{try{localStorage.setItem(languageKey,lang)}catch{}};
-const translateText=(value,lang)=>{if(lang!=='en')return value;const normalized=value.trim();const translated=dictionary[normalized];return translated===undefined?value:value.replace(normalized,translated)};
+const translateText=(value,lang)=>{if(lang!=='en')return value;const normalized=value.trim();const translated=Object.prototype.hasOwnProperty.call(dictionary,normalized)?dictionary[normalized]:undefined;return translated===undefined?value:value.replace(normalized,()=>translated)};
 function changeLanguage(lang){
  lang=lang==='en'?'en':'pl';document.documentElement.lang=lang;saveLanguage(lang);
  const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);

@@ -67,14 +67,17 @@ try:
             assert page.locator(".feature-grid").count()==1
             assert page.locator(".feature-grid .feature-icon svg").count()==8, (label,"feature icons must be outlines")
             expect(page.locator("#wyglad")).to_contain_text("Paleta Graphite Green")
-            assert page.locator('a[href="./poradnik/#skin-studio"]').count()==1, (label,"PvP guide link")
+            assert page.locator('#skin-studio a[href="./poradnik/#skin-studio"]').count()==1, (label,"Skin Studio guide link")
+            expect(page.locator(".mv-match-banner-art")).to_be_visible()
+            expect(page.locator(".mv-match-banner-art")).to_have_js_property("complete", True)
+            assert image_loaded(page,".mv-match-banner-art"), (label,"reference banner failed to load")
             assert page.locator(".mv-rail a[data-rail]").count()==7
             assert page.locator(".mv-addon-grid .mv-addon").count()==5
             # Add-on cards must use Graphite Green, not the old blue Slate palette.
             addon_colors=page.locator("#kategorie-dodatkow .mv-addon").first.evaluate(
-                "el => ({bg:getComputedStyle(el).backgroundImage,stroke:getComputedStyle(el.querySelector('svg')).stroke})")
-            assert "36, 43, 38" in addon_colors["bg"], (label,"stale blue add-on cards",addon_colors)
-            assert addon_colors["stroke"]=="rgb(145, 224, 168)", (label,"stale blue outline icons",addon_colors)
+                "el => ({bg:getComputedStyle(el).backgroundColor,stroke:getComputedStyle(el.querySelector('svg')).stroke})")
+            assert "24, 35, 27" in addon_colors["bg"], (label,"stale blue add-on cards",addon_colors)
+            assert addon_colors["stroke"]=="rgb(178, 201, 180)", (label,"stale blue outline icons",addon_colors)
             distinct_icons=page.locator(".mv-addon-grid .mv-addon svg").evaluate_all(
                 "els => new Set(els.map(el=>el.innerHTML)).size")
             assert distinct_icons>=5,(label,"add-ons need distinct icons",distinct_icons)
@@ -117,7 +120,7 @@ try:
             page.locator("[data-minevora-language]").select_option("en")
             expect(page.locator("html")).to_have_attribute("lang","en")
             expect(page.locator("h1")).to_contain_text("Your Minecraft")
-            expect(page.locator("#pvp-hud")).to_contain_text("Hearts above players")
+            expect(page.locator("#pvp-hud")).to_contain_text("PvP HUD guide and status")
             expect(tile).to_have_attribute("title","Drag the tile or use the arrow keys")
             expect(page.locator("#pvp-hud .pvp-overhead-hearts small")).to_have_text("Player · sample HP")
 
@@ -126,12 +129,24 @@ try:
             expect(page.locator(".mv-match-control")).to_contain_text("Closed testing")
             expect(page.locator(".mv-addon-grid .mv-addon").first).to_contain_text("Mods")
             assert page.locator("#skin-studio img").get_attribute("src").endswith("-en.svg")
+            page.locator("#skin-studio img").scroll_into_view_if_needed()
+            expect(page.locator("#skin-studio img")).to_have_js_property("complete",True)
             assert image_loaded(page,"#skin-studio img")
 
             expect(page.locator("[data-demo-hud-reset]")).to_have_text("Reset layout")
             assert page.evaluate("localStorage.getItem('minevora_site_language')")=="en"
             no_overflow(page,label+" English home")
             expect(page.locator("#hosting")).to_contain_text("Connect your launcher")
+            page.goto(BASE+"pobierz/",wait_until="networkidle")
+            expect(page.locator("html")).to_have_attribute("lang","en")
+            expect(page.locator("h1")).to_contain_text("Download MINEVORA")
+            expect(page.locator("body")).to_contain_text("RC11")
+            assert page.locator('a[href="https://github.com/cubeverse12/minevora-launcher/releases"]').count()>=1
+            no_overflow(page,label+" English downloads")
+            page.locator("[data-minevora-language]").select_option("pl")
+            expect(page.locator("h1")).to_contain_text("Pobierz MINEVORA")
+            no_overflow(page,label+" Polish downloads")
+            page.locator("[data-minevora-language]").select_option("en")
             page.goto(BASE+"host/",wait_until="networkidle")
             assert page.locator("a[href='http://127.0.0.1:8000/']").count()>=1
             assert page.locator("a[href='http://127.0.0.1:8000/podglad/']").count()>=1
