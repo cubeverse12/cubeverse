@@ -1,15 +1,21 @@
 {
-  "site_build": "MINEVORA-WWW-GRAPHITE-GREEN-1570-RC22-UI11-20261124",
+  "site_build": "MINEVORA-WWW-GRAPHITE-GREEN-1570-RC22-UI12-20261124",
   "launcher_version": "1.57.0 RC22",
   "channel": "closed-testing",
   "public_launcher_release_confirmed": false,
   "updated_on": "2026-11-24",
-  "visual_revision": "launcher-aligned-matte-ui11",
+  "visual_revision": "launcher-aligned-matte-ui12",
   "banner_asset": "assets/minevora-launcher-banner-rc11.webp",
   "banner_source": "launcher reference artwork, web-optimized 640x112",
   "offline_test_suites": 28,
   "python_files": 405,
   "manifest_entries": 842,
   "source_package_files": 843,
-  "source_package_sha256": "dfad283dfd3d8775a60b76fc49801157c8acbac1b72dfeef4c9915236dbbd365"
+  "source_package_sha256": "dfad283dfd3d8775a60b76fc49801157c8acbac1b72dfeef4c9915236dbbd365",
+  "shop": {
+    "enabled": true,
+    "mode": "free",
+    "products": 3,
+    "payments_enabled": false
+  }
 }

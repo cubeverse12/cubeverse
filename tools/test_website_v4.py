@@ -5,6 +5,8 @@ This script exercises PL/EN, page navigation, Discord, PvP preview, and phones.
 """
 from __future__ import annotations
 import json
+import io
+import zipfile
 import subprocess
 import sys
 import time
@@ -56,6 +58,15 @@ try:
             if urlopen(BASE,timeout=1).status==200:break
         except OSError:time.sleep(.2)
     else:raise RuntimeError("Local HTTP server could not start")
+    catalog=json.loads(urlopen(BASE+"sklep/catalog.json").read())
+    assert catalog["payments_enabled"] is False
+    for item in catalog["items"]:
+        assert item["price_grosz"]==0
+        raw=urlopen(BASE+"sklep/"+item["download"]).read()
+        assert len(raw)==item["bytes"]
+        with zipfile.ZipFile(io.BytesIO(raw)) as z:
+            assert z.testzip() is None
+            assert {"README.txt","LICENSE.txt"} <= set(z.namelist())
     results=[]
     with sync_playwright() as p:
         browser=p.chromium.launch(channel="chrome",headless=True,args=["--no-sandbox"])
@@ -97,7 +108,7 @@ try:
             expect(page.locator(".mv-match-banner-art")).to_be_visible()
             expect(page.locator(".mv-match-banner-art")).to_have_js_property("complete", True)
             assert image_loaded(page,".mv-match-banner-art"), (label,"reference banner failed to load")
-            assert page.locator(".mv-rail a[data-rail]").count()==7
+            assert page.locator(".mv-rail a[data-rail]").count()==8
             assert page.locator(".mv-addon-grid .mv-addon").count()==5
             # Add-on cards must use Graphite Green, not the old blue Slate palette.
             addon_colors=page.locator("#kategorie-dodatkow .mv-addon").first.evaluate(
@@ -167,6 +178,24 @@ try:
             visible_panel_edges(page,label+" English home")
             header_alignment(page,label+" English home")
             expect(page.locator("#hosting")).to_contain_text("Connect your launcher")
+            page.goto(BASE+"sklep/",wait_until="networkidle")
+            expect(page.locator("h1")).to_have_text("Free Minecraft resources")
+            expect(page.locator(".shop-card:visible")).to_have_count(3)
+            page.locator('[data-filter="rig"]').click()
+            expect(page.locator(".shop-card:visible")).to_have_count(1)
+            page.locator('[data-filter="all"]').click()
+            page.locator("#shop-search").fill("welcome")
+            expect(page.locator(".shop-card:visible")).to_have_count(1)
+            page.locator("#shop-search").fill("nonexistent-resource")
+            expect(page.locator("#shop-empty")).to_be_visible()
+            page.locator("#shop-search").fill("")
+            expect(page.locator(".shop-card:visible")).to_have_count(3)
+            expect(page.locator(".mv-rail a[data-rail='shop']")).to_have_attribute("aria-current","page")
+            no_overflow(page,label+" English shop")
+            page.locator("[data-minevora-language]").select_option("pl")
+            expect(page.locator("h1")).to_have_text("Darmowe zasoby Minecraft")
+            no_overflow(page,label+" Polish shop")
+            page.locator("[data-minevora-language]").select_option("en")
             page.goto(BASE+"pobierz/",wait_until="networkidle")
             expect(page.locator("html")).to_have_attribute("lang","en")
             expect(page.locator("h1")).to_contain_text("Download MINEVORA")
@@ -185,7 +214,7 @@ try:
             expect(page.locator("html")).to_have_attribute("lang","en")
             expect(page.locator("h1")).to_contain_text("Your server.")
             expect(page.locator(".mv-rail a[data-rail='host']")).to_have_attribute("aria-current","page")
-            assert page.locator(".mv-rail a[data-rail]").count()==7
+            assert page.locator(".mv-rail a[data-rail]").count()==8
             no_overflow(page,label+" English HOST")
             page.locator("[data-minevora-language]").select_option("pl")
             expect(page.locator("h1")).to_contain_text("Twój serwer.")

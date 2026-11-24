@@ -1,0 +1,54 @@
+{
+  "currency": "PLN",
+  "payments_enabled": false,
+  "items": [
+    {
+      "id": "block-rig",
+      "category": "rig",
+      "name": "Block Character Rig",
+      "description": {
+        "pl": "Skrypt Blender Python tworzący blokową postać z kośćmi tułowia, głowy, rąk i nóg.",
+        "en": "Blender Python script creating a block character with body, head, arm and leg bones."
+      },
+      "format": "ZIP · Python / Blender 4.x",
+      "price_grosz": 0,
+      "availability": "free",
+      "download": "pliki/minevora-block-rig.zip",
+      "bytes": 3215,
+      "license": "LICENSE.txt",
+      "runtime_tested": false
+    },
+    {
+      "id": "paper-welcome",
+      "category": "plugin",
+      "name": "MINEVORA Welcome",
+      "description": {
+        "pl": "Kod źródłowy prostego pluginu powitalnego do Paper 1.21.4. Wymaga kompilacji Maven i Java 21.",
+        "en": "Source code of a simple welcome plugin for Paper 1.21.4. Requires Maven and Java 21 to build."
+      },
+      "format": "ZIP · Java / Maven",
+      "price_grosz": 0,
+      "availability": "free",
+      "download": "pliki/minevora-welcome-source.zip",
+      "bytes": 2846,
+      "license": "LICENSE.txt",
+      "runtime_tested": false
+    },
+    {
+      "id": "forest-lobby",
+      "category": "build",
+      "name": "Forest Lobby 9 × 9",
+      "description": {
+        "pl": "Mała platforma z drewnianymi słupami i latarniami. Komendy do wklejenia w świecie testowym.",
+        "en": "A small platform with wooden pillars and lanterns. Commands to paste into a test world."
+      },
+      "format": "ZIP · TXT / Minecraft Java",
+      "price_grosz": 0,
+      "availability": "free",
+      "download": "pliki/minevora-forest-lobby.zip",
+      "bytes": 1781,
+      "license": "LICENSE.txt",
+      "runtime_tested": false
+    }
+  ]
+}

@@ -28,6 +28,7 @@ jobs:
               'v4/pobierz/index.html': token,
               'v4/poradnik/index.html': token,
               'v4/host/index.html': token,
+              'v4/sklep/index.html': token,
               'v4/site-version.json': token,
           }
           assets = [
@@ -35,7 +36,11 @@ jobs:
               'v4/assets/minevora-app-icon-launcher-1-56-12.png',
               'v4/launcher-match-rc11.css',
               'v4/minevora-i18n.js',
+              'v4/sklep/shop.css',
+              'v4/sklep/shop.js',
+              'v4/sklep/catalog.json',
           ]
+          assets.extend('v4/sklep/' + item['download'] for item in json.loads(Path('v4/sklep/catalog.json').read_text())['items'])
           checks = {name: ('marker', expected) for name, expected in html.items()}
           checks.update({name: ('sha256', hashlib.sha256(Path(name).read_bytes()).hexdigest()) for name in assets})
           pending = set(checks)

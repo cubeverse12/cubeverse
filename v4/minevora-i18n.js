@@ -769,6 +769,35 @@ Object.assign(dictionary, {
   "RC22 – plik testowy": "RC22 test package",
   "MINEVORA_1_57_0_RC22_WINDOWS.zip — 843 pliki. Paczkę otrzymasz od wydawcy; nie jest jeszcze publicznym wydaniem GitHub.": "MINEVORA_1_57_0_RC22_WINDOWS.zip — 843 files. Obtain the package from the publisher; it is not yet a public GitHub release."
 });
+Object.assign(dictionary, {
+  "Sklep": "Shop",
+  "Sklep MINEVORA — darmowe zasoby": "MINEVORA Shop — free resources",
+  "Rigi do animacji, pluginy i budowle Minecraft. Pobierz pierwsze projekty bez konta i opłat.": "Animation rigs, plugins and Minecraft builds. Download the first projects without an account or fees.",
+  "Otwórz sklep ↗": "Open shop ↗",
+  "Sklep MINEVORA": "MINEVORA Shop",
+  "Darmowe zasoby Minecraft": "Free Minecraft resources",
+  "Rigi, pluginy i budowle — pobieraj bez konta i opłat.": "Rigs, plugins and builds — download without an account or fees.",
+  "DARMOWY KATALOG": "FREE CATALOG",
+  "Szukaj zasobów": "Search resources",
+  "Nazwa lub opis…": "Name or description…",
+  "Kategorie sklepu": "Shop categories",
+  "Wyniki:": "Results:",
+  "Pobierz ZIP": "Download ZIP",
+  "DARMOWE": "FREE",
+  "Brak pasujących zasobów.": "No matching resources.",
+  "Przed pobraniem": "Before downloading",
+  "Projekty startowe zawierają skrypty, kod źródłowy lub komendy. Nie są to przetestowane pliki BLEND, JAR ani gotowe mapy. Sprawdź README i licencję w każdej paczce.": "Starter projects contain scripts, source code or commands. They are not tested BLEND files, JARs or ready-made maps. Read each package's README and license.",
+  "Na razie wszystko jest darmowe. Płatności i konta zakupowe nie są aktywne.": "Everything is free for now. Payments and purchase accounts are not active.",
+  "MINEVORA — Sklep zasobów Minecraft": "MINEVORA — Minecraft resource shop",
+  "© 2026 MINEVORA. Projekt niezależny od Mojang i Microsoft.": "© 2026 MINEVORA. Independent of Mojang and Microsoft.",
+  "Wszystkie": "All",
+  "Rigi": "Rigs",
+  "Pluginy": "Plugins",
+  "Budowle": "Builds",
+  "Skrypt Blender Python tworzący blokową postać z kośćmi tułowia, głowy, rąk i nóg.": "Blender Python script creating a block character with body, head, arm and leg bones.",
+  "Kod źródłowy prostego pluginu powitalnego do Paper 1.21.4. Wymaga kompilacji Maven i Java 21.": "Source code of a simple welcome plugin for Paper 1.21.4. Requires Maven and Java 21 to build.",
+  "Mała platforma z drewnianymi słupami i latarniami. Komendy do wklejenia w świecie testowym.": "A small platform with wooden pillars and lanterns. Commands to paste into a test world."
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;

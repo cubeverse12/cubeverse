@@ -5,6 +5,7 @@ const links=[...document.querySelectorAll(".mv-rail a[data-rail]")];
 if(!links.length)return;
 const isGuide=location.pathname.includes("/poradnik/");
 const isDownload=location.pathname.includes("/pobierz/");
+const isShop=location.pathname.includes("/sklep/");
 const isHost=location.pathname.includes("/host/");
 const sections=[
  ["start","home"],["kategorie-dodatkow","features"],["aktualizacja-15611","features"],
@@ -20,6 +21,7 @@ function setActive(rail){
 function update(){
  if(isGuide)return setActive("guide");
  if(isDownload)return setActive("download");
+ if(isShop)return setActive("shop");
  if(isHost)return setActive("host");
  const sample=Math.max(100,Math.min(window.innerHeight*.34,310));
  let active="home";
