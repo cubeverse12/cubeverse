@@ -153,3 +153,38 @@ body .mv-match-actions .btn:focus-visible,body .mv-match-cards>a:focus-visible{o
  body .mv-match-cards>a span{font-size:19px}
  body .mv-match-cards>a{min-height:90px}
 }
+
+/* UI7: equal-height launcher shortcuts, tighter vertical rhythm, consistent outlines. */
+body #start.mv-match-home{padding-top:10px!important;padding-bottom:14px!important}
+body #start .mv-match-grid{gap:10px!important;row-gap:10px!important;align-content:start!important}
+body #start .mv-match-grid > *{margin-block:0!important}
+body #start .mv-match-grid h1{margin:0!important;padding:2px 0!important}
+body #start .mv-match-cards{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;gap:10px!important;padding-top:10px!important;align-items:stretch}
+body #start .mv-match-cards>a{display:flex;flex-direction:row;align-items:center;gap:12px;min-height:74px;height:100%;box-sizing:border-box;min-width:0;padding:12px!important;background:#18231b;border:1px solid #465344;border-radius:7px;text-decoration:none}
+body #start .mv-match-card-icon{width:24px;height:24px;flex:0 0 24px;fill:none;stroke:#b2c9b4;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+body #start .mv-match-card-copy{min-width:0;display:flex;flex-direction:column;gap:4px;overflow-wrap:anywhere}
+body #start .mv-match-card-copy strong{font-size:12px;line-height:1.35}
+body #start .mv-match-card-copy span{font-size:13px;line-height:1.35}
+body #start .mv-match-cards>a:hover{background:#22372a;border-color:#78a083}
+body #kategorie-dodatkow .mv-addon-grid .mv-addon{background:#18231b!important;border-color:#465344!important;border-radius:7px!important}
+body #kategorie-dodatkow .mv-addon-grid .mv-addon svg{stroke:#b2c9b4!important;fill:none!important;stroke-width:1.65!important}
+body #kategorie-dodatkow .mv-addon-grid .mv-addon:hover{background:#22372a!important;border-color:#78a083!important}
+body #kategorie-dodatkow .mv-addon-grid{gap:10px!important;grid-auto-rows:1fr}
+@media(max-width:790px),(max-width:1120px) and (any-pointer:coarse){
+ body #start .mv-match-grid{gap:8px!important;row-gap:8px!important}
+ body #start .mv-match-cards{grid-template-columns:minmax(0,1fr);gap:6px!important;padding-top:8px!important}
+ body #start .mv-match-cards>a{min-height:58px;padding:9px 11px!important;gap:11px}
+ body #start .mv-match-cards>a:last-child{grid-column:auto}
+ body #start .mv-match-card-copy strong{font-size:12px}
+ body #start .mv-match-card-copy span{font-size:13px}
+ body #start .mv-match-actions{margin:8px 0 4px}
+ body #start .mv-match-note,body #start .mv-match-preview{padding:10px!important}
+ body #kategorie-dodatkow .mv-addon-grid .mv-addon{min-height:86px!important;padding:11px!important}
+}
+@media(min-width:791px) and (max-width:1120px) and (any-pointer:coarse){
+ body #start .mv-match-grid{gap:14px!important;row-gap:14px!important}
+ body #start .mv-match-cards>a{min-height:86px;padding:15px!important}
+ body #start .mv-match-card-icon{width:32px;height:32px;flex-basis:32px}
+ body #start .mv-match-card-copy strong{font-size:17px}
+ body #start .mv-match-card-copy span{font-size:19px}
+}

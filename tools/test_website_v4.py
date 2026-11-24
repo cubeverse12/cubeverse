@@ -58,6 +58,11 @@ try:
             assert page.locator(".app-shell").count()==1
             assert page.locator(".mv-match-fields > div").count()==3
             assert page.locator(".mv-match-cards > a").count()==3
+            assert page.locator(".mv-match-cards .mv-match-card-icon").count()==3
+            shortcut_boxes = page.locator(".mv-match-cards > a").evaluate_all("els => els.map(el => ({height: el.getBoundingClientRect().height, width:el.getBoundingClientRect().width}))")
+            assert max(x["height"] for x in shortcut_boxes)-min(x["height"] for x in shortcut_boxes)<=1, (label,"uneven shortcut height",shortcut_boxes)
+            assert max(x["width"] for x in shortcut_boxes)-min(x["width"] for x in shortcut_boxes)<=1, (label,"uneven shortcut width",shortcut_boxes)
+            assert page.locator(".mv-match-card-icon").first.evaluate("el => getComputedStyle(el).fill")=="none"
             expect(page.locator(".mv-match-banner")).to_be_visible()
             assert page.locator(".mv-match-actions .btn-primary").get_attribute("href")=="./pobierz/"
             colors=page.locator(".mv-match-control").evaluate("el => ({main:getComputedStyle(el).backgroundColor,play:getComputedStyle(document.querySelector('.mv-match-actions .btn-primary')).backgroundImage})")
