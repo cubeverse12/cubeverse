@@ -60,3 +60,49 @@ body .mv-match-context{margin:0 4px;color:#d7d6c5}
 @media(max-width:790px){.mv-match-banner{aspect-ratio:3.7/1;min-height:88px}.mv-match-fields{grid-template-columns:1fr;gap:8px}.mv-match-actions{margin-top:12px}.mv-match-cards{padding-top:10px;gap:8px}.mv-match-cards>a{min-height:58px}.mv-match-banner-brand span{letter-spacing:.1em}}
 @media(max-width:760px){body{padding-bottom:0!important}}
 @media(prefers-reduced-motion:reduce){.mv-match-grid *{scroll-behavior:auto!important}}
+
+/* UI4 — readable touch layout, including Android desktop-site viewport. */
+body .mv-match-banner-wolf{background-image:url('./assets/minevora-app-icon-launcher-1-56-12.png');background-size:auto 79%;background-position:center;filter:drop-shadow(0 4px 12px #08110a99)}
+body .mv-match-banner{background-color:#19271c}
+body .mv-addon-section,body .slate-release-15611{background:transparent!important}
+body .mv-addon-grid .mv-addon{background:#18231b!important;border-color:#4c5a49!important;border-radius:8px!important}
+body .mv-addon-grid .mv-addon svg{stroke:#b2c9b4!important}
+@media(max-width:790px),(max-width:1120px) and (any-pointer:coarse){
+ body .mv-match-grid{width:calc(100% - 28px)!important;gap:14px!important}
+ body .mv-match-banner{aspect-ratio:3.4/1;min-height:96px}
+ body .mv-match-fields{grid-template-columns:minmax(0,1fr);gap:12px}
+ body .mv-match-fields small{font-size:12px}
+ body .mv-match-fields span{font-size:16px;padding:12px}
+ body .mv-match-grid h1{font-size:21px!important;line-height:1.35!important;margin:4px 0!important}
+ body .mv-match-control p,body .mv-match-note p{font-size:14px;line-height:1.55}
+ body .mv-match-actions{flex-direction:column;gap:10px}
+ body .mv-match-actions .btn{width:100%;min-width:0;min-height:48px;font-size:15px!important}
+ body .mv-match-cards{grid-template-columns:minmax(0,1fr);gap:10px}
+ body .mv-match-cards>a strong{font-size:13px}
+ body .mv-match-cards>a span{font-size:15px}
+ body .mv-match-context{white-space:normal;line-height:1.4;font-size:11px}
+ body .mv-match-context span{white-space:normal;text-align:right}
+ body .mv-match-preview summary{font-size:14px;padding:6px 0}
+ body .mv-match-control,body .mv-match-note{padding:14px}
+}
+@media(min-width:791px) and (max-width:1120px) and (any-pointer:coarse){
+ body .mv-match-grid{width:calc(100% - 44px)!important;gap:20px!important}
+ body .mv-match-banner{aspect-ratio:4.6/1}
+ body .mv-match-grid h1{font-size:30px!important}
+ body .mv-match-context{font-size:17px}
+ body .mv-match-fields small{font-size:18px}
+ body .mv-match-fields span{font-size:22px;min-height:62px}
+ body .mv-match-actions .btn{min-height:66px;font-size:22px!important}
+ body .mv-match-control p,body .mv-match-note p,body .mv-match-preview summary{font-size:20px}
+ body .mv-match-cards>a strong{font-size:18px}
+ body .mv-match-cards>a span{font-size:22px}
+ body .mv-match-note strong{font-size:22px}
+ body .mv-match-note a{font-size:20px}
+ body .topbar .brand{font-size:23px!important}
+ body .topbar .mobile-nav summary{font-size:20px!important;min-height:58px!important}
+ body .site-language-switch select{font-size:20px!important;min-height:52px}
+ body .mv-addon-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ body .mv-addon-grid .mv-addon{min-height:130px!important;font-size:20px!important}
+ body .mv-addon-grid .mv-addon strong{font-size:22px!important}
+ body .mv-addon-grid .mv-addon small{font-size:18px!important}
+}
