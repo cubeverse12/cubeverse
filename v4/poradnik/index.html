@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="minevora-build" content="MINEVORA-WWW-GRAPHITE-GREEN-1570-RC1-20261124">
+<meta name="minevora-build" content="MINEVORA-WWW-GRAPHITE-GREEN-1570-RC11-20261124">
 <meta name="theme-color" content="#0D0D0D">
 <meta name="description" content="Poradnik MINEVORA: instalacja Windows, konto Microsoft, wersje Minecraft, Modrinth, modpacki, datapacki, shadery, tekstury i diagnoza błędów.">
 <link rel="canonical" href="https://minevora.pl/v4/poradnik/">
@@ -10,12 +10,12 @@
 <link rel="stylesheet" href="../website-3-0-20.css">
 <link rel="stylesheet" href="../styles-1-43.css">
 <link rel="stylesheet" href="../styles-1-48-2.css?v=20261104-mobile-polish">
-<title>Poradnik MINEVORA 1.57.0 RC1 — instalacja i diagnostyka Windows</title>
+<title>Poradnik MINEVORA 1.57.0 RC11 — instalacja i diagnostyka Windows</title>
 <style>
 .guide-hero{padding:70px 0 45px;max-width:800px}.guide-hero h1{font-size:clamp(36px,5vw,63px)}.guide-hero p{color:#d0bfdf;font-size:16px}.guide-content{display:grid;grid-template-columns:235px minmax(0,1fr);gap:24px;align-items:start}.guide-toc{position:sticky;top:93px;display:grid;gap:8px;border:1px solid #523776;background:#17112f;padding:18px;border-radius:17px}.guide-toc strong{font-size:14px;margin-bottom:5px}.guide-toc a{font-size:13px;padding:7px 9px;border-radius:9px;color:#d4c4e4}.guide-toc a:hover{background:#381a5b}.guide-main{min-width:0}.guide-section{padding:28px;margin-bottom:20px;border:1px solid #493067;border-radius:20px;background:linear-gradient(145deg,#1d1237,#0f0c26)}.guide-section h2{font-size:27px}.guide-section p,.guide-section li{font-size:14px;color:#cfbddf;line-height:1.75}.guide-section .steps{margin-top:20px}.guide-section .step{padding:18px}.guide-section .step p{margin-bottom:0}.guide-faq details{padding:17px 0;border-top:1px solid #4e3370}.guide-faq details:first-of-type{border-top:0}.guide-faq summary{cursor:pointer;font-weight:750;color:#f3e8ff}.guide-faq details[open] summary{color:#d8a5ff}.guide-faq details p{margin:10px 0 0}.guide-notice{background:#24123d;border:1px solid #8852b2;border-radius:12px;padding:15px;color:#e0d0e8;margin-top:14px;font-size:13px}.guide-section code{padding:2px 5px;background:#3d245b;border-radius:5px;color:#f3d8ff;overflow-wrap:anywhere}
 @media(max-width:790px){.guide-content{grid-template-columns:1fr}.guide-toc{position:static;display:flex;flex-wrap:wrap}.guide-section{padding:20px}.guide-section .steps{grid-template-columns:1fr}.guide-hero{padding:42px 0 22px}}
 </style>
-<script defer src="../minevora-i18n.js?v=1570-rc1-20261124"></script>
+<script defer src="../minevora-i18n.js?v=1570-rc11-20261124"></script>
 <link rel="stylesheet" href="../launcher-slate-20261115.css?v=2">
 <script defer src="../launcher-slate-20261115.js?v=host-097-r1"></script>
 <style id="mvg-v15612">
@@ -57,20 +57,20 @@
   <section class="mvg-hero" aria-labelledby="guide-title">
     <div class="mvg-hero-copy"><p class="mvg-kicker">MINEVORA / PORADNIK WINDOWS</p>
       <h1 id="guide-title">Minecraft Java.<br><span class="mvg-gradient">Od pierwszego uruchomienia.</span></h1>
-      <p>Praktyczny przewodnik MINEVORA 1.57.0 RC1: instalacja testowa Windows, konto Microsoft, dodatki, serwery i diagnostyka.</p>
+      <p>Praktyczny przewodnik MINEVORA 1.57.0 RC11: instalacja testowa Windows, konto Microsoft, dodatki, serwery i diagnostyka.</p>
       <div class="mvg-actions"><a class="btn btn-primary" href="../pobierz/">Zobacz dostępne wydania</a><a class="btn btn-secondary" href="#instalacja">Przejdź do instrukcji ↓</a></div>
-      <p class="mvg-hero-note">RC1 jest przeznaczona do zamkniętych testów i przekazana testerom jako osobny ZIP. Publiczne pliki pobieraj wyłącznie z listy faktycznie opublikowanych wydań GitHub.</p>
+      <p class="mvg-hero-note">RC11 BETA jest przeznaczona do zamkniętych testów. Paczkę ZIP otrzymasz od wydawcy. Publiczne pobrania sprawdzaj w GitHub Releases; RC11 nie jest wydaniem STABLE.</p>
     </div>
     <div class="mvg-hero-visual" role="img" aria-label="Symbol wilka MINEVORA na grafitowej ilustracji z trzema etapami instalacji">
       <div class="mvg-visual-glow"></div><div class="mvg-logo-orbit"><img src="../assets/minevora-app-icon-launcher-1-56-12.png" alt="" width="170" height="170" loading="eager"></div>
-      <div class="mvg-sample-steps"><span><b>01</b> Pobierz i rozpakuj ZIP</span><span><b>02</b> Uruchom skrypty z README</span><span><b>03</b> Uruchom START_MINEVORA.bat</span></div>
+      <div class="mvg-sample-steps"><span><b>01</b> Pobierz i rozpakuj ZIP</span><span><b>02</b> Uruchom skrypty z README</span><span><b>03</b> Uruchom SETUP_TESTOWY.bat</span></div>
       <div class="mvg-visual-label">MINEVORA · GRAPHITE GREEN</div>
     </div>
   </section>
   <div class="mvg-columns">
     <nav class="mvg-toc" aria-label="Spis treści poradnika">
       <strong>SPIS TREŚCI</strong><a href="#instalacja">01 · Instalacja</a>
-      <a href="#testy-rc1">01a · Testy RC1</a>
+      <a href="#testy-rc11">01a · Testy RC11</a>
       <a href="#pierwszy-start">02 · Pierwsze uruchomienie</a>
       <a href="#logowanie">03 · Konto Microsoft</a>
       <a href="#dodatki">04 · Mody i Modrinth</a>
@@ -87,10 +87,10 @@
       <section class="mvg-card" id="instalacja"><p class="mvg-kicker">01 / INSTALACJA</p><h2>Uruchom launcher w trzech krokach</h2>
         <ol class="mvg-step-grid"><li><span>01</span><h3>Pobierz</h3><p>Na stronie <a href="../pobierz/">Pobierz</a> sprawdź dostępne wydania. Wybierz ZIP pasujący do Windows i przeczytaj opis.</p></li>
         <li><span>02</span><h3>Rozpakuj</h3><p>Wypakuj cały ZIP do nowego folderu, razem z podfolderami i plikami <code>.bat</code>. Nie uruchamiaj programu bezpośrednio z archiwum.</p></li>
-        <li><span>03</span><h3>Zainstaluj i uruchom</h3><p>Rozpakuj ZIP do nowego folderu. Uruchom INSTALUJ.bat, następnie TESTY_OFFLINE.bat i START_MINEVORA.bat. W razie błędu sprawdź raport i README; nie wyłączaj zabezpieczeń Windows.</p></li></ol>
+        <li><span>03</span><h3>Zainstaluj i uruchom</h3><p>Rozpakuj ZIP RC11 do nowego folderu. Wydanie źródłowe wymaga Pythona 64-bit. Uruchom SETUP_TESTOWY.bat: skrypt instaluje biblioteki, sprawdza manifest, wykonuje testy offline i otwiera izolowany tryb testowy. Nie wyłączaj zabezpieczeń Windows.</p></li></ol>
         <p class="mvg-alert">Jeśli instalacja nie powiedzie się, odczytaj komunikat w terminalu. Nie wyłączaj Microsoft Defender i nie uruchamiaj skryptów pobranych z nieznanych źródeł.</p>
       </section>
-      <section class="mvg-card" id="testy-rc1"><span id="testy-r9"></span><p class="mvg-kicker">RC1 / WERYFIKACJA</p><h2>Sprawdź RC1 przed uruchomieniem gry</h2><p>Rozpakuj ZIP do nowego folderu. Uruchom INSTALUJ.bat, następnie TESTY_OFFLINE.bat i START_MINEVORA.bat. W razie błędu sprawdź raport i README; nie wyłączaj zabezpieczeń Windows.</p><div class="mv-r9-notice" role="note"><p>Kontrola offline: 358 plików Python, 380 grafik, 755 sum SHA-256 i 16 testów Skin Studio zaliczonych według raportu RC1. Wyniki nie zastępują testów aplikacji na Windows.</p><p>Logowanie Microsoft, start Minecrafta, połączenia online i działanie GUI na Windows wymagają testów. CurseForge i aktualizator nie są gotowe do premiery; właściwy JAR PvP HUD nie jest dołączony. RC1 nie jest jeszcze publicznym wydaniem GitHub.</p></div><p class="mv-r9-warning">Zrób kopię światów i paczek. Nie udostępniaj haseł, tokenów ani kodów logowania Microsoft.</p></section>
+      <section class="mvg-card" id="testy-rc11"><span id="testy-r9"></span><span id="testy-rc1"></span><p class="mvg-kicker">RC11 / WERYFIKACJA</p><h2>Sprawdź RC11 przed uruchomieniem gry</h2><p>Rozpakuj ZIP RC11 do nowego folderu. Wydanie źródłowe wymaga Pythona 64-bit. Uruchom SETUP_TESTOWY.bat: skrypt instaluje biblioteki, sprawdza manifest, wykonuje testy offline i otwiera izolowany tryb testowy. Nie wyłączaj zabezpieczeń Windows.</p><div class="mv-r9-notice" role="note"><p>Kontrola offline RC11: 387 plików Python bez błędów składni, 382 grafiki bez błędów dekodowania lub XML, 17 zestawów testów i 811 sum SHA-256. Wyniki nie zastępują testów aplikacji na Windows.</p><p>Logowanie Microsoft, start gry, pobieranie online i GUI Windows wymagają testów. CurseForge wymaga autoryzowanego klucza API, aktualizator wymaga klucza wydawcy, a właściwy JAR PvP HUD nie jest dołączony. Publiczna publikacja RC11 nie została potwierdzona.</p></div><h3>Aktualizacje i bezpieczeństwo</h3><p>Weryfikator podpisów Ed25519 i SHA-256 jest przygotowany. Kanał aktualizacji wymaga konfiguracji przez wydawcę. Nie instaluj niepodpisanych aktualizacji ani nie udostępniaj prywatnego klucza.</p><h3>Testy przed premierą</h3><p>Sprawdź logowanie Microsoft, rzeczywiste pobieranie Modrinth i CurseForge oraz uruchomienie gry. Zgłaszaj błędy bez haseł, tokenów, kluczy API i pełnych logów konta.</p><p class="mv-r9-warning">Zrób kopię światów i paczek. Nie udostępniaj haseł, tokenów ani kodów logowania Microsoft.</p></section>
       <section class="mvg-card" id="pierwszy-start"><p class="mvg-kicker">02 / GRAJ</p><h2>Pierwsze uruchomienie Minecrafta</h2><p><strong>Układ ekranu GRAJ w R7 (zachowany w 1.56.19 R9):</strong> u góry są trzy działające pola wyboru — <strong>Wersja Minecraft</strong>, <strong>Loader</strong> oraz <strong>Profil / Instancja</strong>. Pod nimi znajduje się jeden duży przycisk <strong>GRAJ</strong>, a niżej sekcje <strong>Instancje</strong> i <strong>Dodatki i mody</strong>. Na węższych oknach wybory mogą układać się pionowo. Jest to zmiana wyglądu, nie mechanizmu instalacji ani uruchamiania gry.</p><p><a href="../#start">Zobacz makietę układu R7 na stronie głównej</a>. Makieta nie przedstawia rzeczywistego zrzutu ekranu Windows; start PySide6 i Minecrafta nadal wymagają testu na komputerze.</p>
         <div class="mvg-flow"><div><strong>Wybierz paczkę</strong><p>Utwórz lub wybierz istniejący profil w „Moje paczki”.</p></div><div><strong>Ustaw wersję i loader</strong><p>Wybierz zgodną wersję Minecraft Java i Vanilla, Fabric, Forge, NeoForge lub Quilt.</p></div><div><strong>Kliknij GRAJ</strong><p>Launcher powinien przygotować profil, a następnie uruchomić grę. Uruchomienie na danym komputerze należy przetestować.</p></div></div>
         <p>Nie zmieniaj wersji istniejącego świata bez kopii zapasowej. Wymagane biblioteki i Java zależą od wybranej wersji gry.</p>
@@ -99,7 +99,7 @@
         <p>W launcherze wybierz ikonę konta i uruchom oficjalny proces logowania Microsoft. Jeśli pojawi się kod urządzenia, użyj wyłącznie adresu podanego przez Microsoft. Nie wpisuj hasła bezpośrednio w oknie MINEVORA.</p>
         <p>Do uruchamiania Minecraft Java wymagane jest konto z odpowiednimi uprawnieniami. Brak poprawnej konfiguracji aplikacji wydawcy może zablokować logowanie — sam Client ID nie jest gwarancją działania.</p>
       </section>
-      <section class="mvg-card" id="dodatki"><p class="mvg-kicker">04 / MODRINTH</p><h2>Przeglądaj i instaluj dodatki</h2>
+      <section class="mvg-card" id="dodatki"><p class="mvg-kicker">04 / MODRINTH I CURSEFORGE</p><h2>Przeglądaj i instaluj dodatki</h2>
         <div class="mvg-category-grid">
          <a href="#dodatki" aria-label="Mody"><span class="mvg-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 3h8v5h5v8h-5v5H8v-5H3V8h5z"/></svg></span><strong>Mody</strong><small>Pliki JAR i zależności loadera</small></a>
          <a href="#modpacki"><span class="mvg-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7Z"/><path d="m3 7 9 5 9-5m-9 0 9-5"/></svg></span><strong>Modpacki</strong><small>Osobne instancje Minecrafta</small></a>
@@ -108,10 +108,11 @@
          <a href="#shadery"><span class="mvg-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 10h18M10 3v18"/></svg></span><strong>Resourcepacki</strong><small>Tekstury i zasoby gry</small></a>
         </div>
         <p>Przed instalacją sprawdź wersję Minecrafta i loader. Jeśli Modrinth wymaga dodatkowych modów, zatwierdź ich listę; nie pomijaj kontroli zależności. Gdy prawdziwa okładka jest niedostępna, launcher może pokazać ikonę zastępczą kategorii.</p>
+        <h3>CurseForge — testy BETA</h3><p>Korzystaj wyłącznie z autoryzowanego klucza API i plików dopuszczonych do dystrybucji. Nie udostępniaj kluczy innym osobom. Sprawdź listę zależności przed instalacją; wykonaj kopię paczki.</p>
       </section>
       <section class="mvg-card" id="modpacki"><p class="mvg-kicker">05 / MODPACKI</p><h2>Oddzielne paczki, oddzielne światy</h2>
         <p>Użyj przycisku <strong>+</strong> w panelu paczek, aby utworzyć profil albo rozpocząć import obsługiwanego archiwum. Nadaj nazwę, ustaw Minecraft i loader. Każda paczka powinna przechowywać własne mody, konfigurację i światy.</p>
-        <p>Przed aktualizacją modpacka przygotuj kopię zapasową. Nie zamieniaj ręcznie plików paczki podczas działania gry.</p>
+        <p>Import ZIP CurseForge jest eksperymentalny. Użyj IMPORT_CURSEFORGE.bat i nowego katalogu. Następnie ręcznie skonfiguruj zgodny loader i profil; nie mieszaj plików z innymi paczkami.</p><p>Przed aktualizacją modpacka przygotuj kopię zapasową. Nie zamieniaj ręcznie plików paczki podczas działania gry.</p>
       </section>
       <section class="mvg-card" id="datapacki"><p class="mvg-kicker">06 / DATAPACKI</p><h2>Datapack jest przypisany do świata</h2>
         <p>Wybierz paczkę i konkretny świat. Datapack ZIP zapisuje się w katalogu <code>saves/NazwaŚwiata/datapacks</code> — nie w głównym folderze <code>mods</code>. Świat musi istnieć, zanim dodasz do niego datapack.</p>
@@ -129,7 +130,7 @@
         </div>
       </section>
       <section class="mvg-card" id="pvp-hud"><p class="mvg-kicker">09 / PVP HUD</p><h2>Instalacja i ustawienia PvP HUD 2.0.15</h2>
-        <p>Ten mod jest przeznaczony dla <strong>Minecraft Java 1.21.1 z Fabric</strong>. Potrzebujesz zgodnego Fabric Loader, Fabric API oraz Java 21. Nie zakładaj zgodności z innymi wersjami gry lub loaderami.</p>
+        <p class="mvg-alert">W RC11 brakuje właściwego JAR-a PvP HUD. Nie pobieraj przypadkowych zamienników. Przywrócenie oryginalnego pliku umożliwia PRZYWROC_PVP.bat; działanie w grze wymaga testu.</p><p>Ten mod jest przeznaczony dla <strong>Minecraft Java 1.21.1 z Fabric</strong>. Potrzebujesz zgodnego Fabric Loader, Fabric API oraz Java 21. Nie zakładaj zgodności z innymi wersjami gry lub loaderami.</p>
         <ol class="mvg-step-grid">
           <li><span>01</span><h3>Sprawdź profil</h3><p>W launcherze wybierz istniejącą instancję Fabric 1.21.1. Upewnij się, że gra jest zamknięta, zanim zmienisz pliki moda.</p></li>
           <li><span>02</span><h3>Zweryfikuj moda</h3><p>W zakładce PvP użyj kontroli zgodności i integralności dostępnej w swojej paczce. Jeżeli zgłasza błąd, nie traktuj instalacji jako zakończonej.</p></li>
