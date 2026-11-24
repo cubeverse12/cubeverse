@@ -751,6 +751,10 @@ Object.assign(dictionary, {
   "Gdy coś nie działa": "Troubleshooting",
   "Publiczne wydania GitHub ↗": "Public GitHub releases ↗"
 });
+Object.assign(dictionary, {
+  "Tło #131914, panele #18231B, akcent #32834A, podświetlenia #B2C9B4, tekst #E9E5D7.": "Background #131914, panels #18231B, accent #32834A, highlights #B2C9B4, text #E9E5D7.",
+  "Planowane serduszka nad graczami i przesuwane kafelki FPS, CPS, Combo, mikstur i pancerza. Właściwy plik JAR nie jest dołączony do RC11.": "Planned overhead player hearts and movable FPS, CPS, Combo, potion and armor tiles. The required JAR is not bundled with RC11."
+});
 const originals = new WeakMap();
 const attributeOriginals = new WeakMap();
 const originalPageTitle = document.title;

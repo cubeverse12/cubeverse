@@ -188,3 +188,70 @@ body #kategorie-dodatkow .mv-addon-grid{gap:10px!important;grid-auto-rows:1fr}
  body #start .mv-match-card-copy strong{font-size:17px}
  body #start .mv-match-card-copy span{font-size:19px}
 }
+
+/* UI8: shared palette across the full website, not only the launcher shortcuts. */
+:root{--mv-ui-bg:#131914;--mv-ui-panel:#18231b;--mv-ui-line:#465344;--mv-ui-soft:#b2c9b4;--mv-ui-text:#e9e5d7}
+body main #funkcje .feature-grid .feature,
+body main #wyglad .visual-choice-grid .visual-choice,
+body main #skin-studio .visual-card,
+body main #hosting .host-callout,
+body main #pobierz .download-card,
+body main #pobierz .release-warning,
+body main #pobierz .steps .step,
+body main #spolecznosc .community,
+body main #pvp-hud .pvp-benefits>div,
+body main #aktualizacja-15611 .slate-update-grid article,
+body main .download-143-layout>article,
+body main .mvg-hero,body main .mvg-card,body main .mvg-toc,
+body main .mvg-flow>div,body main .mvg-step-grid li,
+body main .mvg-category-grid a,body main .mvg-faq details,
+body main .guide-search-wrap,body main .guide-results,
+body main #host-funkcje .host-card,body main #host-start .host-card,body main .host-warning{
+ background:#18231b!important;background-image:none!important;border:1px solid #465344!important;border-radius:7px!important;box-shadow:none!important;color:#e9e5d7!important
+}
+body main .section,body main #pvp-hud,body main #wyglad,body main #hosting,body main #spolecznosc{background:transparent!important;border-color:#344337!important;min-height:0!important;padding-block:clamp(24px,4vw,52px)!important}
+body main #start.mv-match-home{padding-block:10px 14px!important}
+body main .section-heading{margin-bottom:18px!important}
+body main .section-heading h2,body main #hosting h2,body main #pobierz h2,body main #spolecznosc h2{color:#e9e5d7!important;letter-spacing:-.025em!important}
+body main .section-heading p,body main #pobierz .download-card p,body main #pobierz .release-warning p,body main #pobierz .steps .step p,body main #spolecznosc .community p{color:#c7d2c5!important;line-height:1.55!important}
+body main .eyebrow,body main .mv-addon-kicker,body main .mvg-kicker{color:#b2c9b4!important}
+body main #kategorie-dodatkow .mv-addon-grid .mv-addon svg,
+body main #kategorie-dodatkow .mv-addon-grid .mv-addon svg path,
+body main #funkcje .feature-grid .feature .feature-icon svg,
+body main #funkcje .feature-grid .feature .feature-icon svg path{stroke:#b2c9b4!important;fill:none!important;stroke-width:1.65!important}
+body main #funkcje .feature-grid .feature .feature-icon,
+body main #pvp-hud .pvp-benefits>div>i{background:#203329!important;color:#b2c9b4!important;border:1px solid #465b4b!important;border-radius:6px!important;box-shadow:none!important;width:36px!important;height:36px!important;min-width:36px!important;display:inline-flex!important;align-items:center;justify-content:center;flex-shrink:0}
+body main #pvp-hud .pvp-benefits>div>i svg{width:22px;height:22px;fill:none!important;stroke:currentColor!important;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+body main #pvp-hud .pvp-requirements span,body main #pvp-hud .pvp-shift-tag,body main #pobierz .version-pill{background:#203329!important;border-color:#465b4b!important;color:#e9e5d7!important;border-radius:6px!important}
+body main #pvp-hud .pvp-scene,body main #skin-studio .visual-card img{border-radius:7px!important}
+body main #pvp-hud .pvp-demo-controls button{background:#18231b!important;border-color:#465344!important;border-radius:6px!important;color:#e9e5d7!important}
+body main #wyglad .visual-swatch{background:#131914!important;border-color:#465344!important;border-radius:6px!important}
+body main #wyglad .visual-swatch span:nth-child(1){background:#131914!important}
+body main #wyglad .visual-swatch span:nth-child(2){background:#18231b!important}
+body main #wyglad .visual-swatch span:nth-child(3){background:#32834a!important}
+body main #wyglad .visual-swatch.icon-swatch svg{background:#203329!important;stroke:#b2c9b4!important;fill:none!important;border-color:#465b4b!important;border-radius:6px!important}
+body main #wyglad .visual-swatch.layout-swatch svg{stroke:#b2c9b4!important}
+body main #wyglad .visual-swatch.layout-swatch svg rect:nth-of-type(3),body main #wyglad .visual-swatch.layout-swatch svg rect:nth-of-type(5){fill:#32834a!important}
+body main #hosting .host-callout-meta{background:#203329!important;border-color:#465b4b!important;border-radius:6px!important}
+body main #spolecznosc .discord-community-mark{background:transparent!important;border:0!important;box-shadow:none!important}
+body main #spolecznosc .discord-community-mark img{width:54px!important;height:54px!important}
+body .footer,body .mv-status,body .mv-site-build{background:#131914!important;border-color:#344337!important;color:#b2c9b4!important}
+body main .feature-grid,body main .visual-choice-grid,body main #pobierz .steps{gap:10px!important;grid-auto-rows:1fr}
+body main #pobierz .release-warning{margin-top:10px!important}
+@media(max-width:790px),(max-width:1120px) and (any-pointer:coarse){
+ body main .section{padding-block:24px!important}
+ body main #start.mv-match-home{padding-block:10px 14px!important}
+ body main .section-heading{margin-bottom:14px!important}
+ body main .section-heading h2,body main #hosting h2,body main #pobierz h2,body main #spolecznosc h2{font-size:clamp(23px,5.5vw,30px)!important;line-height:1.25!important}
+ body main #funkcje .feature-grid .feature,body main #wyglad .visual-choice-grid .visual-choice,body main #hosting .host-callout,body main #pobierz .download-card,body main #spolecznosc .community,body main #pobierz .steps .step,body main #pvp-hud .pvp-benefits>div{padding:14px!important}
+ body main #skin-studio .split,body main #pobierz .download-card,body main #hosting .host-callout{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+ body main #pobierz .steps{grid-template-columns:minmax(0,1fr)!important}
+ body main #pvp-hud .pvp-showcase{gap:14px!important}
+ body main #pvp-hud .pvp-benefits{gap:8px!important}
+ body main #pobierz .download-card .btn,body main #hosting .host-actions .btn{min-height:44px!important}
+}
+@media(min-width:791px) and (max-width:1120px) and (any-pointer:coarse){
+ body main .section{padding-block:34px!important}
+ body main .section-heading h2,body main #hosting h2,body main #pobierz h2,body main #spolecznosc h2{font-size:38px!important}
+ body main .section-heading p,body main #pobierz .download-card p,body main #pobierz .release-warning p,body main #pobierz .steps .step p{font-size:20px!important}
+}
