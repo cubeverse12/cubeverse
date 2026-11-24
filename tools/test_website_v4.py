@@ -26,6 +26,13 @@ def no_overflow(page,label):
          .filter(x=>x.right>innerWidth+2).slice(0,12)""")
         raise AssertionError((label,"horizontal overflow",dimensions,offenders))
 
+def visible_panel_edges(page,label):
+    outside=page.evaluate("""() => [...document.querySelectorAll('main .download-card,main .release-warning,main .step,main .host-callout,main .visual-card,main .visual-choice,main .community,footer .foot-inner,footer .footer-nav')]
+      .filter(e=>e.getClientRects().length)
+      .map(e=>{const r=e.getBoundingClientRect();return {cls:e.className,left:r.left,right:r.right};})
+      .filter(r=>r.left < -2 || r.right > document.documentElement.clientWidth+2)""")
+    assert not outside,(label,"visible panels outside viewport",outside)
+
 def image_loaded(page,selector):
     return page.locator(selector).evaluate("(img) => img.complete && img.naturalWidth > 0")
 
@@ -42,7 +49,7 @@ try:
             ("small-phone",320,700),("phone",390,844),("large-phone",430,932),
             ("tablet",768,1024),("desktop-site-on-phone",980,800),("desktop",1440,900)
         ):
-            ctx=browser.new_context(viewport={"width":width,"height":height})
+            ctx=browser.new_context(viewport={"width":width,"height":height}, has_touch=label in {"small-phone","phone","large-phone","desktop-site-on-phone"}, is_mobile=label in {"small-phone","phone","large-phone","desktop-site-on-phone"})
             page=ctx.new_page()
             errors=[]
             page.on("pageerror",lambda error:errors.append(str(error)))
@@ -92,6 +99,7 @@ try:
             assert page.locator("a[href='https://discord.gg/M2fZVJBCqh']").count()>=2
             assert page.locator("[data-minevora-language]").count()==1
             no_overflow(page,label+" Polish home")
+            visible_panel_edges(page,label+" Polish home")
             assert page.locator("[data-demo-hud-tile]").count()==5
             assert page.locator(".pvp-overhead-hearts").count()==1
             assert page.locator('#pvp-hud a[href="./poradnik/#pvp-hud"]').count()>=1
@@ -141,6 +149,7 @@ try:
             expect(page.locator("[data-demo-hud-reset]")).to_have_text("Reset layout")
             assert page.evaluate("localStorage.getItem('minevora_site_language')")=="en"
             no_overflow(page,label+" English home")
+            visible_panel_edges(page,label+" English home")
             expect(page.locator("#hosting")).to_contain_text("Connect your launcher")
             page.goto(BASE+"pobierz/",wait_until="networkidle")
             expect(page.locator("html")).to_have_attribute("lang","en")
@@ -148,9 +157,11 @@ try:
             expect(page.locator("body")).to_contain_text("RC22")
             assert page.locator('a[href="https://github.com/cubeverse12/minevora-launcher/releases"]').count()>=1
             no_overflow(page,label+" English downloads")
+            visible_panel_edges(page,label+" English downloads")
             page.locator("[data-minevora-language]").select_option("pl")
             expect(page.locator("h1")).to_contain_text("Pobierz MINEVORA")
             no_overflow(page,label+" Polish downloads")
+            visible_panel_edges(page,label+" Polish downloads")
             page.locator("[data-minevora-language]").select_option("en")
             page.goto(BASE+"host/",wait_until="networkidle")
             assert page.locator("a[href='http://127.0.0.1:8000/']").count()>=1

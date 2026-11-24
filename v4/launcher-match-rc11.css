@@ -258,3 +258,32 @@ body main #pobierz .release-warning{margin-top:10px!important}
 
 /* UI9: release notes may contain five cards; let them wrap without overflow. */
 body main #aktualizacja-15611 .slate-update-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))!important;gap:10px!important}
+
+/* UI10 — consistent usable viewport on touch devices, including desktop-site mode. */
+@media(max-width:790px),(max-width:1120px) and (any-pointer:coarse){
+ html body{width:100%!important;max-width:100%!important;min-width:0!important;padding-inline:0!important;box-sizing:border-box!important}
+ html body main,html body main>section,html body .footer,html body .mv-status,html body .mv-site-build{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box!important;margin-inline:0!important}
+ html body main>section{padding-inline:0!important;background:#131914!important;background-image:none!important}
+ html body main .wrap,html body main .page-width,html body .footer .wrap,html body .topbar .wrap{width:calc(100% - 32px)!important;max-width:calc(100% - 32px)!important;min-width:0!important;margin-inline:auto!important;box-sizing:border-box!important}
+ html body main .wrap>*{min-width:0;max-width:100%;box-sizing:border-box}
+ html body main :is(.download-card,.release-warning,.step,.host-callout,.host-callout-meta,.visual-card,.visual-choice,.feature,.community,.pvp-showcase,.pvp-copy,.mvg-card,.mvg-hero,.mvg-toc,.download-143-layout,.mv-match-control,.mv-match-note){min-width:0!important;max-width:100%!important;box-sizing:border-box!important;overflow-wrap:anywhere}
+ html body main #pobierz .download-card,html body main #hosting .host-callout,html body main #skin-studio .split{grid-template-columns:minmax(0,1fr)!important}
+ html body main #wyglad .visual-choice-grid,html body main #pobierz .steps{grid-template-columns:minmax(0,1fr)!important;gap:10px!important}
+ html body main .section-heading,html body main .pvp-copy{width:100%!important;margin-inline:0!important}
+ html body main #pvp-hud .pvp-scene{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box!important}
+ html body main img{max-width:100%}
+ html body .footer .foot-inner{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:12px!important;padding-block:16px!important}
+ html body .footer .foot-inner>*{max-width:100%;min-width:0!important;margin:0!important}
+ html body .footer .footer-nav{display:flex!important;flex-wrap:wrap!important;gap:10px 16px!important}
+ html body .footer .footer-nav a{min-height:44px;display:inline-flex;align-items:center}
+ html body .mv-status,html body .mv-site-build{white-space:normal!important;flex-wrap:wrap!important;overflow-wrap:anywhere!important;text-align:center;padding-inline:16px!important}
+ html body main .btn{white-space:normal!important;max-width:100%;min-width:0;box-sizing:border-box}
+}
+@media(min-width:791px) and (max-width:1120px) and (any-pointer:coarse){
+ html body main .wrap,html body main .page-width,html body .footer .wrap,html body .topbar .wrap{width:calc(100% - 44px)!important;max-width:calc(100% - 44px)!important}
+ html body main .section p,html body main .section li,html body main #pobierz .release-warning p,html body main #hosting .host-callout p{font-size:21px!important;line-height:1.5!important}
+ html body main #wyglad .visual-choice h3,html body main #pobierz .steps h3{font-size:24px!important}
+ html body main .btn{min-height:58px!important;font-size:20px!important}
+ html body .footer p,html body .footer a{font-size:18px!important;line-height:1.5!important}
+ html body .mv-status,html body .mv-site-build{font-size:16px!important}
+}
