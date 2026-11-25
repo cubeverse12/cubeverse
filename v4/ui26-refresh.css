@@ -96,3 +96,25 @@ body .mvg-toc a:hover{background:#183424!important}
  body .mv26-install p,body .mv26-install-list strong{font-size:20px!important}
  body .mv26-install-list code,body .mv26-install-list span{font-size:18px!important}
 }
+
+/* M3 — original launcher artwork, matched proportions and unified navigation. */
+body .mv-match-banner{aspect-ratio:1323/299!important;height:auto!important;min-height:0!important;background:#151515!important;overflow:hidden!important}
+body .mv-match-banner-art{display:block!important;width:100%!important;height:auto!important;aspect-ratio:1323/299!important;object-fit:contain!important}
+body .mv-match-banner::after{display:none!important}
+body .topbar .desktop-nav a,body .topbar .mobile-items a{border-radius:6px!important}
+body .topbar .desktop-nav a[aria-current="page"],body .topbar .mobile-items a[aria-current="page"]{background:#183424!important;color:#85e4a8!important}
+body #wyglad .visual-choice{background:#202020!important;border-color:#383838!important;border-radius:8px!important;box-shadow:none!important}
+body #wyglad .visual-choice h3{color:#F9FAFB!important}
+body #wyglad .visual-choice p{color:#D1D5DB!important}
+body #wyglad .visual-swatch{background:#151515!important;border-color:#383838!important}
+body #wyglad .visual-swatch:not(.icon-swatch):not(.layout-swatch) span:nth-child(1){background:#0D0D0D!important;border:1px solid #383838!important}
+body #wyglad .visual-swatch:not(.icon-swatch):not(.layout-swatch) span:nth-child(2){background:#202020!important;border:1px solid #383838!important}
+body #wyglad .visual-swatch:not(.icon-swatch):not(.layout-swatch) span:nth-child(3){background:#22C55E!important;border:1px solid #22C55E!important}
+body #wyglad .visual-swatch.icon-swatch svg{background:#202020!important;stroke:#81dba0!important;border-color:#383838!important}
+body #wyglad .visual-swatch.layout-swatch svg{fill:#292929!important;stroke:#81dba0!important}
+body .mv26-overview{scroll-margin-top:92px}
+@media(max-width:790px),(max-width:1120px) and (any-pointer:coarse){
+ body .topbar .mobile-nav[open]>.mobile-items{max-height:min(420px,calc(100dvh - 120px))!important}
+ body .topbar .mobile-nav .mobile-items a{min-height:44px!important}
+ body .mv26-overview{scroll-margin-top:72px}
+}
