@@ -1,0 +1,31 @@
+name: MINEVORA Store Integrity
+on:
+  push:
+    branches: [main]
+    paths: ['v4/sklep/**', '.github/workflows/minevora-store-integrity.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  hashes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate ZIP and print actual SHA-256
+        run: |
+          python - <<'PY'
+          import hashlib, json, zipfile
+          from pathlib import Path
+          root=Path('v4/sklep')
+          doc=json.loads((root/'catalog.json').read_text(encoding='utf-8'))
+          for item in doc['items']:
+              path=root/item['download']
+              raw=path.read_bytes()
+              digest=hashlib.sha256(raw).hexdigest()
+              assert len(raw)==item['bytes']
+              with zipfile.ZipFile(path) as z:
+                  assert z.testzip() is None
+              print(item['id'], digest, flush=True)
+              if 'sha256' in item:
+                  assert item['sha256']==digest
+          PY
