@@ -16,7 +16,8 @@
       "download": "pliki/minevora-block-rig.zip",
       "bytes": 3215,
       "license": "LICENSE.txt",
-      "runtime_tested": false
+      "runtime_tested": false,
+      "sha256": "ae86abb8abbb13843dc625430611a3de1a8964c249fd21ce5dc75af160f3de93"
     },
     {
       "id": "paper-welcome",
@@ -32,7 +33,8 @@
       "download": "pliki/minevora-welcome-source.zip",
       "bytes": 2846,
       "license": "LICENSE.txt",
-      "runtime_tested": false
+      "runtime_tested": false,
+      "sha256": "9b3f1400811361362e0492965c552f1a307e4005816afcae90786c5e05c003eb"
     },
     {
       "id": "forest-lobby",
@@ -48,7 +50,8 @@
       "download": "pliki/minevora-forest-lobby.zip",
       "bytes": 1781,
       "license": "LICENSE.txt",
-      "runtime_tested": false
+      "runtime_tested": false,
+      "sha256": "eeacd77d44a3229d2ff44732d3272b00f69d04cb8e0fc62673cbb1afdd85b93b"
     }
   ]
 }

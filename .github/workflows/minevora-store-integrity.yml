@@ -26,6 +26,5 @@ jobs:
               with zipfile.ZipFile(path) as z:
                   assert z.testzip() is None
               print(item['id'], digest, flush=True)
-              if 'sha256' in item:
-                  assert item['sha256']==digest
+              assert item['sha256']==digest
           PY
