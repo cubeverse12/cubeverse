@@ -4,16 +4,17 @@
  const results=document.getElementById("searchResults");
  const details=Array.from(document.querySelectorAll(".guide-faq details"));
  if(!input||!results||!details.length)return;
+ const originals=new Map(details.map(d=>[d,d.textContent]));
  const shortcuts=Array.from(document.querySelectorAll("[data-guide-query]"));
  const toc=Array.from(document.querySelectorAll('.mvg-toc a[href^="#"]'));
  const lang=()=>document.documentElement.lang==="en"?"en":"pl";
- const clean=value=>String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ł/g,"l").toLocaleLowerCase().trim();
+ const clean=value=>String(value||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ł/g,"l").toLocaleLowerCase().trim();
  function search(){
    const q=clean(input.value);
    let count=0;
    for(const d of details){
-     const hay=clean(d.textContent+" "+(d.dataset.keywords||""));
-     const match=!q||hay.includes(q);
+     const hay=clean([originals.get(d),d.textContent,d.dataset.keywords].join(" "));
+     const match=q.split(/\s+/).filter(Boolean).every(word=>hay.includes(word));
      d.hidden=!match;
      if(q&&match)d.open=true;
      if(!q)d.open=false;
@@ -44,11 +45,11 @@
    input.value=button.dataset.guideQuery||"";
    search();
    input.focus();
-   input.scrollIntoView({behavior:"smooth",block:"center"});
+   input.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"});
  }));
  document.addEventListener("keydown",event=>{
    if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==="k"){
-     event.preventDefault();input.focus();input.scrollIntoView({behavior:"smooth",block:"center"});
+     event.preventDefault();input.focus();input.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"});
    }
    if(event.key==="Escape"&&document.activeElement===input){
      input.value="";search();input.blur();
