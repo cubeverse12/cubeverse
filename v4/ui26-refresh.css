@@ -196,3 +196,27 @@ body main section[id],body #main{scroll-margin-top:90px}
  body main .feature p,body main .host-card p,body main .step p,body main .mvg-card p,body main .mvg-card li,body main .download-143-layout p,body .mvg-faq summary{font-size:19px!important}
  body .mvg-toc a{font-size:18px!important;min-height:48px}
 }
+
+
+/* Medieval Minimal: shared launcher palette, no changes to navigation or scripts. */
+:root{--mv26-bg:#0e1613;--mv26-rail:#101b17;--mv26-panel:#19251e;--mv26-hover:#24372b;--mv26-green:#75be62;--mv26-text:#f0eee5;--mv26-muted:#c0c8bd;--mv26-border:#334138;--mv-medieval-ink:#c7b99a}
+body .topbar,body .mv-rail,body .footer{background:#101b17!important;border-color:#27382e!important}
+body .mv-rail a:hover,body .mv-rail a.active,body .mv-rail a[aria-current],body .topbar .desktop-nav a[aria-current="page"],body .topbar .mobile-items a[aria-current="page"]{background:#284731!important;border-color:transparent!important;color:#e8f2e5!important}
+body .btn-primary,body .nav-cta{background:linear-gradient(110deg,#265e35,#367e41)!important;border:1px solid transparent!important;box-shadow:none!important;color:#fff!important;border-radius:7px!important}
+body .btn-primary:hover{background:#438b4b!important}
+body .btn-secondary{background:#243229!important;border-color:#38473c!important}
+body .mv-match-control,body .mv-match-note,body .mv-match-cards>a,body .mv-addon-grid .mv-addon,body .slate-update-grid article,body .feature,body .mvg-card,body .mvg-toc,body .release-card,body .release-warning,body .guide-section,body .guide-toc,body .mv26-tile,body .mv26-install,body .mv26-install-list li{background:#19251e!important;border:1px solid #26362b!important;box-shadow:none!important;border-radius:7px!important}
+body .mv26-tile,body .mv-addon-grid .mv-addon{border-color:transparent!important}
+body .mv26-tile:hover,body .mv-addon-grid .mv-addon:hover{background:#24372b!important;border-color:transparent!important}
+body .mv26-tile svg,body .mv-addon-grid .mv-addon svg,body .mv-match-cards>a svg{stroke:#c7b99a!important;fill:none!important}
+body .mv26-tile p,body .mv26-heading p,body .mv-match-note p,body .mvg-card p,body .mvg-card li{color:#c0c8bd!important}
+body .mv-match-fields span,body .mv26-metrics span{background:#111c16!important;border-color:#28372e!important;color:#f0eee5!important}
+body .mv-match-banner{background:#101b17!important;border:0!important;box-shadow:none!important;aspect-ratio:auto!important;height:auto!important}
+body .mv-match-banner-art{width:100%!important;max-width:none!important;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important;filter:none!important}
+body .mv-match-banner::after{display:none!important}
+body .grad,body .mvg-gradient,body .mv26-kicker,body .eyebrow{color:#9bd180!important}
+body .mv26-search input,body .mv26-search button{background:#111c16!important;color:#f0eee5!important;border-color:#38473c!important}
+body .mv-medieval-unavailable{margin:12px 0;padding:14px 16px;background:#243229;color:#f0eee5;border-left:3px solid #c7b99a;border-radius:4px;line-height:1.55}
+body .mv-medieval-disabled{background:#29352d!important;color:#b9c1b7!important;border:0!important;opacity:1!important;cursor:not-allowed!important;box-shadow:none!important}
+body a:focus-visible,body button:focus-visible,body select:focus-visible,body summary:focus-visible{outline:2px solid #b4d9a0!important;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){body .mv-match-banner-art{animation:none!important}}
