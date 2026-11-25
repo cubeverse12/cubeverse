@@ -159,3 +159,40 @@ body .mv26-skin-tools{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;font-siz
 body #skin-studio .visual-card img{display:block;width:100%;height:auto;object-fit:contain}
 @media(max-width:790px),(max-width:1120px) and (any-pointer:coarse){body .host-grid,body .host-steps{grid-template-columns:minmax(0,1fr)!important;gap:10px}body .host-card{padding:14px!important}body .host-actions .btn{min-height:44px}body .mv26-skin-tools{font-size:14px}}
 @media(prefers-reduced-motion:reduce){body #pvp-hud .pvp-hud-item{transition:none!important}}
+
+/* M7 — shared typography and native logo rendering */
+body .brand img,body .mv-rail-brand img{object-fit:contain!important;image-rendering:auto!important;filter:none!important;transform:none!important;flex-shrink:0}
+body .topbar .brand img{width:36px!important;height:36px!important}
+body .mv-rail-brand img{width:40px!important;height:40px!important}
+body .discord-link img{width:22px!important;height:22px!important;object-fit:contain}
+body main h1{line-height:1.2!important;overflow-wrap:anywhere}
+body main .section-heading h2,body main .mvg-card h2,body main .download-143-layout h2{font-size:clamp(22px,2.4vw,30px)!important;line-height:1.3!important;overflow-wrap:anywhere}
+body main .feature h3,body main .host-card h3,body main .step h3,body main .mvg-card h3{font-size:18px!important;line-height:1.35!important}
+body main .feature p,body main .host-card p,body main .step p,body main .mvg-card p,body main .mvg-card li,body main .download-143-layout p{font-size:15px!important;line-height:1.65!important;overflow-wrap:anywhere}
+body .download-143-layout>article,body .mv-r9-notice,body .mv-r9-history,body .guide-search-wrap,body .mvg-faq details{background:#202020!important;border-color:#383838!important;border-radius:8px!important;box-shadow:none!important;min-width:0}
+body .download-143-layout>article{padding:18px!important}
+body .mvg-faq summary{font-size:15px!important;line-height:1.45!important;color:#F9FAFB!important;overflow-wrap:anywhere;cursor:pointer}
+body .mv26-help-intro{padding:12px 0;color:#D1D5DB}
+body .mv26-archive-heading{margin:22px 0 10px!important;color:#D1D5DB!important}
+body .mvg-faq details[hidden]{display:none!important}
+body .mvg-toc a[aria-current=true]{background:#183424!important;color:#85e4a8!important}
+body .guide-search-wrap input{min-height:44px;font-size:16px!important;max-width:100%;box-sizing:border-box}
+body .guide-search-quick button{min-height:40px;white-space:normal}
+body main img{max-width:100%;object-fit:contain}
+body main section[id],body #main{scroll-margin-top:90px}
+@media(max-width:790px),(max-width:1120px) and (any-pointer:coarse){
+ body .topbar .brand img{width:32px!important;height:32px!important}
+ body main section[id],body #main{scroll-margin-top:74px}
+ body main .section-heading h2,body main .mvg-card h2,body main .download-143-layout h2{font-size:24px!important}
+ body .download-143-layout{grid-template-columns:minmax(0,1fr)!important}
+ body .download-143-layout>article{padding:14px!important}
+ body .mvg-toc{gap:6px!important}
+ body .mvg-toc a{min-height:40px;display:flex;align-items:center;padding:8px 10px!important;box-sizing:border-box}
+ body .mv26-install-list strong{font-size:15px!important}
+}
+@media(min-width:791px) and (max-width:1120px) and (any-pointer:coarse){
+ body main .section-heading h2,body main .mvg-card h2,body main .download-143-layout h2{font-size:30px!important}
+ body main .feature h3,body main .host-card h3,body main .step h3,body main .mvg-card h3{font-size:23px!important}
+ body main .feature p,body main .host-card p,body main .step p,body main .mvg-card p,body main .mvg-card li,body main .download-143-layout p,body .mvg-faq summary{font-size:19px!important}
+ body .mvg-toc a{font-size:18px!important;min-height:48px}
+}
