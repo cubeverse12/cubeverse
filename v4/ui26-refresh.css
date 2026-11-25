@@ -65,3 +65,34 @@ body .topbar .mobile-nav .mobile-items a:hover,body .topbar .mobile-nav .mobile-
  body .mv26-metrics span{font-size:17px!important;min-height:40px}
  body .mv-match-note>a{font-size:20px!important}
 }
+
+/* UI26 M2: content hierarchy and readable installation steps */
+body .mv-match-home{background:transparent!important;padding-bottom:8px!important}
+body .mv26-overview{margin-block:16px 32px!important}
+body .mv26-archive{max-width:1600px!important;width:calc(100% - 48px)!important;margin:0 auto 32px!important;padding:0!important}
+body .mv26-archive .mv-match-preview{background:#202020!important;border:1px solid #383838!important}
+body .mv26-archive summary{font-size:15px!important;color:#D1D5DB!important;padding:12px;cursor:pointer}
+body .mv26-install{box-sizing:border-box;margin:18px 0;padding:18px;border:1px solid #383838;background:#151515!important;border-radius:8px;text-align:left;color:#F9FAFB!important}
+body .mv26-install h3{margin:0 0 12px!important;font-size:22px!important;color:#F9FAFB!important;line-height:1.3}
+body .mv26-install p{font-size:14px!important;line-height:1.6!important;color:#D1D5DB!important;margin:8px 0!important}
+body .mv26-install-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none!important;counter-reset:mv26;padding:0!important;margin:14px 0!important}
+body .mv26-install-list li{counter-increment:mv26;display:grid;grid-template-columns:28px minmax(0,1fr);align-items:center;gap:6px 12px;padding:12px!important;min-height:72px;border:1px solid #383838;background:#202020;border-radius:6px;margin:0!important}
+body .mv26-install-list li::before{content:counter(mv26,decimal-leading-zero);grid-row:1 / 3;align-self:center;font-weight:700;font-size:14px;color:#81dba0}
+body .mv26-install-list strong{font-size:14px!important;line-height:1.4;color:#F9FAFB!important}
+body .mv26-install-list code,body .mv26-install-list span{grid-column:2;overflow-wrap:anywhere;background:transparent!important;color:#D1D5DB!important;font-size:12px!important;padding:0!important}
+body .mvg-hero,body .mvg-hero-visual,body .mvg-sample-steps span{background:#202020!important;border-color:#383838!important;box-shadow:none!important}
+body .mvg-hero-copy>p:not(.mvg-kicker),body .mvg-card p,body .mvg-card li{color:#D1D5DB!important}
+body .mvg-kicker,body .mvg-sample-steps b{color:#81dba0!important}
+body .mvg-toc a{color:#D1D5DB!important}
+body .mvg-toc a:hover{background:#183424!important}
+@media(max-width:790px),(max-width:1120px) and (any-pointer:coarse){
+ body .mv26-archive{width:calc(100% - 24px)!important;margin-bottom:20px!important}
+ body .mv26-install{padding:12px!important}
+ body .mv26-install-list{grid-template-columns:minmax(0,1fr)!important}
+ body .mv26-install-list li{min-height:64px}
+}
+@media(min-width:791px) and (max-width:1120px) and (any-pointer:coarse){
+ body .mv26-install h3{font-size:28px!important}
+ body .mv26-install p,body .mv26-install-list strong{font-size:20px!important}
+ body .mv26-install-list code,body .mv26-install-list span{font-size:18px!important}
+}
