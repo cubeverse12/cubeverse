@@ -1,0 +1,30 @@
+/* MINEVORA UI26: tokens aligned with ui_palette.py, shared across website pages. */
+:root{--mv26-bg:#0D0D0D;--mv26-rail:#151515;--mv26-panel:#202020;--mv26-hover:#292929;--mv26-green:#22C55E;--mv26-text:#F9FAFB;--mv26-muted:#D1D5DB;--mv26-border:#383838}
+body{background:var(--mv26-bg)!important;color:var(--mv26-text)!important}
+body .topbar,body .mv-rail{background:var(--mv26-rail)!important;border-color:var(--mv26-border)!important}
+body .topbar a,body .mv-rail a,body .brand{color:var(--mv26-text)!important}
+body .mv-rail a svg{width:22px!important;height:22px!important;stroke-width:1.65!important;fill:none!important;stroke:currentColor!important}
+body .mv-rail a:hover,body .mv-rail a.active,body .mv-rail a[aria-current]{background:#183424!important;color:#85e4a8!important;border-color:#316d45!important}
+body .btn-primary,body .nav-cta{background:linear-gradient(105deg,#16783d,#22a653)!important;color:#fff!important;border:1px solid #3fa963!important;min-height:40px;border-radius:6px!important}
+body .btn-secondary,body .site-language-switch select,body .mobile-nav summary{background:var(--mv26-panel)!important;border-color:var(--mv26-border)!important;color:var(--mv26-text)!important;min-height:40px;border-radius:6px!important}
+body .mv-match-control,body .mv-match-note,body .mv-match-cards>a,body .mv-addon-grid .mv-addon,body .slate-update-grid article,body .feature,body .mvg-card,body .mvg-toc,body .release-card,body .release-warning,body .guide-section,body .guide-toc{background:var(--mv26-panel)!important;border:1px solid var(--mv26-border)!important;border-radius:8px!important;box-shadow:none!important}
+body .mv-match-fields span{background:var(--mv26-rail)!important;border-color:var(--mv26-border)!important;color:var(--mv26-text)!important}
+body .mv-match-context,body .mv-match-context span,body .mv-match-control p,body .mv-match-note p,body .feature p,body .slate-update-grid p{color:var(--mv26-muted)!important}
+body .grad,body .mvg-gradient{color:#62d991!important;background:none!important;-webkit-text-fill-color:currentColor!important}
+body .mv-match-banner{border:1px solid var(--mv26-border)!important;border-radius:8px!important}
+body .mv-match-grid{gap:16px!important}body .mv-match-cards>a{min-height:72px}
+body .mv-match-cards>a svg,body .mv-addon-grid .mv-addon svg{stroke:#81dba0!important;fill:none!important}
+body .mv26-overview{margin-block:28px 36px!important;max-width:1600px!important;width:calc(100% - 48px)!important;padding:0!important}
+.mv26-heading{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:16px}
+.mv26-heading h2{font-size:clamp(22px,2.5vw,32px);margin:5px 0 8px;color:var(--mv26-text)}
+.mv26-heading p{color:var(--mv26-muted);font-size:14px;line-height:1.6;margin:0;max-width:720px}
+.mv26-kicker{font-size:11px;letter-spacing:.1em;color:#81dba0;font-weight:700}
+.mv26-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.mv26-tile{display:grid;grid-template-columns:24px minmax(0,1fr) 14px;align-items:center;gap:14px;min-height:96px;padding:16px;border:1px solid var(--mv26-border);border-radius:8px;background:var(--mv26-panel);color:var(--mv26-text);text-decoration:none!important}
+.mv26-tile:hover{background:var(--mv26-hover);border-color:#4d8e60}.mv26-tile svg{width:24px;height:24px;fill:none;stroke:#81dba0;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.mv26-tile h3{font-size:15px;margin:0 0 5px;color:var(--mv26-text)}.mv26-tile p{font-size:13px;line-height:1.5;margin:0;color:var(--mv26-muted);overflow-wrap:anywhere}.mv26-tile>span{font-size:22px;color:#81dba0}
+.mv26-metrics{display:flex;flex-wrap:wrap;gap:8px}.mv26-metrics span{display:inline-flex;align-items:center;min-height:32px;padding:5px 10px;background:#151515;border:1px solid #383838;border-radius:6px;color:#D1D5DB;font-size:12px}
+body a:focus-visible,body button:focus-visible,body select:focus-visible,body summary:focus-visible{outline:2px solid #85e4a8!important;outline-offset:3px}
+@media(min-width:1300px){.mv26-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:790px){body .mv26-overview{width:calc(100% - 24px)!important;margin-block:20px 28px!important}.mv26-heading{align-items:start;flex-direction:column}.mv26-grid{grid-template-columns:1fr;gap:8px}.mv26-tile{min-height:76px;padding:12px;gap:10px}body .mv-match-grid{gap:10px!important}body .mv-match-actions .btn{min-height:44px!important}}
+@media(prefers-reduced-motion:reduce){.mv26-tile{transition:none!important}}
