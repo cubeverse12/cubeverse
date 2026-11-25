@@ -136,3 +136,26 @@ body .mvg-toc .mv26-search-row{flex-wrap:wrap}
 body .mvg-toc .mv26-search input{flex-basis:100%}
 @media(max-width:790px),(max-width:1120px) and (any-pointer:coarse){body .mvg-toc .mv26-search{width:100%;box-sizing:border-box}body .mv26-search input,body .mv26-search button{font-size:16px}}
 @media(min-width:791px) and (max-width:1120px) and (any-pointer:coarse){body .mv26-search input,body .mv26-search button{font-size:20px;min-height:54px}body .mv26-search label,body .mv26-search p{font-size:18px!important}}
+
+/* M6 — HOST, PvP and Skin Studio */
+body .host-intro{background:#0D0D0D!important}
+body .host-card,body .host-warning,body .host-callout,body .host-callout-meta,body #skin-studio .visual-card{background:#202020!important;border:1px solid #383838!important;border-radius:8px!important;box-shadow:none!important}
+body .host-card h3,body .host-intro h1,body .host-warning strong,body .host-callout-meta strong{color:#F9FAFB!important}
+body .host-card p,body .host-intro .lead,body .host-note,body .host-warning p,body .host-callout p,body .host-callout-meta span,body .host-callout-meta small,body #skin-studio .visual-note{color:#D1D5DB!important}
+body .host-badges span,body .mv26-skin-tools span{background:#151515!important;color:#D1D5DB!important;border:1px solid #383838!important;border-radius:6px!important;padding:7px 10px}
+body .host-card-icon{width:40px!important;height:40px!important;background:#151515!important;border:1px solid #383838!important;border-radius:6px!important;color:#81dba0!important}
+body .host-card-icon svg{width:22px!important;height:22px!important;stroke:#81dba0!important;fill:none!important;stroke-width:1.7!important}
+body .host-steps .host-card small{color:#81dba0!important}
+body .mv26-host-status{padding:14px;border:1px solid #383838;border-radius:8px;background:#202020}
+body .mv26-host-status strong{color:#F9FAFB;font-size:15px}
+body .mv26-host-status p,body .mv26-section-note{color:#D1D5DB!important;font-size:14px;line-height:1.65;margin:8px 0}
+body #pvp-hud .pvp-benefits>div,body #pvp-hud .pvp-requirements span{background:#202020!important;border-color:#383838!important;color:#D1D5DB!important}
+body #pvp-hud .pvp-hud-item{background:#151515e8!important;border-color:#4b4b4b!important;color:#F9FAFB!important}
+body #pvp-hud .pvp-hud-item b{color:#81dba0!important}
+body #pvp-hud .pvp-hud-item.is-dragging{border-color:#22C55E!important;box-shadow:0 0 0 2px #22C55E80!important}
+body #pvp-hud .pvp-hud-item:focus-visible{outline:2px solid #85e4a8!important;outline-offset:2px}
+body #pvp-hud .pvp-caption,body #pvp-hud .pvp-install-note{color:#D1D5DB!important}
+body .mv26-skin-tools{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;font-size:13px}
+body #skin-studio .visual-card img{display:block;width:100%;height:auto;object-fit:contain}
+@media(max-width:790px),(max-width:1120px) and (any-pointer:coarse){body .host-grid,body .host-steps{grid-template-columns:minmax(0,1fr)!important;gap:10px}body .host-card{padding:14px!important}body .host-actions .btn{min-height:44px}body .mv26-skin-tools{font-size:14px}}
+@media(prefers-reduced-motion:reduce){body #pvp-hud .pvp-hud-item{transition:none!important}}
