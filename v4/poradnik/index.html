@@ -15,9 +15,9 @@
 .guide-hero{padding:70px 0 45px;max-width:800px}.guide-hero h1{font-size:clamp(36px,5vw,63px)}.guide-hero p{color:#d0bfdf;font-size:16px}.guide-content{display:grid;grid-template-columns:235px minmax(0,1fr);gap:24px;align-items:start}.guide-toc{position:sticky;top:93px;display:grid;gap:8px;border:1px solid #523776;background:#17112f;padding:18px;border-radius:17px}.guide-toc strong{font-size:14px;margin-bottom:5px}.guide-toc a{font-size:13px;padding:7px 9px;border-radius:9px;color:#d4c4e4}.guide-toc a:hover{background:#381a5b}.guide-main{min-width:0}.guide-section{padding:28px;margin-bottom:20px;border:1px solid #493067;border-radius:20px;background:linear-gradient(145deg,#1d1237,#0f0c26)}.guide-section h2{font-size:27px}.guide-section p,.guide-section li{font-size:14px;color:#cfbddf;line-height:1.75}.guide-section .steps{margin-top:20px}.guide-section .step{padding:18px}.guide-section .step p{margin-bottom:0}.guide-faq details{padding:17px 0;border-top:1px solid #4e3370}.guide-faq details:first-of-type{border-top:0}.guide-faq summary{cursor:pointer;font-weight:750;color:#f3e8ff}.guide-faq details[open] summary{color:#d8a5ff}.guide-faq details p{margin:10px 0 0}.guide-notice{background:#24123d;border:1px solid #8852b2;border-radius:12px;padding:15px;color:#e0d0e8;margin-top:14px;font-size:13px}.guide-section code{padding:2px 5px;background:#3d245b;border-radius:5px;color:#f3d8ff;overflow-wrap:anywhere}
 @media(max-width:790px){.guide-content{grid-template-columns:1fr}.guide-toc{position:static;display:flex;flex-wrap:wrap}.guide-section{padding:20px}.guide-section .steps{grid-template-columns:1fr}.guide-hero{padding:42px 0 22px}}
 </style>
-<script defer src="../minevora-i18n.js?v=1570-rc23-ui26-20261125m3"></script>
+<script defer src="../minevora-i18n.js?v=1570-rc23-ui26-20261125m4"></script>
 <link rel="stylesheet" href="../launcher-slate-20261115.css?v=2">
-<script defer src="../launcher-slate-20261115.js?v=shop-ui12"></script>
+<script defer src="../launcher-slate-20261115.js?v=ui26m4"></script>
 <style id="mvg-v15612">
 /* MINEVORA 1.56.12 guide — scoped native Slate layout, no legacy purple panels. */
 .mvg-main{max-width:none!important}.mvg-hero{position:relative;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);gap:28px;align-items:center;margin:26px auto 26px;padding:32px 34px;min-height:345px;overflow:hidden;border:1px solid #627886;border-radius:18px;background:linear-gradient(115deg,#242B30 7%,#34414B 57%,#212A31 100%);box-shadow:0 20px 46px #080D1188}
@@ -35,7 +35,8 @@
 <link rel="stylesheet" href="../graphite-green-15619.css?v=20261117-r4">
 <link rel="stylesheet" href="../graphite-green-r9-release.css?v=20261117-r9">
 <link rel="stylesheet" href="../launcher-match-rc11.css?v=11">
-<link rel="stylesheet" href="../ui26-refresh.css?v=20261125m3">
+<link rel="stylesheet" href="../ui26-refresh.css?v=20261125m4">
+<script defer src="../ui26-search.js?v=20261125m4"></script>
 </head>
 <body>
 <aside class="mv-rail" aria-label="Nawigacja MINEVORA">
@@ -72,19 +73,19 @@
   </section>
   <div class="mvg-columns">
     <nav class="mvg-toc" aria-label="Spis treści poradnika">
-      <strong>SPIS TREŚCI</strong><a href="#instalacja">01 · Instalacja</a>
-      <a href="#testy-rc22">01a · Testy RC23 UI26</a>
-      <a href="#pierwszy-start">02 · Pierwsze uruchomienie</a>
-      <a href="#logowanie">03 · Konto Microsoft</a>
-      <a href="#dodatki">04 · Mody i Modrinth</a>
-      <a href="#modpacki">05 · Modpacki</a>
-      <a href="#datapacki">06 · Datapacki</a>
-      <a href="#shadery">07 · Shadery i tekstury</a>
-      <a href="#skin-studio">08 · Skin Studio</a>
-      <a href="#pvp-hud">09 · PvP HUD</a>
-      <a href="#serwery">10 · Serwery i HOST</a>
-      <a href="#problemy">11 · Błędy i diagnostyka</a>
-      <a href="#bezpieczenstwo">12 · Bezpieczeństwo</a>
+      <strong>SPIS TREŚCI</strong><div class="mv26-search" data-mv-search="mv26-guide-search" hidden><label for="mv26-guide-search">Szukaj tematu</label><div class="mv26-search-row"><input id="mv26-guide-search" type="search" placeholder="Nazwa tematu…" autocomplete="off"><button type="button" data-mv-clear>Wyczyść</button></div><p aria-live="polite"><span>Wyniki:</span> <output>13</output></p><p data-mv-empty hidden>Brak wyników. Zmień wyszukiwaną frazę.</p></div><a data-mv-alias="instalacja installation zip setup" href="#instalacja">01 · Instalacja</a>
+      <a data-mv-alias="testy testing rc23 ui26" href="#testy-rc22">01a · Testy RC23 UI26</a>
+      <a data-mv-alias="pierwsze uruchomienie first launch" href="#pierwszy-start">02 · Pierwsze uruchomienie</a>
+      <a data-mv-alias="konto microsoft login sign-in" href="#logowanie">03 · Konto Microsoft</a>
+      <a data-mv-alias="mody mods modrinth dodatki add-ons" href="#dodatki">04 · Mody i Modrinth</a>
+      <a data-mv-alias="modpacki modpacks paczki packs" href="#modpacki">05 · Modpacki</a>
+      <a data-mv-alias="datapacki datapacks data packs" href="#datapacki">06 · Datapacki</a>
+      <a data-mv-alias="shadery shaders tekstury textures resource packs" href="#shadery">07 · Shadery i tekstury</a>
+      <a data-mv-alias="skin studio skórki skins" href="#skin-studio">08 · Skin Studio</a>
+      <a data-mv-alias="pvp hud fabric" href="#pvp-hud">09 · PvP HUD</a>
+      <a data-mv-alias="serwery servers host" href="#serwery">10 · Serwery i HOST</a>
+      <a data-mv-alias="błędy errors diagnostyka troubleshooting" href="#problemy">11 · Błędy i diagnostyka</a>
+      <a data-mv-alias="bezpieczeństwo security backup kopie" href="#bezpieczenstwo">12 · Bezpieczeństwo</a>
     </nav>
     <div class="mvg-content">
       <section class="mvg-card" id="instalacja"><p class="mvg-kicker">01 / INSTALACJA</p><h2>Uruchom launcher w trzech krokach</h2>

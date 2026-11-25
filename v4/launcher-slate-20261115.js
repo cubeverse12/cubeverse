@@ -8,7 +8,7 @@ const isDownload=location.pathname.includes("/pobierz/");
 const isShop=location.pathname.includes("/sklep/");
 const isHost=location.pathname.includes("/host/");
 const sections=[
- ["start","home"],["kategorie-dodatkow","features"],["aktualizacja-15611","features"],
+ ["start","home"],["ui26-funkcje","features"],["kategorie-dodatkow","features"],["aktualizacja-15611","features"],
  ["funkcje","features"],["pvp-hud","pvp"],["wyglad","features"],
  ["skin-studio","skin"],["hosting","host"],["pobierz","download"],["spolecznosc","home"]
 ].map(([id,rail])=>({node:document.getElementById(id),rail})).filter(x=>x.node);
