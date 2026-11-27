@@ -1,0 +1,36 @@
+name: MINEVORA private profile API tests
+
+on:
+  push:
+    branches:
+      - codex/minevora-profile-sync-cloudflare-20261024
+  pull_request:
+    paths:
+      - 'cloudflare/**'
+      - '.github/workflows/minevora-profile-api-tests.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: minevora-profile-tests-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  node-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cloudflare
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax and install Worker dependencies
+        run: |
+          node --check src/worker.js
+          npm install --no-package-lock --no-audit --no-fund
+      - name: Unit tests (offline; no tokens)
+        run: npm test

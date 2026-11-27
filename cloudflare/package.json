@@ -1,0 +1,22 @@
+{
+  "name": "minevora-profile-api",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Optional private profile sync backend for MINEVORA",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "migrate": "wrangler d1 migrations apply DB --remote"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "jose": "^6.0.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
