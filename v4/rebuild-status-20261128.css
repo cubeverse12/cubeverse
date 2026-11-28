@@ -1,0 +1,92 @@
+/* MINEVORA — temporary public development status; scoped to status banner. */
+.mv-rebuild-status {
+  box-sizing: border-box;
+  margin-top: 24px;
+  margin-bottom: 28px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  border: 1px solid rgba(135, 170, 144, .25);
+  border-left: 3px solid #60c785;
+  border-radius: 12px;
+  background: linear-gradient(110deg, #1b211d 0%, #262d27 100%);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .20);
+  color: #f1f3ef;
+}
+.mv-rebuild-status .mv-rebuild-emblem {
+  display: grid;
+  flex: 0 0 45px;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  background: rgba(97, 191, 124, .12);
+  border: 1px solid rgba(100, 204, 135, .25);
+  font-size: 23px;
+}
+.mv-rebuild-status .mv-rebuild-content { flex: 1; min-width: 0; }
+.mv-rebuild-status .mv-rebuild-kicker {
+  margin: 0 0 7px;
+  color: #96dea9;
+  font-size: .73rem;
+  font-weight: 750;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+}
+.mv-rebuild-status h2 {
+  margin: 0 0 9px;
+  font-size: clamp(1.16rem, 2vw, 1.55rem);
+  line-height: 1.25;
+  color: #f6f7f5;
+}
+.mv-rebuild-status .mv-rebuild-details {
+  margin: 0;
+  max-width: 850px;
+  line-height: 1.6;
+  color: #c9d5cc;
+}
+.mv-rebuild-status .mv-rebuild-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin-top: 15px;
+}
+.mv-rebuild-status .mv-rebuild-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .84rem;
+  font-weight: 650;
+  color: #e8eee8;
+}
+.mv-rebuild-status .mv-rebuild-state::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e3b66b;
+}
+.mv-rebuild-status a {
+  color: #a8e7ba;
+  font-size: .87rem;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.mv-rebuild-status a:hover { color: #d3f9d8; }
+.mv-rebuild-status a:focus-visible { outline: 2px solid #b8eac1; outline-offset: 3px; }
+@media (max-width: 650px) {
+  .mv-rebuild-status {
+    margin-top: 16px;
+    padding: 18px 16px;
+    gap: 12px;
+  }
+  .mv-rebuild-status .mv-rebuild-emblem {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+    font-size: 19px;
+  }
+}
