@@ -38,6 +38,8 @@
 <script defer src="./ui26-search.js?v=20261125m4"></script>
 <link rel="stylesheet" href="./medieval-fix4.css?v=20261126-1570rc32-fix4">
 <script defer src="./medieval-fix4-assets.js?v=20261126-1570rc32-fix4"></script>
+<link rel="stylesheet" href="./rebuild-status-20261128.css?v=1">
+<script defer src="./rebuild-status-20261128.js?v=1"></script>
 </head>
 <body>
 <aside class="mv-rail" aria-label="Nawigacja MINEVORA">
@@ -62,6 +64,18 @@
     </details>
   <label class="site-language-switch" title="Zmień język / Change language"><span class="mv-lang-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg></span><select data-minevora-language aria-label="Język strony"><option value="pl">PL</option><option value="en">EN</option></select></label></div></header>
 <main id="main">
+<section class="mv-rebuild-status wrap" id="mv-rebuild-status" role="status" aria-labelledby="mv-rebuild-title">
+  <span class="mv-rebuild-emblem" aria-hidden="true">⚒</span>
+  <div class="mv-rebuild-content">
+    <p class="mv-rebuild-kicker" data-mv-rebuild-pl="STATUS PROJEKTU · PRACE TRWAJĄ" data-mv-rebuild-en="PROJECT STATUS · WORK IN PROGRESS">STATUS PROJEKTU · PRACE TRWAJĄ</p>
+    <h2 id="mv-rebuild-title" data-mv-rebuild-pl="MINEVORA jest w trakcie przebudowy" data-mv-rebuild-en="MINEVORA is being rebuilt">MINEVORA jest w trakcie przebudowy</h2>
+    <p class="mv-rebuild-details" data-mv-rebuild-pl="Launcher MINEVORA nadal istnieje i jest rozwijany. Obecnie przebudowujemy jego wygląd i dopracowujemy funkcje, dlatego publiczne pobieranie jest tymczasowo niedostępne. Projekt nie został zamknięty." data-mv-rebuild-en="The MINEVORA launcher is an active project. We are rebuilding its interface and improving its features, so public downloads are temporarily unavailable. The project has not been discontinued.">Launcher MINEVORA nadal istnieje i jest rozwijany. Obecnie przebudowujemy jego wygląd i dopracowujemy funkcje, dlatego publiczne pobieranie jest tymczasowo niedostępne. Projekt nie został zamknięty.</p>
+    <div class="mv-rebuild-actions">
+      <span class="mv-rebuild-state" data-mv-rebuild-pl="Publiczne pobieranie: tymczasowo wyłączone" data-mv-rebuild-en="Public download: temporarily disabled">Publiczne pobieranie: tymczasowo wyłączone</span>
+      <a href="https://discord.gg/M2fZVJBCqh" target="_blank" rel="noopener noreferrer" data-mv-rebuild-pl="Śledź aktualizacje na Discordzie" data-mv-rebuild-en="Follow updates on Discord">Śledź aktualizacje na Discordzie</a>
+    </div>
+  </div>
+</section>
 <section class="hero mv-match-home" id="start">
 <div class="wrap hero-grid mv-match-grid">
 <div class="mv-match-context"><strong>MINEVORA / MINECRAFT JAVA</strong><span>1.57.0 RC32 Medieval FIX 4 BETA</span></div>
